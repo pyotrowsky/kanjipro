@@ -1,0 +1,167 @@
+﻿note_id,character,book,chapter,lesson,lesson_order,kunyomi_raw,onyomi_raw,polish,notes,source_tags
+1767438371560,一,1,3,1-3,3,ひと.つ,"イチ, イツ",jeden,,Doki Doki1-3 Kanji
+1767438371561,二,1,3,1-3,3,ふた.つ,ニ,dwa,,Doki Doki1-3 Kanji
+1767438371562,三,1,3,1-3,3,みっ.つ,サン,trzy,,Doki Doki1-3 Kanji
+1767438371563,四,1,3,1-3,3,"よ, よん, よっ.つ",シ,cztery,,Doki Doki1-3 Kanji
+1767438371564,五,1,3,1-3,3,いつ.つ,ゴ,pięć,,Doki Doki1-3 Kanji
+1767438371565,六,1,3,1-3,3,むっ.つ,ロク,sześć,,Doki Doki1-3 Kanji
+1767438371566,七,1,3,1-3,3,"なな, なな.つ",シチ,siedem,,Doki Doki1-3 Kanji
+1767549395036,分,1,3,1-3,3,"わ.ける, わ.かる","フン, ブン",minuta / dzielić,,Doki Doki1-3 Kanji
+1767549395037,八,1,3,1-3,3,やっ.つ,ハチ,osiem,,Doki Doki1-3 Kanji
+1767549395038,九,1,3,1-3,3,ここの.つ,"キュウ, ク",dziewięć,,Doki Doki1-3 Kanji
+1767549395039,十,1,3,1-3,3,とお,ジュウ,dziesięć,,Doki Doki1-3 Kanji
+1767549395040,百,1,3,1-3,3,,ヒャク,sto,,Doki Doki1-3 Kanji
+1767549395041,千,1,3,1-3,3,,セン,tysiąc,,Doki Doki1-3 Kanji
+1767549395042,万,1,3,1-3,3,,マン,dziesięć tysięcy,,Doki Doki1-3 Kanji
+1767549395043,円,1,3,1-3,3,まる.い,エン,okrągły / jen,,Doki Doki1-3 Kanji
+1767549395044,時,1,3,1-3,3,とき,ジ,czas / godzina,,Doki Doki1-3 Kanji
+1771678883510,月,1,4,1-4,4,つき,"ゲツ, ガツ",księżyc / miesiąc,Zwróć uwagę na nieregularne czytanie dni miesiąca (np. 3 dzień miesiąca - みっか).,Doki1-4 female_voice Kanji
+1771678883511,火,1,4,1-4,4,ひ,カ,ogień,Słowo 花火 (はなび) posiada udźwięcznienie (rendaku).,Doki1-4 female_voice Kanji
+1771678883512,水,1,4,1-4,4,みず,スイ,woda,"Trzecie zdanie nie miało wyodrębnionego słowa z boku, stąd ponownie wykorzystano słowo woda (水).",Doki1-4 female_voice Kanji
+1771678883513,木,1,4,1-4,4,き,モク,drzewo,Słowo „ashita” jest celowo zapisane hiraganą dla odwzorowania zrzutu ekranu.,Doki1-4 female_voice Kanji
+1771678883514,金,1,4,1-4,4,かね,キン,złoto / pieniądze,Zwróć uwagę na przedrostek grzecznościowy „お” (o) przed kanji.,Doki1-4 female_voice Kanji
+1771678883515,土,1,4,1-4,4,つち,ド,ziemia,,Doki1-4 female_voice Kanji
+1771678883516,曜,1,4,1-4,4,,ヨウ,dni tygodnia,Znak ten występuje głównie w słowach oznaczających dni tygodnia. Brak odczytu kunyomi.,Doki1-4 female_voice Kanji
+1771679706738,半,1,4,1-4,4,,ハン,pół,XX時半 = godzina XX:30. 半 nie ma kunyomi w powszechnym użyciu. 半分 (はんぶん) = połowa.,Doki1-4 Kanji
+1771679706739,日,1,4,1-4,4,"ひ, か","ニチ, ジツ",dzień / słońce,"Wyjątki: 日本(にほん), 今日(きょう), 明日(あした), 昨日(きのう). Dni miesiąca nieregularne: 1日(ついたち), 2日(ふつか), 3日(みっか), 4日(よっか), 14日(じゅうよっか), 20日(はつか), 24日(にじゅうよっか).",Doki1-4 Kanji
+1771679706740,本,1,4,1-4,4,もと,ホン,książka / podstawa,"日本(にほん) ma wyjątkowe czytanie. もと w nazwiskach = podstawa/źródło (坂本, 山本). ホン jako liczebnik dla cienkich podłużnych rzeczy (本 = długi obiekt).",Doki1-4 Kanji
+1771679706741,人,1,4,1-4,4,ひと,"ジン, ニン",człowiek,ジン = narodowość (〜人 = -czyk/ka),Doki1-4 Kanji
+1771679706742,上,1,4,1-4,4,"うえ, のぼ・る, あ・げる",ジョウ,góra (kierunek),上手(じょうず) = nieregularne czytanie! Para: 上手(じょうず)↔下手(へた). 上げる (podnosić) ↔ 下げる (obniżać).,Doki1-4 Kanji
+1771679706743,下,1,4,1-4,4,"した, くだ・る","カ, ゲ",dół,下手(へた) = nieregularne czytanie! Para z 上手(じょうず). 地下(ちか) = onyomi カ. 下げる(さげる) = obniżać (para do 上げる).,Doki1-4 Kanji
+1771679706744,中,1,4,1-4,4,なか,"チュウ, ジュウ",środek,"""ジュウ = „przez cały [czas/przestrzeń]"""" (一年中, 世界中, 日中). チュウ = pozostałe przypadki (中学, 中国, 中心). なか = w środku (dosłownie).""",Doki1-4 Kanji
+1771679706745,外,1,4,1-4,4,そと,ガイ,zewnątrz,外 ↔ 中 (zewnątrz ↔ środek). 外国(がいこく) ↔ 国内(こくない). Zwróć uwagę: 外国人 łączy 外(ガイ)+国(コク)+人(ジン).,Doki1-4 Kanji
+1773750740930,気,1,5,1-5,5,,キ,"duch, energia, atmosfera",,Doki Doki1-5 Kanji
+1773750740931,天,1,5,1-5,5,,テン,niebo,,Doki Doki1-5 Kanji
+1773750740932,元,1,5,1-5,5,もと,ゲン,"pochodzenie, fundament",,Doki Doki1-5 Kanji
+1773750740933,山,1,5,1-5,5,やま,サン,góra,,Doki Doki1-5 Kanji
+1773750740934,川,1,5,1-5,5,かわ,,rzeka,,Doki Doki1-5 Kanji
+1773750740935,私,1,5,1-5,5,わたし,シ,"ja, prywatny",,Doki Doki1-5 Kanji
+1773750740936,今,1,5,1-5,5,いま,コン,teraz,*今日 (Kyou) to nieregularne czytanie (ateji).,Doki Doki1-5 Kanji
+1773750740937,田,1,5,1-5,5,た,,pole ryżowe,,Doki Doki1-5 Kanji
+1773751856470,女,1,5,1-5,5,おんな,ジョ,kobieta,,Doki Doki1-5 Kanji
+1773751856471,男,1,5,1-5,5,おとこ,"ダン, ナン",mężczyzna,,Doki Doki1-5 Kanji
+1773751856472,見,1,5,1-5,5,み.る,ケン,patrzeć,,Doki Doki1-5 Kanji
+1773751856473,行,1,5,1-5,5,い.く,"コウ, ギョウ",iść,,Doki Doki1-5 Kanji
+1773751856474,来,1,5,1-5,5,"く.る, き.ます, こ.ない",ライ,przyjść,,Doki Doki1-5 Kanji
+1773751856475,食,1,5,1-5,5,た.べる,ショク,jeść,,Doki Doki1-5 Kanji
+1773751856476,飲,1,5,1-5,5,の.む,イン,pić,,Doki Doki1-5 Kanji
+1773752282387,右,1,6,1-6,6,みぎ,"ウ, ユウ",prawo,,Doki Doki1-6 Kanji
+1773752282388,左,1,6,1-6,6,ひだり,サ,lewo,,Doki Doki1-6 Kanji
+1773752282389,東,1,6,1-6,6,ひがし,トウ,wschód,,Doki Doki1-6 Kanji
+1773752282390,西,1,6,1-6,6,にし,"セイ, サイ",zachód,,Doki Doki1-6 Kanji
+1773752282391,南,1,6,1-6,6,みなみ,ナン,południe,,Doki Doki1-6 Kanji
+1773752282392,北,1,6,1-6,6,きた,ホク,północ,,Doki Doki1-6 Kanji
+1773752282393,口,1,6,1-6,6,くち,コウ,usta,,Doki Doki1-6 Kanji
+1773752282394,出,1,6,1-6,6,"で.る, だ.す",シュツ,wyjść,,Doki Doki1-6 Kanji
+1773752853256,先,1,6,1-6,6,さき,セン,naprzód,,Doki Doki1-6 Kanji
+1773752853257,生,1,6,1-6,6,う.まれる,"セイ, ショウ",narodziny,,Doki Doki1-6 Kanji
+1773752853258,小,1,6,1-6,6,ちい.さい,ショウ,mały,,Doki Doki1-6 Kanji
+1773752853259,大,1,6,1-6,6,おお.きい,"ダイ, タイ",duży,大人 (otona) to wyjątek w czytaniu (ateji).,Doki Doki1-6 Kanji
+1773752853260,学,1,6,1-6,6,まな.ぶ,ガク,uczyć się,,Doki Doki1-6 Kanji
+1773752853261,国,1,6,1-6,6,くに,コク,kraj,,Doki Doki1-6 Kanji
+1773752853262,入,1,6,1-6,6,"はい.る, い.れる, いり",ニュウ,wchodzić,,Doki Doki1-6 Kanji
+1781521728437,会,2,7,2-7,7,あ.う,カイ,spotkać,Partykuła に łączy się z czasownikiem 会う (spotkać kogoś).,Doki Doki2-7 Kanji
+1781521728438,社,2,7,2-7,7,-,"シャ,&nbsp;ジャ",firma,,Doki Doki2-7 Kanji
+1781521728439,高,2,7,2-7,7,"たか.い,&nbsp;たか.める",コウ,wysoki,"Znak może oznaczać zarówno wysokość fizyczną, jak i cenę (drogi).",Doki Doki2-7 Kanji
+1781521728440,校,2,7,2-7,7,-,コウ,szkoła,,Doki Doki2-7 Kanji
+1781521728441,父,2,7,2-7,7,"ちち,&nbsp;とう",フ,ojciec,Wyjątek w czytaniu: お父さん (おとうさん).,Doki Doki2-7 Kanji
+1781521728442,母,2,7,2-7,7,"はは,&nbsp;かあ",ボ,matka,Wyjątek w czytaniu: お母さん (おかあさん).,Doki Doki2-7 Kanji
+1781521728443,子,2,7,2-7,7,こ,シ,dziecko,,Doki Doki2-7 Kanji
+1781521728444,毎,2,7,2-7,7,ごと,マイ,każdy,,Doki Doki2-7 Kanji
+1781521728445,語,2,7,2-7,7,かた.る,ゴ,słowo,Dodawane jako sufiks po nazwie kraju oznacza dany język.,Doki Doki2-7 Kanji
+1781521728446,文,2,7,2-7,7,-,ブン,zdanie,,Doki Doki2-7 Kanji
+1781521728447,書,2,7,2-7,7,か.く,ショ,pisać,,Doki Doki2-7 Kanji
+1781521728448,帰,2,7,2-7,7,かえ.る,キ,wracać,,Doki Doki2-7 Kanji
+1781521728449,電,2,7,2-7,7,-,デン,prąd,,Doki Doki2-7 Kanji
+1781521728450,車,2,7,2-7,7,くるま,シャ,samochód,,Doki Doki2-7 Kanji
+1781521728451,京,2,7,2-7,7,みやこ,キョウ,stolica,,Doki Doki2-7 Kanji
+1781616283795,員,2,8,2-8,8,-,イン,członek,,Doki Doki2-8 Kanji
+1781616283796,古,2,8,2-8,8,ふる.い,コ,stary,,Doki Doki2-8 Kanji
+1781616283797,新,2,8,2-8,8,あたら.しい,シン,nowy,,Doki Doki2-8 Kanji
+1781616283798,聞,2,8,2-8,8,き.く,ブン,"słuchać, pytać",,Doki Doki2-8 Kanji
+1781616283799,作,2,8,2-8,8,つく.る,サク,wytworzyć,,Doki Doki2-8 Kanji
+1781616283800,仕,2,8,2-8,8,-,シ,służyć,,Doki Doki2-8 Kanji
+1781616283801,事,2,8,2-8,8,こと,ジ,rzecz,,Doki Doki2-8 Kanji
+1781616283802,休,2,8,2-8,8,やす.む,キュウ,odpoczywać,,Doki Doki2-8 Kanji
+1781616283803,言,2,8,2-8,8,い.う,ゲン,mówić,,Doki Doki2-8 Kanji
+1781616283804,読,2,8,2-8,8,よ.む,ドク,czytać,,Doki Doki2-8 Kanji
+1781616283805,思,2,8,2-8,8,おも.う,シ,myśleć,,Doki Doki2-8 Kanji
+1781616283806,家,2,8,2-8,8,いえ/うち,カ,dom,,Doki Doki2-8 Kanji
+1781616283807,話,2,8,2-8,8,"はな.す, はなし",ワ,rozmawiać,,Doki Doki2-8 Kanji
+1781616283808,次,2,8,2-8,8,つぎ,ジ,następny,,Doki Doki2-8 Kanji
+1781616283809,何,2,8,2-8,8,なに,ナン,co,,Doki Doki2-8 Kanji
+1781618075612,名,2,9,2-9,9,な,メイ,imię,,Doki Doki2-9 Kanji
+1781618075613,前,2,9,2-9,9,まえ,ゼン,przed,,Doki Doki2-9 Kanji
+1781618075614,午,2,9,2-9,9,-,ゴ,południe (czas),,Doki Doki2-9 Kanji
+1781618075615,後,2,9,2-9,9,"あと, うし.ろ",ゴ,"po, za",,Doki Doki2-9 Kanji
+1781618075616,赤,2,9,2-9,9,あか,セキ,czerwień,,Doki Doki2-9 Kanji
+1781618075617,青,2,9,2-9,9,あお,セイ,błękit,,Doki Doki2-9 Kanji
+1781618075618,白,2,9,2-9,9,しろ,ハク,biel,,Doki Doki2-9 Kanji
+1781618075619,黒,2,9,2-9,9,くろ,コク,czerń,,Doki Doki2-9 Kanji
+1781618075620,雨,2,9,2-9,9,あめ,ウ,deszcz,,Doki Doki2-9 Kanji
+1781618075621,雪,2,9,2-9,9,ゆき,セツ,śnieg,,Doki Doki2-9 Kanji
+1781618075622,友,2,9,2-9,9,とも,ユウ,przyjaciel,,Doki Doki2-9 Kanji
+1781618075623,間,2,9,2-9,9,"あいだ, ま","カン, ケン",pomiędzy,,Doki Doki2-9 Kanji
+1781618075624,少,2,9,2-9,9,"すこ.し, すく.ない",ショウ,niewiele,,Doki Doki2-9 Kanji
+1781618075625,多,2,9,2-9,9,おお.い,タ,wiele,,Doki Doki2-9 Kanji
+1781618075626,知,2,9,2-9,9,し.る,チ,znać,,Doki Doki2-9 Kanji
+1781675482358,住,2,10,2-10,10,す.む,ジュウ,mieszkać,,Doki Doki2-10 Kanji
+1781675482359,正,2,10,2-10,10,ただ.しい,"ショウ, セイ","właściwy, poprawny",,Doki Doki2-10 Kanji
+1781675482360,年,2,10,2-10,10,とし,ネン,rok,,Doki Doki2-10 Kanji
+1781675482361,売,2,10,2-10,10,う.る,バイ,sprzedaż,,Doki Doki2-10 Kanji
+1781675482362,買,2,10,2-10,10,か.う,バイ,kupować,,Doki Doki2-10 Kanji
+1781675482363,町,2,10,2-10,10,まち,チョウ,miasteczko,,Doki Doki2-10 Kanji
+1781675482364,長,2,10,2-10,10,なが.い,チョウ,długi,,Doki Doki2-10 Kanji
+1781675482365,市,2,10,2-10,10,いち,シ,miasto,,Doki Doki2-10 Kanji
+1781675482366,道,2,10,2-10,10,みち,ドウ,droga,,Doki Doki2-10 Kanji
+1781675482367,立,2,10,2-10,10,た.つ,リツ,stać,,Doki Doki2-10 Kanji
+1781675482368,自,2,10,2-10,10,みずか.ら,ジ,ja sam,,Doki Doki2-10 Kanji
+1781675482369,夜,2,10,2-10,10,"よ, よる",ヤ,noc,,Doki Doki2-10 Kanji
+1781675482370,朝,2,10,2-10,10,あさ,チョウ,rano,,Doki Doki2-10 Kanji
+1781675482371,持,2,10,2-10,10,も.つ,ジ,trzymać,,Doki Doki2-10 Kanji
+1781675482372,昼,2,10,2-10,10,ひる,チュウ,popołudnie,,Doki Doki2-10 Kanji
+1781676412797,手,2,11,2-11,11,て,シュ,ręka,,Doki Doki2-11 Kanji
+1781676412798,紙,2,11,2-11,11,かみ,シ,papier,,Doki Doki2-11 Kanji
+1781676412799,病,2,11,2-11,11,-,ビョウ,choroba,,Doki Doki2-11 Kanji
+1781676412800,院,2,11,2-11,11,-,イン,instytucja,,Doki Doki2-11 Kanji
+1781676412801,映,2,11,2-11,11,うつ.る,エイ,odbijać,,Doki Doki2-11 Kanji
+1781676412802,画,2,11,2-11,11,-,"ガ, カク",obraz,,Doki Doki2-11 Kanji
+1781676412803,勉,2,11,2-11,11,-,ベン,starać się,,Doki Doki2-11 Kanji
+1781676412804,強,2,11,2-11,11,つよ.い,キョウ,silny,,Doki Doki2-11 Kanji
+1781676412805,好,2,11,2-11,11,"す.き, この.み",コウ,lubić,,Doki Doki2-11 Kanji
+1781676412806,近,2,11,2-11,11,ちか.い,キン,bliski,,Doki Doki2-11 Kanji
+1781676412807,明,2,11,2-11,11,あか.るい,メイ,jasny,* 明日 - nieregularne czytanie (wyjątek),Doki Doki2-11 Kanji
+1781676412808,所,2,11,2-11,11,ところ,ショ,miejsce,,Doki Doki2-11 Kanji
+1781676412809,有,2,11,2-11,11,あ.る,ユウ,istnieć,,Doki Doki2-11 Kanji
+1781676412810,旅,2,11,2-11,11,たび,リョ,podróż,,Doki Doki2-11 Kanji
+1781676412811,歌,2,11,2-11,11,"うた, うた.う",カ,śpiewać,,Doki Doki2-11 Kanji
+1781679839110,昔,2,12,2-12,12,むかし,-,dawno temu,,Doki Doki2-12 Kanji
+1781679839111,神,2,12,2-12,12,かみ,"ジン, シン",Bóg,"八百万 (やおよろず) - specjalne, nieregularne czytanie oznaczające nieskończoną/ogromną liczbę bogów.",Doki Doki2-12 Kanji
+1781679839112,色,2,12,2-12,12,いろ,"シキ, ショク",Kolor,,Doki Doki2-12 Kanji
+1781679839113,々,2,12,2-12,12,-,-,znak powtórzenia,今日 (きょう) traktujemy z reguły jako nierozłączny blok lub wyjątek.,Doki Doki2-12 Kanji
+1781679839114,早,2,12,2-12,12,はや.い,ソウ,wczesny,,Doki Doki2-12 Kanji
+1781679839115,起,2,12,2-12,12,"お.きる, お.こす",キ,obudzić się,,Doki Doki2-12 Kanji
+1781679839116,牛,2,12,2-12,12,うし,ギュウ,Krowa,,Doki Doki2-12 Kanji
+1781679839117,使,2,12,2-12,12,つか.う,シ,używać,,Doki Doki2-12 Kanji
+1781679839118,店,2,12,2-12,12,みせ,テン,sklep,,Doki Doki2-12 Kanji
+1781679839119,働,2,12,2-12,12,はたら.く,ドウ,pracować,,Doki Doki2-12 Kanji
+1781679839120,連,2,12,2-12,12,つ.れる,レン,łączyć,,Doki Doki2-12 Kanji
+1781679839121,別,2,12,2-12,12,わか.れる,ベツ,oddzielać,,Doki Doki2-12 Kanji
+1781679839122,度,2,12,2-12,12,-,ド,"stopień, raz",,Doki Doki2-12 Kanji
+1781679839123,寺,2,12,2-12,12,てら,ジ,świątynia,,Doki Doki2-12 Kanji
+1781679839124,心,2,12,2-12,12,こころ,シン,serce,,Doki Doki2-12 Kanji
+1781681090855,料,2,13,2-13,13,-,リョウ,opłata,,Doki Doki2-13 Kanji
+1781681090856,理,2,13,2-13,13,-,リ,"logika, prawo",,Doki Doki2-13 Kanji
+1781681090857,鳥,2,13,2-13,13,とり,チョウ,ptak,,Doki Doki2-13 Kanji
+1781681090858,肉,2,13,2-13,13,-,ニク,mięso,,Doki Doki2-13 Kanji
+1781681090859,空,2,13,2-13,13,"そら, あ.く, から",クウ,"niebo, pusty",,Doki Doki2-13 Kanji
+1781681090860,港,2,13,2-13,13,みなと,コウ,port,,Doki Doki2-13 Kanji
+1781681090861,着,2,13,2-13,13,"つ.く, き.る",チャク,"dotrzeć, nosić",,Doki Doki2-13 Kanji
+1781681090862,建,2,13,2-13,13,"たて, た.つ, た.てる",ケン,budować,,Doki Doki2-13 Kanji
+1781681090863,物,2,13,2-13,13,もの,ブツ,rzecz,,Doki Doki2-13 Kanji
+1781681090864,同,2,13,2-13,13,おな.じ,ドウ,taki sam,,Doki Doki2-13 Kanji
+1781681090865,海,2,13,2-13,13,うみ,カイ,morze,,Doki Doki2-13 Kanji
+1781681090866,特,2,13,2-13,13,-,"トク, トッ",specjalny,,Doki Doki2-13 Kanji
+1781681090867,安,2,13,2-13,13,やす.い,アン,"tani, bezpieczny",,Doki Doki2-13 Kanji
+1781681090868,飯,2,13,2-13,13,-,ハン,ryż,,Doki Doki2-13 Kanji
+1781681188258,悪,2,13,2-13,13,わる.い,アク,Zły,気分が悪い (きぶんがわるい) oznacza czuć się źle (fizycznie) lub mieć zły nastrój.,Doki Doki2-13 Kanji

@@ -1,7 +1,12 @@
 # Dane aplikacji
 
-`kanji_quiz_database_v3.json` jest jedynym plikiem danych ładowanym przez frontend.
+`kanji_quiz_database.json` jest bazą runtime ładowaną przez WSJJ Kanji.pro.
 
-Folder `source/` zawiera materiały pomocnicze z etapu budowania bazy: CSV-y, SQLite, raport pytań odroczonych i walidację. Nie są potrzebne do działania strony, ale warto je trzymać w repo jako źródło audytowe.
+Nie edytuj jej ręcznie. Jest generowana z trzech eksportów w `imports/` przez:
 
-Uwaga: pole `meta.rules` wewnątrz JSON opisuje zasady z chwili wygenerowania bazy v3. Aktualne zasady wyboru głównych kanji, furigany i limitu sesji są implementowane w `js/app.js`.
+```bash
+python3 scripts/rebuild_database.py
+python3 scripts/validate_data.py
+```
+
+Folder `source/` zawiera pliki pomocnicze do kontroli: CSV, SQLite, raport buildu i listę potencjalnie wieloznacznych promptów.

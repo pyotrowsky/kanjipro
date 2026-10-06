@@ -1,80 +1,99 @@
 # WSJJ Kanji.pro
 
-Statyczna aplikacja do ćwiczenia kanji i słownictwa z podręczników Doki Doki.
+Statyczna aplikacja/PWA do ćwiczenia kanji i słownictwa z podręczników Doki. Repo zawiera frontend, eksporty z Anki oraz generator bazy.
 
 ## Struktura
 
 ```text
-wsjj-kanji-pro/
+.
 ├── index.html
 ├── css/
 │   └── styles.css
 ├── js/
 │   └── app.js
+├── icons/
+├── manifest.webmanifest
+├── sw.js
+├── imports/
+│   ├── kanji.csv
+│   ├── vocabulary_old.csv
+│   └── vocabulary_new.csv
 ├── data/
-│   ├── kanji_quiz_database_v3.json   # baza używana przez aplikację
-│   └── source/                       # pliki pomocnicze / audyt bazy
-│       ├── kanji_quiz_v3.sqlite
-│       ├── quiz_questions.csv
-│       ├── lesson_summary.csv
-│       ├── deferred_vocab_questions.csv
-│       ├── kanji_quiz_readings.csv
-│       ├── validation_issues.csv
-│       └── README.md
-├── .gitignore
-└── README.md
+│   ├── kanji_quiz_database.json
+│   └── source/
+├── scripts/
+│   ├── rebuild_database.py
+│   └── validate_data.py
+└── .github/workflows/
+    └── rebuild-and-deploy.yml
 ```
 
-## Uruchomienie lokalne
+## Najprostsza aktualizacja bazy
 
-Aplikacja ładuje bazę JSON przez `fetch()`, więc najlepiej uruchomić prosty lokalny serwer zamiast otwierać `index.html` przez `file://`.
+Nie edytuj `data/kanji_quiz_database.json` ręcznie.
 
-Na macOS / Linux:
+1. W Anki wyeksportuj ponownie:
+   - `Japanese (Kanji)`
+   - `Japanese (triple cards)`
+   - `Japanese (triple cards - new)`
+2. Zmień nazwy plików odpowiednio na:
+   - `kanji.csv`
+   - `vocabulary_old.csv`
+   - `vocabulary_new.csv`
+3. Na GitHubie otwórz folder `imports/`.
+4. **Add file → Upload files** i wgraj trzy nowe pliki, zastępując stare.
+5. **Commit changes**.
+
+Po commicie GitHub Actions automatycznie:
+
+1. uruchomi `scripts/rebuild_database.py`,
+2. wyczyści i przebuduje bazę,
+3. uruchomi walidację,
+4. opcjonalnie zapisze wygenerowane pliki `data/` z powrotem do repo,
+5. opublikuje nową wersję przez GitHub Pages.
+
+Jeśli walidacja wykryje niespójność w nowych danych, deployment zatrzyma się zamiast opublikować uszkodzoną bazę.
+
+## Jednorazowe ustawienie GitHub Pages
+
+Dla workflow z tego repo ustaw:
+
+**Settings → Pages → Build and deployment → Source → GitHub Actions**
+
+Od tego momentu workflow `Rebuild database and deploy Pages` publikuje aplikację bezpośrednio.
+
+## Lokalna przebudowa
+
+Wymagany jest tylko Python 3; nie ma zewnętrznych pakietów.
 
 ```bash
-cd wsjj-kanji-pro
+python3 scripts/rebuild_database.py
+python3 scripts/validate_data.py
+```
+
+Uruchomienie strony lokalnie:
+
+```bash
 python3 -m http.server 8000
 ```
 
-Następnie otwórz w przeglądarce:
+Następnie otwórz `http://localhost:8000`.
 
-```text
-http://localhost:8000
-```
+Nie otwieraj `index.html` bezpośrednio przez `file://`, ponieważ przeglądarka może wtedy blokować `fetch()` bazy JSON i service workera.
 
-## GitHub Pages
+## Reguły generatora
 
-Repozytorium jest gotowe do hostowania bez procesu buildowania.
+- `KnownKanji` jest całkowicie ignorowane.
+- `imports/kanji.csv` jest jedynym źródłem informacji, które kanji należą do kursu i w którym rozdziale są wprowadzane.
+- Słówko zostaje tylko wtedy, gdy zawiera przynajmniej jedno kanji z kursu.
+- Dopiski pomocnicze takie jak `(な)`, `(に)`, `*`, `～` są usuwane z kanonicznego promptu.
+- Furigana jest zapisywana segmentami; jej widoczność jest wyliczana dynamicznie przez frontend.
+- Odczyty ON/KUN i słówek są normalizowane do sprawdzania odpowiedzi.
 
-1. Wrzuć cały katalog do repozytorium GitHub.
-2. Wejdź w **Settings → Pages**.
-3. Wybierz **Deploy from a branch**.
-4. Wskaż gałąź `main` i katalog `/ (root)`.
+## PWA i aktualizacje
 
-Po wdrożeniu `index.html` będzie ładował bazę z `data/kanji_quiz_database_v3.json`.
+Baza używa strategii **network-first**. Gdy urządzenie ma internet, aplikacja pobiera aktualny `data/kanji_quiz_database.json`; gdy jest offline, korzysta z ostatniej zapisanej kopii. Pozostałe pliki aplikacji są cachowane do działania offline.
 
-## Dane
+## Ważne przy publicznym repo
 
-Plik `data/kanji_quiz_database_v3.json` jest bieżącą bazą runtime aplikacji. Pole `KnownKanji` ze starych eksportów Anki nie jest używane.
-
-Baza zawiera 166 kanji oraz przefiltrowane słownictwo. Furigana jest generowana w interfejsie na podstawie ustawionego trybu (zaznaczone kanji albo poziom rozdziału).
-
-Pliki w `data/source/` są pomocnicze i służą do kontroli/analizy danych; aplikacja ich bezpośrednio nie ładuje.
-
-
-## Instalacja na urządzeniu mobilnym (PWA)
-
-Po opublikowaniu repo przez GitHub Pages:
-
-**iOS / iPadOS:** otwórz stronę w Safari → **Udostępnij** → **Dodaj do ekranu początkowego** → **Dodaj**.
-
-**Android:** otwórz stronę w Chrome → menu **⋮** → **Zainstaluj aplikację** lub **Dodaj do ekranu głównego** → potwierdź.
-
-Aplikacja ma własny manifest, ikonę, tryb `standalone` i service workera. Po pierwszym poprawnym załadowaniu może uruchamiać się z pamięci podręcznej także bez połączenia z siecią.
-
-### Pliki PWA
-
-- `manifest.webmanifest` — nazwa, kolory, ikony i tryb aplikacji.
-- `sw.js` — cache/offline.
-- `icons/` — ikony dla iOS i innych platform.
-- `index.html` — zawiera metadane Apple Web App i odnośnik do manifestu.
+Jeżeli repozytorium jest publiczne, pliki w `imports/` również są publicznie widoczne na GitHubie. Sam artefakt GitHub Pages zawiera tylko aplikację i gotową bazę runtime, ale źródłowe eksporty nadal pozostają częścią publicznego repo.

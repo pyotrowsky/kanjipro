@@ -1,4 +1,4 @@
-const DB = await fetch('./data/kanji_quiz_database_v3.json').then(r => { if (!r.ok) throw new Error(`Nie udało się wczytać bazy: ${r.status}`); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json').then(r => { if (!r.ok) throw new Error(`Nie udało się wczytać bazy: ${r.status}`); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaLessonInput=$('#furiganaLessonInput'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0};
 const ROMAJI={

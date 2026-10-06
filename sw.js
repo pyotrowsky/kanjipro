@@ -1,11 +1,12 @@
-const CACHE_NAME = 'wsjj-kanji-pro-v7-1';
+const CACHE_NAME = 'wsjj-kanji-pro-v8-1';
 const BASE = new URL('./', self.location.href);
+const DB_URL = new URL('./data/kanji_quiz_database.json', BASE).href;
 const PRECACHE = [
   './',
   './index.html',
   './css/styles.css',
   './js/app.js',
-  './data/kanji_quiz_database_v3.json',
+  './data/kanji_quiz_database.json',
   './manifest.webmanifest',
   './icons/apple-touch-icon.png',
   './icons/icon-192.png',
@@ -34,6 +35,24 @@ self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
+  // Database: network first so Anki updates appear immediately when online,
+  // with cached data as an offline fallback.
+  if (url.href === DB_URL) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' })
+        .then(response => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(DB_URL, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(DB_URL))
+    );
+    return;
+  }
+
+  // Navigation: network first, cached app shell offline.
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
@@ -47,6 +66,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  // Static assets: cache first with background refresh.
   event.respondWith(
     caches.match(event.request).then(cached => {
       const network = fetch(event.request).then(response => {

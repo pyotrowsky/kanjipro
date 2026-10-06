@@ -69,3 +69,19 @@ function check(){if(checked){showQuestion();return}if(inputMode()==='romaji')inp
 function updateStats(){correctEl.textContent=stats.correct;wrongEl.textContent=stats.wrong;leftEl.textContent=queue.length+(current&&!checked?1:0)}function start(){if(!selectedLessons().length){alert('Wybierz przynajmniej jeden rozdział.');return}if(!selectedKanji().size){alert('Wybierz przynajmniej jedno kanji główne.');return}if(!selectedModes().length){alert('Wybierz przynajmniej jeden tryb.');return}if(furiganaMode()==='chapter'&&!furiganaLesson()){alert('Podaj prawidłowy rozdział dla furigany, np. 1-6 albo 6.');return}queue=buildQueue();if(!queue.length){alert('Dla wybranych ustawień nie ma pytań.');return}stats={correct:0,wrong:0,attempts:0,initial:queue.length};setup.classList.add('hidden');finished.classList.add('hidden');quiz.classList.remove('hidden');showQuestion()}function showFinish(){quiz.classList.add('hidden');finished.classList.remove('hidden');const total=stats.correct+stats.wrong,acc=total?Math.round(stats.correct/total*100):100;$('#finalScore').textContent=`${acc}%`;$('#finalText').textContent=`Poprawne: ${stats.correct} · Błędy: ${stats.wrong} · Próby: ${stats.attempts}`}
 function back(){quiz.classList.add('hidden');finished.classList.add('hidden');setup.classList.remove('hidden');updatePreview()}
 renderLessonGrid();renderKanjiGroups(false);populateFuriganaLessons();document.querySelectorAll('.mode input').forEach(x=>x.addEventListener('change',updatePreview));document.querySelectorAll('input[name="vocabLimitMode"]').forEach(x=>x.addEventListener('change',()=>{vocabLimit.disabled=document.querySelector('input[name="vocabLimitMode"]:checked').value!=='limit';updatePreview()}));document.querySelectorAll('input[name="furiganaMode"]').forEach(x=>x.addEventListener('change',syncFuriganaControls));furiganaLessonSelect.addEventListener('change',()=>{furiganaLessonInput.value=furiganaLessonSelect.value;updatePreview()});furiganaLessonInput.addEventListener('input',()=>{const k=normalizeLessonKey(furiganaLessonInput.value);if(k)furiganaLessonSelect.value=k;updatePreview()});vocabLimit.addEventListener('input',updatePreview);document.querySelectorAll('input[name="inputMode"]').forEach(x=>x.addEventListener('change',syncInputMode));input.addEventListener('input',()=>{if(inputMode()==='romaji'&&!input.isComposing){const p=input.selectionStart??input.value.length;const before=input.value;const after=romajiToHiragana(before,false);if(after!==before){input.value=after;input.setSelectionRange(input.value.length,input.value.length)}}});$('#lessonAll').addEventListener('click',()=>setLessons(true));$('#lessonNone').addEventListener('click',()=>setLessons(false));$('#selectAll').addEventListener('click',()=>setAllKanji(true));$('#selectNone').addEventListener('click',()=>setAllKanji(false));$('#start').addEventListener('click',start);submit.addEventListener('click',check);input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();check()}});$('#quit').addEventListener('click',back);$('#again').addEventListener('click',start);$('#settings').addEventListener('click',back);syncFuriganaControls();syncInputMode();
+
+// PWA: offline support + iOS Home Screen experience.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err => {
+      console.warn('Service worker registration failed:', err);
+    });
+  });
+}
+
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+if (isStandalone) {
+  document.documentElement.classList.add('standalone');
+  const installedNote = document.getElementById('installedNote');
+  if (installedNote) installedNote.classList.remove('hidden');
+}

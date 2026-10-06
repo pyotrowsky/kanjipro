@@ -60,3 +60,23 @@ Plik `data/kanji_quiz_database_v3.json` jest bieżącą bazą runtime aplikacji.
 Baza zawiera 166 kanji oraz przefiltrowane słownictwo. Furigana jest generowana w interfejsie na podstawie ustawionego trybu (zaznaczone kanji albo poziom rozdziału).
 
 Pliki w `data/source/` są pomocnicze i służą do kontroli/analizy danych; aplikacja ich bezpośrednio nie ładuje.
+
+
+## Instalacja na iPhone / iPad (PWA)
+
+Po opublikowaniu repo przez GitHub Pages:
+
+1. Otwórz adres strony na iPhonie lub iPadzie.
+2. Wybierz **Udostępnij**.
+3. Wybierz **Dodaj do ekranu początkowego**.
+4. Jeśli system pokazuje opcję **Otwórz jako aplikację**, pozostaw ją włączoną.
+5. Naciśnij **Dodaj**.
+
+Aplikacja ma własny manifest, ikonę, tryb `standalone` i service workera. Po pierwszym poprawnym załadowaniu może uruchamiać się z pamięci podręcznej także bez połączenia z siecią.
+
+### Pliki PWA
+
+- `manifest.webmanifest` — nazwa, kolory, ikony i tryb aplikacji.
+- `sw.js` — cache/offline.
+- `icons/` — ikony dla iOS i innych platform.
+- `index.html` — zawiera metadane Apple Web App i odnośnik do manifestu.

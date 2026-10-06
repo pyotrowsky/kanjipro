@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kanji-trainer-v6-pwa-1';
+const CACHE_NAME = 'wsjj-kanji-pro-v7-1';
 const BASE = new URL('./', self.location.href);
 const PRECACHE = [
   './',

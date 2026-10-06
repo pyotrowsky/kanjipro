@@ -2,20 +2,20 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Kanji Trainer</title>
-<meta name="description" content="Kanji Trainer — ćwiczenie ON, KUN i słownictwa z dynamiczną furiganą.">
+<title>WSJJ Kanji.pro</title>
+<meta name="description" content="WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą.">
 <meta name="theme-color" content="#d63031">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Kanji Trainer">
+<meta name="apple-mobile-web-app-title" content="WSJJ Kanji.pro">
 <meta name="format-detection" content="telephone=no">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
 <link rel="stylesheet" href="./css/styles.css"></head><body><main class="shell">
-<div class="brand"><h1>漢字 Kanji Trainer</h1><span class="badge">v6 · PWA</span></div>
+<div class="brand"><h1>WSJJ Kanji.pro</h1><span class="badge">v7 · PWA</span></div>
 <section id="setup" class="panel stack">
   <div><div class="group-head"><div class="section-title" style="margin:0">Rozdziały</div><div class="actions"><button type="button" id="lessonAll" class="mini-btn">Wszystkie</button><button type="button" id="lessonNone" class="mini-btn">Żadne</button></div></div><div id="lessonGrid" class="lesson-grid"></div><div class="lesson-note">Możesz zaznaczyć kilka rozdziałów naraz. Najpóźniejszy wybrany rozdział wyznacza tylko zakres dostępnego słownictwa; poziom furigany ustawiasz osobno.</div></div>
   <div><div class="group-head"><div class="section-title" style="margin:0">Główne kanji</div><div class="actions"><button type="button" id="selectAll" class="mini-btn">Wszystkie</button><button type="button" id="selectNone" class="mini-btn">Żadne</button></div></div><div id="kanjiGroups" class="kanji-groups"></div><div class="lesson-note">Słówko trafia do sesji tylko wtedy, gdy zawiera przynajmniej jedno zaznaczone kanji główne.</div></div>
@@ -31,15 +31,18 @@
     </div>
     <div id="furiganaHelp" class="lesson-note">Bez furigany będą tylko zaznaczone kanji. Każde inne kanji dostanie furiganę, o ile nie zdradzi odpowiedzi.</div>
   </div>
-  <div><label class="section-title">Co ćwiczymy?</label><div class="modes"><label class="mode"><input type="checkbox" value="onyomi" checked><span>ON</span></label><label class="mode"><input type="checkbox" value="kunyomi" checked><span>KUN</span></label><label class="mode"><input type="checkbox" value="vocabulary" checked><span>Słówka</span></label></div></div>
+  <div><label class="section-title">Co ćwiczymy?</label><div class="modes"><label class="mode"><input type="checkbox" value="onyomi"><span>ON</span></label><label class="mode"><input type="checkbox" value="kunyomi"><span>KUN</span></label><label class="mode"><input type="checkbox" value="vocabulary" checked><span>Słówka</span></label></div></div>
   <div class="limit-box"><div class="section-title">Wpisywanie odpowiedzi</div><div class="limit-row"><label class="choice"><input type="radio" name="inputMode" value="romaji" checked><span>Romaji → hiragana</span></label><label class="choice"><input type="radio" name="inputMode" value="ime"><span>Japońskie IME</span></label></div><div id="inputModeHelp" class="lesson-note input-mode-note">Pisz np. <b>gakusei</b> → <b>がくせい</b>. Ten tryb nie wykonuje konwersji na kanji. Enter zawsze sprawdza odpowiedź.</div></div>
   <div class="limit-box"><div class="section-title">Słówka w sesji</div><div class="limit-row"><label class="choice"><input type="radio" name="vocabLimitMode" value="all" checked><span>Wszystkie</span></label><label class="choice"><input type="radio" name="vocabLimitMode" value="limit"><span>Ogranicz do</span></label><input id="vocabLimit" class="limit-number" type="number" min="1" step="1" value="40" disabled></div><div id="sessionPreview" class="session-preview"></div></div>
   <button id="start" class="primary">START</button>
   <div class="small">Limit dotyczy tylko słówek. ON i KUN pojawiają się po jednym pytaniu dla każdego zaznaczonego kanji, jeśli dane odczytanie istnieje. Początkowa pula nie ma duplikatów; błędne pytania wracają później.</div>
   <details id="installHelp" class="install-help">
-    <summary>📱 Zainstaluj na iPhone / iPad</summary>
-    <div class="install-steps">Otwórz tę stronę na iPhonie/iPadzie → <b>Udostępnij</b> → <b>Dodaj do ekranu początkowego</b> → <b>Dodaj</b>. Jeśli pojawi się opcja <b>Otwórz jako aplikację</b>, zostaw ją włączoną.</div>
-    <div id="installedNote" class="installed-note hidden">✓ Aplikacja jest już uruchomiona z ekranu początkowego.</div>
+    <summary>📱 Zainstaluj na urządzeniu mobilnym</summary>
+    <div class="install-steps">
+      <div><b>iOS / iPadOS:</b> otwórz stronę w Safari → <b>Udostępnij</b> → <b>Dodaj do ekranu początkowego</b> → <b>Dodaj</b>.</div>
+      <div class="install-platform"><b>Android:</b> otwórz stronę w Chrome → menu <b>⋮</b> → <b>Zainstaluj aplikację</b> lub <b>Dodaj do ekranu głównego</b> → potwierdź.</div>
+    </div>
+    <div id="installedNote" class="installed-note hidden">✓ Aplikacja jest już uruchomiona jako aplikacja.</div>
   </details>
 </section>
 <section id="quiz" class="panel hidden"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div id="progress" class="counter"></div></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><button id="submit" class="primary">Sprawdź</button></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span>poprawne</span></div><div class="stat"><b id="wrong">0</b><span>błędy</span></div><div class="stat"><b id="left">0</b><span>w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>

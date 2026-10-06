@@ -17,3 +17,5 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .install-steps{padding:0 0 13px;color:var(--muted);font-size:13px;line-height:1.55}
 .installed-note{margin:0 0 13px;border-radius:10px;padding:9px 11px;background:color-mix(in srgb,var(--good) 12%,transparent);color:var(--good);font-size:12px;font-weight:700}
 @media(display-mode:standalone){.brand{padding-top:4px}.install-help{display:none}}
+
+.install-platform{margin-top:8px}

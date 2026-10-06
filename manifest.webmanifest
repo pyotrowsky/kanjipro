@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Kanji Trainer",
-  "short_name": "Kanji",
-  "description": "Trener kanji, odczytań ON/KUN i słownictwa z dynamiczną furiganą.",
+  "name": "WSJJ Kanji.pro",
+  "short_name": "Kanji.pro",
+  "description": "WSJJ Kanji.pro — trener kanji i słownictwa z dynamiczną furiganą.",
   "lang": "pl",
   "start_url": "./",
   "scope": "./",

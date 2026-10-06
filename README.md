@@ -1,11 +1,11 @@
-# Kanji Trainer
+# WSJJ Kanji.pro
 
 Statyczna aplikacja do ćwiczenia kanji i słownictwa z podręczników Doki Doki.
 
 ## Struktura
 
 ```text
-kanji-trainer/
+wsjj-kanji-pro/
 ├── index.html
 ├── css/
 │   └── styles.css
@@ -32,7 +32,7 @@ Aplikacja ładuje bazę JSON przez `fetch()`, więc najlepiej uruchomić prosty 
 Na macOS / Linux:
 
 ```bash
-cd kanji-trainer
+cd wsjj-kanji-pro
 python3 -m http.server 8000
 ```
 
@@ -62,15 +62,13 @@ Baza zawiera 166 kanji oraz przefiltrowane słownictwo. Furigana jest generowana
 Pliki w `data/source/` są pomocnicze i służą do kontroli/analizy danych; aplikacja ich bezpośrednio nie ładuje.
 
 
-## Instalacja na iPhone / iPad (PWA)
+## Instalacja na urządzeniu mobilnym (PWA)
 
 Po opublikowaniu repo przez GitHub Pages:
 
-1. Otwórz adres strony na iPhonie lub iPadzie.
-2. Wybierz **Udostępnij**.
-3. Wybierz **Dodaj do ekranu początkowego**.
-4. Jeśli system pokazuje opcję **Otwórz jako aplikację**, pozostaw ją włączoną.
-5. Naciśnij **Dodaj**.
+**iOS / iPadOS:** otwórz stronę w Safari → **Udostępnij** → **Dodaj do ekranu początkowego** → **Dodaj**.
+
+**Android:** otwórz stronę w Chrome → menu **⋮** → **Zainstaluj aplikację** lub **Dodaj do ekranu głównego** → potwierdź.
 
 Aplikacja ma własny manifest, ikonę, tryb `standalone` i service workera. Po pierwszym poprawnym załadowaniu może uruchamiać się z pamięci podręcznej także bez połączenia z siecią.
 

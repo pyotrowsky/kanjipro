@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kanji Trainer</title>
+<link rel="stylesheet" href="css/styles.css"></head><body><main class="shell">
+<div class="brand"><h1>漢字 Kanji Trainer</h1><span class="badge">v5</span></div>
+<section id="setup" class="panel stack">
+  <div><div class="group-head"><div class="section-title" style="margin:0">Rozdziały</div><div class="actions"><button type="button" id="lessonAll" class="mini-btn">Wszystkie</button><button type="button" id="lessonNone" class="mini-btn">Żadne</button></div></div><div id="lessonGrid" class="lesson-grid"></div><div class="lesson-note">Możesz zaznaczyć kilka rozdziałów naraz. Najpóźniejszy wybrany rozdział wyznacza tylko zakres dostępnego słownictwa; poziom furigany ustawiasz osobno.</div></div>
+  <div><div class="group-head"><div class="section-title" style="margin:0">Główne kanji</div><div class="actions"><button type="button" id="selectAll" class="mini-btn">Wszystkie</button><button type="button" id="selectNone" class="mini-btn">Żadne</button></div></div><div id="kanjiGroups" class="kanji-groups"></div><div class="lesson-note">Słówko trafia do sesji tylko wtedy, gdy zawiera przynajmniej jedno zaznaczone kanji główne.</div></div>
+  <div class="limit-box" id="furiganaBox"><div class="section-title">Furigana</div>
+    <div class="limit-row">
+      <label class="choice"><input type="radio" name="furiganaMode" value="selected" checked><span>Według zaznaczonych kanji</span></label>
+      <label class="choice"><input type="radio" name="furiganaMode" value="chapter"><span>Według rozdziału</span></label>
+    </div>
+    <div id="furiganaChapterControls" class="furigana-chapter hidden">
+      <select id="furiganaLessonSelect" class="lesson-select" aria-label="Wybierz poziom rozdziału"></select>
+      <span class="small">albo wpisz</span>
+      <input id="furiganaLessonInput" class="lesson-input" type="text" inputmode="text" placeholder="np. 1-6 lub 6" autocomplete="off">
+    </div>
+    <div id="furiganaHelp" class="lesson-note">Bez furigany będą tylko zaznaczone kanji. Każde inne kanji dostanie furiganę, o ile nie zdradzi odpowiedzi.</div>
+  </div>
+  <div><label class="section-title">Co ćwiczymy?</label><div class="modes"><label class="mode"><input type="checkbox" value="onyomi" checked><span>ON</span></label><label class="mode"><input type="checkbox" value="kunyomi" checked><span>KUN</span></label><label class="mode"><input type="checkbox" value="vocabulary" checked><span>Słówka</span></label></div></div>
+  <div class="limit-box"><div class="section-title">Wpisywanie odpowiedzi</div><div class="limit-row"><label class="choice"><input type="radio" name="inputMode" value="romaji" checked><span>Romaji → hiragana</span></label><label class="choice"><input type="radio" name="inputMode" value="ime"><span>Japońskie IME</span></label></div><div id="inputModeHelp" class="lesson-note input-mode-note">Pisz np. <b>gakusei</b> → <b>がくせい</b>. Ten tryb nie wykonuje konwersji na kanji. Enter zawsze sprawdza odpowiedź.</div></div>
+  <div class="limit-box"><div class="section-title">Słówka w sesji</div><div class="limit-row"><label class="choice"><input type="radio" name="vocabLimitMode" value="all" checked><span>Wszystkie</span></label><label class="choice"><input type="radio" name="vocabLimitMode" value="limit"><span>Ogranicz do</span></label><input id="vocabLimit" class="limit-number" type="number" min="1" step="1" value="40" disabled></div><div id="sessionPreview" class="session-preview"></div></div>
+  <button id="start" class="primary">START</button>
+  <div class="small">Limit dotyczy tylko słówek. ON i KUN pojawiają się po jednym pytaniu dla każdego zaznaczonego kanji, jeśli dane odczytanie istnieje. Początkowa pula nie ma duplikatów; błędne pytania wracają później.</div>
+</section>
+<section id="quiz" class="panel hidden"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div id="progress" class="counter"></div></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><button id="submit" class="primary">Sprawdź</button></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span>poprawne</span></div><div class="stat"><b id="wrong">0</b><span>błędy</span></div><div class="stat"><b id="left">0</b><span>w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
+<section id="finished" class="panel finish hidden"><div class="quiz-type">SESJA ZAKOŃCZONA</div><div id="finalScore" class="big">100%</div><p id="finalText"></p><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button id="again" class="primary">Jeszcze raz</button><button id="settings" class="ghost">Ustawienia</button></div></section>
+</main>
+
+<script type="module" src="js/app.js"></script>
+</body></html>

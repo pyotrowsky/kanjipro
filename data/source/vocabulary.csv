@@ -1,6 +1,7 @@
 ﻿note_id,source_note_id,surface,furigana_markup,reading,accepted_readings,romaji,polish,book,chapter,lesson,lesson_order,tracked_kanji,untracked_kanji,source_note_type,source_tags
 1763216199319,1763216199319,私,私[わたし],わたし,わたし,watashi,ja,1,1,1-1,1,私,,triple_cards,Doki Doki1-1 male_voice newVersion
-1763216199322,1763216199322,彼女,彼女[かのじょ],かのじょ,かのじょ,kanojo,"ona, dziewczyna (partnerka)",1,1,1-1,1,女,彼,triple_cards,Doki Doki1-1 female_voice newVersion
+1763216199321,1763216199321,彼,彼[かれ],かれ,かれ,kare,on,1,1,1-1,1,彼,,triple_cards,Doki Doki1-1 female_voice newVersion
+1763216199322,1763216199322,彼女,彼女[かのじょ],かのじょ,かのじょ,kanojo,"ona, dziewczyna (partnerka)",1,1,1-1,1,彼 女,,triple_cards,Doki Doki1-1 female_voice newVersion
 1763216199324,1763216199324,水,水[みず],みず,みず,mizu,woda,1,1,1-1,1,水,,triple_cards,Doki Doki1-1 male_voice newVersion
 1763216199325,1763216199325,人,人[ひと],ひと,ひと,hito,człowiek,1,1,1-1,1,人,,triple_cards,Doki Doki1-1 male_voice newVersion
 1763216199327,1763216199327,出身,出[しゅっ]身[しん],しゅっしん,しゅっしん,shusshin,miejsce pochodzenia,1,1,1-1,1,出,身,triple_cards,Doki Doki1-1 female_voice newVersion
@@ -16,12 +17,13 @@
 1763216199340,1763216199340,大学院,大[だい]学[がく]院[いん],だいがくいん,だいがくいん,daigakuin,"studia magisterskie, szkoła podyplomowa",1,1,1-1,1,大 学 院,,triple_cards,Doki Doki1-1 male_voice newVersion
 1763216199341,1763216199341,大学院生,大[だい]学[がく]院[いん]生[せい],だいがくいんせい,だいがくいんせい,daigakuinsē,student/ka studiów magisterskich,1,1,1-1,1,大 学 院 生,,triple_cards,Doki Doki1-1 male_voice newVersion
 1763216199342,1763216199342,仕事,仕[し]事[ごと],しごと,しごと,shigoto,praca,1,1,1-1,1,仕 事,,triple_cards,Doki Doki1-1 female_voice newVersion
+1763216199343,1763216199343,医者,医[い]者[しゃ],いしゃ,いしゃ,isha,lekarz,1,1,1-1,1,医 者,,triple_cards,Doki Doki1-1 female_voice newVersion
 1763216199344,1763216199344,会社員,会[かい]社[しゃ]員[いん],かいしゃいん,かいしゃいん,kaishain,pracownik/pracownica firmy,1,1,1-1,1,会 社 員,,triple_cards,Doki Doki1-1 female_voice newVersion
 1763216199345,1763216199345,学生,学[がく]生[せい],がくせい,がくせい,gakusē,student (uczeń),1,1,1-1,1,学 生,,triple_cards,Doki Doki1-1 female_voice newVersion
 1763216199346,1763216199346,先生,先[せん]生[せい],せんせい,せんせい,sensei,nauczyciel,1,1,1-1,1,先 生,,triple_cards,Doki Doki1-1 male_voice newVersion
 1763216199349,1763216199349,事務員,事[じ]務[む]員[いん],じむいん,じむいん,jimuin,pracownik biurowy,1,1,1-1,1,事 員,務,triple_cards,Doki Doki1-1 female_voice newVersion
 1763216199350,1763216199350,公務員,公[こう]務[む]員[いん],こうむいん,こうむいん,kōmuin,urzędnik,1,1,1-1,1,員,公 務,triple_cards,Doki Doki1-1 female_voice newVersion
-1763216199355,1763216199355,英語,英[えい]語[ご],えいご,えいご,ēgo,j. angielski,1,1,1-1,1,語,英,triple_cards,Doki Doki1-1 female_voice newVersion
+1763216199355,1763216199355,英語,英[えい]語[ご],えいご,えいご,ēgo,j. angielski,1,1,1-1,1,英 語,,triple_cards,Doki Doki1-1 female_voice newVersion
 1763216199361,1763216199361,文学,文[ぶん]学[がく],ぶんがく,ぶんがく,bungaku,literatura,1,1,1-1,1,文 学,,triple_cards,Doki Doki1-1 male_voice newVersion
 1763216199363,1763216199363,国,国[くに],くに,くに,kuni,kraj,1,1,1-1,1,国,,triple_cards,Doki Doki1-1 female_voice newVersion
 1763216199366,1763216199366,韓国,韓[かん]国[こく],かんこく,かんこく,kankoku,Korea Południowa,1,1,1-1,1,国,韓,triple_cards,Doki Doki1-1 female_voice newVersion
@@ -211,6 +213,7 @@
 1763551593887,1763551593887,自転車,自[じ]転[てん]車[しゃ],じてんしゃ,じてんしゃ,jitensha,rower,1,2,1-2,2,自 車,転,triple_cards,Doki Doki1-2 female_voice newVersion
 1763551593890,1763551593890,辞書,辞[じ]書[しょ],じしょ,じしょ,jisho,słownik,1,2,1-2,2,書,辞,triple_cards,Doki Doki1-2 female_voice newVersion
 1763551593891,1763551593891,友達,友[とも]達[だち],ともだち,ともだち,tomodachi,przyjaciel,1,2,1-2,2,友,達,triple_cards,Doki Doki1-2 male_voice newVersion
+1763551593894,1763551593894,音楽,音[おん]楽[がく],おんがく,おんがく,ongaku,muzyka,1,2,1-2,2,音 楽,,triple_cards,Doki Doki1-2 female_voice newVersion
 1763551593895,1763551593895,買い物,買[か]い物[もの],かいもの,かいもの,kaimono,zakupy,1,2,1-2,2,買 物,,triple_cards,Doki Doki1-2 female_voice newVersion
 1763813137795,1763813137795,博物館,博[はく]物[ぶつ]館[かん],はくぶつかん,はくぶつかん,hakubutsukan,muzeum,1,2,1-2,2,物,博 館,triple_cards,Doki Doki1-2 male_voice newVersion
 1763813137796,1763813137796,空港,空[くう]港[こう],くうこう,くうこう,kūkō,lotnisko,1,2,1-2,2,空 港,,triple_cards,Doki Doki1-2 female_voice newVersion
@@ -233,12 +236,13 @@
 1765399966850,1765399966850,母,母[はは],はは,はは,haha,mama (o mojej mamie),1,2,1-2,2,母,,triple_cards,Doki Doki1-2 male_voice newVersion
 1765399966852,1765399966852,お風呂に入る,お風[ふ]呂[ろ]に入[はい]る,おふろにはいる,おふろにはいる,ofuro ni hairu,brać kąpiel,1,2,1-2,2,入,風 呂,triple_cards,Doki Doki1-2 female_voice newVersion
 1765399966856,1765399966856,家事,家[か]事[じ],かじ,かじ,kaji,"prace domowe, obowiązki domowe",1,2,1-2,2,家 事,,triple_cards,Doki Doki1-2 female_voice newVersion
+1765399966857,1765399966857,野菜を切る,野[や]菜[さい]を切[き]る,やさいをきる,やさいをきる,yasai o kiru,kroić warzywa,1,2,1-2,2,切,野 菜,triple_cards,Doki Doki1-2 male_voice newVersion
 1765399966859,1765399966859,昼ご飯を作る,昼[ひる]ご飯[はん]を作[つく]る,ひるごはんをつくる,ひるごはんをつくる,hirugohan o tsukuru,przygotowywać lunch,1,2,1-2,2,昼 飯 作,,triple_cards,Doki Doki1-2 male_voice newVersion
 1765617652767,1765617652767,会う,会[あ]う,あう,あう,au,spotkać się,1,2,1-2,2,会,,triple_cards,Doki Doki1-2 Doki1-3 female_voice newVersion
 1765622359652,1765622359652,数学,数[すう]学[がく],すうがく,すうがく,suugaku,matematyka,1,2,1-2,2,学,数,triple_cards,Doki Doki1-2 male_voice newVersion
 1765622359654,1765622359654,分かる,分[わ]かる,わかる,わかる,wakaru,rozumieć,1,2,1-2,2,分,,triple_cards,Doki Doki1-2 Doki1-3 male_voice newVersion
 1765795752553,1765795752553,これは1000円です,これは1000円[えん]です,これは1000えんです,これは1000えんです,Kore wa 1000 en desu,To kosztuje 1000 jenów.,1,1,1-1,1,円,,triple_cards,Doki Doki1-1 female_voice newVersion
-1766217656027,1766217656027,家族,家[か]族[ぞく],かぞく,かぞく,kazoku,rodzina,1,2,1-2,2,家,族,triple_cards,Doki Doki1-2 female_voice newVersion
+1766217656027,1766217656027,家族,家[か]族[ぞく],かぞく,かぞく,kazoku,rodzina,1,2,1-2,2,家 族,,triple_cards,Doki Doki1-2 female_voice newVersion
 1766217656029,1766217656029,場所,場[ば]所[しょ],ばしょ,ばしょ,basho,"miejsce, lokalizacja",1,2,1-2,2,所,場,triple_cards,Doki Doki1-2 male_voice newVersion
 1766222359249,1766222359249,土曜日,土[ど]曜[よう]日[び],どようび,どようび,doyoubi,sobota,1,2,1-2,2,土 曜 日,,triple_cards,Doki Doki1-2 Doki1-3 female_voice newVersion
 1766222359252,1766222359252,教科書,教[きょう]科[か]書[しょ],きょうかしょ,きょうかしょ,kyoukasho,"podręcznik, książka do nauki",1,2,1-2,2,書,教 科,triple_cards,Doki Doki1-2 female_voice leech newVersion
@@ -397,7 +401,9 @@
 1771670597697,1771670597697,川,川[かわ],かわ,かわ,kawa,rzeka,1,4,1-4,4,川,,triple_cards,Doki Doki1-4 female_voice newVersion
 1771670597700,1771670597700,時間,時[じ]間[かん],じかん,じかん,jikan,przez … godzin,1,4,1-4,4,時 間,,triple_cards,Doki Doki1-4 female_voice newVersion
 1771670597701,1771670597701,一人で,一人[ひとり]で,ひとりで,ひとりで,hitoride,"samemu, w pojedynkę",1,4,1-4,4,一 人,,triple_cards,Doki Doki1-4 female_voice newVersion
+1771671396266,1771671396266,乗る,乗[の]る,のる,のる,noru,"wsiadać, jechać czymś",1,4,1-4,4,乗,,triple_cards,Doki Doki1-4 male_voice newVersion
 1771673977831,1771673977831,手伝う,手[て]伝[つだ]う,てつだう,てつだう,tetsudau,pomagać,1,4,1-4,4,手,伝,triple_cards,Doki Doki1-4 female_voice newVersion
+1771673977834,1771673977834,急ぐ,急[いそ]ぐ,いそぐ,いそぐ,isogu,śpieszyć się,1,4,1-4,4,急,,triple_cards,Doki Doki1-4 female_voice leech newVersion
 1771673977835,1771673977835,入る,入[はい]る,はいる,はいる,hairu,wchodzić,1,4,1-4,4,入,,triple_cards,Doki Doki1-4 Doki1-6 female_voice newVersion
 1771673977836,1771673977836,持つ,持[も]つ,もつ,もつ,motsu,"trzymać, chwycić, nieść&nbsp;",1,4,1-4,4,持,,triple_cards,Doki Doki1-4 female_voice newVersion
 1771673977838,1771673977838,連れてくる,連[つ]れてくる,つれてくる,つれてくる,tsuretekuru,przyprowadzić (kogoś),1,4,1-4,4,連,,triple_cards,Doki Doki1-4 female_voice leech newVersion
@@ -406,6 +412,7 @@
 1771673977842,1771673977842,出かける,出[で]かける,でかける,でかける,dekakeru,wychodzić (w jakimś celu),1,4,1-4,4,出,,triple_cards,Doki Doki1-4 female_voice newVersion
 1771673977844,1771673977844,お土産,お土産[みやげ],おみやげ,おみやげ,omiyage,pamiątka z podróży,1,4,1-4,4,土,産,triple_cards,Doki Doki1-4 female_voice newVersion
 1771673977846,1771673977846,荷物,荷[に]物[もつ],にもつ,にもつ,nimotsu,bagaż,1,4,1-4,4,物,荷,triple_cards,Doki Doki1-4 female_voice newVersion
+1771673977847,1771673977847,切符,切[きっ]符[ぷ],きっぷ,きっぷ,kippu,bilet,1,4,1-4,4,切,符,triple_cards,Doki Doki1-4 female_voice newVersion
 1771674800648,1771674800648,一人,一人[ひとり],ひとり,ひとり,hitori,jedna osoba,1,4,1-4,4,一 人,,triple_cards,Doki Doki1-4 male_voice newVersion
 1771674800649,1771674800649,二人,二人[ふたり],ふたり,ふたり,futari,dwie osoby,1,4,1-4,4,二 人,,triple_cards,Doki Doki1-4 male_voice newVersion
 1771674800650,1771674800650,三人,三[さん]人[にん],さんにん,さんにん,sannin,trzy osoby,1,4,1-4,4,三 人,,triple_cards,Doki Doki1-4 male_voice newVersion
@@ -417,7 +424,7 @@
 1771674800656,1771674800656,九人,九[きゅう]人[にん],きゅうにん,きゅうにん,kyuunin,dziewięć osób,1,4,1-4,4,九 人,,triple_cards,Doki Doki1-4 male_voice newVersion
 1771674800657,1771674800657,十人,十[じゅう]人[にん],じゅうにん,じゅうにん,juunin,dziesięć osób,1,4,1-4,4,十 人,,triple_cards,Doki Doki1-4 male_voice newVersion
 1771674800658,1771674800658,何人,何[なん]人[にん],なんにん,なんにん,nannin,ile osób?,1,4,1-4,4,何 人,,triple_cards,Doki Doki1-4 male_voice newVersion
-1771675201467,1771675201467,乗り物,乗[の]り物[もの],のりもの,のりもの,norimono,środki transportu,1,4,1-4,4,物,乗,triple_cards,Doki Doki1-4 male_voice newVersion
+1771675201467,1771675201467,乗り物,乗[の]り物[もの],のりもの,のりもの,norimono,środki transportu,1,4,1-4,4,乗 物,,triple_cards,Doki Doki1-4 male_voice newVersion
 1771675201470,1771675201470,新幹線,新[しん]幹[かん]線[せん],しんかんせん,しんかんせん,shinkansen,shinkansen,1,4,1-4,4,新,幹 線,triple_cards,Doki Doki1-4 male_voice newVersion
 1771675201472,1771675201472,地下鉄,地[ち]下[か]鉄[てつ],ちかてつ,ちかてつ,chikatetsu,metro,1,4,1-4,4,下,地 鉄,triple_cards,Doki Doki1-4 male_voice newVersion
 1771675201475,1771675201475,路面電車,路[ろ]面[めん]電[でん]車[しゃ],ろめんでんしゃ,ろめんでんしゃ,romendensha,tramwaj,1,4,1-4,4,電 車,路 面,triple_cards,Doki Doki1-4 male_voice newVersion
@@ -425,7 +432,7 @@
 1771680240745,1771680240745,好き,好[す]き,すき,すき,suki,lubić / być lubianym,1,4,1-4,4,好,,triple_cards,Doki Doki1-4 female_voice newVersion
 1771871839082,1771871839082,天気,天[てん]気[き],てんき,てんき,tenki,pogoda,1,5,1-5,5,天 気,,triple_cards,Doki Doki1-5 female_voice newVersion
 1771871839083,1771871839083,葉書,葉書[はがき],はがき,はがき,hagaki,pocztówka,1,5,1-5,5,書,葉,triple_cards,Doki Doki1-5 female_voice leech newVersion
-1771871839087,1771871839087,切手,切[きっ]手[て],きって,きって,kitte,znaczek pocztowy,1,5,1-5,5,手,切,triple_cards,Doki Doki1-5 female_voice newVersion
+1771871839087,1771871839087,切手,切[きっ]手[て],きって,きって,kitte,znaczek pocztowy,1,5,1-5,5,切 手,,triple_cards,Doki Doki1-5 female_voice newVersion
 1771871839091,1771871839091,大丈夫,大[だい]丈[じょう]夫[ぶ],だいじょうぶ,だいじょうぶ,daijōbu,w porządku,1,5,1-5,5,大,丈 夫,triple_cards,Doki Doki1-5 female_voice newVersion
 1771871839095,1771871839095,人気がある,人[にん]気[き]がある,にんきがある,にんきがある,ninki ga aru,być popularnym,1,5,1-5,5,人 気,,triple_cards,Doki Doki1-5 female_voice newVersion
 1771871839101,1771871839101,水泳,水[すい]泳[えい],すいえい,すいえい,suiei,pływanie,1,5,1-5,5,水,泳,triple_cards,Doki Doki1-5 female_voice leech newVersion
@@ -434,14 +441,17 @@
 1771871839112,1771871839112,料理する,料[りょう]理[り]する,りょうりする,りょうりする,ryōri suru,gotować,1,5,1-5,5,料 理,,triple_cards,Doki Doki1-5 female_voice newVersion
 1771871839117,1771871839117,新しい,新[あたら]しい,あたらしい,あたらしい,atarashii,nowy,1,5,1-5,5,新,,triple_cards,Doki Doki1-5 male_voice newVersion
 1771871839124,1771871839124,面白い,面[おも]白[しろ]い,おもしろい,おもしろい,omoshiroi,"interesujący, ciekawy",1,5,1-5,5,白,面,triple_cards,Doki Doki1-5 male_voice newVersion
+1771871839125,1771871839125,楽しい,楽[たの]しい,たのしい,たのしい,tanoshii,wesoły,1,5,1-5,5,楽,,triple_cards,Doki Doki1-5 male_voice newVersion
 1771871839130,1771871839130,大好き,大[だい]好[す]き,だいすき,だいすき,daisuki,bardzo lubiany (bardzo lubić),1,5,1-5,5,大 好,,triple_cards,Doki Doki1-5 male_voice newVersion
 1771871839138,1771871839138,近い,近[ちか]い,ちかい,ちかい,chikai,"bliski, niedaleki",1,5,1-5,5,近,,triple_cards,Doki Doki1-5 male_voice newVersion
 1771871839139,1771871839139,大変,大[たい]変[へん],たいへん,たいへん,taihen,"trudny, ciężki (również psychicznie)",1,5,1-5,5,大,変,triple_cards,Doki Doki1-5 male_voice newVersion
+1771871839140,1771871839140,親切,親[しん]切[せつ],しんせつ,しんせつ,shinsetsu,"uprzejmy, miły",1,5,1-5,5,親 切,,triple_cards,Doki Doki1-5 male_voice newVersion
 1771871839143,1771871839143,上手,上手[じょうず],じょうず,じょうず,jōzu,dobry w czymś,1,4,1-4,4,上 手,,triple_cards,Doki Doki1-4 Doki1-5 male_voice newVersion
 1771871839144,1771871839144,下手,下手[へた],へた,へた,heta,słaby w czymś,1,1,1-1,1,下 手,,triple_cards,Doki Doki1-1 Doki1-4 Doki1-5 male_voice newVersion
 1771871839146,1771871839146,大嫌い,大[だい]嫌[きら]い,だいきらい,だいきらい,daikirai,bardzo znienawidzony (nienawidzić),1,5,1-5,5,大,嫌,triple_cards,Doki Doki1-5 male_voice newVersion
 1771871839147,1771871839147,長い,長[なが]い,ながい,ながい,nagai,długi,1,5,1-5,5,長,,triple_cards,Doki Doki1-5 male_voice newVersion
 1771871839150,1771871839150,苦手,苦[にが]手[て],にがて,にがて,nigate,"słaby w czymś (nie lubić, nie czuć się pewnie)",1,5,1-5,5,手,苦,triple_cards,Doki Doki1-5 male_voice newVersion
+1771871839151,1771871839151,楽,楽[らく],らく,らく,raku,"łatwy, prosty (Łatwy, bo nie wymaga wysiłku)",1,5,1-5,5,楽,,triple_cards,Doki Doki1-5 male_voice newVersion
 1771871839152,1771871839152,動物,動[どう]物[ぶつ],どうぶつ,どうぶつ,dōbutsu,zwierzę,1,5,1-5,5,物,動,triple_cards,Doki Doki1-5 male_voice newVersion
 1771873005488,1771873005488,お菓子,お菓子[かし],おかし,おかし,okashi,słodycze,1,6,1-6,6,子,菓,triple_cards,Doki Doki1-6 female_voice leech newVersion
 1771873005490,1771873005490,男の子,男[おとこ]の子[こ],おとこのこ,おとこのこ,otokonoko,chłopiec,1,5,1-5,5,男 子,,triple_cards,Doki Doki1-5 Doki1-6 female_voice newVersion
@@ -450,7 +460,7 @@
 1771873005496,1771873005496,口,口[くち],くち,くち,kuchi,usta,1,6,1-6,6,口,,triple_cards,Doki Doki1-6 female_voice newVersion
 1771873005499,1771873005499,金髪,金[きん]髪[ぱつ],きんぱつ,きんぱつ,kinpatsu,blond włosy,1,6,1-6,6,金,髪,triple_cards,Doki Doki1-6 female_voice newVersion
 1771873005503,1771873005503,用事,用[よう]事[じ],ようじ,ようじ,yōji,"sprawy do załatwienia, sprawunki",1,6,1-6,6,事,用,triple_cards,Doki Doki1-6 female_voice leech newVersion
-1771873005504,1771873005504,留学生,留[りゅう]学[がく]生[せい],りゅうがくせい,りゅうがくせい,ryūgakusei,student z wymiany,1,6,1-6,6,学 生,留,triple_cards,Doki Doki1-6 female_voice newVersion
+1771873005504,1771873005504,留学生,留[りゅう]学[がく]生[せい],りゅうがくせい,りゅうがくせい,ryūgakusei,student z wymiany,1,6,1-6,6,留 学 生,,triple_cards,Doki Doki1-6 female_voice newVersion
 1771873005510,1771873005510,次,次[つぎ],つぎ,つぎ,tsugi,następny,1,6,1-6,6,次,,triple_cards,Doki Doki1-6 female_voice leech newVersion
 1771873005511,1771873005511,将来,将[しょう]来[らい],しょうらい,しょうらい,shōrai,przyszłość,1,6,1-6,6,来,将,triple_cards,Doki Doki1-6 female_voice newVersion
 1771873005515,1771873005515,雪,雪[ゆき],ゆき,ゆき,yuki,śnieg,1,6,1-6,6,雪,,triple_cards,Doki Doki1-6 female_voice newVersion
@@ -491,6 +501,7 @@
 1772697911530,1772697911530,外国人,外[がい]国[こく]人[じん],がいこくじん,がいこくじん,gaikokujin,obcokrajowiec,1,4,1-4,4,外 国 人,,triple_cards,Doki Doki1-4 male_voice newVersion
 1772697911531,1772697911531,外,外[そと],そと,そと,soto,"zewnątrz, na zewnątrz",1,4,1-4,4,外,,triple_cards,Doki Doki1-4 male_voice newVersion
 1772874053322,1772874053322,外人,外[がい]人[じん],がいじん,がいじん,gaijin,obcokrajowiec (potocznie),1,4,1-4,4,外 人,,triple_cards,Doki Doki1-4 female_voice newVersion
+1773418499895,1773418499895,両親,両[りょう]親[しん],りょうしん,りょうしん,ryōshin,rodzice,1,4,1-4,4,親,両,triple_cards,Doki Doki1-4 female_voice newVersion
 1773418499897,1773418499897,お父さん,お父[とう]さん,おとうさん,おとうさん,otōsan,ojciec (czyjś/grzecznie),1,4,1-4,4,父,,triple_cards,Doki Doki1-4 female_voice newVersion
 1773418499898,1773418499898,お母さん,お母[かあ]さん,おかあさん,おかあさん,okāsan,matka (czyjś/grzecznie),1,4,1-4,4,母,,triple_cards,Doki Doki1-4 female_voice newVersion
 1773475378396,1773475378396,まっすぐ行く,まっすぐ行[い]く,まっすぐいく,まっすぐいく,massugu iku,iść prosto,1,4,1-4,4,行,,triple_cards,Doki Doki1-4 female_voice new
@@ -544,7 +555,7 @@
 1774703269731,1774703269731,行動する,行[こう]動[どう]する,こうどうする,こうどうする,koudou suru,"działać, postępować",1,5,1-5,5,行,動,triple_cards,Doki Doki1-5 leech trudne
 1774703269732,1774703269732,自由,自[じ]由[ゆう],じゆう,じゆう,jiyuu,"wolność, swoboda",1,5,1-5,5,自,由,triple_cards,Doki Doki1-5 leech trudne
 1774703269734,1774703269734,時間を守る,時[じ]間[かん]を守[まも]る,じかんをまもる,じかんをまもる,jikan o mamoru,"być punktualnym, dotrzymywać czasu",1,5,1-5,5,時 間,守,triple_cards,Doki Doki1-5
-1774703269735,1774703269735,大切,大[たい]切[せつ],たいせつ,たいせつ,taisetsu,"ważny (emocjonalnie, cenne)",1,5,1-5,5,大,切,triple_cards,Doki Doki1-5 leech
+1774703269735,1774703269735,大切,大[たい]切[せつ],たいせつ,たいせつ,taisetsu,"ważny (emocjonalnie, cenne)",1,5,1-5,5,大 切,,triple_cards,Doki Doki1-5 leech
 1774703269738,1774703269738,動物の名前,動[どう]物[ぶつ]の名[な]前[まえ],どうぶつのなまえ,どうぶつのなまえ,doubutsu no namae,nazwy zwierząt,1,5,1-5,5,物 名 前,動,triple_cards,Doki Doki1-5
 1775895062104,1775895062104,上手い,上手[うま]い,うまい,うまい,umai,"zręczny, dobry (w czymś)",1,5,1-5,5,上 手,,triple_cards,Doki Doki1-5 male_voice
 1775895062105,1775895062105,大人,大人[おとな],おとな,おとな,otona,dorosły,1,5,1-5,5,大 人,,triple_cards,Doki Doki1-5 male_voice
@@ -560,7 +571,7 @@
 1777110114855,1777110114855,白鳥,白[はく]鳥[ちょう],はくちょう,はくちょう,hakuchou,łabędź,1,5,1-5,5,白 鳥,,triple_cards,Doki Doki1-5 leech
 1777110114856,1777110114856,自然,自[し]然[ぜん],しぜん,しぜん,shizen,natura / przyroda,1,5,1-5,5,自,然,triple_cards,Doki Doki1-5 leech
 1777110114859,1777110114859,擬声語,擬[ぎ]声[せい]語[ご],ぎせいご,ぎせいご,giseigo,wyraz dźwiękonaśladowczy (głosy),1,5,1-5,5,語,擬 声,triple_cards,Doki Doki1-5 leech
-1777110114860,1777110114860,擬音語,擬[ぎ]音[おん]語[ご],ぎおんご,ぎおんご,giongo,wyraz dźwiękonaśladowczy (dźwięki),1,5,1-5,5,語,擬 音,triple_cards,Doki Doki1-5
+1777110114860,1777110114860,擬音語,擬[ぎ]音[おん]語[ご],ぎおんご,ぎおんご,giongo,wyraz dźwiękonaśladowczy (dźwięki),1,5,1-5,5,音 語,擬,triple_cards,Doki Doki1-5
 1777110114861,1777110114861,擬態語,擬[ぎ]態[たい]語[ご],ぎたいご,ぎたいご,gitaigo,wyraz mimetyczny,1,5,1-5,5,語,擬 態,triple_cards,Doki Doki1-5
 1777110114862,1777110114862,強大,強[きょう]大[だい],きょうだい,きょうだい,kyoudai,potężny / ogromny,1,5,1-5,5,強 大,,triple_cards,Doki Doki1-5
 1777110114863,1777110114863,空気,空[くう]気[き],くうき,くうき,kuuki,powietrze,1,5,1-5,5,空 気,,triple_cards,Doki Doki1-5
@@ -620,17 +631,19 @@
 1778924931351,1778924931351,試着する,試[し]着[ちゃく]する,しちゃくする,しちゃくする,shichaku suru,przymierzać (ubrania),1,6,1-6,6,着,試,triple_cards,Doki Doki1-6 leech
 1779523778974,1779523778974,臨床心理士,臨[りん]床[しょう]心[しん]理[り]士[し],りんしょうしんりし,りんしょうしんりし,rinshōshinrishi,psycholog kliniczny,1,6,1-6,6,心 理,臨 床 士,triple_cards,Doki Doki1-6 leech
 1779523778977,1779523778977,口に合う,口[くち]に合[あ]う,くちにあう,くちにあう,kuchi ni au,"smakować (komuś), trafiać w (czyjś) gust",1,6,1-6,6,口,合,triple_cards,Doki Doki1-6
+1779524063505,1779524063505,退職者,退[たい]職[しょく]者[しゃ],たいしょくしゃ,たいしょくしゃ,taishokusha,emeryt,1,6,1-6,6,者,退 職,triple_cards,Doki Doki1-6
 1780984776080,1780984776080,人生,人[じん]生[せい],じんせい,じんせい,jinsei,ludzkie życie,1,6,1-6,6,人 生,,triple_cards,Doki Doki1-6 leech
 1780984776083,1780984776083,卒業生,卒[そつ]業[ぎょう]生[せい],そつぎょうせい,そつぎょうせい,sotsugyōsei,absolwent,1,6,1-6,6,生,卒 業,triple_cards,Doki Doki1-6
 1780984776084,1780984776084,電話をかける,電話[でんわ]をかける,でんわをかける,でんわをかける,denwa o kakeru,dzwonić,1,6,1-6,6,電 話,,triple_cards,Doki Doki1-6
 1780984776100,1780984776100,心,心[こころ],こころ,こころ,kokoro,serce,1,6,1-6,6,心,,triple_cards,Doki Doki1-6
-1780984776106,1780984776106,本当に,本[ほん]当[とう]に,ほんとうに,ほんとうに,hontō ni,naprawdę,1,6,1-6,6,本,当,triple_cards,Doki Doki1-6
+1780984776106,1780984776106,本当に,本[ほん]当[とう]に,ほんとうに,ほんとうに,hontō ni,naprawdę,1,6,1-6,6,本 当,,triple_cards,Doki Doki1-6
 1780984776108,1780984776108,見える,見[み]える,みえる,みえる,mieru,wyglądać / być widocznym / widać,1,6,1-6,6,見,,triple_cards,Doki Doki1-6
 1780984776116,1780984776116,一日中,一日中[いちにちじゅう],いちにちじゅう,いちにちじゅう,ichinichijū,przez cały dzień,1,6,1-6,6,一 日 中,,triple_cards,Doki Doki1-6
 1781343185324,1781343185324,思い出,思[おも]い出[で],おもいで,おもいで,omoide,wspomnienie,1,6,1-6,6,思 出,,triple_cards,Doki Doki1-6
 1781343185326,1781343185326,食堂,食[しょく]堂[どう],しょくどう,しょくどう,shokudō,stołówka / jadalnia,1,6,1-6,6,食,堂,triple_cards,Doki Doki1-6
 1781343185327,1781343185327,居心地,居[い]心[ご]地[こち],いごこち,いごこち,igokochi,samopoczucie (w jakimś miejscu),1,6,1-6,6,心,居 地,triple_cards,Doki Doki1-6
 1781343185328,1781343185328,居心地がいい,居[い]心[ご]地[こち]がいい,いごこちがいい,いごこちがいい,igokochi ga ii,przytulny / dobrze się czuć,1,6,1-6,6,心,居 地,triple_cards,Doki Doki1-6
+1781519740960,1781519740960,お弁当,お弁[べん]当[とう],おべんとう,おべんとう,obentō,bento (japoński lunch),2,7,2-7,7,当,弁,triple_cards_new,Doki Doki2-7
 1781519740961,1781519740961,会議,会[かい]議[ぎ],かいぎ,かいぎ,kaigi,"spotkanie, zebranie, konferencja",2,7,2-7,7,会,議,triple_cards_new,Doki Doki2-7
 1781519740963,1781519740963,今朝,今[け]朝[さ],けさ,けさ,kesa,dziś rano,2,7,2-7,7,今 朝,,triple_cards_new,Doki Doki2-7
 1781519740966,1781519740966,税金,税[ぜい]金[きん],ぜいきん,ぜいきん,zeikin,podatek,2,7,2-7,7,金,税,triple_cards_new,Doki Doki2-7
@@ -641,9 +654,11 @@
 1781519740987,1781519740987,美容院,美[び]容[よう]院[いん],びよういん,びよういん,biyōin,"salon fryzjerski (damski), salon urody damskiej",2,7,2-7,7,院,美 容,triple_cards_new,Doki Doki2-7
 1781519740990,1781519740990,言う,言[い]う,いう,いう,iu,mówić (!= はなす),2,7,2-7,7,言,,triple_cards_new,Doki Doki2-7
 1781519740991,1781519740991,思う,思[おも]う,おもう,おもう,omou,myśleć,2,7,2-7,7,思,,triple_cards_new,Doki Doki2-7
+1781519740992,1781519740992,切る,切[き]る,きる,きる,kiru,"ciąć, kroić",2,7,2-7,7,切,,triple_cards_new,Doki Doki2-7
 1781519740994,1781519740994,持っていく,持[も]っていく,もっていく,もっていく,motteiku,zabrać ze sobą (rzecz),2,7,2-7,7,持,,triple_cards_new,Doki Doki2-7
 1781519741005,1781519741005,連絡する,連[れん]絡[らく]する,れんらくする,れんらくする,renrakusuru,kontaktować się,2,7,2-7,7,連,絡,triple_cards_new,Doki Doki2-7
 1781519741017,1781519741017,年とった,年[とし]とった,としとった,としとった,toshitotta,stary (o osobie),2,7,2-7,7,年,,triple_cards_new,Doki Doki2-7
+1781519741019,1781519741019,楽しみ,楽[たの]しみ,たのしみ,たのしみ,tanoshimi,"czekający z niecierpliwością, wyczekiwany",2,7,2-7,7,楽,,triple_cards_new,Doki Doki2-7
 1781519741021,1781519741021,意地悪,意[い]地[じ]悪[わる],いじわる,いじわる,ijiwaruna,"złośliwy, okrutny",2,7,2-7,7,悪,意 地,triple_cards_new,Doki Doki2-7
 1781519741024,1781519741024,紙,紙[かみ],かみ,かみ,kami,papier,2,7,2-7,7,紙,,triple_cards_new,Doki Doki2-7
 1781519741029,1781519741029,手帳,手[て]帳[ちょう],てちょう,てちょう,techō,"notes, kalendarzyk",2,7,2-7,7,手,帳,triple_cards_new,Doki Doki2-7
@@ -664,7 +679,7 @@
 1781545234720,1781545234720,見つける,見[み]つける,みつける,みつける,mitsukeru,znaleźć,2,8,2-8,8,見,,triple_cards_new,Doki Doki2-8
 1781545234724,1781545234724,咳が出る,咳[せき]が出[で]る,せきがでる,せきがでる,seki ga deru,kaszleć,2,8,2-8,8,出,咳,triple_cards_new,Doki Doki2-8
 1781545234729,1781545234729,充電する,充[じゅう]電[でん]する,じゅうでんする,じゅうでんする,jūden suru,ładować (baterie),2,8,2-8,8,電,充,triple_cards_new,Doki Doki2-8
-1781545234731,1781545234731,電池が切れる,電[でん]池[ち]が切[き]れる,でんちがきれる,でんちがきれる,denchi ga kireru,bateria się rozładowuje,2,8,2-8,8,電,池 切,triple_cards_new,Doki Doki2-8
+1781545234731,1781545234731,電池が切れる,電[でん]池[ち]が切[き]れる,でんちがきれる,でんちがきれる,denchi ga kireru,bateria się rozładowuje,2,8,2-8,8,電 切,池,triple_cards_new,Doki Doki2-8
 1781545234744,1781545234744,大事,大[だい]事[じ],だいじ,だいじ,daiji,ważny (obiektywnie),2,8,2-8,8,大 事,,triple_cards_new,Doki Doki2-8
 1781545234753,1781545234753,人参,人[にん]参[じん],にんじん,にんじん,ninjin,marchewka,2,8,2-8,8,人,参,triple_cards_new,Doki Doki2-8
 1781545234754,1781545234754,茄子,茄子[なす],なす,なす,nasu,bakłażan,2,8,2-8,8,子,茄,triple_cards_new,Doki Doki2-8
@@ -677,7 +692,8 @@
 1781597269811,1781597269811,歌手,歌[か]手[しゅ],かしゅ,かしゅ,kashu,piosenkarz,2,9,2-9,9,歌 手,,triple_cards_new,Doki Doki2-9
 1781597269816,1781597269816,歌舞伎,歌[か]舞[ぶ]伎[き],かぶき,かぶき,kabuki,teatr kabuki,2,9,2-9,9,歌,舞 伎,triple_cards_new,Doki Doki2-9
 1781597269825,1781597269825,言語,言[げん]語[ご],げんご,げんご,gengo,język,2,9,2-9,9,言 語,,triple_cards_new,Doki Doki2-9
-1781597269838,1781597269838,留学する,留[りゅう]学[がく]する,りゅうがくする,りゅうがくする,ryūgaku suru,być na wymianie zagranicznej,2,9,2-9,9,学,留,triple_cards_new,Doki Doki2-9
+1781597269838,1781597269838,留学する,留[りゅう]学[がく]する,りゅうがくする,りゅうがくする,ryūgaku suru,być na wymianie zagranicznej,2,9,2-9,9,留 学,,triple_cards_new,Doki Doki2-9
+1781597269840,1781597269840,楽しむ,楽[たの]しむ,たのしむ,たのしむ,tanoshimu,bawić się dobrze,2,9,2-9,9,楽,,triple_cards_new,Doki Doki2-9
 1781597269849,1781597269849,都合が悪い,都[つ]合[ごう]が悪[わる]い,つごうがわるい,つごうがわるい,tsugō ga warui,dosł. “warunki są złe” : Niepasujący (np. termin),2,9,2-9,9,悪,都 合,triple_cards_new,Doki Doki2-9
 1781597269854,1781597269854,自動販売機,自[じ]動[どう]販[はん]売[ばい]機[き],じどうはんばいき,じどうはんばいき,jidōhanbaiki,automat do sprzedaży,2,9,2-9,9,自 売,動 販 機,triple_cards_new,Doki Doki2-9
 1781597269855,1781597269855,商店街,商[しょう]店[てん]街[がい],しょうてんがい,しょうてんがい,shōtengai,pasaż handlowy,2,9,2-9,9,店,商 街,triple_cards_new,Doki Doki2-9
@@ -706,6 +722,8 @@
 1781607717734,1781607717734,外国語,外[がい]国[こく]語[ご],がいこくご,がいこくご,gaikokugo,język obcy,2,11,2-11,11,外 国 語,,triple_cards_new,Doki Doki2-11
 1781607717735,1781607717735,空手,空[から]手[て],からて,からて,karate,karate,2,11,2-11,11,空 手,,triple_cards_new,Doki Doki2-11
 1781607717737,1781607717737,着物,着[き]物[もの],きもの,きもの,kimono,kimono,2,11,2-11,11,着 物,,triple_cards_new,Doki Doki2-11
+1781607717745,1781607717745,楽器,楽[がっ]器[き],がっき,がっき,gakki,instrument muzyczny,2,11,2-11,11,楽,器,triple_cards_new,Doki Doki2-11
+1781607717747,1781607717747,発音,発[はつ]音[おん],はつおん,はつおん,hatsuon,wymowa,2,11,2-11,11,音,発,triple_cards_new,Doki Doki2-11
 1781607717748,1781607717748,物価,物[ぶっ]価[か],ぶっか,ぶっか,bukka,cena detaliczna,2,11,2-11,11,物,価,triple_cards_new,Doki Doki2-11
 1781607717757,1781607717757,私,私[わたくし],わたくし,わたくし,watakushi,ja (oficjalnie),2,11,2-11,11,私,,triple_cards_new,Doki Doki2-11
 1781607717760,1781607717760,景色,景[けい]色[しき],けしき,けしき,keshiki,widok,2,11,2-11,11,色,景,triple_cards_new,Doki Doki2-11
@@ -731,6 +749,7 @@
 1781610943061,1781610943061,給料,給[きゅう]料[りょう],きゅうりょう,きゅうりょう,kyūryō,pensja,2,12,2-12,12,料,給,triple_cards_new,Doki Doki2-12
 1781610943071,1781610943071,漫画,漫[まん]画[が],まんが,まんが,manga,manga,2,12,2-12,12,画,漫,triple_cards_new,Doki Doki2-12
 1781610943075,1781610943075,履歴書,履[り]歴[れき]書[しょ],りれきしょ,りれきしょ,rirekisho,CV,2,12,2-12,12,書,履 歴,triple_cards_new,Doki Doki2-12
+1781610943078,1781610943078,彼ら,彼[かれ]ら,かれら,かれら,karera,oni,2,12,2-12,12,彼,,triple_cards_new,Doki Doki2-12
 1781610943080,1781610943080,大家さん,大[おお]家[や]さん,おおやさん,おおやさん,ōyasan,właściciel (nieruchomości),2,12,2-12,12,大 家,,triple_cards_new,Doki Doki2-12
 1781610943082,1781610943082,文句を言う,文[もん]句[く]を言[い]う,もんくをいう,もんくをいう,monku o iu,narzekać / poskarżyć się,2,12,2-12,12,文 言,句,triple_cards_new,Doki Doki2-12
 1781610943088,1781610943088,運動会,運[うん]動[どう]会[かい],うんどうかい,うんどうかい,undōkai,"zawody sportowe, dzień sportu",2,12,2-12,12,会,運 動,triple_cards_new,Doki Doki2-12
@@ -808,6 +827,7 @@
 1781610943174,1781610943174,九本,九[きゅう]本[ほん],きゅうほん,きゅうほん,kyūhon,dziewięć długich rzeczy,2,12,2-12,12,九 本,,triple_cards_new,Doki Doki2-12
 1781610943175,1781610943175,十本,十[じゅっ]本[ぽん],じゅっぽん,じゅっぽん,juppon,dziesięć długich rzeczy,2,12,2-12,12,十 本,,triple_cards_new,Doki Doki2-12
 1781610943176,1781610943176,何本,何[なん]本[ぼん],なんぼん,なんぼん,nanbon,ile długich rzeczy,2,12,2-12,12,何 本,,triple_cards_new,Doki Doki2-12
+1781614251683,1781614251683,締め切り,締[し]め切[き]り,しめきり,しめきり,shimekiri,"ostateczny termin, deadline",2,13,2-13,13,切,締,triple_cards_new,Doki Doki2-13
 1781614251686,1781614251686,直行便,直[ちょっ]行[こう]便[びん],ちょっこうびん,ちょっこうびん,chokkōbin,bezpośrednie loty,2,13,2-13,13,行,直 便,triple_cards_new,Doki Doki2-13
 1781614251689,1781614251689,目覚まし時計,目[め]覚[ざ]まし時[ど]計[けい],めざましどけい,めざましどけい,mezamashidokei,budzik,2,13,2-13,13,時,目 覚 計,triple_cards_new,Doki Doki2-13
 1781614251690,1781614251690,食器,食[しょっ]器[き],しょっき,しょっき,shokki,zastawa stołowa,2,13,2-13,13,食,器,triple_cards_new,Doki Doki2-13
@@ -820,7 +840,9 @@
 1781614251709,1781614251709,熱心,熱[ねっ]心[しん],ねっしん,ねっしん,nesshin,entuzjastyczny,2,13,2-13,13,心,熱,triple_cards_new,Doki Doki2-13
 1781614251718,1781614251718,注文する,注[ちゅう]文[もん]する,ちゅうもんする,ちゅうもんする,chūmonsuru,zamówić,2,13,2-13,13,文,注,triple_cards_new,Doki Doki2-13
 1781614251720,1781614251720,起こす,起[お]こす,おこす,おこす,okosu,budzić kogoś,2,13,2-13,13,起,,triple_cards_new,Doki Doki2-13
+1781614251739,1781614251739,弁当箱,弁[べん]当[とう]箱[ばこ],べんとうばこ,べんとうばこ,bentōbako,pudełko bento,2,13,2-13,13,当,弁 箱,triple_cards_new,Doki Doki2-13
 1781614251740,1781614251740,紙コップ,紙[かみ]コップ,かみコップ,かみこっぷ,kamikoppu,papierowy kubek,2,13,2-13,13,紙,,triple_cards_new,Doki Doki2-13
+1781614251743,1781614251743,急須,急[きゅう]須[す],きゅうす,きゅうす,kyūsu,czajniczek do herbaty,2,13,2-13,13,急,須,triple_cards_new,Doki Doki2-13
 1781683050038,1781683050038,社会,社[しゃ]会[かい],しゃかい,しゃかい,shakai,społeczeństwo,2,7,2-7,7,社 会,,triple_cards_new,Doki Doki2-7 leech
 1781683050039,1781683050039,最高,最[さい]高[こう],さいこう,さいこう,saikō,najlepszy,2,7,2-7,7,高,最,triple_cards_new,Doki Doki2-7
 1781683050041,1781683050041,何語,何[なに]語[ご],なにご,なにご,nanigo,jaki język,2,7,2-7,7,何 語,,triple_cards_new,Doki Doki2-7
@@ -906,7 +928,7 @@
 1781695895127,1781695895127,天使,天[てん]使[し],てんし,てんし,tenshi,anioł,2,12,2-12,12,天 使,,triple_cards_new,Doki Doki2-12
 1781695895128,1781695895128,売店,売[ばい]店[てん],ばいてん,ばいてん,baiten,kiosk / sklepik,2,12,2-12,12,売 店,,triple_cards_new,Doki Doki2-12
 1781695895129,1781695895129,労働,労[ろう]働[どう],ろうどう,ろうどう,rōdō,praca / praca fizyczna,2,12,2-12,12,働,労,triple_cards_new,Doki Doki2-12
-1781695895130,1781695895130,労働者,労[ろう]働[どう]者[しゃ],ろうどうしゃ,ろうどうしゃ,rōdōsha,robotnik / pracownik,2,12,2-12,12,働,労 者,triple_cards_new,Doki Doki2-12
+1781695895130,1781695895130,労働者,労[ろう]働[どう]者[しゃ],ろうどうしゃ,ろうどうしゃ,rōdōsha,robotnik / pracownik,2,12,2-12,12,働 者,労,triple_cards_new,Doki Doki2-12
 1781695895131,1781695895131,連休,連[れん]休[きゅう],れんきゅう,れんきゅう,renkyū,ciąg dni wolnych (długi weekend),2,12,2-12,12,連 休,,triple_cards_new,Doki Doki2-12
 1781695895132,1781695895132,連絡,連[れん]絡[らく],れんらく,れんらく,renraku,kontakt / komunikacja,2,12,2-12,12,連,絡,triple_cards_new,Doki Doki2-12
 1781695895133,1781695895133,連れる,連[つ]れる,つれる,つれる,tsureru,zabrać (ze sobą osobę lub zwierzę),2,12,2-12,12,連,,triple_cards_new,Doki Doki2-12
@@ -941,7 +963,7 @@
 1781696679996,1781696679996,海外,海[かい]外[がい],かいがい,かいがい,kaigai,zagranica / za granicą,2,13,2-13,13,海 外,,triple_cards_new,Doki Doki2-13
 1781696679997,1781696679997,特徴,特[とく]徴[ちょう],とくちょう,とくちょう,tokuchō,cecha charakterystyczna,2,13,2-13,13,特,徴,triple_cards_new,Doki Doki2-13
 1781696679998,1781696679998,特に,特[とく]に,とくに,とくに,tokuni,szczególnie / w szczególności,2,13,2-13,13,特,,triple_cards_new,Doki Doki2-13
-1781696679999,1781696679999,特急電車,特[とっ]急[きゅう]電[でん]車[しゃ],とっきゅうでんしゃ,とっきゅうでんしゃ,tokkyūdensha,pociąg ekspresowy,2,13,2-13,13,特 電 車,急,triple_cards_new,Doki Doki2-13
+1781696679999,1781696679999,特急電車,特[とっ]急[きゅう]電[でん]車[しゃ],とっきゅうでんしゃ,とっきゅうでんしゃ,tokkyūdensha,pociąg ekspresowy,2,13,2-13,13,特 急 電 車,,triple_cards_new,Doki Doki2-13
 1781696680000,1781696680000,不安,不[ふ]安[あん],ふあん,ふあん,fuan,niepokój / obawa,2,13,2-13,13,安,不,triple_cards_new,Doki Doki2-13
 1781696680003,1781696680003,悪魔,悪[あく]魔[ま],あくま,あくま,akuma,diabeł / demon,2,13,2-13,13,悪,魔,triple_cards_new,Doki Doki2-13
 1781696680004,1781696680004,最悪,最[さい]悪[あく],さいあく,さいあく,saiaku,najgorszy / okropny,2,13,2-13,13,悪,最,triple_cards_new,Doki Doki2-13
@@ -968,7 +990,7 @@
 1782830964961,1782830964961,日の入り,日[ひ]の入[い]り,ひのいり,ひのいり,hinoiri,zachód słońca,1,4,1-4,4,日 入,,triple_cards_new,Doki Doki1-4
 1782830964962,1782830964962,平日,平[へい]日[じつ],へいじつ,へいじつ,heijitsu,dzień powszedni,1,4,1-4,4,日,平,triple_cards_new,Doki Doki1-4
 1782830964963,1782830964963,絵本,絵[え]本[ほん],えほん,えほん,ehon,książka z obrazkami,1,4,1-4,4,本,絵,triple_cards_new,Doki Doki1-4
-1782830964964,1782830964964,本当,本[ほん]当[とう],ほんとう,ほんとう,hontō,prawda,1,4,1-4,4,本,当,triple_cards_new,Doki Doki1-4
+1782830964964,1782830964964,本当,本[ほん]当[とう],ほんとう,ほんとう,hontō,prawda,1,4,1-4,4,本 当,,triple_cards_new,Doki Doki1-4
 1782830964965,1782830964965,巨人,巨[きょ]人[じん],きょじん,きょじん,kyojin,gigant / olbrzym,1,4,1-4,4,人,巨,triple_cards_new,Doki Doki1-4
 1782830964966,1782830964966,愛人,愛[あい]人[じん],あいじん,あいじん,aijin,kochanek / kochanka,1,4,1-4,4,人,愛,triple_cards_new,Doki Doki1-4
 1782830964967,1782830964967,隣人,隣[りん]人[じん],りんじん,りんじん,rinjin,sąsiad,1,4,1-4,4,人,隣,triple_cards_new,Doki Doki1-4
@@ -1032,9 +1054,9 @@
 1782847789824,1782847789824,入社,入[にゅう]社[しゃ],にゅうしゃ,にゅうしゃ,nyuusha,podjęcie pracy w firmie,2,7,2-7,7,入 社,,triple_cards_new,Doki Doki2-7
 1782847789825,1782847789825,高さ,高[たか]さ,たかさ,たかさ,takasa,wysokość,2,7,2-7,7,高,,triple_cards_new,Doki Doki2-7
 1782847789826,1782847789826,高める,高[たか]める,たかめる,たかめる,takameru,podnosić / potęgować,2,7,2-7,7,高,,triple_cards_new,Doki Doki2-7
-1782847789827,1782847789827,父親,父[ちち]親[おや],ちちおや,ちちおや,chichioya,ojciec,2,7,2-7,7,父,親,triple_cards_new,Doki Doki2-7
+1782847789827,1782847789827,父親,父[ちち]親[おや],ちちおや,ちちおや,chichioya,ojciec,2,7,2-7,7,父 親,,triple_cards_new,Doki Doki2-7
 1782847789828,1782847789828,神父,神[しん]父[ぷ],しんぷ,しんぷ,shinpu,ksiądz katolicki,2,7,2-7,7,神 父,,triple_cards_new,Doki Doki2-7
-1782847789829,1782847789829,母親,母[はは]親[おや],ははおや,ははおや,hahaoya,matka,2,7,2-7,7,母,親,triple_cards_new,Doki Doki2-7
+1782847789829,1782847789829,母親,母[はは]親[おや],ははおや,ははおや,hahaoya,matka,2,7,2-7,7,母 親,,triple_cards_new,Doki Doki2-7
 1782847789830,1782847789830,母国,母[ぼ]国[こく],ぼこく,ぼこく,bokoku,ojczyzna / kraj ojczysty,2,7,2-7,7,母 国,,triple_cards_new,Doki Doki2-7
 1782847789831,1782847789831,一人っ子,一人[ひとり]っ子[こ],ひとりっこ,ひとりっこ,hitorikko,jedynak,2,7,2-7,7,一 人 子,,triple_cards_new,Doki Doki2-7
 1782847789832,1782847789832,子猫,子[こ]猫[ねこ],こねこ,こねこ,koneko,kociątko / mały kot,2,7,2-7,7,子,猫,triple_cards_new,Doki Doki2-7
@@ -1068,7 +1090,7 @@
 1783671317849,1783671317849,夏休み,夏[なつ]休[やす]み,なつやすみ,なつやすみ,natsuyasumi,letnie wakacje,2,8,2-8,8,休,夏,triple_cards_new,Doki Doki2-8
 1783671317850,1783671317850,一言,一[ひと]言[こと],ひとこと,ひとこと,hitokoto,"jedno słowo, krótka wypowiedź",2,8,2-8,8,一 言,,triple_cards_new,Doki Doki2-8
 1783671317851,1783671317851,読み物,読[よ]み物[もの],よみもの,よみもの,yomimono,"materiały do czytania, lektura",2,8,2-8,8,読 物,,triple_cards_new,Doki Doki2-8
-1783671317852,1783671317852,読者,読[どく]者[しゃ],どくしゃ,どくしゃ,dokusha,czytelnik,2,8,2-8,8,読,者,triple_cards_new,Doki Doki2-8
+1783671317852,1783671317852,読者,読[どく]者[しゃ],どくしゃ,どくしゃ,dokusha,czytelnik,2,8,2-8,8,読 者,,triple_cards_new,Doki Doki2-8
 1783671317853,1783671317853,思い出す,思[おも]い出[だ]す,おもいだす,おもいだす,omoidasu,przypomnieć sobie,2,8,2-8,8,思 出,,triple_cards_new,Doki Doki2-8
 1783671317854,1783671317854,思いつく,思[おも]いつく,おもいつく,おもいつく,omoitsuku,"wpaść na pomysł, wymyślić",2,8,2-8,8,思,,triple_cards_new,Doki Doki2-8
 1783671317855,1783671317855,実家,実[じっ]家[か],じっか,じっか,jikka,dom rodzinny,2,8,2-8,8,家,実,triple_cards_new,Doki Doki2-8
@@ -1117,7 +1139,7 @@
 1785744816833,1785744816833,吹雪,吹雪[ふぶき],ふぶき,ふぶき,fubuki,zamieć śnieżna,2,9,2-9,9,雪,吹,triple_cards_new,Doki Doki2-9
 1785744816834,1785744816834,初雪,初[はつ]雪[ゆき],はつゆき,はつゆき,hatsuyuki,pierwszy śnieg (w roku),2,9,2-9,9,雪,初,triple_cards_new,Doki Doki2-9
 1785744816835,1785744816835,雪国,雪[ゆき]国[ぐに],ゆきぐに,ゆきぐに,yukiguni,"śnieżny kraj (rejon o dużych opadach), śnieżna kraina",2,9,2-9,9,雪 国,,triple_cards_new,Doki Doki2-9
-1785744816836,1785744816836,親友,親[しん]友[ゆう],しんゆう,しんゆう,shinyuu,bliski przyjaciel,2,9,2-9,9,友,親,triple_cards_new,Doki Doki2-9
+1785744816836,1785744816836,親友,親[しん]友[ゆう],しんゆう,しんゆう,shinyuu,bliski przyjaciel,2,9,2-9,9,親 友,,triple_cards_new,Doki Doki2-9
 1785744816837,1785744816837,少々,少[しょう]々[しょう],しょうしょう,しょうしょう,shoushou,"trochę, chwileczkę",2,9,2-9,9,少,,triple_cards_new,Doki Doki2-9
 1785744816838,1785744816838,多数決,多[た]数[すう]決[けつ],たすうけつ,たすうけつ,tasuuketsu,decyzja większości,2,9,2-9,9,多,数 決,triple_cards_new,Doki Doki2-9
 1785744816839,1785744816839,多分,多[た]分[ぶん],たぶん,たぶん,tabun,"prawdopodobnie, chyba (dość pewne)",1,5,1-5,5,多 分,,triple_cards_new,Doki Doki1-5 Doki2-9
@@ -1137,7 +1159,7 @@
 1788508209239,1788508209239,正式,正[せい]式[しき],せいしき,せいしき,seishiki,"oficjalny, formalny",2,10,2-10,10,正,式,triple_cards_new,Doki Doki2-10
 1788508209240,1788508209240,学年,学[がく]年[ねん],がくねん,がくねん,gakunen,rok szkolny,2,10,2-10,10,学 年,,triple_cards_new,Doki Doki2-10
 1788508209241,1788508209241,年寄,年[とし]寄[より],としより,としより,toshiyori,osoba starsza,2,10,2-10,10,年,寄,triple_cards_new,Doki Doki2-10
-1788508209242,1788508209242,売り切れ,売[う]り切[き]れ,うりきれ,うりきれ,urikire,"wyprzedane, brak towaru",2,10,2-10,10,売,切,triple_cards_new,Doki Doki2-10
+1788508209242,1788508209242,売り切れ,売[う]り切[き]れ,うりきれ,うりきれ,urikire,"wyprzedane, brak towaru",2,10,2-10,10,売 切,,triple_cards_new,Doki Doki2-10
 1788508209243,1788508209243,安売り,安[やす]売[う]り,やすうり,やすうり,yasuuri,"wyprzedaż, tania sprzedaż",2,10,2-10,10,安 売,,triple_cards_new,Doki Doki2-10
 1788508209244,1788508209244,買い手,買[か]い手[て],かいて,かいて,kaite,"kupiec, nabywca",2,10,2-10,10,買 手,,triple_cards_new,Doki Doki2-10
 1788508209245,1788508209245,下町,下[した]町[まち],したまち,したまち,shitamachi,"stare miasto, tradycyjna dzielnica",2,10,2-10,10,下 町,,triple_cards_new,Doki Doki2-10
@@ -1163,6 +1185,7 @@
 1788600873437,1788600873437,気温,気[き]温[おん],きおん,きおん,kion,temperatura powietrza,2,10,2-10,10,気,温,triple_cards_new,Doki Doki2-10
 1788716790685,1788716790685,女優,女[じょ]優[ゆう],じょゆう,じょゆう,joyuu,aktorka,2,10,2-10,10,女,優,triple_cards_new,Doki Doki2-10
 1789206097154,1789206097154,最後,最[さい]後[ご],さいご,さいご,saigo,"koniec, ostatni",2,9,2-9,9,後,最,triple_cards_new,Doki Doki2-9
+1789206097158,1789206097158,獣医,獣[じゅう]医[い],じゅうい,じゅうい,jūi,weterynarz,2,9,2-9,9,医,獣,triple_cards_new,Doki Doki2-9
 1789813541904,1789813541904,住宅街,住[じゅう]宅[たく]街[がい],じゅうたくがい,じゅうたくがい,jūtakugai,"dzielnica mieszkaniowa, osiedle mieszkaniowe",2,10,2-10,10,住,宅 街,triple_cards_new,Doki Doki2-10
 1789813541905,1789813541905,部長,部[ぶ]長[ちょう],ぶちょう,ぶちょう,buchō,"kierownik działu, szef działu",2,10,2-10,10,長,部,triple_cards_new,Doki Doki2-10
 1789813541907,1789813541907,海外旅行,海[かい]外[がい]旅[りょ]行[こう],かいがいりょこう,かいがいりょこう,kaigai ryokō,podróż zagraniczna,2,10,2-10,10,海 外 旅 行,,triple_cards_new,Doki Doki2-10
@@ -1191,3 +1214,25 @@
 1791198221253,1791198221253,有料,有[ゆう]料[りょう],ゆうりょう,ゆうりょう,yūryō,"płatny, za opłatą",2,11,2-11,11,有 料,,triple_cards_new,Doki Doki2-11
 1791198221254,1791198221254,旅人,旅[たび]人[びと],たびびと,たびびと,tabibito,"podróżnik, wędrowiec",2,11,2-11,11,旅 人,,triple_cards_new,Doki Doki2-11
 1791198221255,1791198221255,旅先,旅[たび]先[さき],たびさき,たびさき,tabisaki,miejsce pobytu podczas podróży,2,11,2-11,11,旅 先,,triple_cards_new,Doki Doki2-11
+1791199258534,1791199258534,職員,職[しょく]員[いん],しょくいん,しょくいん,shokuin,"personel, pracownik instytucji",3,14,3-14,14,員,職,triple_cards_new,Doki Doki3-14
+1791199258537,1791199258537,奨学金,奨[しょう]学[がく]金[きん],しょうがくきん,しょうがくきん,shōgakukin,stypendium,3,14,3-14,14,学 金,奨,triple_cards_new,Doki Doki3-14
+1791199258539,1791199258539,親戚,親[しん]戚[せき],しんせき,しんせき,shinseki,"krewni, krewny",3,14,3-14,14,親,戚,triple_cards_new,Doki Doki3-14
+1791199258541,1791199258541,この間,この間[あいだ],このあいだ,このあいだ,kono aida,"ostatnio, niedawno",3,14,3-14,14,間,,triple_cards_new,Doki Doki3-14
+1791199258543,1791199258543,大統領,大[だい]統[とう]領[りょう],だいとうりょう,だいとうりょう,daitōryō,prezydent,3,14,3-14,14,大,統 領,triple_cards_new,Doki Doki3-14
+1791199258544,1791199258544,自分で,自[じ]分[ぶん]で,じぶんで,じぶんで,jibun de,"samodzielnie, samemu",3,14,3-14,14,自 分,,triple_cards_new,Doki Doki3-14
+1791199258545,1791199258545,生地,生[き]地[じ],きじ,きじ,kiji,"ciasto, masa, tkanina",3,14,3-14,14,生,地,triple_cards_new,Doki Doki3-14
+1791199258566,1791199258566,朝寝坊する,朝[あさ]寝[ね]坊[ぼう]する,あさねぼうする,あさねぼうする,asanebō suru,zaspać,3,14,3-14,14,朝,寝 坊,triple_cards_new,Doki Doki3-14
+1791199258573,1791199258573,道に迷う,道[みち]に迷[まよ]う,みちにまよう,みちにまよう,michi ni mayou,"zgubić się, zabłądzić",3,14,3-14,14,道,迷,triple_cards_new,Doki Doki3-14
+1791199258574,1791199258574,連れて行く,連[つ]れて行[い]く,つれていく,つれていく,tsurete iku,"zabrać kogoś ze sobą, zaprowadzić",3,14,3-14,14,連 行,,triple_cards_new,Doki Doki3-14
+1791199258575,1791199258575,連れて来る,連[つ]れて来[く]る,つれてくる,つれてくる,tsurete kuru,"przyprowadzić, przywieźć kogoś",3,14,3-14,14,連 来,,triple_cards_new,Doki Doki3-14
+1791199258576,1791199258576,連れて帰る,連[つ]れて帰[かえ]る,つれてかえる,つれてかえる,tsurete kaeru,"zabrać kogoś do domu, odprowadzić",3,14,3-14,14,連 帰,,triple_cards_new,Doki Doki3-14
+1791199258577,1791199258577,迎えに来る,迎[むか]えに来[く]る,むかえにくる,むかえにくる,mukae ni kuru,przyjechać lub przyjść po kogoś,3,14,3-14,14,来,迎,triple_cards_new,Doki Doki3-14
+1791199258578,1791199258578,迎えに行く,迎[むか]えに行[い]く,むかえにいく,むかえにいく,mukae ni iku,"iść lub jechać po kogoś, odebrać kogoś",3,14,3-14,14,行,迎,triple_cards_new,Doki Doki3-14
+1791199258579,1791199258579,乗り遅れる,乗[の]り遅[おく]れる,のりおくれる,のりおくれる,noriokureru,"spóźnić się na transport, nie zdążyć wsiąść",3,14,3-14,14,乗,遅,triple_cards_new,Doki Doki3-14
+1791199258591,1791199258591,一晩中,一[ひと]晩[ばん]中[じゅう],ひとばんじゅう,ひとばんじゅう,hitobanjū,całą noc,3,14,3-14,14,一 中,晩,triple_cards_new,Doki Doki3-14
+1791199258592,1791199258592,日中,日[にっ]中[ちゅう],にっちゅう,にっちゅう,nicchū,"w trakcie dnia, za dnia",3,14,3-14,14,日 中,,triple_cards_new,Doki Doki3-14
+1791199258593,1791199258593,今日中に,今日[きょう]中[じゅう]に,きょうじゅうに,きょうじゅうに,kyōjū ni,"do końca dnia, jeszcze dzisiaj",3,14,3-14,14,今 日 中,,triple_cards_new,Doki Doki3-14
+1791199258594,1791199258594,授業中に,授[じゅ]業[ぎょう]中[ちゅう]に,じゅぎょうちゅうに,じゅぎょうちゅうに,jugyōchū ni,w trakcie zajęć,3,14,3-14,14,中,授 業,triple_cards_new,Doki Doki3-14
+1791199258595,1791199258595,食材,食[しょく]材[ざい],しょくざい,しょくざい,shokuzai,składniki spożywcze,3,14,3-14,14,食,材,triple_cards_new,Doki Doki3-14
+1791199258598,1791199258598,鶏肉,鶏[とり]肉[にく],とりにく,とりにく,toriniku,"mięso z kurczaka, drób",3,14,3-14,14,肉,鶏,triple_cards_new,Doki Doki3-14
+1791199258607,1791199258607,出汁,出汁[だし],だし,だし,dashi,"bulion, wywar dashi",3,14,3-14,14,出,汁,triple_cards_new,Doki Doki3-14

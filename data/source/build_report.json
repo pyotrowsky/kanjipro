@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": 8,
+    "version": 9,
     "name": "WSJJ Kanji.pro database",
     "source": "Anki exports in imports/",
     "kanji_count": 272,
@@ -19,7 +19,8 @@
       "vocabulary_filter": "keep only entries containing at least one course kanji",
       "furigana": "source ruby is tokenized; frontend dynamically decides visibility based on selected kanji or lesson",
       "answer_normalization": "katakana -> hiragana; spaces and okurigana markers are ignored",
-      "parenthetical_annotations": "removed from canonical vocabulary surface"
+      "parenthetical_annotations": "removed from canonical vocabulary surface",
+      "pattern_markers": "edge ～/~ markers are preserved for display but excluded from canonical surface and validation"
     }
   },
   "validation_issue_count": 0,

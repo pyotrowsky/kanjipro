@@ -47,3 +47,23 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
   font-family: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", "Noto Serif CJK JP", serif;
   font-weight: 400;
 }
+
+
+/* v11: end-of-session mistake review */
+.mistakes-summary{margin:18px 0;border:1px solid var(--line);border-radius:14px;text-align:left;overflow:hidden;background:color-mix(in srgb,var(--soft) 45%,var(--card))}
+.mistakes-summary>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;list-style:none;padding:12px 14px;font-weight:800;user-select:none}
+.mistakes-summary>summary::-webkit-details-marker{display:none}
+.mistakes-summary>summary::after{content:"＋";color:var(--muted);font-weight:700}
+.mistakes-summary[open]>summary::after{content:"−"}
+.mistakes-count{margin-left:auto;min-width:28px;text-align:center;border:1px solid var(--line);border-radius:999px;padding:2px 8px;font-size:12px;color:var(--muted)}
+.mistakes-list{display:grid;gap:8px;padding:0 10px 10px}
+.mistake-item{border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:var(--card)}
+.mistake-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.mistake-prompt{font-size:24px;font-family:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","Noto Serif CJK JP",serif;font-weight:400}
+.mistake-type{font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--muted)}
+.mistake-answer{margin-top:5px;font-size:14px}
+.mistake-answer b{color:var(--good)}
+.mistake-yours{margin-top:3px;font-size:12px;color:var(--bad)}
+.mistake-meaning{margin-top:3px;font-size:12px;color:var(--muted)}
+.mistake-prompt ruby{ruby-position:over}
+.mistake-prompt rt{font-size:.42em;color:var(--muted)}

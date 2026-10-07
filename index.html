@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
 <link rel="stylesheet" href="./css/styles.css"></head><body><main class="shell">
-<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><span class="badge" data-i18n="app.badge">v12 · PWA</span></div>
+<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">v13 · PWA</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <section id="setup" class="panel stack">
   <div>
     <div class="group-head"><div class="section-title" style="margin:0" data-i18n="setup.chapters_title">Rozdziały</div><div class="actions"><button type="button" id="lessonAll" class="mini-btn" data-i18n="common.all">Wszystkie</button><button type="button" id="lessonNone" class="mini-btn" data-i18n="common.none">Żadne</button></div></div>
@@ -59,6 +59,25 @@
 <section id="quiz" class="panel hidden"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div id="progress" class="counter"></div></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><button id="submit" class="primary" data-i18n="quiz.check">Sprawdź</button></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span data-i18n="quiz.correct_stat">poprawne</span></div><div class="stat"><b id="wrong">0</b><span data-i18n="quiz.wrong_stat">błędy</span></div><div class="stat"><b id="left">0</b><span data-i18n="quiz.left_stat">w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost" data-i18n="quiz.back">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px" data-i18n-html="quiz.enter_hint_html">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
 <section id="finished" class="panel finish hidden"><div class="quiz-type" data-i18n="finish.title">SESJA ZAKOŃCZONA</div><div id="finalScore" class="big">100%</div><p id="finalText"></p><details id="mistakesDetails" class="mistakes-summary hidden"><summary><span data-i18n="finish.mistakes_title">Błędne pytania</span><span id="mistakesCount" class="mistakes-count">0</span></summary><div id="mistakesList" class="mistakes-list"></div></details><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button id="again" class="primary" data-i18n="finish.again">Jeszcze raz</button><button id="settings" class="ghost" data-i18n="finish.settings">Ustawienia</button></div></section>
 </main>
+
+<dialog id="settingsDialog" class="settings-dialog">
+  <div class="settings-sheet">
+    <div class="settings-head">
+      <div>
+        <div class="settings-title" data-i18n="settings.title">Ustawienia</div>
+        <div class="lesson-note" data-i18n="settings.font_note">Wybierz wygląd kanji i słówek. Ustawienie zapisuje się na tym urządzeniu.</div>
+      </div>
+      <button id="closeSettingsX" class="icon-btn" type="button" aria-label="Zamknij">×</button>
+    </div>
+    <div class="settings-section-title" data-i18n="settings.font_title">Czcionka japońska</div>
+    <div id="fontOptions" class="font-options"></div>
+    <div class="font-preview-box">
+      <div class="small" data-i18n="settings.preview_label">Podgląd</div>
+      <div id="fontPreview" class="font-preview" data-i18n="settings.preview_text">漢字 日本語 手作り 読書</div>
+    </div>
+    <button id="closeSettings" class="primary" type="button" data-i18n="settings.close">Gotowe</button>
+  </div>
+</dialog>
 
 <script type="module" src="./js/app.js"></script>
 </body></html>

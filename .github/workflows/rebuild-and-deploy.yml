@@ -57,6 +57,7 @@ jobs:
           cp index.html manifest.webmanifest sw.js _site/
           cp -R css js icons _site/
           cp data/kanji_quiz_database.json _site/data/
+          cp data/ui.pl.json _site/data/
           touch _site/.nojekyll
 
       - name: Configure GitHub Pages

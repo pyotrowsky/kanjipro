@@ -3,13 +3,13 @@
     "version": 8,
     "name": "WSJJ Kanji.pro database",
     "source": "Anki exports in imports/",
-    "kanji_count": 166,
-    "vocabulary_entries": 1192,
-    "source_vocabulary_notes": 1191,
-    "vocabulary_source_total": 2277,
-    "vocabulary_excluded_no_tracked_kanji": 1087,
+    "kanji_count": 181,
+    "vocabulary_entries": 1237,
+    "source_vocabulary_notes": 1236,
+    "vocabulary_source_total": 2335,
+    "vocabulary_excluded_no_tracked_kanji": 1100,
     "slash_combined_notes_split": 2,
-    "quiz_lessons": 11,
+    "quiz_lessons": 12,
     "cleaned_vocabulary_records": 52,
     "ambiguous_surface_multiple_readings": 14,
     "source_max_modified": 1791285608,
@@ -29,7 +29,7 @@
       "lesson": "1-1",
       "lesson_order": 1,
       "kanji_count": 0,
-      "vocabulary_source_count": 157
+      "vocabulary_source_count": 159
     },
     {
       "book": 1,
@@ -37,7 +37,7 @@
       "lesson": "1-2",
       "lesson_order": 2,
       "kanji_count": 0,
-      "vocabulary_source_count": 88
+      "vocabulary_source_count": 90
     },
     {
       "book": 1,
@@ -53,7 +53,7 @@
       "lesson": "1-4",
       "lesson_order": 4,
       "kanji_count": 15,
-      "vocabulary_source_count": 97
+      "vocabulary_source_count": 101
     },
     {
       "book": 1,
@@ -61,7 +61,7 @@
       "lesson": "1-5",
       "lesson_order": 5,
       "kanji_count": 15,
-      "vocabulary_source_count": 97
+      "vocabulary_source_count": 100
     },
     {
       "book": 1,
@@ -69,7 +69,7 @@
       "lesson": "1-6",
       "lesson_order": 6,
       "kanji_count": 15,
-      "vocabulary_source_count": 114
+      "vocabulary_source_count": 115
     },
     {
       "book": 2,
@@ -77,7 +77,7 @@
       "lesson": "2-7",
       "lesson_order": 7,
       "kanji_count": 15,
-      "vocabulary_source_count": 64
+      "vocabulary_source_count": 67
     },
     {
       "book": 2,
@@ -93,7 +93,7 @@
       "lesson": "2-9",
       "lesson_order": 9,
       "kanji_count": 15,
-      "vocabulary_source_count": 72
+      "vocabulary_source_count": 74
     },
     {
       "book": 2,
@@ -109,7 +109,7 @@
       "lesson": "2-11",
       "lesson_order": 11,
       "kanji_count": 15,
-      "vocabulary_source_count": 56
+      "vocabulary_source_count": 58
     },
     {
       "book": 2,
@@ -117,7 +117,7 @@
       "lesson": "2-12",
       "lesson_order": 12,
       "kanji_count": 15,
-      "vocabulary_source_count": 115
+      "vocabulary_source_count": 116
     },
     {
       "book": 2,
@@ -125,7 +125,15 @@
       "lesson": "2-13",
       "lesson_order": 13,
       "kanji_count": 15,
-      "vocabulary_source_count": 40
+      "vocabulary_source_count": 43
+    },
+    {
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kanji_count": 15,
+      "vocabulary_source_count": 22
     }
   ],
   "kanji": [
@@ -6698,6 +6706,582 @@
       "audio_kunyomi": "[sound:hypertts-3dc29287f07c5fac60f1cffbaf509bb0f3e080d25ea241d276bfb741.mp3]",
       "source_tags": "Doki Doki2-13 Kanji",
       "last_modified": 1791284181
+    },
+    {
+      "note_id": "1791220455568",
+      "character": "親",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "おや",
+        "した.しい"
+      ],
+      "kunyomi_raw": "おや, した.しい",
+      "onyomi": [
+        "シン"
+      ],
+      "onyomi_raw": "シン",
+      "kunyomi_display": [
+        "おや",
+        "した.しい"
+      ],
+      "kunyomi_accepted": [
+        "おや",
+        "したしい"
+      ],
+      "onyomi_display": [
+        "シン"
+      ],
+      "onyomi_accepted": [
+        "しん"
+      ],
+      "polish": "rodzic, bliskość",
+      "notes": "親友・両親 używają odczytu シン, a 親 i 親しい odczytów おや i した.しい.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">親[しん] 友[ゆう]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">najlepszy przyjaciel</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">新[しん] 年[ねん]は 親[しん] 友[ゆう]とパーティーをします。</div><div class=\"\"sent-pl\"\">W Nowy Rok urządzę imprezę z najlepszym przyjacielem.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">両[りょう] 親[しん]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">rodzice</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">両[りょう] 親[しん]といっしょに 住[す]んでいます。</div><div class=\"\"sent-pl\"\">Mieszkam razem z rodzicami.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">親[おや]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">rodzic</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">親[おや]になったら 子[こ]どもに 勉[べん] 強[きょう]してほしい。</div><div class=\"\"sent-pl\"\">Kiedy zostanę rodzicem, chcę, żeby moje dziecko się uczyło.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">親[した]しい</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">bliski</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">高[こう] 校[こう]で 親[した]しい 友[とも]だちがたくさんできた。</div><div class=\"\"sent-pl\"\">W liceum zdobyłem wielu bliskich przyjaciół.</div></div></div>\"",
+      "example_jp": "親友、 新年は親友とパーティーをします。 両親、 両親といっしょに住んでいます。 親、 親になったら子どもに勉強してほしい。 親しい、 高校で親しい友だちがたくさんできた。",
+      "diagram": "\"<img src=\"\"089aa.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_親_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-4ec14c2d95ee758b4b5f689671a0c92f620cd91e2457e4f50e7d69ee.mp3]",
+      "audio_onyomi": "[sound:hypertts-3652c1b96d559a99ad5abe357d326b99229aaef760ad9b9b2035b748.mp3]",
+      "audio_kunyomi": "[sound:hypertts-01e0d6afb6d8577c21bdebf21e24944f5e81e1c9e4adfaa3707e80d8.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275252
+    },
+    {
+      "note_id": "1791220455569",
+      "character": "切",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "き.る",
+        "きっ"
+      ],
+      "kunyomi_raw": "き.る, きっ",
+      "onyomi": [
+        "セツ"
+      ],
+      "onyomi_raw": "セツ",
+      "kunyomi_display": [
+        "き.る",
+        "きっ"
+      ],
+      "kunyomi_accepted": [
+        "きっ",
+        "きる"
+      ],
+      "onyomi_display": [
+        "セツ"
+      ],
+      "onyomi_accepted": [
+        "せつ"
+      ],
+      "polish": "ciąć",
+      "notes": "W 切手 czytanie ma postać きって, z małym っ.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">親[しん] 切[せつ]な</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">uprzejmy, miły</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">親[しん] 切[せつ]な 人[ひと]に 道[みち]を 聞[き]きました。</div><div class=\"\"sent-pl\"\">Zapytałem miłą osobę o drogę.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">大[たい] 切[せつ]な</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">ważny</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">ピョートルは 私[わたし]の 大[たい] 切[せつ]な 友[とも]だちです。</div><div class=\"\"sent-pl\"\">Piotr jest bardzo ważnym dla mnie przyjacielem.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">切[き]る</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">ciąć</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">髪[かみ]の 毛[け]を 切[き]りました。</div><div class=\"\"sent-pl\"\">Obciąłem włosy.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">切[きっ] 手[て]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">znaczek</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">私[わたし]のお 兄[にい]さんは 世[せ] 界[かい]の 切[きっ] 手[て]を 集[あつ]めています。</div><div class=\"\"sent-pl\"\">Mój starszy brat zbiera znaczki z całego świata.</div></div></div>\"",
+      "example_jp": "親切な、 親切な人に道を聞きました。 大切な、 ピョートルは私の大切な友だちです。 切る、 髪の毛を切りました。 切手、 私のお兄さんは世界の切手を集めています。",
+      "diagram": "\"<img src=\"\"05207.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_切_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-7376aa4da158c62151bf4fb0fd79010c9e10f57abd10b9c531c0a5ce.mp3]",
+      "audio_onyomi": "[sound:hypertts-857bca0a58344efc3b4790f4db31bb315ab5e9fff636d022096232c8.mp3]",
+      "audio_kunyomi": "[sound:hypertts-acdbb668db93560ebcd20d0851e7d24d01dae17e2ebcc525dbd9ad85.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275772
+    },
+    {
+      "note_id": "1791220455570",
+      "character": "医",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [],
+      "kunyomi_raw": "",
+      "onyomi": [
+        "イ"
+      ],
+      "onyomi_raw": "イ",
+      "kunyomi_display": [],
+      "kunyomi_accepted": [],
+      "onyomi_display": [
+        "イ"
+      ],
+      "onyomi_accepted": [
+        "い"
+      ],
+      "polish": "medycyna",
+      "notes": "W materiale znak pojawia się w złożeniach 医者, 歯医者 i 医学.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">医[い] 者[しゃ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">lekarz</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">この 病[びょう] 院[いん]には 有[ゆう] 名[めい]な 医[い] 者[しゃ]がいます。</div><div class=\"\"sent-pl\"\">W tym szpitalu jest znany lekarz.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">歯[は] 医[い] 者[しゃ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">dentysta</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">私[わたし]は 毎[まい] 年[とし]、 夏[なつ]に 歯[は] 医[い] 者[しゃ]に 行[い]きます。</div><div class=\"\"sent-pl\"\">Co roku latem chodzę do dentysty.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">医[い] 学[がく]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">medycyna</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">大[だい] 学[がく]で 医[い] 学[がく]を 学[まな]んでいます。</div><div class=\"\"sent-pl\"\">Studiuję medycynę na uniwersytecie.</div></div></div>\"",
+      "example_jp": "医者、 この病院には有名な医者がいます。 歯医者、 私は毎年、夏に歯医者に行きます。 医学、 大学で医学を学んでいます。",
+      "diagram": "\"<img src=\"\"0533b.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_医_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-fbf64cb3e082cd9db4832dc0a3b11b694aadeb217dd7eaca3c784f4a.mp3]",
+      "audio_onyomi": "[sound:hypertts-9b41c4960f507c23f882f12908cdd2fcad6b13694c0f76201906f746.mp3]",
+      "audio_kunyomi": "",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275791
+    },
+    {
+      "note_id": "1791220455571",
+      "character": "者",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "もの"
+      ],
+      "kunyomi_raw": "もの",
+      "onyomi": [
+        "シャ"
+      ],
+      "onyomi_raw": "シャ",
+      "kunyomi_display": [
+        "もの"
+      ],
+      "kunyomi_accepted": [
+        "もの"
+      ],
+      "onyomi_display": [
+        "シャ"
+      ],
+      "onyomi_accepted": [
+        "しゃ"
+      ],
+      "polish": "osoba",
+      "notes": "シャ występuje w 学者 i 読者, a もの w 若者.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">学[がく] 者[しゃ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">naukowiec, uczony</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">この 大[だい] 学[がく]には 社[しゃ] 会[かい] 学[がく] 者[しゃ]がたくさんいます。</div><div class=\"\"sent-pl\"\">Na tym uniwersytecie jest wielu socjologów.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">読[どく] 者[しゃ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">czytelnik</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">読[どく] 者[しゃ]の 意[い] 見[けん]を 聞[き]いてみたい。</div><div class=\"\"sent-pl\"\">Chciałbym poznać opinię czytelników.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">若[わか] 者[もの]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">młody człowiek</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">インスタグラムは 若[わか] 者[もの]に 人[にん] 気[き]だ。</div><div class=\"\"sent-pl\"\">Instagram jest popularny wśród młodych ludzi.</div></div></div>\"",
+      "example_jp": "学者、 この大学には社会学者がたくさんいます。 読者、 読者の意見を聞いてみたい。 若者、 インスタグラムは若者に人気だ。",
+      "diagram": "\"<img src=\"\"08005.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_者_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-60068179f046831ae93d993eedb3586a0332c07996703d0269ce1ee9.mp3]",
+      "audio_onyomi": "[sound:hypertts-cbd254f4a4dd2732449c2bf4429d67137b1f2c68b08e446845482132.mp3]",
+      "audio_kunyomi": "[sound:hypertts-324d873e3e21760f834d7fb6bded381bcc593644eb1b4b9bb212c86a.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275808
+    },
+    {
+      "note_id": "1791220455572",
+      "character": "音",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "おと",
+        "ね"
+      ],
+      "kunyomi_raw": "おと, ね",
+      "onyomi": [
+        "オン"
+      ],
+      "onyomi_raw": "オン",
+      "kunyomi_display": [
+        "おと",
+        "ね"
+      ],
+      "kunyomi_accepted": [
+        "おと",
+        "ね"
+      ],
+      "onyomi_display": [
+        "オン"
+      ],
+      "onyomi_accepted": [
+        "おん"
+      ],
+      "polish": "dźwięk",
+      "notes": "オン występuje w 発音 i 軽音部, おと oznacza dźwięk, a ね pojawia się w 本音.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">発[はつ] 音[おん]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">wymowa</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">ポーランド 語[ご]の 発[はつ] 音[おん]は 難[むずか]しいですか？</div><div class=\"\"sent-pl\"\">Czy wymowa języka polskiego jest trudna?</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">軽[けい] 音[おん] 部[ぶ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">klub muzyczny</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">私[わたし]は 高[こう] 校[こう]で 軽[けい] 音[おん] 部[ぶ]に 入[はい]っていました。</div><div class=\"\"sent-pl\"\">W liceum należałem do klubu muzycznego.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">音[おと]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">dźwięk</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">この 音[おと]は 私[わたし]の 電[でん] 話[わ]です。</div><div class=\"\"sent-pl\"\">Ten dźwięk to mój telefon.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">本[ほん] 音[ね]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">prawdziwe intencje</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">日[に] 本[ほん] 人[じん]はあまり 本[ほん] 音[ね]を 言[い]いません。</div><div class=\"\"sent-pl\"\">Japończycy rzadko mówią otwarcie o swoich prawdziwych intencjach.</div></div></div>\"",
+      "example_jp": "発音、 ポーランド語の発音は難しいですか？ 軽音部、 私は高校で軽音部に入っていました。 音、 この音は私の電話です。 本音、 日本人はあまり本音を言いません。",
+      "diagram": "\"<img src=\"\"097f3.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_音_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-0c89306c483c20c7e875f93a1777c02bd24cb96b87bfb22b3e453d0c.mp3]",
+      "audio_onyomi": "[sound:hypertts-d1a4743daa56c7b70716d44ad241f7db2c01796e2ef2440d64abfa65.mp3]",
+      "audio_kunyomi": "[sound:hypertts-af32f0ae7c6e2469ef9d387d53230bd6f2ec5a020feb24c5aab221cb.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275822
+    },
+    {
+      "note_id": "1791220455573",
+      "character": "楽",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "たの.しい"
+      ],
+      "kunyomi_raw": "たの.しい",
+      "onyomi": [
+        "ガク",
+        "ラク"
+      ],
+      "onyomi_raw": "ガク, ラク",
+      "kunyomi_display": [
+        "たの.しい"
+      ],
+      "kunyomi_accepted": [
+        "たのしい"
+      ],
+      "onyomi_display": [
+        "ガク",
+        "ラク"
+      ],
+      "onyomi_accepted": [
+        "がく",
+        "らく"
+      ],
+      "polish": "przyjemność",
+      "notes": "ガク występuje w 音楽, w 楽器 przyjmuje wymowę がっ, ラク w 楽, a たの.しい w 楽しい.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">音[おん] 楽[がく]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">muzyka</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">私[わたし]の 好[す]きな 音[おん] 楽[がく]はJ-POPです。</div><div class=\"\"sent-pl\"\">Moją ulubioną muzyką jest J-POP.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">楽[がっ] 器[き]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">instrument</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">日[に] 本[ほん]の 楽[がっ] 器[き]、 和[わ] 太[だい] 鼓[こ]を 知[し]っていますか？</div><div class=\"\"sent-pl\"\">Czy znasz japoński instrument wadaiko?</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">楽[らく]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">łatwe, przyjemne</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">ファーストクラスは 楽[らく]です。</div><div class=\"\"sent-pl\"\">Pierwsza klasa jest wygodna.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">楽[たの]しい</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">zabawny, przyjemny</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">今日[きょう]のクラスでゲームをして 楽[たの]しかった。</div><div class=\"\"sent-pl\"\">Na dzisiejszych zajęciach graliśmy w grę i było fajnie.</div></div></div>\"",
+      "example_jp": "音楽、 私の好きな音楽はJ-POPです。 楽器、 日本の楽器、和太鼓を知っていますか？ 楽、 ファーストクラスは楽です。 楽しい、 今日のクラスでゲームをして楽しかった。",
+      "diagram": "\"<img src=\"\"0697d.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_楽_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-c9f209f7cd6d81774f5bbaba493e54ebbff5b05279060450fa9a325a.mp3]",
+      "audio_onyomi": "[sound:hypertts-b980eec5641b07e5d2f20cea6b65c59b5189097d79bb786802938d59.mp3]",
+      "audio_kunyomi": "[sound:hypertts-1e872109d7ed95f094e7bb02caf4030619e3770cb162b8986d0e8026.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275841
+    },
+    {
+      "note_id": "1791220455574",
+      "character": "彼",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "かれ",
+        "かの"
+      ],
+      "kunyomi_raw": "かれ, かの",
+      "onyomi": [],
+      "onyomi_raw": "",
+      "kunyomi_display": [
+        "かれ",
+        "かの"
+      ],
+      "kunyomi_accepted": [
+        "かの",
+        "かれ"
+      ],
+      "onyomi_display": [],
+      "onyomi_accepted": [],
+      "polish": "on, chłopak",
+      "notes": "彼 czyta się かれ, w 彼氏 również かれ, a w 彼女 znak ma odczyt かの.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">彼[かれ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">on</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">彼[かれ]は 私[わたし]のクラスメートです。</div><div class=\"\"sent-pl\"\">On jest moim kolegą z klasy.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">彼[かれ] 氏[し]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">chłopak, partner</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">彼[かれ] 氏[し]と 昔[むかし]から 付[つ]き 合[あ]っています。</div><div class=\"\"sent-pl\"\">Spotykam się z chłopakiem od dawna.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">彼[かの] 女[じょ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">dziewczyna, ona</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">彼[かの] 女[じょ]の 名[な] 前[まえ]を 覚[おぼ]えていますか？</div><div class=\"\"sent-pl\"\">Czy pamiętasz imię swojej dziewczyny?</div></div></div>\"",
+      "example_jp": "彼、 彼は私のクラスメートです。 彼氏、 彼氏と昔から付き合っています。 彼女、 彼女の名前を覚えていますか？",
+      "diagram": "\"<img src=\"\"05f7c.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_彼_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-d0b6933b4ccdfb23446254ed4dd19a988c7763e1b23c2fae96a631ad.mp3]",
+      "audio_onyomi": "",
+      "audio_kunyomi": "[sound:hypertts-5f6ba64db77ca6649c8278a38174134badac7e6a05d85311ee02ee65.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275854
+    },
+    {
+      "note_id": "1791220455575",
+      "character": "代",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "か.わり"
+      ],
+      "kunyomi_raw": "か.わり",
+      "onyomi": [
+        "ダイ"
+      ],
+      "onyomi_raw": "ダイ",
+      "kunyomi_display": [
+        "か.わり"
+      ],
+      "kunyomi_accepted": [
+        "かわり"
+      ],
+      "onyomi_display": [
+        "ダイ"
+      ],
+      "onyomi_accepted": [
+        "だい"
+      ],
+      "polish": "wiek, zmiana, opłata",
+      "notes": "ダイ występuje w 時代, 電気代 i 十代, natomiast 代わりに znaczy „zamiast / w zastępstwie”.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">時[じ] 代[だい]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">era, okres</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">江[え] 戸[ど] 時[じ] 代[だい]に 興[きょう] 味[み]を 持[も]っています。</div><div class=\"\"sent-pl\"\">Interesuję się epoką Edo.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">電[でん] 気[き] 代[だい]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">opłata za prąd</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">今[こん] 月[げつ]の 電[でん] 気[き] 代[だい]は 高[たか]かった。</div><div class=\"\"sent-pl\"\">Rachunek za prąd w tym miesiącu był wysoki.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">十[じゅう] 代[だい]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">nastoletnie lata</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">十[じゅう] 代[だい]には 本[ほん]を 読[よ]んだ 方[ほう]がいい。</div><div class=\"\"sent-pl\"\">W wieku nastoletnim lepiej czytać książki.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">代[か]わり（に）</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">w zamian, zamiast</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">田[た] 中[なか] 先[せん] 生[せい]の 代[か]わりに 授[じゅ] 業[ぎょう]します。</div><div class=\"\"sent-pl\"\">Poprowadzę zajęcia zamiast nauczyciela Tanaki.</div></div></div>\"",
+      "example_jp": "時代、 江戸時代に興味を持っています。 電気代、 今月の電気代は高かった。 十代、 十代には本を読んだ方がいい。 代わり（に）、 田中先生の代わりに授業します。",
+      "diagram": "\"<img src=\"\"04ee3.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_代_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-594d55cc726d6f353f65fcb7fdc14fd5233fa643b6492b83179fba33.mp3]",
+      "audio_onyomi": "[sound:hypertts-aded89a3f5fe681384a6062411cf57a8815ba41ccd4977239f39f7e7.mp3]",
+      "audio_kunyomi": "[sound:hypertts-73a33501284ec006e0c8f63686c9f854465c9171b6d7749143ebf681.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275870
+    },
+    {
+      "note_id": "1791220455576",
+      "character": "英",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [],
+      "kunyomi_raw": "",
+      "onyomi": [
+        "エイ"
+      ],
+      "onyomi_raw": "エイ",
+      "kunyomi_display": [],
+      "kunyomi_accepted": [],
+      "onyomi_display": [
+        "エイ"
+      ],
+      "onyomi_accepted": [
+        "えい"
+      ],
+      "polish": "angielski, wspaniały",
+      "notes": "We wszystkich przykładach znak ma odczyt エイ: 英語, 英国, 英雄.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">英[えい] 語[ご]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">angielski</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">小[しょう] 学[がっ] 校[こう]で 英[えい] 語[ご]を 勉[べん] 強[きょう]しました。</div><div class=\"\"sent-pl\"\">Uczyłem się angielskiego w szkole podstawowej.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">英[えい] 国[こく]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">Wielka Brytania</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">英[えい] 国[こく]はEUでした。</div><div class=\"\"sent-pl\"\">Wielka Brytania była w UE.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">英[えい] 雄[ゆう]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">bohater</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">ピウスツキは 英[えい] 雄[ゆう]です。</div><div class=\"\"sent-pl\"\">Piłsudski jest bohaterem.</div></div></div>\"",
+      "example_jp": "英語、 小学校で英語を勉強しました。 英国、 英国はEUでした。 英雄、 ピウスツキは英雄です。",
+      "diagram": "\"<img src=\"\"082f1.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_英_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-d5c923eefb47976bbd8cf8e2f9f6ffa914c00f79bdebe6a31b3d45cd.mp3]",
+      "audio_onyomi": "[sound:hypertts-300545031427adc142b3a5d04d3b91af616a98aa86b63437c658ab2f.mp3]",
+      "audio_kunyomi": "",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275883
+    },
+    {
+      "note_id": "1791220455577",
+      "character": "去",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "さ.る"
+      ],
+      "kunyomi_raw": "さ.る",
+      "onyomi": [
+        "キョ",
+        "コ"
+      ],
+      "onyomi_raw": "キョ, コ",
+      "kunyomi_display": [
+        "さ.る"
+      ],
+      "kunyomi_accepted": [
+        "さる"
+      ],
+      "onyomi_display": [
+        "キョ",
+        "コ"
+      ],
+      "onyomi_accepted": [
+        "きょ",
+        "こ"
+      ],
+      "polish": "przeszłość, odejść",
+      "notes": "キョ występuje w 去年 i 消去, コ w 過去, a さ.る w czasowniku 去る.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">去[きょ] 年[ねん]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">zeszły rok</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">去[きょ] 年[ねん] 漢[かん] 字[じ]を１４０ 字[じ] 覚[おぼ]えました。</div><div class=\"\"sent-pl\"\">W zeszłym roku nauczyłem się 140 znaków kanji.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">消[しょう] 去[きょ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">wykasować</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">昔[むかし]のメールを 消[しょう] 去[きょ]しました。</div><div class=\"\"sent-pl\"\">Usunąłem stare maile.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">過[か] 去[こ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">przeszłość</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">過[か] 去[こ]と 未[み] 来[らい]について 考[かんが]える。</div><div class=\"\"sent-pl\"\">Myślę o przeszłości i przyszłości.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">去[さ]る</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">odejść, porzucić, przeminąć</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">彼[かれ]は 私[わたし]の 家[いえ]から 去[さ]って 行[い]きました。</div><div class=\"\"sent-pl\"\">On odszedł z mojego domu.</div></div></div>\"",
+      "example_jp": "去年、 去年漢字を１４０字覚えました。 消去、 昔のメールを消去しました。 過去、 過去と未来について考える。 去る、 彼は私の家から去って行きました。",
+      "diagram": "\"<img src=\"\"053bb.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_去_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-e7c911bfb830615482ac1c5afd725ff4be8057c6fccc96227d03013f.mp3]",
+      "audio_onyomi": "[sound:hypertts-12e6a702ffc6c86708907f55d5184f7425c62ea7b2ffb1bb3ed801b8.mp3]",
+      "audio_kunyomi": "[sound:hypertts-ec05758250a62f7605884f5b567f6a13e78c41e95f1045296d5186f2.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275897
+    },
+    {
+      "note_id": "1791220455578",
+      "character": "留",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [],
+      "kunyomi_raw": "",
+      "onyomi": [
+        "リュウ",
+        "ル"
+      ],
+      "onyomi_raw": "リュウ, ル",
+      "kunyomi_display": [],
+      "kunyomi_accepted": [],
+      "onyomi_display": [
+        "リュウ",
+        "ル"
+      ],
+      "onyomi_accepted": [
+        "りゅう",
+        "る"
+      ],
+      "polish": "pozostać",
+      "notes": "リュウ występuje w 留学 i 留年, natomiast ル w 留守.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">留[りゅう] 学[がく]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">zagraniczny wyjazd studencki</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">日[に] 本[ほん]に 留[りゅう] 学[がく]したいと 思[おも]っています。</div><div class=\"\"sent-pl\"\">Chcę wyjechać na studia do Japonii.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">留[りゅう] 年[ねん]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">powtarzanie roku</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">勉[べん] 強[きょう]しないと 留[りゅう] 年[ねん]してしまいます。</div><div class=\"\"sent-pl\"\">Jeśli nie będę się uczyć, będę musiał powtarzać rok.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">留[る] 守[す]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">przebywać poza domem</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">今[いま] 留[る] 守[す]だから、 電[でん] 話[わ]してください。</div><div class=\"\"sent-pl\"\">Nie ma mnie teraz w domu, więc proszę zadzwonić.</div></div></div>\"",
+      "example_jp": "留学、 日本に留学したいと思っています。 留年、 勉強しないと留年してしまいます。 留守、 今留守だから、電話してください。",
+      "diagram": "\"<img src=\"\"07559.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_留_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-e0373910a2f3f1b727018b03502a58654fd19fa90dca8dc3ef17b2e1.mp3]",
+      "audio_onyomi": "[sound:hypertts-9f6b7a93a08cc20feffdbbd5167446648ffac8e0311cda576453ba23.mp3]",
+      "audio_kunyomi": "",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275911
+    },
+    {
+      "note_id": "1791220455579",
+      "character": "族",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [],
+      "kunyomi_raw": "",
+      "onyomi": [
+        "ゾク"
+      ],
+      "onyomi_raw": "ゾク",
+      "kunyomi_display": [],
+      "kunyomi_accepted": [],
+      "onyomi_display": [
+        "ゾク"
+      ],
+      "onyomi_accepted": [
+        "ぞく"
+      ],
+      "polish": "rodzina, plemię",
+      "notes": "ゾク występuje w złożeniach 家族, 水族館 i 民族.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">家[か] 族[ぞく]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">rodzina</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">あなたの 家[か] 族[ぞく]は 何[なん] 人[にん]ですか？</div><div class=\"\"sent-pl\"\">Ile osób liczy twoja rodzina?</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">水[すい] 族[ぞく] 館[かん]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">oceanarium</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">海[うみ]の 近[ちか]くに 水[すい] 族[ぞく] 館[かん]がある。</div><div class=\"\"sent-pl\"\">W pobliżu morza jest oceanarium.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">民[みん] 族[ぞく]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">grupa etniczna</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">ポーランド 人[じん]はスラブ 民[みん] 族[ぞく]です。</div><div class=\"\"sent-pl\"\">Polacy należą do słowiańskiej grupy etnicznej.</div></div></div>\"",
+      "example_jp": "家族、 あなたの家族は何人ですか？ 水族館、 海の近くに水族館がある。 民族、 ポーランド人はスラブ民族です。",
+      "diagram": "\"<img src=\"\"065cf.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_族_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-fbd31c375dcc2eeb3f6cc4e99ef223263c8ab69809f805febc6e7821.mp3]",
+      "audio_onyomi": "[sound:hypertts-f1836a9f632f4e9fe16a9e14b54fc16b0109fbf75f65f8a92f447d6f.mp3]",
+      "audio_kunyomi": "",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275925
+    },
+    {
+      "note_id": "1791220455580",
+      "character": "急",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "いそ.ぐ"
+      ],
+      "kunyomi_raw": "いそ.ぐ",
+      "onyomi": [
+        "キュウ"
+      ],
+      "onyomi_raw": "キュウ",
+      "kunyomi_display": [
+        "いそ.ぐ"
+      ],
+      "kunyomi_accepted": [
+        "いそぐ"
+      ],
+      "onyomi_display": [
+        "キュウ"
+      ],
+      "onyomi_accepted": [
+        "きゅう"
+      ],
+      "polish": "śpieszyć się",
+      "notes": "キュウ występuje w 特急 i 急に, a いそ.ぐ w czasowniku 急ぐ.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">特[とっ] 急[きゅう]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">ekspres</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">特[とっ] 急[きゅう] 電[でん] 車[しゃ]ははやいです。</div><div class=\"\"sent-pl\"\">Pociąg ekspresowy jest szybki.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">急[きゅう]に</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">nagle</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">１１ 月[がつ]に 急[きゅう]に 寒[さむ]くなりました。</div><div class=\"\"sent-pl\"\">W listopadzie nagle zrobiło się zimno.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">急[いそ]ぐ</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">śpieszyć się</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">朝[あさ] 寝[ね] 坊[ぼう]したから 急[いそ]いで 行[い]きます。</div><div class=\"\"sent-pl\"\">Zaspałem, więc się spieszę.</div></div></div>\"",
+      "example_jp": "特急、 特急電車ははやいです。 急に、 １１月に急に寒くなりました。 急ぐ、 朝寝坊したから急いで行きます。",
+      "diagram": "\"<img src=\"\"06025.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_急_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-7fdd1448da580ef1d50be685755805db3f17adc69a05efb8bfb469fa.mp3]",
+      "audio_onyomi": "[sound:hypertts-b2da3b1e00e786588be90c8b702d55e47585ec5c76be8dd04a001b1c.mp3]",
+      "audio_kunyomi": "[sound:hypertts-9925b5a6f58cebdbf315cc50617deab7e524d8eea32b3f56db42a499.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275956
+    },
+    {
+      "note_id": "1791220455581",
+      "character": "乗",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "の.る"
+      ],
+      "kunyomi_raw": "の.る",
+      "onyomi": [
+        "ジョウ"
+      ],
+      "onyomi_raw": "ジョウ",
+      "kunyomi_display": [
+        "の.る"
+      ],
+      "kunyomi_accepted": [
+        "のる"
+      ],
+      "onyomi_display": [
+        "ジョウ"
+      ],
+      "onyomi_accepted": [
+        "じょう"
+      ],
+      "polish": "wsiadać, jechać czymś",
+      "notes": "ジョウ występuje w 乗馬 i 乗車, a の.る w czasowniku 乗る.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">乗[じょう] 馬[ば]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">jeździectwo</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">私[わたし]の 趣[しゅ] 味[み]は 乗[じょう] 馬[ば]です。</div><div class=\"\"sent-pl\"\">Moim hobby jest jazda konna.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">乗[じょう] 車[しゃ]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">wsiadanie do pojazdu</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">電[でん] 車[しゃ]に 乗[じょう] 車[しゃ]します。</div><div class=\"\"sent-pl\"\">Wsiadam do pociągu.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">乗[の]る</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">wsiadać</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">家[いえ]までバスに 乗[の]って 行[い]きます。</div><div class=\"\"sent-pl\"\">Jadę autobusem aż do domu.</div></div></div>\"",
+      "example_jp": "乗馬、 私の趣味は乗馬です。 乗車、 電車に乗車します。 乗る、 家までバスに乗って行きます。",
+      "diagram": "\"<img src=\"\"04e57.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_乗_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-df0407e565bf79e91e7e425f2990835bbef9a7532b4a5d7de9b60fd5.mp3]",
+      "audio_onyomi": "[sound:hypertts-123209660d9a320d961aeafedd41ca394fdf0b6a51f1c221748c07d3.mp3]",
+      "audio_kunyomi": "[sound:hypertts-f1cdaf38f26c8b8a4c80c7003cd6d9496be6ee8beb18816a9b83d6c1.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275975
+    },
+    {
+      "note_id": "1791220455582",
+      "character": "当",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "kunyomi": [
+        "あ.たる"
+      ],
+      "kunyomi_raw": "あ.たる",
+      "onyomi": [
+        "トウ"
+      ],
+      "onyomi_raw": "トウ",
+      "kunyomi_display": [
+        "あ.たる"
+      ],
+      "kunyomi_accepted": [
+        "あたる"
+      ],
+      "onyomi_display": [
+        "トウ"
+      ],
+      "onyomi_accepted": [
+        "とう"
+      ],
+      "polish": "trafić",
+      "notes": "トウ występuje w 本当に i お弁当, a あ.たる oznacza m.in. trafić lub wygrać.",
+      "example_html": "\"<div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">本[ほん] 当[とう]に</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">naprawdę</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">プレゼントを 本[ほん] 当[とう]にありがとう！</div><div class=\"\"sent-pl\"\">Naprawdę dziękuję za prezent!</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">お 弁[べん] 当[とう]</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">lunchbox, bento</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">明日[あした]はお 弁[べん] 当[とう]を 持[も]ってきてください。</div><div class=\"\"sent-pl\"\">Jutro proszę przynieść bento.</div></div></div><div class=\"\"example-item\"\"><div class=\"\"vocab-row\"\"><span class=\"\"vocab-jp\"\">当[あ]たる</span> <span class=\"\"vocab-separator\"\">—</span> <span class=\"\"vocab-pl\"\">uderzać, trafiać, wygrać</span></div><div class=\"\"sent-row\"\"><div class=\"\"sent-jp\"\">宝[たから]くじに 当[あ]たってお 金[かね]をもらった。</div><div class=\"\"sent-pl\"\">Wygrałem na loterii i dostałem pieniądze.</div></div></div>\"",
+      "example_jp": "本当に、 プレゼントを本当にありがとう！ お弁当、 明日はお弁当を持ってきてください。 当たる、 宝くじに当たってお金をもらった。",
+      "diagram": "\"<img src=\"\"05f53.svg\"\">\"",
+      "stroke_order_gif": "\"<img src=\"\"kanji_当_stroke_order_animation.gif\"\">\"",
+      "audio": "[sound:hypertts-3f863798f0805b04a24134175a25254f4cb6e3211c0bac10577c75db.mp3]",
+      "audio_onyomi": "[sound:hypertts-730bcbd5d9cec2a7785ab04540d6db1fcc7803003508ba09cc700657.mp3]",
+      "audio_kunyomi": "[sound:hypertts-ee5a3b377c673f1adfce269c6ff1aa72954ac6809df4c229ff7baf16.mp3]",
+      "source_tags": "Doki Doki3-14 Kanji",
+      "last_modified": 1791275987
     }
   ],
   "vocabulary": [
@@ -6751,6 +7335,55 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1763216199321",
+      "source_note_id": "1763216199321",
+      "surface": "彼",
+      "furigana_markup": "彼[かれ]",
+      "furigana_segments": [
+        {
+          "text": "彼",
+          "reading": "かれ",
+          "kanji": [
+            "彼"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "かれ",
+      "accepted_readings": [
+        "かれ"
+      ],
+      "romaji": "kare",
+      "polish": "on",
+      "book": 1,
+      "chapter": 1,
+      "lesson": "1-1",
+      "lesson_order": 1,
+      "all_kanji": [
+        "彼"
+      ],
+      "tracked_kanji": [
+        "彼"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "彼[かれ]は 医者[いしゃ]です。",
+      "example_plain": "",
+      "example_pl": "On jest lekarzem.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "",
+      "audio": "[sound:hypertts-f9deea5ee026dd3126250e9e7075cd55d3d47bd432f4368910559fd0.mp3]",
+      "example_audio": "[sound:hypertts-76e34f2844ba0bd1e4adb7367a47162f7da920b0f15dd068da3a608c.mp3]",
+      "audio_dictionary": "[sound:彼_カ＼レ_1_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">カ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">レ</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-1 female_voice newVersion",
+      "last_modified": 1775147485,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1763216199322",
       "source_note_id": "1763216199322",
       "surface": "彼女",
@@ -6763,9 +7396,9 @@
             "彼",
             "女"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         }
       ],
       "reading": "かのじょ",
@@ -6783,11 +7416,10 @@
         "女"
       ],
       "tracked_kanji": [
+        "彼",
         "女"
       ],
-      "untracked_kanji": [
-        "彼"
-      ],
+      "untracked_kanji": [],
       "example_furigana": "彼女[かのじょ]はとても 可愛[かわい]いです。",
       "example_plain": "",
       "example_pl": "Moja dziewczyna jest bardzo ładna.",
@@ -7804,6 +8436,67 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1763216199343",
+      "source_note_id": "1763216199343",
+      "surface": "医者",
+      "furigana_markup": "医[い]者[しゃ]",
+      "furigana_segments": [
+        {
+          "text": "医",
+          "reading": "い",
+          "kanji": [
+            "医"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "者",
+          "reading": "しゃ",
+          "kanji": [
+            "者"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "いしゃ",
+      "accepted_readings": [
+        "いしゃ"
+      ],
+      "romaji": "isha",
+      "polish": "lekarz",
+      "book": 1,
+      "chapter": 1,
+      "lesson": "1-1",
+      "lesson_order": 1,
+      "all_kanji": [
+        "医",
+        "者"
+      ],
+      "tracked_kanji": [
+        "医",
+        "者"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "父[ちち]は 医者[いしゃ]です。",
+      "example_plain": "",
+      "example_pl": "Mój ojciec jest lekarzem.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "",
+      "audio": "[sound:hypertts-63bf2917b376c20dea76b20d41400336a53e658487fdb1e8e791cdbe.mp3]",
+      "example_audio": "[sound:hypertts-7ecea84362a8c00c44a00a8a0cd5ea6703c680d7f46b147aa58015c2.mp3]",
+      "audio_dictionary": "[sound:医者_イシャ━_0_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">イ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">シャ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-1 female_voice newVersion",
+      "last_modified": 1782850629,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1763216199344",
       "source_note_id": "1763216199344",
       "surface": "会社員",
@@ -8158,9 +8851,9 @@
           "kanji": [
             "英"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "語",
@@ -8188,11 +8881,10 @@
         "語"
       ],
       "tracked_kanji": [
+        "英",
         "語"
       ],
-      "untracked_kanji": [
-        "英"
-      ],
+      "untracked_kanji": [],
       "example_furigana": "英語[えいご]を 話[はな]しますか。",
       "example_plain": "",
       "example_pl": "Czy mówisz po angielsku?",
@@ -19781,6 +20473,67 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1763551593894",
+      "source_note_id": "1763551593894",
+      "surface": "音楽",
+      "furigana_markup": "音[おん]楽[がく]",
+      "furigana_segments": [
+        {
+          "text": "音",
+          "reading": "おん",
+          "kanji": [
+            "音"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "楽",
+          "reading": "がく",
+          "kanji": [
+            "楽"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "おんがく",
+      "accepted_readings": [
+        "おんがく"
+      ],
+      "romaji": "ongaku",
+      "polish": "muzyka",
+      "book": 1,
+      "chapter": 2,
+      "lesson": "1-2",
+      "lesson_order": 2,
+      "all_kanji": [
+        "音",
+        "楽"
+      ],
+      "tracked_kanji": [
+        "音",
+        "楽"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "音楽[おんがく]を 聞[き]きます。",
+      "example_plain": "",
+      "example_pl": "Słucham muzyki.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "",
+      "audio": "[sound:hypertts-88ec6b09392f9a9515772e457e39149e707ccaa261cc2a92159a05de.mp3]",
+      "example_audio": "[sound:hypertts-aa7473b26660a8c92c1b9485576fd12306bc5798d41102414b3e427b.mp3]",
+      "audio_dictionary": "[sound:音楽_オンカ゚ク━_0_NHK-2016.mp3] [sound:音楽_オ＼ンカ゚ク_1_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">オ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ンカ<span style=\"\"color: red;\"\">°</span>ク</span> <span class=\"\"pitch_number\"\">0</span>, <span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">オ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ンカ<span style=\"\"color: red;\"\">°</span>ク</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-2 female_voice newVersion",
+      "last_modified": 1782851193,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1763551593895",
       "source_note_id": "1763551593895",
       "surface": "買い物",
@@ -21154,6 +21907,96 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1765399966857",
+      "source_note_id": "1765399966857",
+      "surface": "野菜を切る",
+      "furigana_markup": "野[や]菜[さい]を切[き]る",
+      "furigana_segments": [
+        {
+          "text": "野",
+          "reading": "や",
+          "kanji": [
+            "野"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "菜",
+          "reading": "さい",
+          "kanji": [
+            "菜"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "を",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "切",
+          "reading": "き",
+          "kanji": [
+            "切"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "る",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "やさいをきる",
+      "accepted_readings": [
+        "やさいをきる"
+      ],
+      "romaji": "yasai o kiru",
+      "polish": "kroić warzywa",
+      "book": 1,
+      "chapter": 2,
+      "lesson": "1-2",
+      "lesson_order": 2,
+      "all_kanji": [
+        "野",
+        "菜",
+        "切"
+      ],
+      "tracked_kanji": [
+        "切"
+      ],
+      "untracked_kanji": [
+        "野",
+        "菜"
+      ],
+      "example_furigana": "野菜[やさい]を 切[き]って、ご 飯[はん]を 作[つく]ります。",
+      "example_plain": "",
+      "example_pl": "Kroję warzywa i gotuję posiłek.",
+      "verb_form_affirmative": "きります",
+      "verb_form_negative": "きりません",
+      "notes": "",
+      "audio": "[sound:hypertts-48e60f02be921fd3fe358dca992c4f5a03e663263493a7ae993e3e66.mp3]",
+      "example_audio": "[sound:hypertts-8c062834fb959bd9f30f31fdd8d43d45c601be1503b1467662c401ce.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-2 male_voice newVersion",
+      "last_modified": 1782884923,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1765399966859",
       "source_note_id": "1765399966859",
       "surface": "昼ご飯を作る",
@@ -21513,9 +22356,9 @@
           "kanji": [
             "族"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         }
       ],
       "reading": "かぞく",
@@ -21533,11 +22376,10 @@
         "族"
       ],
       "tracked_kanji": [
-        "家"
-      ],
-      "untracked_kanji": [
+        "家",
         "族"
       ],
+      "untracked_kanji": [],
       "example_furigana": "日本[にほん]の 家族[かぞく]は 四人[よにん]です。",
       "example_plain": "",
       "example_pl": "Moja japońska rodzina składa się z czterech osób.&nbsp;",
@@ -31749,6 +32591,63 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1771671396266",
+      "source_note_id": "1771671396266",
+      "surface": "乗る",
+      "furigana_markup": "乗[の]る",
+      "furigana_segments": [
+        {
+          "text": "乗",
+          "reading": "の",
+          "kanji": [
+            "乗"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "る",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "のる",
+      "accepted_readings": [
+        "のる"
+      ],
+      "romaji": "noru",
+      "polish": "wsiadać, jechać czymś",
+      "book": 1,
+      "chapter": 4,
+      "lesson": "1-4",
+      "lesson_order": 4,
+      "all_kanji": [
+        "乗"
+      ],
+      "tracked_kanji": [
+        "乗"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "バスに 乗[の]ります。",
+      "example_plain": "バスに乗ります。",
+      "example_pl": "Wsiadam do autobusu.",
+      "verb_form_affirmative": "乗[の]ります",
+      "verb_form_negative": "乗[の]りません",
+      "notes": "czasownik gr. 1",
+      "audio": "[sound:hypertts-ffbbf6ce743df24542d096080819ef23d54c6270b11a26e200cf3b25.mp3]",
+      "example_audio": "[sound:hypertts-e0d03216140b69c538bdf9727b6389ed27db8b3efe4a37568692fbf3.mp3]",
+      "audio_dictionary": "[sound:乗る_ノル━_0_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ノ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ル</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-4 male_voice newVersion",
+      "last_modified": 1775147485,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1771673977831",
       "source_note_id": "1771673977831",
       "surface": "手伝う",
@@ -31816,6 +32715,63 @@
       "source_note_type": "triple_cards",
       "source_tags": "Doki Doki1-4 female_voice newVersion",
       "last_modified": 1783160598,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1771673977834",
+      "source_note_id": "1771673977834",
+      "surface": "急ぐ",
+      "furigana_markup": "急[いそ]ぐ",
+      "furigana_segments": [
+        {
+          "text": "急",
+          "reading": "いそ",
+          "kanji": [
+            "急"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "ぐ",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "いそぐ",
+      "accepted_readings": [
+        "いそぐ"
+      ],
+      "romaji": "isogu",
+      "polish": "śpieszyć się",
+      "book": 1,
+      "chapter": 4,
+      "lesson": "1-4",
+      "lesson_order": 4,
+      "all_kanji": [
+        "急"
+      ],
+      "tracked_kanji": [
+        "急"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "授業[じゅぎょう]に 遅[おく]れないように 急[いそ]ぎます。",
+      "example_plain": "授業に遅れないように急ぎます。",
+      "example_pl": "Śpieszę się, żeby nie spóźnić się na zajęcia.",
+      "verb_form_affirmative": "急[いそ]ぎます",
+      "verb_form_negative": "急[いそ]ぎません",
+      "notes": "czasownik gr. 1",
+      "audio": "[sound:hypertts-ecba3feb8c348eee8927262a5ad8ffe0402b8b08a9441e768a51384f.mp3]",
+      "example_audio": "[sound:hypertts-ba27e0435ead664e7270128827dc14ab1215eff29f67d27ca4b69c1f.mp3]",
+      "audio_dictionary": "[sound:急ぐ_イソ＼ク゚_2_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">イ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ソ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ク<span style=\"\"color: red;\"\">°</span></span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-4 female_voice leech newVersion",
+      "last_modified": 1785656231,
       "needs_surface_review": false
     },
     {
@@ -32278,6 +33234,68 @@
       "example_audio": "[sound:hypertts-46ea6980b48a771186c9563ecb4a25e8dd6763635f38c615836bb199.mp3]",
       "audio_dictionary": "[sound:荷物_ニ＼モツ_1_NHK-2016.mp3]",
       "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ニ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">モツ</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-4 female_voice newVersion",
+      "last_modified": 1782884078,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1771673977847",
+      "source_note_id": "1771673977847",
+      "surface": "切符",
+      "furigana_markup": "切[きっ]符[ぷ]",
+      "furigana_segments": [
+        {
+          "text": "切",
+          "reading": "きっ",
+          "kanji": [
+            "切"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "符",
+          "reading": "ぷ",
+          "kanji": [
+            "符"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "きっぷ",
+      "accepted_readings": [
+        "きっぷ"
+      ],
+      "romaji": "kippu",
+      "polish": "bilet",
+      "book": 1,
+      "chapter": 4,
+      "lesson": "1-4",
+      "lesson_order": 4,
+      "all_kanji": [
+        "切",
+        "符"
+      ],
+      "tracked_kanji": [
+        "切"
+      ],
+      "untracked_kanji": [
+        "符"
+      ],
+      "example_furigana": "駅[えき]で 切符[きっぷ]を 買[か]います。",
+      "example_plain": "駅で切符を買います。",
+      "example_pl": "Kupuję bilet na stacji.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik",
+      "audio": "[sound:hypertts-f3a19ddffc5cd2eba3191138c5519686742a6572c33bc4685803ee0f.mp3]",
+      "example_audio": "[sound:hypertts-c40590c99ff589bdb79b7249a021704f0b4192e3fd5fd43b0d49e969.mp3]",
+      "audio_dictionary": "[sound:切符_キップ━_0_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\"><span style=\"\"color: royalblue;\"\">キ</span></span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ップ</span> <span class=\"\"pitch_number\"\">0</span>\"",
       "source_note_type": "triple_cards",
       "source_tags": "Doki Doki1-4 female_voice newVersion",
       "last_modified": 1782884078,
@@ -32948,9 +33966,9 @@
           "kanji": [
             "乗"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "り",
@@ -32986,11 +34004,10 @@
         "物"
       ],
       "tracked_kanji": [
+        "乗",
         "物"
       ],
-      "untracked_kanji": [
-        "乗"
-      ],
+      "untracked_kanji": [],
       "example_furigana": "私[わたし]は 電車[でんしゃ]などの 乗[の]り 物[もの]が 好[す]きです。",
       "example_plain": "私は電車などの乗り物が好きです。",
       "example_pl": "Lubię środki transportu, takie jak pociągi.",
@@ -33493,9 +34510,9 @@
           "kanji": [
             "切"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "手",
@@ -33523,11 +34540,10 @@
         "手"
       ],
       "tracked_kanji": [
+        "切",
         "手"
       ],
-      "untracked_kanji": [
-        "切"
-      ],
+      "untracked_kanji": [],
       "example_furigana": "切手[きって]を 買[か]います。",
       "example_plain": "切手を買います。",
       "example_pl": "Kupuję znaczek pocztowy.",
@@ -34059,6 +35075,63 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1771871839125",
+      "source_note_id": "1771871839125",
+      "surface": "楽しい",
+      "furigana_markup": "楽[たの]しい",
+      "furigana_segments": [
+        {
+          "text": "楽",
+          "reading": "たの",
+          "kanji": [
+            "楽"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "しい",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "たのしい",
+      "accepted_readings": [
+        "たのしい"
+      ],
+      "romaji": "tanoshii",
+      "polish": "wesoły",
+      "book": 1,
+      "chapter": 5,
+      "lesson": "1-5",
+      "lesson_order": 5,
+      "all_kanji": [
+        "楽"
+      ],
+      "tracked_kanji": [
+        "楽"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "旅行[りょこう]はとても 楽[たの]しいです。",
+      "example_plain": "旅行はとても楽しいです。",
+      "example_pl": "Podróż jest bardzo wesoła.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "i-adj",
+      "audio": "[sound:hypertts-01760457558badf3048afa5197d61291f95fd743b2405e8cc7d55a88.mp3]",
+      "example_audio": "[sound:hypertts-0a532411e62649a4e564ba92394ecb01b39b86d297d52ad5c3641973.mp3]",
+      "audio_dictionary": "[sound:楽しい_タノシ＼イ_3_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">タ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ノシ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">イ</span> <span class=\"\"pitch_number\"\">3</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-5 male_voice newVersion",
+      "last_modified": 1775147485,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1771871839130",
       "source_note_id": "1771871839130",
       "surface": "大好き",
@@ -34241,6 +35314,67 @@
       "example_audio": "[sound:hypertts-7f6d94a8a43d96ed141464b92e7b5ef54d8e467e1f13cef124379354.mp3]",
       "audio_dictionary": "[sound:大変_タイヘン━_0_NHK-2016.mp3]",
       "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">タ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">イヘン</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-5 male_voice newVersion",
+      "last_modified": 1782884078,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1771871839140",
+      "source_note_id": "1771871839140",
+      "surface": "親切",
+      "furigana_markup": "親[しん]切[せつ]",
+      "furigana_segments": [
+        {
+          "text": "親",
+          "reading": "しん",
+          "kanji": [
+            "親"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "切",
+          "reading": "せつ",
+          "kanji": [
+            "切"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "しんせつ",
+      "accepted_readings": [
+        "しんせつ"
+      ],
+      "romaji": "shinsetsu",
+      "polish": "uprzejmy, miły",
+      "book": 1,
+      "chapter": 5,
+      "lesson": "1-5",
+      "lesson_order": 5,
+      "all_kanji": [
+        "親",
+        "切"
+      ],
+      "tracked_kanji": [
+        "親",
+        "切"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "田中[たなか]さんは 親切[しんせつ]です。",
+      "example_plain": "田中さんは親切です。",
+      "example_pl": "Pan Tanaka jest uprzejmy.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "na-adj",
+      "audio": "[sound:hypertts-bb1bbd73c9549bbe4b29e41814ff3776d57d4cd4d108d96bc9dedc5d.mp3]",
+      "example_audio": "[sound:hypertts-b310b096bfd5b556dc8097267d11af9634ec689ccd8a853752d1e9a2.mp3]",
+      "audio_dictionary": "[sound:親切_シ＼ンセツ_1_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">シ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ンセツ</span> <span class=\"\"pitch_number\"\">1</span>\"",
       "source_note_type": "triple_cards",
       "source_tags": "Doki Doki1-5 male_voice newVersion",
       "last_modified": 1782884078,
@@ -34537,6 +35671,55 @@
       "source_note_type": "triple_cards",
       "source_tags": "Doki Doki1-5 male_voice newVersion",
       "last_modified": 1782884212,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1771871839151",
+      "source_note_id": "1771871839151",
+      "surface": "楽",
+      "furigana_markup": "楽[らく]",
+      "furigana_segments": [
+        {
+          "text": "楽",
+          "reading": "らく",
+          "kanji": [
+            "楽"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "らく",
+      "accepted_readings": [
+        "らく"
+      ],
+      "romaji": "raku",
+      "polish": "łatwy, prosty (Łatwy, bo nie wymaga wysiłku)",
+      "book": 1,
+      "chapter": 5,
+      "lesson": "1-5",
+      "lesson_order": 5,
+      "all_kanji": [
+        "楽"
+      ],
+      "tracked_kanji": [
+        "楽"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "この 仕事[しごと]は 楽[らく]です。",
+      "example_plain": "この仕事は楽です。",
+      "example_pl": "Ta praca jest łatwa.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "na-adj",
+      "audio": "[sound:hypertts-3a74aec2eed2dcc5443957c67c6558b4d7512858afe55c944578eafd.mp3]",
+      "example_audio": "[sound:hypertts-2ece96bcdd45da9bf3d0fe188d217d619adf925f0188298f5a497fdb.mp3]",
+      "audio_dictionary": "[sound:楽_ラ＼ク_1_NHK-2016.mp3] [sound:楽_ラク＼_2_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ラ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ク</span> <span class=\"\"pitch_number\"\">1</span>, <span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ラ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ク</span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-5 male_voice newVersion",
+      "last_modified": 1775147485,
       "needs_surface_review": false
     },
     {
@@ -35042,9 +36225,9 @@
           "kanji": [
             "留"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "学",
@@ -35083,12 +36266,11 @@
         "生"
       ],
       "tracked_kanji": [
+        "留",
         "学",
         "生"
       ],
-      "untracked_kanji": [
-        "留"
-      ],
+      "untracked_kanji": [],
       "example_furigana": "私[わたし]は 留学生[りゅうがくせい]です。",
       "example_plain": "私は留学生です。",
       "example_pl": "Jestem studentem z wymiany.",
@@ -37526,6 +38708,68 @@
       "example_audio": "[sound:hypertts-47ba3ea6055cd16a14bb96468ada069333a3a36eab552824d0681a8d.mp3]",
       "audio_dictionary": "[sound:外人_ガイジン━_0_NHK-2016.mp3]",
       "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ガ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">イジン</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-4 female_voice newVersion",
+      "last_modified": 1782884618,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1773418499895",
+      "source_note_id": "1773418499895",
+      "surface": "両親",
+      "furigana_markup": "両[りょう]親[しん]",
+      "furigana_segments": [
+        {
+          "text": "両",
+          "reading": "りょう",
+          "kanji": [
+            "両"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "親",
+          "reading": "しん",
+          "kanji": [
+            "親"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "りょうしん",
+      "accepted_readings": [
+        "りょうしん"
+      ],
+      "romaji": "ryōshin",
+      "polish": "rodzice",
+      "book": 1,
+      "chapter": 4,
+      "lesson": "1-4",
+      "lesson_order": 4,
+      "all_kanji": [
+        "両",
+        "親"
+      ],
+      "tracked_kanji": [
+        "親"
+      ],
+      "untracked_kanji": [
+        "両"
+      ],
+      "example_furigana": "私[わたし]の 両親[りょうしん]はワルシャワにいます。",
+      "example_plain": "私の両親はワルシャワにいます。",
+      "example_pl": "Moi rodzice są w Warszawie.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik",
+      "audio": "[sound:hypertts-ce079622aed99f03e800cdc303a327300105d67c732bedf37f136c10.mp3]",
+      "example_audio": "[sound:hypertts-b40a28305193110846bbab8221e0897072a71ddf4e9897601fc785ff.mp3]",
+      "audio_dictionary": "[sound:両親_リョ＼ーシン_1_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">リョ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ーシン</span> <span class=\"\"pitch_number\"\">1</span>\"",
       "source_note_type": "triple_cards",
       "source_tags": "Doki Doki1-4 female_voice newVersion",
       "last_modified": 1782884618,
@@ -41333,9 +42577,9 @@
           "kanji": [
             "切"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         }
       ],
       "reading": "たいせつ",
@@ -41353,11 +42597,10 @@
         "切"
       ],
       "tracked_kanji": [
-        "大"
-      ],
-      "untracked_kanji": [
+        "大",
         "切"
       ],
+      "untracked_kanji": [],
       "example_furigana": "家[か]族[ぞく]は 大[たい]切[せつ]です。",
       "example_plain": "家族は大切です。",
       "example_pl": "Rodzina jest ważna.",
@@ -42342,9 +43585,9 @@
           "kanji": [
             "音"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "語",
@@ -42373,11 +43616,11 @@
         "語"
       ],
       "tracked_kanji": [
+        "音",
         "語"
       ],
       "untracked_kanji": [
-        "擬",
-        "音"
+        "擬"
       ],
       "example_furigana": "風[かぜ]の 音[おと]は 擬音語[ぎおんご]で 表[あらわ]します。",
       "example_plain": "風の音は擬音語で表します。",
@@ -46203,6 +47446,80 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1779524063505",
+      "source_note_id": "1779524063505",
+      "surface": "退職者",
+      "furigana_markup": "退[たい]職[しょく]者[しゃ]",
+      "furigana_segments": [
+        {
+          "text": "退",
+          "reading": "たい",
+          "kanji": [
+            "退"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "職",
+          "reading": "しょく",
+          "kanji": [
+            "職"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "者",
+          "reading": "しゃ",
+          "kanji": [
+            "者"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "たいしょくしゃ",
+      "accepted_readings": [
+        "たいしょくしゃ"
+      ],
+      "romaji": "taishokusha",
+      "polish": "emeryt",
+      "book": 1,
+      "chapter": 6,
+      "lesson": "1-6",
+      "lesson_order": 6,
+      "all_kanji": [
+        "退",
+        "職",
+        "者"
+      ],
+      "tracked_kanji": [
+        "者"
+      ],
+      "untracked_kanji": [
+        "退",
+        "職"
+      ],
+      "example_furigana": "私[わたし]の おじいさんは 退職者[たいしょくしゃ]です。",
+      "example_plain": "私のおじいさんは退職者です。",
+      "example_pl": "Mój dziadek jest emerytem.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik",
+      "audio": "[sound:hypertts-2ced594350e68284fa4530d65bb0078f0cbcbdc49a7ba01620c35439.mp3]",
+      "example_audio": "[sound:hypertts-693f52eeaa9e37962ce4a6b899389efd753cf685422a2eda8327d4e9.mp3]",
+      "audio_dictionary": "[sound:退職者_タイショクシャ_JapanesePod101.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">タ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">イショクシャ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards",
+      "source_tags": "Doki Doki1-6",
+      "last_modified": 1782884618,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1780984776080",
       "source_note_id": "1780984776080",
       "surface": "人生",
@@ -46468,9 +47785,9 @@
           "kanji": [
             "当"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "に",
@@ -46496,11 +47813,10 @@
         "当"
       ],
       "tracked_kanji": [
-        "本"
-      ],
-      "untracked_kanji": [
+        "本",
         "当"
       ],
+      "untracked_kanji": [],
       "example_furigana": "本[ほん]当[とう]にありがとうございます。",
       "example_plain": "本当にありがとうございます。",
       "example_pl": "Naprawdę bardzo dziękuję.",
@@ -46913,6 +48229,76 @@
       "source_note_type": "triple_cards",
       "source_tags": "Doki Doki1-6",
       "last_modified": 1781351246,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1781519740960",
+      "source_note_id": "1781519740960",
+      "surface": "お弁当",
+      "furigana_markup": "お弁[べん]当[とう]",
+      "furigana_segments": [
+        {
+          "text": "お",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "弁",
+          "reading": "べん",
+          "kanji": [
+            "弁"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "当",
+          "reading": "とう",
+          "kanji": [
+            "当"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "おべんとう",
+      "accepted_readings": [
+        "おべんとう"
+      ],
+      "romaji": "obentō",
+      "polish": "bento (japoński lunch)",
+      "book": 2,
+      "chapter": 7,
+      "lesson": "2-7",
+      "lesson_order": 7,
+      "all_kanji": [
+        "弁",
+        "当"
+      ],
+      "tracked_kanji": [
+        "当"
+      ],
+      "untracked_kanji": [
+        "弁"
+      ],
+      "example_furigana": "けんごは お 弁[べん] 当[とう]を 作[つく]ります。",
+      "example_plain": "けんごはお弁当を作ります。",
+      "example_pl": "Kengo robi bento.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik.",
+      "audio": "[sound:hypertts-ac59e7a556f212ea733c6723bffed5f2df0a5e6672ba73b114a63378.mp3]",
+      "example_audio": "[sound:hypertts-25055f104575c3f84c865e4e762e5e4d1b0498772b3d968ff179d175.mp3]",
+      "audio_dictionary": "[sound:お弁当_オベントー━_0_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">オ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ベントー</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-7",
+      "last_modified": 1781521133,
       "needs_surface_review": false
     },
     {
@@ -47564,6 +48950,63 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1781519740992",
+      "source_note_id": "1781519740992",
+      "surface": "切る",
+      "furigana_markup": "切[き]る",
+      "furigana_segments": [
+        {
+          "text": "切",
+          "reading": "き",
+          "kanji": [
+            "切"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "る",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "きる",
+      "accepted_readings": [
+        "きる"
+      ],
+      "romaji": "kiru",
+      "polish": "ciąć, kroić",
+      "book": 2,
+      "chapter": 7,
+      "lesson": "2-7",
+      "lesson_order": 7,
+      "all_kanji": [
+        "切"
+      ],
+      "tracked_kanji": [
+        "切"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "紙[かみ]を ハサミで 切[き]ります。",
+      "example_plain": "紙をハサミで切ります。",
+      "example_pl": "Tnę papier nożyczkami.",
+      "verb_form_affirmative": "切[き]ります",
+      "verb_form_negative": "切[き]りません",
+      "notes": "czasownik gr. 1 (wyjątek!).",
+      "audio": "[sound:hypertts-d621d8f9149490a52254ab220652cb6df4dcb1af9fa31a47caa92cd1.mp3]",
+      "example_audio": "[sound:hypertts-6619db90753f3fc961ac10e6f94d5549b98b011bb55de16071524f76.mp3]",
+      "audio_dictionary": "[sound:切る_キ＼ル_1_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">キ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ル</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-7",
+      "last_modified": 1781521173,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1781519740994",
       "source_note_id": "1781519740994",
       "surface": "持っていく",
@@ -47745,6 +49188,63 @@
       "source_note_type": "triple_cards_new",
       "source_tags": "Doki Doki2-7",
       "last_modified": 1781521199,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1781519741019",
+      "source_note_id": "1781519741019",
+      "surface": "楽しみ",
+      "furigana_markup": "楽[たの]しみ",
+      "furigana_segments": [
+        {
+          "text": "楽",
+          "reading": "たの",
+          "kanji": [
+            "楽"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "しみ",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "たのしみ",
+      "accepted_readings": [
+        "たのしみ"
+      ],
+      "romaji": "tanoshimi",
+      "polish": "czekający z niecierpliwością, wyczekiwany",
+      "book": 2,
+      "chapter": 7,
+      "lesson": "2-7",
+      "lesson_order": 7,
+      "all_kanji": [
+        "楽"
+      ],
+      "tracked_kanji": [
+        "楽"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "日[に] 本[ほん]が 楽[たの]しみです。",
+      "example_plain": "日本が楽しみです。",
+      "example_pl": "Nie mogę się doczekać Japonii.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "na-przymiotnik / rzeczownik.",
+      "audio": "[sound:hypertts-b1d049c1514fea472895bf387fce4cce679c64789eea174be27137c5.mp3]",
+      "example_audio": "[sound:hypertts-2a24e717a0d5183b58d079fd46707cf2778293d31aeb179a8611c27a.mp3]",
+      "audio_dictionary": "[sound:楽しみ_タノシミ━_0_NHK-2016.mp3] [sound:楽しみ_タノシ＼ミ_3_NHK-2016.mp3] [sound:楽しみ_タノシミ＼_4_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">タ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ノシミ</span> <span class=\"\"pitch_number\"\">0</span>, <span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">タ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ノシ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ミ</span> <span class=\"\"pitch_number\"\">3</span>, <span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">タ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ノシミ</span> <span class=\"\"pitch_number\"\">4</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-7",
+      "last_modified": 1781521490,
       "needs_surface_review": false
     },
     {
@@ -49176,9 +50676,9 @@
           "kanji": [
             "切"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "れる",
@@ -49205,11 +50705,11 @@
         "切"
       ],
       "tracked_kanji": [
-        "電"
+        "電",
+        "切"
       ],
       "untracked_kanji": [
-        "池",
-        "切"
+        "池"
       ],
       "example_furigana": "スマホの 電池[でんち]が 切[き]れました。",
       "example_plain": "スマホの電池が切れました。",
@@ -49999,9 +51499,9 @@
           "kanji": [
             "留"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "学",
@@ -50037,11 +51537,10 @@
         "学"
       ],
       "tracked_kanji": [
+        "留",
         "学"
       ],
-      "untracked_kanji": [
-        "留"
-      ],
+      "untracked_kanji": [],
       "example_furigana": "日[に]本[ほん]に 留[りゅう]学[がく]したいです。",
       "example_plain": "日本に留学したいです。",
       "example_pl": "Chcę pojechać na wymianę do Japonii.",
@@ -50055,6 +51554,63 @@
       "source_note_type": "triple_cards_new",
       "source_tags": "Doki Doki2-9",
       "last_modified": 1781597777,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1781597269840",
+      "source_note_id": "1781597269840",
+      "surface": "楽しむ",
+      "furigana_markup": "楽[たの]しむ",
+      "furigana_segments": [
+        {
+          "text": "楽",
+          "reading": "たの",
+          "kanji": [
+            "楽"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "しむ",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "たのしむ",
+      "accepted_readings": [
+        "たのしむ"
+      ],
+      "romaji": "tanoshimu",
+      "polish": "bawić się dobrze",
+      "book": 2,
+      "chapter": 9,
+      "lesson": "2-9",
+      "lesson_order": 9,
+      "all_kanji": [
+        "楽"
+      ],
+      "tracked_kanji": [
+        "楽"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "週[しゅう]末[まつ]を 楽[たの]しみます。",
+      "example_plain": "週末を楽しみます。",
+      "example_pl": "Będę dobrze się bawić w weekend.",
+      "verb_form_affirmative": "楽[たの]しみます",
+      "verb_form_negative": "楽[たの]しみません",
+      "notes": "czasownik gr. 1",
+      "audio": "[sound:hypertts-43e20d245da69434012d7f0b9b37604fefbdaa1cacc1216f51ac8cde.mp3]",
+      "example_audio": "[sound:hypertts-a4908a03c1b50122c2f83b34dc8511ef732229c706cb20d44da06516.mp3]",
+      "audio_dictionary": "[sound:楽しむ_タノシ＼ム_3_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">タ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ノシ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ム</span> <span class=\"\"pitch_number\"\">3</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-9",
+      "last_modified": 1781597854,
       "needs_surface_review": false
     },
     {
@@ -51983,6 +53539,130 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1781607717745",
+      "source_note_id": "1781607717745",
+      "surface": "楽器",
+      "furigana_markup": "楽[がっ]器[き]",
+      "furigana_segments": [
+        {
+          "text": "楽",
+          "reading": "がっ",
+          "kanji": [
+            "楽"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "器",
+          "reading": "き",
+          "kanji": [
+            "器"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "がっき",
+      "accepted_readings": [
+        "がっき"
+      ],
+      "romaji": "gakki",
+      "polish": "instrument muzyczny",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "楽",
+        "器"
+      ],
+      "tracked_kanji": [
+        "楽"
+      ],
+      "untracked_kanji": [
+        "器"
+      ],
+      "example_furigana": "新[あたら]しい 楽[がっ]器[き]を 買[か]います。",
+      "example_plain": "新しい楽器を買います。",
+      "example_pl": "Kupuję nowy instrument muzyczny.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik.",
+      "audio": "[sound:hypertts-c97e175e09547b4e5cca21e3a98c27a523a5b720e51901f01bf00f2a.mp3]",
+      "example_audio": "[sound:hypertts-91361e7731e0571389a097cd6fced55462a1b98da2a938fd86b06333.mp3]",
+      "audio_dictionary": "[sound:楽器_ガッキ━_0_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ガ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ッキ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-11",
+      "last_modified": 1781608541,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1781607717747",
+      "source_note_id": "1781607717747",
+      "surface": "発音",
+      "furigana_markup": "発[はつ]音[おん]",
+      "furigana_segments": [
+        {
+          "text": "発",
+          "reading": "はつ",
+          "kanji": [
+            "発"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "音",
+          "reading": "おん",
+          "kanji": [
+            "音"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "はつおん",
+      "accepted_readings": [
+        "はつおん"
+      ],
+      "romaji": "hatsuon",
+      "polish": "wymowa",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "発",
+        "音"
+      ],
+      "tracked_kanji": [
+        "音"
+      ],
+      "untracked_kanji": [
+        "発"
+      ],
+      "example_furigana": "発[はつ]音[おん]が 難[むずか]しいです。",
+      "example_plain": "発音が難しいです。",
+      "example_pl": "Wymowa jest trudna.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik.",
+      "audio": "[sound:hypertts-3599ee39d390360c10b81b23405544a70bd4b256613aaf4d7eb1a78c.mp3]",
+      "example_audio": "[sound:hypertts-05d13a49239c95f4d8000f0fcbb59df202f2eb0b1bf4eaa4b633279c.mp3]",
+      "audio_dictionary": "[sound:発音_ハツオン━_0_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ハ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ツオン</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-11",
+      "last_modified": 1781608544,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1781607717748",
       "source_note_id": "1781607717748",
       "surface": "物価",
@@ -53647,6 +55327,63 @@
       "source_note_type": "triple_cards_new",
       "source_tags": "Doki Doki2-12",
       "last_modified": 1782849648,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1781610943078",
+      "source_note_id": "1781610943078",
+      "surface": "彼ら",
+      "furigana_markup": "彼[かれ]ら",
+      "furigana_segments": [
+        {
+          "text": "彼",
+          "reading": "かれ",
+          "kanji": [
+            "彼"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "ら",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "かれら",
+      "accepted_readings": [
+        "かれら"
+      ],
+      "romaji": "karera",
+      "polish": "oni",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "彼"
+      ],
+      "tracked_kanji": [
+        "彼"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "彼[かれ]らは 日本語[にほんご]を 勉強[べんきょう]しています。",
+      "example_plain": "彼らは日本語を勉強しています。",
+      "example_pl": "Oni uczą się japońskiego.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "zaimek",
+      "audio": "[sound:hypertts-dc7cf336a848eecad9117deb9dde440e348d79414b98702903e9635f.mp3]",
+      "example_audio": "[sound:hypertts-e94725fb97c65ddc1af1053d1a9af7e65ebc8d529e3a1b33604369b2.mp3]",
+      "audio_dictionary": "[sound:彼ら_カ＼レラ_1_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">カ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">レラ</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-12",
+      "last_modified": 1781611621,
       "needs_surface_review": false
     },
     {
@@ -58545,6 +60282,84 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1781614251683",
+      "source_note_id": "1781614251683",
+      "surface": "締め切り",
+      "furigana_markup": "締[し]め切[き]り",
+      "furigana_segments": [
+        {
+          "text": "締",
+          "reading": "し",
+          "kanji": [
+            "締"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "め",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "切",
+          "reading": "き",
+          "kanji": [
+            "切"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "り",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "しめきり",
+      "accepted_readings": [
+        "しめきり"
+      ],
+      "romaji": "shimekiri",
+      "polish": "ostateczny termin, deadline",
+      "book": 2,
+      "chapter": 13,
+      "lesson": "2-13",
+      "lesson_order": 13,
+      "all_kanji": [
+        "締",
+        "切"
+      ],
+      "tracked_kanji": [
+        "切"
+      ],
+      "untracked_kanji": [
+        "締"
+      ],
+      "example_furigana": "レポートの 締[し]め 切[き]りは 明[あし]日[た]です。",
+      "example_plain": "レポートの締め切りは明日です。",
+      "example_pl": "Ostateczny termin oddania raportu to jutro.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. Często używane w szkole lub pracy (np. deadline).",
+      "audio": "[sound:hypertts-c9ee5859d081083ae624f08a4c57bc2017b074efd9afe0a18f91ec51.mp3]",
+      "example_audio": "[sound:hypertts-35ba1f924336918d6fafb07b9c3e5fdbe159e04c80b385a97e430827.mp3]",
+      "audio_dictionary": "[sound:締め切り_シメキリ━_0_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">シ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">メキリ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-13",
+      "last_modified": 1791203307,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1781614251686",
       "source_note_id": "1781614251686",
       "surface": "直行便",
@@ -59384,6 +61199,80 @@
       "needs_surface_review": false
     },
     {
+      "note_id": "1781614251739",
+      "source_note_id": "1781614251739",
+      "surface": "弁当箱",
+      "furigana_markup": "弁[べん]当[とう]箱[ばこ]",
+      "furigana_segments": [
+        {
+          "text": "弁",
+          "reading": "べん",
+          "kanji": [
+            "弁"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "当",
+          "reading": "とう",
+          "kanji": [
+            "当"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "箱",
+          "reading": "ばこ",
+          "kanji": [
+            "箱"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "べんとうばこ",
+      "accepted_readings": [
+        "べんとうばこ"
+      ],
+      "romaji": "bentōbako",
+      "polish": "pudełko bento",
+      "book": 2,
+      "chapter": 13,
+      "lesson": "2-13",
+      "lesson_order": 13,
+      "all_kanji": [
+        "弁",
+        "当",
+        "箱"
+      ],
+      "tracked_kanji": [
+        "当"
+      ],
+      "untracked_kanji": [
+        "弁",
+        "箱"
+      ],
+      "example_furigana": "新[あたら]しい 弁[べん]当[とう]箱[ばこ]を 買[か]いました。",
+      "example_plain": "新しい弁当箱を買いました。",
+      "example_pl": "Kupiłem nowe pudełko bento.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. Pudełko na posiłek wynosowy. Ulega zjawisku rendaku (hako -&gt; bako).",
+      "audio": "[sound:hypertts-8051a0d11cca55915ec482ec896d500cc3cdc89c9118a5cbec094dcc.mp3]",
+      "example_audio": "[sound:hypertts-d48e2ca209ebdb63d3b75161af01c0fd32f44f0f2028e0784dfb3f9f.mp3]",
+      "audio_dictionary": "[sound:弁当箱_ベント＼ーバコ_3_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ベ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ント</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ーバコ</span> <span class=\"\"pitch_number\"\">3</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-13",
+      "last_modified": 1781614744,
+      "needs_surface_review": false
+    },
+    {
       "note_id": "1781614251740",
       "source_note_id": "1781614251740",
       "surface": "紙コップ",
@@ -59438,6 +61327,68 @@
       "source_note_type": "triple_cards_new",
       "source_tags": "Doki Doki2-13",
       "last_modified": 1781614746,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1781614251743",
+      "source_note_id": "1781614251743",
+      "surface": "急須",
+      "furigana_markup": "急[きゅう]須[す]",
+      "furigana_segments": [
+        {
+          "text": "急",
+          "reading": "きゅう",
+          "kanji": [
+            "急"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "須",
+          "reading": "す",
+          "kanji": [
+            "須"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "きゅうす",
+      "accepted_readings": [
+        "きゅうす"
+      ],
+      "romaji": "kyūsu",
+      "polish": "czajniczek do herbaty",
+      "book": 2,
+      "chapter": 13,
+      "lesson": "2-13",
+      "lesson_order": 13,
+      "all_kanji": [
+        "急",
+        "須"
+      ],
+      "tracked_kanji": [
+        "急"
+      ],
+      "untracked_kanji": [
+        "須"
+      ],
+      "example_furigana": "急[きゅう]須[す]でお 茶[ちゃ]をいれます。",
+      "example_plain": "急須でお茶をいれます。",
+      "example_pl": "Parzę herbatę w czajniczku.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. Tradycyjny czajniczek japoński z bocznym uchwytem używany do zielonej herbaty.",
+      "audio": "[sound:hypertts-7828f0608fa5ca6b99468b00b89a82fa89b893fc338bbd5fd1e2e916.mp3]",
+      "example_audio": "[sound:hypertts-81b88cf62171168a8da44357fbe4a43eed60f9b7c73fa13a549c6508.mp3]",
+      "audio_dictionary": "[sound:急須_キュース━_0_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">キュ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ース</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-13",
+      "last_modified": 1781614751,
       "needs_surface_review": false
     },
     {
@@ -64741,9 +66692,9 @@
           "kanji": [
             "者"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         }
       ],
       "reading": "ろうどうしゃ",
@@ -64762,11 +66713,11 @@
         "者"
       ],
       "tracked_kanji": [
-        "働"
+        "働",
+        "者"
       ],
       "untracked_kanji": [
-        "労",
-        "者"
+        "労"
       ],
       "example_furigana": "新[あたら]しい 法[ほう] 律[りつ]は 労[ろう] 働[どう] 者[しゃ]を 守[まも]ります。",
       "example_plain": "新しい法律は労働者を守ります。",
@@ -66899,9 +68850,9 @@
           "kanji": [
             "急"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "電",
@@ -66942,12 +68893,11 @@
       ],
       "tracked_kanji": [
         "特",
+        "急",
         "電",
         "車"
       ],
-      "untracked_kanji": [
-        "急"
-      ],
+      "untracked_kanji": [],
       "example_furigana": "京[きょう] 都[と]まで 特[とっ] 急[きゅう] 電[でん] 車[しゃ]で 行[い]きます。",
       "example_plain": "京都まで特急電車で行きます。",
       "example_pl": "Jadę do Kioto pociągiem ekspresowym.",
@@ -68699,9 +70649,9 @@
           "kanji": [
             "当"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         }
       ],
       "reading": "ほんとう",
@@ -68719,11 +70669,10 @@
         "当"
       ],
       "tracked_kanji": [
-        "本"
-      ],
-      "untracked_kanji": [
+        "本",
         "当"
       ],
+      "untracked_kanji": [],
       "example_furigana": "それは 本[ほん] 当[とう]ですか。",
       "example_plain": "それは本当ですか。",
       "example_pl": "Czy to jest prawda?",
@@ -72668,9 +74617,9 @@
           "kanji": [
             "親"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         }
       ],
       "reading": "ちちおや",
@@ -72688,11 +74637,10 @@
         "親"
       ],
       "tracked_kanji": [
-        "父"
-      ],
-      "untracked_kanji": [
+        "父",
         "親"
       ],
+      "untracked_kanji": [],
       "example_furigana": "父[ちち] 親[おや]は 銀[ぎん] 行[こう] 員[いん]です。",
       "example_plain": "父親は銀行員です。",
       "example_pl": "Mój ojciec jest pracownikiem banku.",
@@ -72791,9 +74739,9 @@
           "kanji": [
             "親"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         }
       ],
       "reading": "ははおや",
@@ -72811,11 +74759,10 @@
         "親"
       ],
       "tracked_kanji": [
-        "母"
-      ],
-      "untracked_kanji": [
+        "母",
         "親"
       ],
+      "untracked_kanji": [],
       "example_furigana": "母[はは] 親[おや]は 料[りょう] 理[り]が 上[じょう] 手[ず]です。",
       "example_plain": "母親は料理が上手です。",
       "example_pl": "Moja matka jest dobra w gotowaniu.",
@@ -75069,9 +77016,9 @@
           "kanji": [
             "者"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         }
       ],
       "reading": "どくしゃ",
@@ -75089,11 +77036,10 @@
         "者"
       ],
       "tracked_kanji": [
-        "読"
-      ],
-      "untracked_kanji": [
+        "読",
         "者"
       ],
+      "untracked_kanji": [],
       "example_furigana": "私[わたし]はこの 雑[ざっ] 誌[し]の 読[どく] 者[しゃ]です。",
       "example_plain": "私はこの雑誌の読者です。",
       "example_pl": "Jestem czytelnikiem tego czasopisma.",
@@ -78173,9 +80119,9 @@
           "kanji": [
             "親"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "友",
@@ -78203,11 +80149,10 @@
         "友"
       ],
       "tracked_kanji": [
+        "親",
         "友"
       ],
-      "untracked_kanji": [
-        "親"
-      ],
+      "untracked_kanji": [],
       "example_furigana": "彼[かれ]は 私[わたし]の 親[しん] 友[ゆう]です。",
       "example_plain": "彼は私の親友です。",
       "example_pl": "On jest moim bliskim przyjacielem。",
@@ -79560,9 +81505,9 @@
           "kanji": [
             "切"
           ],
-          "always_show_furigana": true,
-          "hide_from_lesson_order": null,
-          "hide_from_lesson": null
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
         },
         {
           "text": "れ",
@@ -79588,11 +81533,10 @@
         "切"
       ],
       "tracked_kanji": [
-        "売"
-      ],
-      "untracked_kanji": [
+        "売",
         "切"
       ],
+      "untracked_kanji": [],
       "example_furigana": "その 有[ゆう] 名[めい]な 本[ほん]は 売[う]り 切[き]れです。",
       "example_plain": "その有名な本は売り切れです。",
       "example_pl": "Tamta sławna książka jest wyprzedana.",
@@ -81227,6 +83171,68 @@
       "source_note_type": "triple_cards_new",
       "source_tags": "Doki Doki2-9",
       "last_modified": 1789206232,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1789206097158",
+      "source_note_id": "1789206097158",
+      "surface": "獣医",
+      "furigana_markup": "獣[じゅう]医[い]",
+      "furigana_segments": [
+        {
+          "text": "獣",
+          "reading": "じゅう",
+          "kanji": [
+            "獣"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "医",
+          "reading": "い",
+          "kanji": [
+            "医"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        }
+      ],
+      "reading": "じゅうい",
+      "accepted_readings": [
+        "じゅうい"
+      ],
+      "romaji": "jūi",
+      "polish": "weterynarz",
+      "book": 2,
+      "chapter": 9,
+      "lesson": "2-9",
+      "lesson_order": 9,
+      "all_kanji": [
+        "獣",
+        "医"
+      ],
+      "tracked_kanji": [
+        "医"
+      ],
+      "untracked_kanji": [
+        "獣"
+      ],
+      "example_furigana": "昨日[きのう]、 犬[いぬ]と 一[いっ] 緒[しょ]に 獣[じゅう] 医[い]に 行[い]きました。",
+      "example_plain": "昨日、犬と一緒に獣医に行きました。",
+      "example_pl": "Wczoraj poszedłem z psem do weterynarza.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. Nazwa zawodu lekarza zwierząt domowych. Często używa się też określenia 動物病院 (klinika weterynaryjna).",
+      "audio": "[sound:hypertts-ea49964dd90d0251b324b052e3665bebafb2bc4c4f5e729bcd9a2158.mp3]",
+      "example_audio": "[sound:hypertts-204dd87fb2e70c45cb918151884f640b017cd5af4142339af928e75c.mp3]",
+      "audio_dictionary": "[sound:獣医_ジュ＼ーイ_1_NHK-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ジュ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ーイ</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki2-9",
+      "last_modified": 1789206184,
       "needs_surface_review": false
     },
     {
@@ -83015,6 +85021,1557 @@
       "source_tags": "Doki Doki2-11",
       "last_modified": 1791198659,
       "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258534",
+      "source_note_id": "1791199258534",
+      "surface": "職員",
+      "furigana_markup": "職[しょく]員[いん]",
+      "furigana_segments": [
+        {
+          "text": "職",
+          "reading": "しょく",
+          "kanji": [
+            "職"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "員",
+          "reading": "いん",
+          "kanji": [
+            "員"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 8,
+          "hide_from_lesson": "2-8"
+        }
+      ],
+      "reading": "しょくいん",
+      "accepted_readings": [
+        "しょくいん"
+      ],
+      "romaji": "shokuin",
+      "polish": "personel, pracownik instytucji",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "職",
+        "員"
+      ],
+      "tracked_kanji": [
+        "員"
+      ],
+      "untracked_kanji": [
+        "職"
+      ],
+      "example_furigana": "学[がっ] 校[こう]の 職[しょく] 員[いん]と 話[はな]します。",
+      "example_plain": "学校の職員と話します。",
+      "example_pl": "Rozmawiam z pracownikiem szkoły.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. Pracownik instytucji lub członek personelu, np. szkoły albo urzędu.",
+      "audio": "[sound:hypertts-bd1bb1c52f7aa9f2dcee04461c3a06348361d6ebc115db1c5586c36c.mp3]",
+      "example_audio": "[sound:hypertts-7482911afbeb59b0ac6490f05561e73724bc70110b5266389d13c709.mp3]",
+      "audio_dictionary": "[sound:職員_ショク＼イン_2_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ショ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ク</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">イン</span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199538,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258537",
+      "source_note_id": "1791199258537",
+      "surface": "奨学金",
+      "furigana_markup": "奨[しょう]学[がく]金[きん]",
+      "furigana_segments": [
+        {
+          "text": "奨",
+          "reading": "しょう",
+          "kanji": [
+            "奨"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "学",
+          "reading": "がく",
+          "kanji": [
+            "学"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 6,
+          "hide_from_lesson": "1-6"
+        },
+        {
+          "text": "金",
+          "reading": "きん",
+          "kanji": [
+            "金"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        }
+      ],
+      "reading": "しょうがくきん",
+      "accepted_readings": [
+        "しょうがくきん"
+      ],
+      "romaji": "shōgakukin",
+      "polish": "stypendium",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "奨",
+        "学",
+        "金"
+      ],
+      "tracked_kanji": [
+        "学",
+        "金"
+      ],
+      "untracked_kanji": [
+        "奨"
+      ],
+      "example_furigana": "奨[しょう] 学[がく] 金[きん]をもらいたいです。",
+      "example_plain": "奨学金をもらいたいです。",
+      "example_pl": "Chcę otrzymać stypendium.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. Stypendium na naukę lub studia.",
+      "audio": "[sound:hypertts-d5f6a42c93c0eeaaab4f653ae7cd0f9af3ef3f9f1bf7a609f2f5dcc2.mp3]",
+      "example_audio": "[sound:hypertts-70e9e59dfff2c634f56b968400d188b5624eb3bce1b702c34fdd82fc.mp3]",
+      "audio_dictionary": "[sound:奨学金_ショーカ゚クキン━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ショ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ーカ<span style=\"\"color: red;\"\">°</span><span style=\"\"color: royalblue;\"\">ク</span>キン</span> <span class=\"\"pitch_number\"\">0</span>, <span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ショ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ーカ<span style=\"\"color: red;\"\">°</span><span style=\"\"color: royalblue;\"\">ク</span></span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">キン</span> <span class=\"\"pitch_number\"\">4</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199757,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258539",
+      "source_note_id": "1791199258539",
+      "surface": "親戚",
+      "furigana_markup": "親[しん]戚[せき]",
+      "furigana_segments": [
+        {
+          "text": "親",
+          "reading": "しん",
+          "kanji": [
+            "親"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "戚",
+          "reading": "せき",
+          "kanji": [
+            "戚"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "しんせき",
+      "accepted_readings": [
+        "しんせき"
+      ],
+      "romaji": "shinseki",
+      "polish": "krewni, krewny",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "親",
+        "戚"
+      ],
+      "tracked_kanji": [
+        "親"
+      ],
+      "untracked_kanji": [
+        "戚"
+      ],
+      "example_furigana": "親[しん] 戚[せき]は 日[に] 本[ほん]に 住[す]んでいます。",
+      "example_plain": "親戚は日本に住んでいます。",
+      "example_pl": "Moi krewni mieszkają w Japonii.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. W podręczniku spotkasz też zapis 親せき.",
+      "audio": "[sound:hypertts-e63e3a4e7e129cf6df6dd3bbacf78a509d17ee2b9b0244dc90501914.mp3]",
+      "example_audio": "[sound:hypertts-615f9a4c4073095d2d4eba80254d691b716ebcf21d26a27a7b8f34a3.mp3]",
+      "audio_dictionary": "[sound:親戚_シンセキ━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">シ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ンセキ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199526,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258541",
+      "source_note_id": "1791199258541",
+      "surface": "この間",
+      "furigana_markup": "この間[あいだ]",
+      "furigana_segments": [
+        {
+          "text": "この",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "間",
+          "reading": "あいだ",
+          "kanji": [
+            "間"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 9,
+          "hide_from_lesson": "2-9"
+        }
+      ],
+      "reading": "このあいだ",
+      "accepted_readings": [
+        "このあいだ"
+      ],
+      "romaji": "kono aida",
+      "polish": "ostatnio, niedawno",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "間"
+      ],
+      "tracked_kanji": [
+        "間"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "この 間[あいだ]、 映[えい] 画[が]を 見[み]ました。",
+      "example_plain": "この間、映画を見ました。",
+      "example_pl": "Ostatnio obejrzałem film.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "wyrażenie czasu. Oznacza niedawno, jakiś czas temu.",
+      "audio": "[sound:hypertts-6b8a8e09b106c5c99ed737dffd37be9c2c8465d77220e7f03d77ad16.mp3]",
+      "example_audio": "[sound:hypertts-39f19bc9ffa9450f9ee268df0fac4c78eb8f2e2d38e51aa6d001efc8.mp3]",
+      "audio_dictionary": "[sound:この間_コノアイダ━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">コ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ノアイダ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199895,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258543",
+      "source_note_id": "1791199258543",
+      "surface": "大統領",
+      "furigana_markup": "大[だい]統[とう]領[りょう]",
+      "furigana_segments": [
+        {
+          "text": "大",
+          "reading": "だい",
+          "kanji": [
+            "大"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 6,
+          "hide_from_lesson": "1-6"
+        },
+        {
+          "text": "統",
+          "reading": "とう",
+          "kanji": [
+            "統"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "領",
+          "reading": "りょう",
+          "kanji": [
+            "領"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "だいとうりょう",
+      "accepted_readings": [
+        "だいとうりょう"
+      ],
+      "romaji": "daitōryō",
+      "polish": "prezydent",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "大",
+        "統",
+        "領"
+      ],
+      "tracked_kanji": [
+        "大"
+      ],
+      "untracked_kanji": [
+        "統",
+        "領"
+      ],
+      "example_furigana": "大[だい] 統[とう] 領[りょう]はテレビに 出[で]ています。",
+      "example_plain": "大統領はテレビに出ています。",
+      "example_pl": "Prezydent występuje w telewizji.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. Prezydent państwa.",
+      "audio": "[sound:hypertts-27f09dfd31085cc5d549096528d9dcffa1517483518fa235886ef7f8.mp3]",
+      "example_audio": "[sound:hypertts-5806e74a6cea270b8146d45599b2183203e0509c3553eed8ba161e72.mp3]",
+      "audio_dictionary": "[sound:大統領_ダイト＼ーリョー_3_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ダ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">イト</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ーリョー</span> <span class=\"\"pitch_number\"\">3</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199574,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258544",
+      "source_note_id": "1791199258544",
+      "surface": "自分で",
+      "furigana_markup": "自[じ]分[ぶん]で",
+      "furigana_segments": [
+        {
+          "text": "自",
+          "reading": "じ",
+          "kanji": [
+            "自"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 10,
+          "hide_from_lesson": "2-10"
+        },
+        {
+          "text": "分",
+          "reading": "ぶん",
+          "kanji": [
+            "分"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 3,
+          "hide_from_lesson": "1-3"
+        },
+        {
+          "text": "で",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "じぶんで",
+      "accepted_readings": [
+        "じぶんで"
+      ],
+      "romaji": "jibun de",
+      "polish": "samodzielnie, samemu",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "自",
+        "分"
+      ],
+      "tracked_kanji": [
+        "自",
+        "分"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "このケーキは 自[じ] 分[ぶん]で 作[つく]りました。",
+      "example_plain": "このケーキは自分で作りました。",
+      "example_pl": "To ciasto zrobiłem samodzielnie.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "wyrażenie przysłówkowe. Podkreśla wykonanie czegoś samemu, własnymi siłami.",
+      "audio": "[sound:hypertts-f75c4f71853e27d48e868a2b082241146c1ba1006703b7cb1081a22c.mp3]",
+      "example_audio": "[sound:hypertts-2bfd965eaece65835f867737975f4bb7bb5c631012b3a380452998a9.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199534,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258545",
+      "source_note_id": "1791199258545",
+      "surface": "生地",
+      "furigana_markup": "生[き]地[じ]",
+      "furigana_segments": [
+        {
+          "text": "生",
+          "reading": "き",
+          "kanji": [
+            "生"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 6,
+          "hide_from_lesson": "1-6"
+        },
+        {
+          "text": "地",
+          "reading": "じ",
+          "kanji": [
+            "地"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "きじ",
+      "accepted_readings": [
+        "きじ"
+      ],
+      "romaji": "kiji",
+      "polish": "ciasto, masa, tkanina",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "生",
+        "地"
+      ],
+      "tracked_kanji": [
+        "生"
+      ],
+      "untracked_kanji": [
+        "地"
+      ],
+      "example_furigana": "ケーキの 生[き] 地[じ]を 作[つく]ります。",
+      "example_plain": "ケーキの生地を作ります。",
+      "example_pl": "Przygotowuję masę na ciasto.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. W kuchni oznacza surowe ciasto lub masę. W innym kontekście oznacza tkaninę.",
+      "audio": "[sound:hypertts-e3def6a27e53be7dafe12709ae218ae33e4f91883211210c5c3c8c16.mp3]",
+      "example_audio": "[sound:hypertts-94156b00489aee3ffc97659a14f6f9b17153e882ca7677f882bfe186.mp3]",
+      "audio_dictionary": "[sound:生地_キ＼ジ_1_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">キ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ジ</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199546,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258566",
+      "source_note_id": "1791199258566",
+      "surface": "朝寝坊する",
+      "furigana_markup": "朝[あさ]寝[ね]坊[ぼう]する",
+      "furigana_segments": [
+        {
+          "text": "朝",
+          "reading": "あさ",
+          "kanji": [
+            "朝"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 10,
+          "hide_from_lesson": "2-10"
+        },
+        {
+          "text": "寝",
+          "reading": "ね",
+          "kanji": [
+            "寝"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "坊",
+          "reading": "ぼう",
+          "kanji": [
+            "坊"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "する",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "あさねぼうする",
+      "accepted_readings": [
+        "あさねぼうする"
+      ],
+      "romaji": "asanebō suru",
+      "polish": "zaspać",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "朝",
+        "寝",
+        "坊"
+      ],
+      "tracked_kanji": [
+        "朝"
+      ],
+      "untracked_kanji": [
+        "寝",
+        "坊"
+      ],
+      "example_furigana": "今日[きょう]は 朝[あさ] 寝[ね] 坊[ぼう]しました。",
+      "example_plain": "今日は朝寝坊しました。",
+      "example_pl": "Dziś zaspałem.",
+      "verb_form_affirmative": "朝[あさ] 寝[ね] 坊[ぼう]します",
+      "verb_form_negative": "朝[あさ] 寝[ね] 坊[ぼう]しません",
+      "notes": "czasownik gr. 3. Oznacza zaspać lub wstać później niż planowano.",
+      "audio": "[sound:hypertts-e7bf131b4ebf173ba795018febb9063fa4d91a0dd138a01f291dd1f0.mp3]",
+      "example_audio": "[sound:hypertts-b5e5f482a0e1ea9030b797c3778204f8b453d8c2460472704e367f4d.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199555,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258573",
+      "source_note_id": "1791199258573",
+      "surface": "道に迷う",
+      "furigana_markup": "道[みち]に迷[まよ]う",
+      "furigana_segments": [
+        {
+          "text": "道",
+          "reading": "みち",
+          "kanji": [
+            "道"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 10,
+          "hide_from_lesson": "2-10"
+        },
+        {
+          "text": "に",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "迷",
+          "reading": "まよ",
+          "kanji": [
+            "迷"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "う",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "みちにまよう",
+      "accepted_readings": [
+        "みちにまよう"
+      ],
+      "romaji": "michi ni mayou",
+      "polish": "zgubić się, zabłądzić",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "道",
+        "迷"
+      ],
+      "tracked_kanji": [
+        "道"
+      ],
+      "untracked_kanji": [
+        "迷"
+      ],
+      "example_furigana": "日[に] 本[ほん]で 道[みち]に 迷[まよ]いました。",
+      "example_plain": "日本で道に迷いました。",
+      "example_pl": "Zgubiłem się w Japonii.",
+      "verb_form_affirmative": "道[みち]に 迷[まよ]います",
+      "verb_form_negative": "道[みち]に 迷[まよ]いません",
+      "notes": "czasownik gr. 1. Stałe połączenie oznaczające zgubić drogę.",
+      "audio": "[sound:hypertts-7cbf1532517d93b70a30786794c6bbc0bfa16d78800610f500209b05.mp3]",
+      "example_audio": "[sound:hypertts-8dd82b045465dcbb95d63be11f1d0a54f6bc3ad2c4d1a68409346a24.mp3]",
+      "audio_dictionary": "[sound:道に迷う_ミチニマヨウ_taas.mp3]<br>[sound:道に迷う_ミチニマヨウ_taas(1).mp3]",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199512,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258574",
+      "source_note_id": "1791199258574",
+      "surface": "連れて行く",
+      "furigana_markup": "連[つ]れて行[い]く",
+      "furigana_segments": [
+        {
+          "text": "連",
+          "reading": "つ",
+          "kanji": [
+            "連"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "れて",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "行",
+          "reading": "い",
+          "kanji": [
+            "行"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 5,
+          "hide_from_lesson": "1-5"
+        },
+        {
+          "text": "く",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "つれていく",
+      "accepted_readings": [
+        "つれていく"
+      ],
+      "romaji": "tsurete iku",
+      "polish": "zabrać kogoś ze sobą, zaprowadzić",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "連",
+        "行"
+      ],
+      "tracked_kanji": [
+        "連",
+        "行"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "弟[おとうと]を 動[どう] 物[ぶつ] 園[えん]に 連[つ]れて 行[い]きます。",
+      "example_plain": "弟を動物園に連れて行きます。",
+      "example_pl": "Zabieram młodszego brata do zoo.",
+      "verb_form_affirmative": "連[つ]れて 行[い]きます",
+      "verb_form_negative": "連[つ]れて 行[い]きません",
+      "notes": "czasownik gr. 1. Używany, gdy zabiera się osobę ze sobą do innego miejsca.",
+      "audio": "[sound:hypertts-f182a06322cae487159233e84464eeb027d70a40f5506374a3a76772.mp3]",
+      "example_audio": "[sound:hypertts-3f6ddf89c807de605951e3a2e5a2170e4961a22f19bb89322d538352.mp3]",
+      "audio_dictionary": "[sound:連れて行く_ツレテイク_taas.mp3]",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199515,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258575",
+      "source_note_id": "1791199258575",
+      "surface": "連れて来る",
+      "furigana_markup": "連[つ]れて来[く]る",
+      "furigana_segments": [
+        {
+          "text": "連",
+          "reading": "つ",
+          "kanji": [
+            "連"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "れて",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "来",
+          "reading": "く",
+          "kanji": [
+            "来"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 5,
+          "hide_from_lesson": "1-5"
+        },
+        {
+          "text": "る",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "つれてくる",
+      "accepted_readings": [
+        "つれてくる"
+      ],
+      "romaji": "tsurete kuru",
+      "polish": "przyprowadzić, przywieźć kogoś",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "連",
+        "来"
+      ],
+      "tracked_kanji": [
+        "連",
+        "来"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "友[とも]だちをパーティーに 連[つ]れて 来[き]ます。",
+      "example_plain": "友だちをパーティーに連れて来ます。",
+      "example_pl": "Przyprowadzę znajomego na imprezę.",
+      "verb_form_affirmative": "連[つ]れて 来[き]ます",
+      "verb_form_negative": "連[つ]れて 来[き]ません",
+      "notes": "czasownik gr. 3. Używany, gdy przyprowadza się osobę w kierunku miejsca odniesienia mówiącego.",
+      "audio": "[sound:hypertts-c1f4a1ed57d48266711e4388d0f02be91f266f5963431a2ea18035f5.mp3]",
+      "example_audio": "[sound:hypertts-9801128df971bfd2882f37f3b1a5ede223b8c544bce683c2d54d3856.mp3]",
+      "audio_dictionary": "[sound:連れて来る_ツレテクル_taas.mp3]",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199517,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258576",
+      "source_note_id": "1791199258576",
+      "surface": "連れて帰る",
+      "furigana_markup": "連[つ]れて帰[かえ]る",
+      "furigana_segments": [
+        {
+          "text": "連",
+          "reading": "つ",
+          "kanji": [
+            "連"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "れて",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "帰",
+          "reading": "かえ",
+          "kanji": [
+            "帰"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 7,
+          "hide_from_lesson": "2-7"
+        },
+        {
+          "text": "る",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "つれてかえる",
+      "accepted_readings": [
+        "つれてかえる"
+      ],
+      "romaji": "tsurete kaeru",
+      "polish": "zabrać kogoś do domu, odprowadzić",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "連",
+        "帰"
+      ],
+      "tracked_kanji": [
+        "連",
+        "帰"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "子[こ]どもを 家[いえ]に 連[つ]れて 帰[かえ]ります。",
+      "example_plain": "子どもを家に連れて帰ります。",
+      "example_pl": "Zabieram dziecko do domu.",
+      "verb_form_affirmative": "連[つ]れて 帰[かえ]ります",
+      "verb_form_negative": "連[つ]れて 帰[かえ]りません",
+      "notes": "czasownik gr. 1. Oznacza zabrać lub odprowadzić osobę z powrotem do domu.",
+      "audio": "[sound:hypertts-fe3e4ffe06e7a44de2339484b6c5b109c6710f7f3683caaeb12fe1aa.mp3]",
+      "example_audio": "[sound:hypertts-e8aac7d81ecaa1c2e834a9c08af7373ee7af6ce5c8464b9c24ce821d.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199519,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258577",
+      "source_note_id": "1791199258577",
+      "surface": "迎えに来る",
+      "furigana_markup": "迎[むか]えに来[く]る",
+      "furigana_segments": [
+        {
+          "text": "迎",
+          "reading": "むか",
+          "kanji": [
+            "迎"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "えに",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "来",
+          "reading": "く",
+          "kanji": [
+            "来"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 5,
+          "hide_from_lesson": "1-5"
+        },
+        {
+          "text": "る",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "むかえにくる",
+      "accepted_readings": [
+        "むかえにくる"
+      ],
+      "romaji": "mukae ni kuru",
+      "polish": "przyjechać lub przyjść po kogoś",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "迎",
+        "来"
+      ],
+      "tracked_kanji": [
+        "来"
+      ],
+      "untracked_kanji": [
+        "迎"
+      ],
+      "example_furigana": "母[はは]が 駅[えき]に 迎[むか]えに 来[き]ます。",
+      "example_plain": "母が駅に迎えに来ます。",
+      "example_pl": "Mama przyjedzie po mnie na stację.",
+      "verb_form_affirmative": "迎[むか]えに 来[き]ます",
+      "verb_form_negative": "迎[むか]えに 来[き]ません",
+      "notes": "czasownik gr. 3. 来る wskazuje ruch w kierunku miejsca odniesienia mówiącego.",
+      "audio": "[sound:hypertts-77c895fad7abb6aa76ff568037a26fd63bebbda2604d722fcf4113fc.mp3]",
+      "example_audio": "[sound:hypertts-f52bdf4a1b3287b501a6cbdd3b8b58ee018c08e7acd8a41360a77501.mp3]",
+      "audio_dictionary": "[sound:迎えに来る_ムカエニクル_japanesepod101.mp3]<br>[sound:迎えに来る_ムカエニクル_japanesepod101(1).mp3]",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199523,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258578",
+      "source_note_id": "1791199258578",
+      "surface": "迎えに行く",
+      "furigana_markup": "迎[むか]えに行[い]く",
+      "furigana_segments": [
+        {
+          "text": "迎",
+          "reading": "むか",
+          "kanji": [
+            "迎"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "えに",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "行",
+          "reading": "い",
+          "kanji": [
+            "行"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 5,
+          "hide_from_lesson": "1-5"
+        },
+        {
+          "text": "く",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "むかえにいく",
+      "accepted_readings": [
+        "むかえにいく"
+      ],
+      "romaji": "mukae ni iku",
+      "polish": "iść lub jechać po kogoś, odebrać kogoś",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "迎",
+        "行"
+      ],
+      "tracked_kanji": [
+        "行"
+      ],
+      "untracked_kanji": [
+        "迎"
+      ],
+      "example_furigana": "友[とも]だちを 駅[えき]に 迎[むか]えに 行[い]きます。",
+      "example_plain": "友だちを駅に迎えに行きます。",
+      "example_pl": "Idę odebrać znajomego na stacji.",
+      "verb_form_affirmative": "迎[むか]えに 行[い]きます",
+      "verb_form_negative": "迎[むか]えに 行[い]きません",
+      "notes": "czasownik gr. 1. 行く wskazuje ruch od miejsca odniesienia mówiącego po osobę.",
+      "audio": "[sound:hypertts-054dec4ba96ba59767f772eb9dea5854206961b3a7b239a54ce0b2b7.mp3]",
+      "example_audio": "[sound:hypertts-d0696cc7388bce9dc82a4949b885044acf40dfbc554099e40d31f033.mp3]",
+      "audio_dictionary": "[sound:迎えに行く_ムカエニイク_japanesepod101.mp3]<br>[sound:迎えに行く_ムカエニイク_japanesepod101(1).mp3]",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199521,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258579",
+      "source_note_id": "1791199258579",
+      "surface": "乗り遅れる",
+      "furigana_markup": "乗[の]り遅[おく]れる",
+      "furigana_segments": [
+        {
+          "text": "乗",
+          "reading": "の",
+          "kanji": [
+            "乗"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 14,
+          "hide_from_lesson": "3-14"
+        },
+        {
+          "text": "り",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "遅",
+          "reading": "おく",
+          "kanji": [
+            "遅"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "れる",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "のりおくれる",
+      "accepted_readings": [
+        "のりおくれる"
+      ],
+      "romaji": "noriokureru",
+      "polish": "spóźnić się na transport, nie zdążyć wsiąść",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "乗",
+        "遅"
+      ],
+      "tracked_kanji": [
+        "乗"
+      ],
+      "untracked_kanji": [
+        "遅"
+      ],
+      "example_furigana": "家[いえ]を 遅[おそ]く 出[で]て、 電[でん] 車[しゃ]に 乗[の]り 遅[おく]れました。",
+      "example_plain": "家を遅く出て、電車に乗り遅れました。",
+      "example_pl": "Wyszedłem późno z domu i spóźniłem się na pociąg.",
+      "verb_form_affirmative": "乗[の]り 遅[おく]れます",
+      "verb_form_negative": "乗[の]り 遅[おく]れません",
+      "notes": "czasownik gr. 2. Używany wobec pociągu, autobusu, samolotu i innych środków transportu.",
+      "audio": "[sound:hypertts-be757e162d7616cef4787e773d2ae267c6068a43bb9d12e7cc513916.mp3]",
+      "example_audio": "[sound:hypertts-e33cddb98bf2b8456b6b73ef9ec136fb041088bc3445f638365210dd.mp3]",
+      "audio_dictionary": "[sound:乗り遅れる_ノリオクレ＼ル_5_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ノ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">リオクレ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ル</span> <span class=\"\"pitch_number\"\">5</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199602,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258591",
+      "source_note_id": "1791199258591",
+      "surface": "一晩中",
+      "furigana_markup": "一[ひと]晩[ばん]中[じゅう]",
+      "furigana_segments": [
+        {
+          "text": "一",
+          "reading": "ひと",
+          "kanji": [
+            "一"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 3,
+          "hide_from_lesson": "1-3"
+        },
+        {
+          "text": "晩",
+          "reading": "ばん",
+          "kanji": [
+            "晩"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "中",
+          "reading": "じゅう",
+          "kanji": [
+            "中"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        }
+      ],
+      "reading": "ひとばんじゅう",
+      "accepted_readings": [
+        "ひとばんじゅう"
+      ],
+      "romaji": "hitobanjū",
+      "polish": "całą noc",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "一",
+        "晩",
+        "中"
+      ],
+      "tracked_kanji": [
+        "一",
+        "中"
+      ],
+      "untracked_kanji": [
+        "晩"
+      ],
+      "example_furigana": "一[ひと] 晩[ばん] 中[じゅう]テレビを 見[み]ました。",
+      "example_plain": "一晩中テレビを見ました。",
+      "example_pl": "Oglądałem telewizję całą noc.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "wyrażenie czasu. Oznacza przez całą noc.",
+      "audio": "[sound:hypertts-b91ab056c0cfe9c934a55a3b41a9668099659644ffb1af1d4210ceed.mp3]",
+      "example_audio": "[sound:hypertts-e9b44031bead6be1c783c4a69cab892d3e861d93ee10fb0e8649ea92.mp3]",
+      "audio_dictionary": "[sound:一晩中_ヒトバンジュー━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ヒ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">トバンジュウ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199604,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258592",
+      "source_note_id": "1791199258592",
+      "surface": "日中",
+      "furigana_markup": "日[にっ]中[ちゅう]",
+      "furigana_segments": [
+        {
+          "text": "日",
+          "reading": "にっ",
+          "kanji": [
+            "日"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        },
+        {
+          "text": "中",
+          "reading": "ちゅう",
+          "kanji": [
+            "中"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        }
+      ],
+      "reading": "にっちゅう",
+      "accepted_readings": [
+        "にっちゅう"
+      ],
+      "romaji": "nicchū",
+      "polish": "w trakcie dnia, za dnia",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "日",
+        "中"
+      ],
+      "tracked_kanji": [
+        "日",
+        "中"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "日[にっ] 中[ちゅう]は 仕[し] 事[ごと]をしています。",
+      "example_plain": "日中は仕事をしています。",
+      "example_pl": "W ciągu dnia pracuję.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "wyrażenie czasu. ～中 czytane ちゅう wskazuje trwanie w obrębie danego okresu.",
+      "audio": "[sound:hypertts-b1d3a9f8f5f5f99b543aae90a409785c90a7f6de8c9d896fe57c673a.mp3]",
+      "example_audio": "[sound:hypertts-7709b6ce6136f6a0739d2c084f720c52d5a93ba015cddd7547e22230.mp3]",
+      "audio_dictionary": "[sound:日中_ニッチュー━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ニ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ッチュー</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199559,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258593",
+      "source_note_id": "1791199258593",
+      "surface": "今日中に",
+      "furigana_markup": "今日[きょう]中[じゅう]に",
+      "furigana_segments": [
+        {
+          "text": "今日",
+          "reading": "きょう",
+          "kanji": [
+            "今",
+            "日"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 5,
+          "hide_from_lesson": "1-5"
+        },
+        {
+          "text": "中",
+          "reading": "じゅう",
+          "kanji": [
+            "中"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        },
+        {
+          "text": "に",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "きょうじゅうに",
+      "accepted_readings": [
+        "きょうじゅうに"
+      ],
+      "romaji": "kyōjū ni",
+      "polish": "do końca dnia, jeszcze dzisiaj",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "今",
+        "日",
+        "中"
+      ],
+      "tracked_kanji": [
+        "今",
+        "日",
+        "中"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "今日[きょう] 中[じゅう]に 宿[しゅく] 題[だい]をします。",
+      "example_plain": "今日中に宿題をします。",
+      "example_pl": "Zrobię pracę domową do końca dnia.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "wyrażenie czasu. Wskazuje termin najpóźniej do końca dzisiejszego dnia.",
+      "audio": "[sound:hypertts-ae50ddd1132c446fee9f94366edb4c93c41b53d046a3cf83330cdc23.mp3]",
+      "example_audio": "[sound:hypertts-cd07c06c7748176ddfffa0d3178e47c31870bb1b820ae07a2b0b7d7e.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199600,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258594",
+      "source_note_id": "1791199258594",
+      "surface": "授業中に",
+      "furigana_markup": "授[じゅ]業[ぎょう]中[ちゅう]に",
+      "furigana_segments": [
+        {
+          "text": "授",
+          "reading": "じゅ",
+          "kanji": [
+            "授"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "業",
+          "reading": "ぎょう",
+          "kanji": [
+            "業"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "中",
+          "reading": "ちゅう",
+          "kanji": [
+            "中"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        },
+        {
+          "text": "に",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "じゅぎょうちゅうに",
+      "accepted_readings": [
+        "じゅぎょうちゅうに"
+      ],
+      "romaji": "jugyōchū ni",
+      "polish": "w trakcie zajęć",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "授",
+        "業",
+        "中"
+      ],
+      "tracked_kanji": [
+        "中"
+      ],
+      "untracked_kanji": [
+        "授",
+        "業"
+      ],
+      "example_furigana": "授[じゅ] 業[ぎょう] 中[ちゅう]に 電[でん] 話[わ]を 使[つか]いません。",
+      "example_plain": "授業中に電話を使いません。",
+      "example_pl": "Nie używam telefonu podczas zajęć.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "wyrażenie czasu. ～中 czytane ちゅう oznacza w trakcie danej czynności lub wydarzenia.",
+      "audio": "[sound:hypertts-b358ab5900f9eeed8d25f8b1741ab1216ba175a6a21bbd35dfcaeb79.mp3]",
+      "example_audio": "[sound:hypertts-09e3f911ebfed586c63a35f4ac370e0d21d4b9b0237e2915de022c16.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199565,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258595",
+      "source_note_id": "1791199258595",
+      "surface": "食材",
+      "furigana_markup": "食[しょく]材[ざい]",
+      "furigana_segments": [
+        {
+          "text": "食",
+          "reading": "しょく",
+          "kanji": [
+            "食"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 5,
+          "hide_from_lesson": "1-5"
+        },
+        {
+          "text": "材",
+          "reading": "ざい",
+          "kanji": [
+            "材"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "しょくざい",
+      "accepted_readings": [
+        "しょくざい"
+      ],
+      "romaji": "shokuzai",
+      "polish": "składniki spożywcze",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "食",
+        "材"
+      ],
+      "tracked_kanji": [
+        "食"
+      ],
+      "untracked_kanji": [
+        "材"
+      ],
+      "example_furigana": "スーパーで 食[しょく] 材[ざい]を 買[か]います。",
+      "example_plain": "スーパーで食材を買います。",
+      "example_pl": "Kupuję składniki spożywcze w supermarkecie.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. Ogólne określenie produktów używanych do przygotowania potraw.",
+      "audio": "[sound:hypertts-145ee4746471869cd310797d1e66c1e85f1c715ce411393645724cc2.mp3]",
+      "example_audio": "[sound:hypertts-ee3bb86005d0c3220ddda31dd05530fc2440b6fe3eb8b67b9c313e38.mp3]",
+      "audio_dictionary": "[sound:食材_ショクザイ━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ショ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">クザイ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199508,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258598",
+      "source_note_id": "1791199258598",
+      "surface": "鶏肉",
+      "furigana_markup": "鶏[とり]肉[にく]",
+      "furigana_segments": [
+        {
+          "text": "鶏",
+          "reading": "とり",
+          "kanji": [
+            "鶏"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "肉",
+          "reading": "にく",
+          "kanji": [
+            "肉"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 13,
+          "hide_from_lesson": "2-13"
+        }
+      ],
+      "reading": "とりにく",
+      "accepted_readings": [
+        "とりにく"
+      ],
+      "romaji": "toriniku",
+      "polish": "mięso z kurczaka, drób",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "鶏",
+        "肉"
+      ],
+      "tracked_kanji": [
+        "肉"
+      ],
+      "untracked_kanji": [
+        "鶏"
+      ],
+      "example_furigana": "鶏[とり] 肉[にく]をよく 食[た]べます。",
+      "example_plain": "鶏肉をよく食べます。",
+      "example_pl": "Często jem mięso z kurczaka.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. W codziennym kontekście zwykle oznacza mięso z kurczaka.",
+      "audio": "[sound:hypertts-8cb69ee5bc1f7b9aba9a37f464696a6c593961948ed9a0da50f14111.mp3]",
+      "example_audio": "[sound:hypertts-a11006fe141e71fb947c08e4eafc09743e3dba62239658b94481ede0.mp3]",
+      "audio_dictionary": "[sound:鶏肉_トリニク━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ト</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">リニク</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199504,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1791199258607",
+      "source_note_id": "1791199258607",
+      "surface": "出汁",
+      "furigana_markup": "出汁[だし]",
+      "furigana_segments": [
+        {
+          "text": "出汁",
+          "reading": "だし",
+          "kanji": [
+            "出",
+            "汁"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "だし",
+      "accepted_readings": [
+        "だし"
+      ],
+      "romaji": "dashi",
+      "polish": "bulion, wywar dashi",
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "all_kanji": [
+        "出",
+        "汁"
+      ],
+      "tracked_kanji": [
+        "出"
+      ],
+      "untracked_kanji": [
+        "汁"
+      ],
+      "example_furigana": "出汁[だし]を 入[い]れて、スープを 作[つく]ります。",
+      "example_plain": "出汁を入れて、スープを作ります。",
+      "example_pl": "Dodaję dashi i robię zupę.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "rzeczownik. Japoński wywar używany jako baza potraw. Często zapisywany hiraganą だし. Zapis 出汁 ma nieregularne czytanie.",
+      "audio": "[sound:hypertts-b9e78e70c8d1c7a887bb299eb4a60e7a7fd811ec8d3418124f199da1.mp3]",
+      "example_audio": "[sound:hypertts-57294a752cdfc02db15352b47e04451c05d99b520ac2b51f68050c56.mp3]",
+      "audio_dictionary": "[sound:出汁_ダシ＼_2_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ダ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">シ</span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "Doki Doki3-14",
+      "last_modified": 1791199591,
+      "needs_surface_review": false
     }
   ],
   "quiz_lessons": [
@@ -84293,6 +87850,212 @@
         "安",
         "飯",
         "悪"
+      ]
+    },
+    {
+      "book": 3,
+      "chapter": 14,
+      "lesson": "3-14",
+      "lesson_order": 14,
+      "target_kanji": [
+        "親",
+        "切",
+        "医",
+        "者",
+        "音",
+        "楽",
+        "彼",
+        "代",
+        "英",
+        "去",
+        "留",
+        "族",
+        "急",
+        "乗",
+        "当"
+      ],
+      "known_kanji": [
+        "一",
+        "二",
+        "三",
+        "四",
+        "五",
+        "六",
+        "七",
+        "分",
+        "八",
+        "九",
+        "十",
+        "百",
+        "千",
+        "万",
+        "円",
+        "時",
+        "月",
+        "火",
+        "水",
+        "木",
+        "金",
+        "土",
+        "曜",
+        "半",
+        "日",
+        "本",
+        "人",
+        "上",
+        "下",
+        "中",
+        "外",
+        "気",
+        "天",
+        "元",
+        "山",
+        "川",
+        "私",
+        "今",
+        "田",
+        "女",
+        "男",
+        "見",
+        "行",
+        "来",
+        "食",
+        "飲",
+        "右",
+        "左",
+        "東",
+        "西",
+        "南",
+        "北",
+        "口",
+        "出",
+        "先",
+        "生",
+        "小",
+        "大",
+        "学",
+        "国",
+        "入",
+        "会",
+        "社",
+        "高",
+        "校",
+        "父",
+        "母",
+        "子",
+        "毎",
+        "語",
+        "文",
+        "書",
+        "帰",
+        "電",
+        "車",
+        "京",
+        "員",
+        "古",
+        "新",
+        "聞",
+        "作",
+        "仕",
+        "事",
+        "休",
+        "言",
+        "読",
+        "思",
+        "家",
+        "話",
+        "次",
+        "何",
+        "名",
+        "前",
+        "午",
+        "後",
+        "赤",
+        "青",
+        "白",
+        "黒",
+        "雨",
+        "雪",
+        "友",
+        "間",
+        "少",
+        "多",
+        "知",
+        "住",
+        "正",
+        "年",
+        "売",
+        "買",
+        "町",
+        "長",
+        "市",
+        "道",
+        "立",
+        "自",
+        "夜",
+        "朝",
+        "持",
+        "昼",
+        "手",
+        "紙",
+        "病",
+        "院",
+        "映",
+        "画",
+        "勉",
+        "強",
+        "好",
+        "近",
+        "明",
+        "所",
+        "有",
+        "旅",
+        "歌",
+        "昔",
+        "神",
+        "色",
+        "々",
+        "早",
+        "起",
+        "牛",
+        "使",
+        "店",
+        "働",
+        "連",
+        "別",
+        "度",
+        "寺",
+        "心",
+        "料",
+        "理",
+        "鳥",
+        "肉",
+        "空",
+        "港",
+        "着",
+        "建",
+        "物",
+        "同",
+        "海",
+        "特",
+        "安",
+        "飯",
+        "悪",
+        "親",
+        "切",
+        "医",
+        "者",
+        "音",
+        "楽",
+        "彼",
+        "代",
+        "英",
+        "去",
+        "留",
+        "族",
+        "急",
+        "乗",
+        "当"
       ]
     }
   ],

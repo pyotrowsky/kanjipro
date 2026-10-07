@@ -1,6 +1,13 @@
-const CACHE_NAME = 'wsjj-kanji-pro-v8-1';
+const CACHE_NAME = 'wsjj-kanji-pro-v9-1';
 const BASE = new URL('./', self.location.href);
 const DB_URL = new URL('./data/kanji_quiz_database.json', BASE).href;
+const FRESH_URLS = new Set([
+  DB_URL,
+  new URL('./index.html', BASE).href,
+  new URL('./js/app.js', BASE).href,
+  new URL('./css/styles.css', BASE).href,
+  new URL('./manifest.webmanifest', BASE).href
+]);
 const PRECACHE = [
   './',
   './index.html',
@@ -35,19 +42,19 @@ self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
-  // Database: network first so Anki updates appear immediately when online,
-  // with cached data as an offline fallback.
-  if (url.href === DB_URL) {
+  // Mutable app files and database: network first so new chapters/code appear
+  // on the first launch after deployment; cached copies remain the offline fallback.
+  if (FRESH_URLS.has(url.href)) {
     event.respondWith(
       fetch(event.request, { cache: 'no-store' })
         .then(response => {
           if (response.ok) {
             const copy = response.clone();
-            caches.open(CACHE_NAME).then(cache => cache.put(DB_URL, copy));
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
           }
           return response;
         })
-        .catch(() => caches.match(DB_URL))
+        .catch(() => caches.match(event.request))
     );
     return;
   }

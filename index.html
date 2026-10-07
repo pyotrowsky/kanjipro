@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
 <link rel="stylesheet" href="./css/styles.css"></head><body><main class="shell">
-<div class="brand"><h1>WSJJ Kanji.pro</h1><span class="badge">v10 · PWA</span></div>
+<div class="brand"><h1>WSJJ Kanji.pro</h1><span class="badge">v11 · PWA</span></div>
 <section id="setup" class="panel stack">
   <div>
     <div class="group-head"><div class="section-title" style="margin:0">Rozdziały</div><div class="actions"><button type="button" id="lessonAll" class="mini-btn">Wszystkie</button><button type="button" id="lessonNone" class="mini-btn">Żadne</button></div></div>
@@ -57,7 +57,7 @@
   </details>
 </section>
 <section id="quiz" class="panel hidden"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div id="progress" class="counter"></div></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><button id="submit" class="primary">Sprawdź</button></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span>poprawne</span></div><div class="stat"><b id="wrong">0</b><span>błędy</span></div><div class="stat"><b id="left">0</b><span>w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
-<section id="finished" class="panel finish hidden"><div class="quiz-type">SESJA ZAKOŃCZONA</div><div id="finalScore" class="big">100%</div><p id="finalText"></p><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button id="again" class="primary">Jeszcze raz</button><button id="settings" class="ghost">Ustawienia</button></div></section>
+<section id="finished" class="panel finish hidden"><div class="quiz-type">SESJA ZAKOŃCZONA</div><div id="finalScore" class="big">100%</div><p id="finalText"></p><details id="mistakesDetails" class="mistakes-summary hidden"><summary><span>Błędne pytania</span><span id="mistakesCount" class="mistakes-count">0</span></summary><div id="mistakesList" class="mistakes-list"></div></details><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button id="again" class="primary">Jeszcze raz</button><button id="settings" class="ghost">Ustawienia</button></div></section>
 </main>
 
 <script type="module" src="./js/app.js"></script>

@@ -3,16 +3,16 @@
     "version": 8,
     "name": "WSJJ Kanji.pro database",
     "source": "Anki exports in imports/",
-    "kanji_count": 181,
-    "vocabulary_entries": 1237,
-    "source_vocabulary_notes": 1236,
-    "vocabulary_source_total": 2335,
-    "vocabulary_excluded_no_tracked_kanji": 1100,
+    "kanji_count": 272,
+    "vocabulary_entries": 1707,
+    "source_vocabulary_notes": 1706,
+    "vocabulary_source_total": 2927,
+    "vocabulary_excluded_no_tracked_kanji": 1222,
     "slash_combined_notes_split": 2,
-    "quiz_lessons": 12,
-    "cleaned_vocabulary_records": 52,
-    "ambiguous_surface_multiple_readings": 14,
-    "source_max_modified": 1791285608,
+    "quiz_lessons": 18,
+    "cleaned_vocabulary_records": 64,
+    "ambiguous_surface_multiple_readings": 15,
+    "source_max_modified": 1791360194,
     "rules": {
       "knownKanji_field": "ignored",
       "course_kanji_source": "imports/kanji.csv only",
@@ -23,6 +23,6 @@
     }
   },
   "validation_issue_count": 0,
-  "ambiguous_prompt_count": 14,
+  "ambiguous_prompt_count": 15,
   "runtime_file": "data/kanji_quiz_database.json"
 }

@@ -15,10 +15,21 @@
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
 <link rel="stylesheet" href="./css/styles.css"></head><body><main class="shell">
-<div class="brand"><h1>WSJJ Kanji.pro</h1><span class="badge">v9 · PWA</span></div>
+<div class="brand"><h1>WSJJ Kanji.pro</h1><span class="badge">v10 · PWA</span></div>
 <section id="setup" class="panel stack">
-  <div><div class="group-head"><div class="section-title" style="margin:0">Rozdziały</div><div class="actions"><button type="button" id="lessonAll" class="mini-btn">Wszystkie</button><button type="button" id="lessonNone" class="mini-btn">Żadne</button></div></div><div id="lessonGrid" class="lesson-grid"></div><div class="lesson-note">Możesz zaznaczyć kilka rozdziałów naraz. Najpóźniejszy wybrany rozdział wyznacza tylko zakres dostępnego słownictwa; poziom furigany ustawiasz osobno.</div></div>
-  <div><div class="group-head"><div class="section-title" style="margin:0">Główne kanji</div><div class="actions"><button type="button" id="selectAll" class="mini-btn">Wszystkie</button><button type="button" id="selectNone" class="mini-btn">Żadne</button></div></div><div id="kanjiGroups" class="kanji-groups"></div><div class="lesson-note">Słówko trafia do sesji tylko wtedy, gdy zawiera przynajmniej jedno zaznaczone kanji główne.</div></div>
+  <div>
+    <div class="group-head"><div class="section-title" style="margin:0">Rozdziały</div><div class="actions"><button type="button" id="lessonAll" class="mini-btn">Wszystkie</button><button type="button" id="lessonNone" class="mini-btn">Żadne</button></div></div>
+    <div id="lessonGrid" class="book-groups"></div>
+    <div class="lesson-note">Rozwiń podręcznik. Możesz wybrać cały Doki albo pojedyncze rozdziały. Najpóźniejszy wybrany rozdział wyznacza zakres dostępnego słownictwa.</div>
+  </div>
+  <details id="kanjiDetails" class="selector-details">
+    <summary><span class="details-title">Główne kanji</span><span id="kanjiSelectionSummary" class="selection-summary">Wybrane: 0</span></summary>
+    <div class="selector-details-body">
+      <div class="group-head compact-head"><div class="lesson-note inline-note">Opcjonalnie zawęź wybrane rozdziały do konkretnych znaków.</div><div class="actions"><button type="button" id="selectAll" class="mini-btn">Wszystkie</button><button type="button" id="selectNone" class="mini-btn">Żadne</button></div></div>
+      <div id="kanjiGroups" class="kanji-groups"></div>
+      <div class="lesson-note">Słówko trafia do sesji tylko wtedy, gdy zawiera przynajmniej jedno zaznaczone kanji główne.</div>
+    </div>
+  </details>
   <div class="limit-box" id="furiganaBox"><div class="section-title">Furigana</div>
     <div class="limit-row">
       <label class="choice"><input type="radio" name="furiganaMode" value="selected" checked><span>Według zaznaczonych kanji</span></label>

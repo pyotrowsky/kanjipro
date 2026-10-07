@@ -56,7 +56,7 @@ CJK_RE = re.compile(r"[\u3400-\u9fff\uf900-\ufaff]")
 HTML_RE = re.compile(r"<[^>]*>")
 BRACKET_RE = re.compile(r"\[[^\]]*\]")
 FURI_TOKEN_RE = re.compile(r"([^\s\[\]]+)\[([^\]]+)\]|([^\s]+)")
-PLACEHOLDER_PREFIX_RE = re.compile(r"^[~～〜]+")
+PLACEHOLDER_EDGE_RE = re.compile(r"^[~～〜]+|[~～〜]+$")
 
 # Known historical source irregularities. Note IDs are stable across Anki exports.
 SURFACE_PATCH = {
@@ -107,7 +107,7 @@ def clean_text(s: str | None) -> str:
 
 def clean_surface(s: str | None) -> str:
     s = clean_text(s).strip()
-    s = PLACEHOLDER_PREFIX_RE.sub("", s)
+    s = PLACEHOLDER_EDGE_RE.sub("", s)
     s = s.replace("*", "")
     s = re.sub(r"\([^)]*\)|（[^）]*）", "", s)
     return "".join(s.split())
@@ -115,7 +115,7 @@ def clean_surface(s: str | None) -> str:
 
 def clean_reading(s: str | None) -> str:
     s = clean_text(s).strip()
-    s = PLACEHOLDER_PREFIX_RE.sub("", s)
+    s = PLACEHOLDER_EDGE_RE.sub("", s)
     s = s.replace("*", "")
     return "".join(s.split())
 
@@ -236,7 +236,7 @@ def cleaned_base_segments(note_id: str, raw_markup: str) -> list[dict]:
         text = clean_text(seg.get("text", "")).strip()
         text = re.sub(r"\([^)]*\)|（[^）]*）", "", text)  # usage annotations e.g. (な), (に)
         text = text.replace("*", "")
-        text = PLACEHOLDER_PREFIX_RE.sub("", text)
+        text = PLACEHOLDER_EDGE_RE.sub("", text)
         text = "".join(text.split())
         if not text:
             continue

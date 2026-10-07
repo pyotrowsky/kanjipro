@@ -1,8 +1,10 @@
-const CACHE_NAME = 'wsjj-kanji-pro-v11-1';
+const CACHE_NAME = 'wsjj-kanji-pro-v12-1';
 const BASE = new URL('./', self.location.href);
 const DB_URL = new URL('./data/kanji_quiz_database.json', BASE).href;
+const UI_URL = new URL('./data/ui.pl.json', BASE).href;
 const FRESH_URLS = new Set([
   DB_URL,
+  UI_URL,
   new URL('./index.html', BASE).href,
   new URL('./js/app.js', BASE).href,
   new URL('./css/styles.css', BASE).href,
@@ -14,6 +16,7 @@ const PRECACHE = [
   './css/styles.css',
   './js/app.js',
   './data/kanji_quiz_database.json',
+  './data/ui.pl.json',
   './manifest.webmanifest',
   './icons/apple-touch-icon.png',
   './icons/icon-192.png',

@@ -1,0 +1,104 @@
+{
+  "app": {
+    "name": "WSJJ Kanji.pro",
+    "badge": "v12 · PWA",
+    "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
+  },
+  "common": {
+    "all": "Wszystkie",
+    "none": "Żadne",
+    "settings": "Ustawienia",
+    "doki": "Doki {book}",
+    "lesson": "Rozdział {chapter}",
+    "doki_lesson": "Doki {lesson}"
+  },
+  "setup": {
+    "chapters_title": "Rozdziały",
+    "chapters_note": "Rozwiń podręcznik. Możesz wybrać cały Doki albo pojedyncze rozdziały. Najpóźniejszy wybrany rozdział wyznacza zakres dostępnego słownictwa.",
+    "choose_whole_book": "Wybierz cały Doki {book}",
+    "book_status": "{selected}/{total} rozdz.",
+    "kanji_title": "Główne kanji",
+    "kanji_selected": "Wybrane: {count}",
+    "kanji_note_top": "Opcjonalnie zawęź wybrane rozdziały do konkretnych znaków.",
+    "kanji_note_bottom": "Słówko trafia do sesji tylko wtedy, gdy zawiera przynajmniej jedno zaznaczone kanji główne.",
+    "kanji_group": "Doki {book} · rozdział {chapter}",
+    "practice_title": "Co ćwiczymy?",
+    "mode_on": "ON",
+    "mode_kun": "KUN",
+    "mode_vocab": "Słówka",
+    "start": "START",
+    "start_note": "Limit dotyczy tylko słówek. ON i KUN pojawiają się po jednym pytaniu dla każdego zaznaczonego kanji, jeśli dane odczytanie istnieje. Początkowa pula nie ma duplikatów; błędne pytania wracają później."
+  },
+  "furigana": {
+    "title": "Furigana",
+    "selected": "Według zaznaczonych kanji",
+    "chapter": "Według rozdziału",
+    "or_enter": "albo wpisz",
+    "lesson_placeholder": "np. 1-6 lub 6",
+    "lesson_aria": "Wybierz poziom rozdziału",
+    "help_selected": "Bez furigany będą tylko zaznaczone kanji. Każde inne kanji dostanie furiganę, o ile nie zdradzi odpowiedzi.",
+    "help_chapter": "Domyślnie ustawiam rozdział najpóźniejszego zaznaczonego kanji. Bez furigany będą kanji poznane do wskazanego rozdziału.",
+    "label_selected": "zaznaczone kanji",
+    "label_chapter": "do Doki {lesson}",
+    "label_invalid": "nieprawidłowy rozdział"
+  },
+  "input": {
+    "title": "Wpisywanie odpowiedzi",
+    "romaji": "Romaji → hiragana",
+    "ime": "Japońskie IME",
+    "help_romaji_html": "Pisz np. <b>gakusei</b> → <b>がくせい</b>. Ten tryb nie wykonuje konwersji na kanji. <b>Enter zawsze sprawdza odpowiedź.</b>",
+    "help_ime_html": "Używasz systemowego japońskiego IME. <b>Enter nadal uruchamia Sprawdź / Dalej.</b>",
+    "placeholder_romaji": "Wpisz romaji…",
+    "placeholder_ime": "Wpisz odczyt…"
+  },
+  "vocab": {
+    "title": "Słówka w sesji",
+    "all": "Wszystkie",
+    "limit": "Ogranicz do",
+    "preview_no_lessons": "Wybierz przynajmniej jeden rozdział.",
+    "preview": "Wybrano {lessons} rozdz. · {kanji} kanji · furigana: {furigana} · sesja: {session}",
+    "preview_on": "{count} ON",
+    "preview_kun": "{count} KUN",
+    "preview_vocab_all": "{count} słówek",
+    "preview_vocab_limited": "{chosen} z {total} słówek",
+    "preview_no_mode": "brak trybu"
+  },
+  "install": {
+    "summary": "📱 Zainstaluj na urządzeniu mobilnym",
+    "ios_html": "<b>iOS / iPadOS:</b> otwórz stronę w Safari → <b>Udostępnij</b> → <b>Dodaj do ekranu początkowego</b> → <b>Dodaj</b>.",
+    "android_html": "<b>Android:</b> otwórz stronę w Chrome → menu <b>⋮</b> → <b>Zainstaluj aplikację</b> lub <b>Dodaj do ekranu głównego</b> → potwierdź.",
+    "installed": "✓ Aplikacja jest już uruchomiona jako aplikacja."
+  },
+  "quiz": {
+    "type_onyomi": "ON’YOMI",
+    "type_kunyomi": "KUN’YOMI",
+    "type_vocabulary": "SŁÓWKO",
+    "check": "Sprawdź",
+    "next": "Dalej",
+    "progress": "pozostało {count}",
+    "your_answer": "Twoja odpowiedź: {answer}",
+    "correct_stat": "poprawne",
+    "wrong_stat": "błędy",
+    "left_stat": "w kolejce",
+    "back": "← Ustawienia",
+    "enter_hint_html": "Klawisz <span class=\"kbd\">Enter</span>: sprawdź / dalej"
+  },
+  "finish": {
+    "title": "SESJA ZAKOŃCZONA",
+    "summary": "Poprawne: {correct} · Błędy: {wrong} · Próby: {attempts}",
+    "mistakes_title": "Błędne pytania",
+    "mistake_correct": "Poprawnie: {answer}",
+    "mistake_yours": "Twoja odpowiedź: {answer}",
+    "again": "Jeszcze raz",
+    "settings": "Ustawienia"
+  },
+  "errors": {
+    "database_load": "Nie udało się wczytać bazy: {status}",
+    "strings_load": "Nie udało się wczytać tekstów interfejsu: {status}",
+    "choose_lesson": "Wybierz przynajmniej jeden rozdział.",
+    "choose_kanji": "Wybierz przynajmniej jedno kanji główne.",
+    "choose_mode": "Wybierz przynajmniej jeden tryb.",
+    "invalid_furigana": "Podaj prawidłowy rozdział dla furigany, np. 1-6 albo 6.",
+    "empty_pool": "Dla wybranych ustawień nie ma pytań."
+  }
+}

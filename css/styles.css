@@ -39,3 +39,11 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .inline-note{margin:0}
 .selector-details .kanji-groups{margin-top:4px}
 @media(max-width:600px){.book-folder .lesson-grid{grid-template-columns:repeat(2,1fr)}.book-folder>summary,.selector-details>summary{padding:11px 12px}.selector-details-body,.book-folder-body{padding:0 10px 11px}.compact-head{align-items:flex-start;flex-direction:column}}
+
+
+/* Japanese typeface: classic Mincho, close to the reference screenshot */
+.prompt,
+.kanji-chip span {
+  font-family: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", "Noto Serif CJK JP", serif;
+  font-weight: 400;
+}

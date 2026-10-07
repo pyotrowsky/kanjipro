@@ -105,6 +105,22 @@ def clean_text(s: str | None) -> str:
     return html.unescape(s or "").replace("\u00a0", " ")
 
 
+def pattern_markers(*values: str | None) -> tuple[str, str]:
+    """Return normalized visible pattern markers from source edges.
+
+    The marker is metadata/display only: it is not part of the canonical
+    vocabulary surface used for kanji matching and validation.
+    """
+    prefix = suffix = ""
+    for value in values:
+        s = clean_text(value).strip()
+        if re.match(r"^[~～〜]+", s):
+            prefix = "～"
+        if re.search(r"[~～〜]+$", s):
+            suffix = "～"
+    return prefix, suffix
+
+
 def clean_surface(s: str | None) -> str:
     s = clean_text(s).strip()
     s = PLACEHOLDER_EDGE_RE.sub("", s)
@@ -432,7 +448,10 @@ def build():
 
             old_surface = strip_furigana(r.get("Kanji", ""))
             raw_markup = (r.get(furi_field) or "").strip()
+            raw_markup_plain = strip_furigana(raw_markup)
+            pattern_prefix, pattern_suffix = pattern_markers(old_surface, raw_markup_plain)
             surface = SURFACE_PATCH.get(note_id, clean_surface(old_surface))
+            display_surface = f"{pattern_prefix}{surface}{pattern_suffix}"
             base_segments = cleaned_base_segments(note_id, raw_markup)
             segments = enrich_segments(base_segments, kanji_intro)
             markup = markup_from_segments(segments)
@@ -461,6 +480,9 @@ def build():
                 "note_id": note_id,
                 "source_note_id": note_id,
                 "surface": surface,
+                "display_surface": display_surface,
+                "pattern_prefix": pattern_prefix,
+                "pattern_suffix": pattern_suffix,
                 "furigana_markup": markup,
                 "furigana_segments": segments,
                 "reading": clean_reading(r.get("Reading", "")),
@@ -563,7 +585,7 @@ def build():
     )
 
     meta = {
-        "version": 8,
+        "version": 9,
         "name": "WSJJ Kanji.pro database",
         "source": "Anki exports in imports/",
         "kanji_count": len(kanji),
@@ -583,6 +605,7 @@ def build():
             "furigana": "source ruby is tokenized; frontend dynamically decides visibility based on selected kanji or lesson",
             "answer_normalization": "katakana -> hiragana; spaces and okurigana markers are ignored",
             "parenthetical_annotations": "removed from canonical vocabulary surface",
+            "pattern_markers": "edge ～/~ markers are preserved for display but excluded from canonical surface and validation",
         },
     }
 
@@ -626,12 +649,13 @@ def write_outputs(runtime: dict, issues: list[dict], ambiguous: list[dict]):
     for v in vocab:
         vocab_rows.append({
             "note_id": v["note_id"], "source_note_id": v.get("source_note_id", v["note_id"]), "surface": v["surface"],
+            "display_surface": v.get("display_surface", v["surface"]), "pattern_prefix": v.get("pattern_prefix", ""), "pattern_suffix": v.get("pattern_suffix", ""),
             "furigana_markup": v["furigana_markup"], "reading": v["reading"], "accepted_readings": " / ".join(v.get("accepted_readings", [])),
             "romaji": v["romaji"], "polish": v["polish"], "book": v["book"], "chapter": v["chapter"], "lesson": v["lesson"],
             "lesson_order": v["lesson_order"], "tracked_kanji": " ".join(v["tracked_kanji"]), "untracked_kanji": " ".join(v["untracked_kanji"]),
             "source_note_type": v["source_note_type"], "source_tags": v["source_tags"],
         })
-    write_csv(SOURCE_DIR / "vocabulary.csv", ["note_id","source_note_id","surface","furigana_markup","reading","accepted_readings","romaji","polish","book","chapter","lesson","lesson_order","tracked_kanji","untracked_kanji","source_note_type","source_tags"], vocab_rows)
+    write_csv(SOURCE_DIR / "vocabulary.csv", ["note_id","source_note_id","surface","display_surface","pattern_prefix","pattern_suffix","furigana_markup","reading","accepted_readings","romaji","polish","book","chapter","lesson","lesson_order","tracked_kanji","untracked_kanji","source_note_type","source_tags"], vocab_rows)
 
     write_csv(SOURCE_DIR / "lesson_summary.csv", ["book","chapter","lesson","lesson_order","kanji_count","vocabulary_source_count"], summary)
     write_csv(SOURCE_DIR / "validation_issues.csv", ["type","note_id","value","details"], issues)

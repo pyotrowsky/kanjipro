@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wsjj-kanji-pro-v12-1';
+const CACHE_NAME = 'wsjj-kanji-pro-v13-1';
 const BASE = new URL('./', self.location.href);
 const DB_URL = new URL('./data/kanji_quiz_database.json', BASE).href;
 const UI_URL = new URL('./data/ui.pl.json', BASE).href;

@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "v12 · PWA",
+    "badge": "v13 · PWA",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -100,5 +100,28 @@
     "choose_mode": "Wybierz przynajmniej jeden tryb.",
     "invalid_furigana": "Podaj prawidłowy rozdział dla furigany, np. 1-6 albo 6.",
     "empty_pool": "Dla wybranych ustawień nie ma pytań."
+  },
+  "settings": {
+    "open": "⚙️ Ustawienia",
+    "title": "Ustawienia",
+    "font_title": "Czcionka japońska",
+    "font_note": "Wybierz wygląd kanji i słówek. Ustawienie zapisuje się na tym urządzeniu.",
+    "preview_label": "Podgląd",
+    "preview_text": "漢字 日本語 手作り 読書",
+    "close": "Gotowe",
+    "fonts": {
+      "mincho": "Mincho — obecna",
+      "meiryo": "Meiryo / Gothic",
+      "hiragino_sans": "Hiragino Sans",
+      "kyokasho": "Yu Kyokasho",
+      "system_serif": "System Serif"
+    },
+    "font_descriptions": {
+      "mincho": "Klasyczna, drukowana czcionka z szeryfami.",
+      "meiryo": "Meiryo na Windows; na Apple użyje najbliższego Gothic.",
+      "hiragino_sans": "Czysta i nowoczesna, bardzo czytelna na ekranie.",
+      "kyokasho": "Bardziej podręcznikowy, szkolny kształt znaków.",
+      "system_serif": "Systemowa czcionka szeryfowa dostępna na urządzeniu."
+    }
   }
 }

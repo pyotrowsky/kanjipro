@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=17"></head><body><main class="shell">
-<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">v17 · PWA</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<link rel="stylesheet" href="./css/styles.css?v=18"></head><body><main class="shell">
+<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">v18 · PWA</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <section id="setup" class="panel stack">
   <div>
     <div class="group-head"><div class="section-title" style="margin:0" data-i18n="setup.chapters_title">Rozdziały</div><div class="actions"><button type="button" id="lessonToggle" class="mini-btn">Zaznacz wszystko</button></div></div>
@@ -58,7 +58,7 @@
     <div id="installedNote" class="installed-note hidden" data-i18n="install.installed">✓ Aplikacja jest już uruchomiona jako aplikacja.</div>
   </details>
 </section>
-<section id="quiz" class="panel hidden"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div id="progress" class="counter"></div></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><button id="submit" class="primary" data-i18n="quiz.check">Sprawdź</button></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span data-i18n="quiz.correct_stat">poprawne</span></div><div class="stat"><b id="wrong">0</b><span data-i18n="quiz.wrong_stat">błędy</span></div><div class="stat"><b id="left">0</b><span data-i18n="quiz.left_stat">w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost" data-i18n="quiz.back">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px" data-i18n-html="quiz.enter_hint_html">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
+<section id="quiz" class="panel hidden"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div id="progress" class="counter"></div></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" enterkeyhint="go" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><button id="submit" class="primary" data-i18n="quiz.check">Sprawdź</button></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span data-i18n="quiz.correct_stat">poprawne</span></div><div class="stat"><b id="wrong">0</b><span data-i18n="quiz.wrong_stat">błędy</span></div><div class="stat"><b id="left">0</b><span data-i18n="quiz.left_stat">w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost" data-i18n="quiz.back">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px" data-i18n-html="quiz.enter_hint_html">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
 <section id="finished" class="panel finish hidden"><div class="quiz-type" data-i18n="finish.title">Koniec sesji</div><div id="finalScore" class="big">100%</div><div class="stats finish-stats"><div class="stat"><b id="finalCorrect">0</b><span data-i18n="finish.correct_stat">poprawne</span></div><div class="stat"><b id="finalWrong">0</b><span data-i18n="finish.wrong_stat">błędy</span></div><div class="stat"><b id="finalAttempts">0</b><span data-i18n="finish.attempts_stat">próby</span></div></div><details id="mistakesDetails" class="mistakes-summary hidden"><summary><span data-i18n="finish.mistakes_title">Do powtórki</span><span id="mistakesCount" class="mistakes-count">0</span></summary><div id="mistakesList" class="mistakes-list"></div></details><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button id="again" class="primary" data-i18n="finish.again">Powtórz sesję</button><button id="settings" class="ghost" data-i18n="finish.settings">Ustawienia</button></div></section>
 </main>
 
@@ -81,5 +81,5 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=17"></script>
+<script type="module" src="./js/app.js?v=18"></script>
 </body></html>

@@ -118,3 +118,8 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
   .book-folder>summary .book-toggle{font-size:11px;padding:5px 8px}
   .book-status{white-space:nowrap}
 }
+
+
+/* v18: clearer font descriptions in settings */
+.font-option-name,.font-option-desc{display:block}
+.font-option-desc{margin-top:5px}

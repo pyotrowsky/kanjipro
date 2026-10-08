@@ -1,4 +1,4 @@
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=22', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=23', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -28,7 +28,7 @@ function saveAnswerMode(value){try{localStorage.setItem(ANSWER_MODE_STORAGE_KEY,
 function initAnswerModeSettings(){const current=savedAnswerMode();document.querySelectorAll('input[name="answerMode"]').forEach(x=>{x.checked=x.value===current;x.addEventListener('change',()=>{if(x.checked)saveAnswerMode(x.value)})})}
 initAnswerModeSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=22', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=23', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaLessonInput=$('#furiganaLessonInput'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set();
 const ROMAJI={
@@ -184,7 +184,8 @@ function startReview(){hideAnswerNotice();const items=reviewQuestions();if(!item
 function restartSession(){if(sessionKind==='review'){if(reviewQuestions().length)startReview();else showSetupScreen()}else start()}
 function finishBack(){if(sessionKind==='review'&&reviewQuestions().length)showReviewBank();else showSetupScreen()}
 function buildQueue(){const modes=selectedModes(),r=buildReadingPools();let v=shuffle(buildVocabPool().slice()),q=[];if(document.querySelector('input[name="vocabLimitMode"]:checked')?.value==='limit')v=v.slice(0,desiredVocabCount(v.length));if(modes.includes('onyomi'))q.push(...r.on);if(modes.includes('kunyomi'))q.push(...r.kun);if(modes.includes('vocabulary'))q.push(...v);return shuffle(q.map(x=>({...x})))}
-function showQuestion(){if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);feedback.className='feedback empty';feedback.innerHTML='';updateStats();setTimeout(()=>input.focus(),30)}function compareReading(s){const x=hira(s);return inputMode()==='romaji'?x.replace(/づ/g,'ず').replace(/ぢ/g,'じ'):x}function accepted(q){return(q.accepted_answers||q.answer_display||[]).map(compareReading)}function answerText(q){return(q.answer_display||q.accepted_answers||[]).join(' / ')}function rawMeaning(q){return q.meanings?.length?q.meanings.join(' · '):(q.meaning||'')}function meaningText(q){const m=rawMeaning(q);return m?esc(m):''}
+function focusAnswerField(){try{input.focus({preventScroll:true})}catch{input.focus()}if(document.activeElement!==input)requestAnimationFrame(()=>{try{input.focus({preventScroll:true})}catch{input.focus()}})}
+function showQuestion(){if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);feedback.className='feedback empty';feedback.innerHTML='';updateStats();focusAnswerField()}function compareReading(s){const x=hira(s);return inputMode()==='romaji'?x.replace(/づ/g,'ず').replace(/ぢ/g,'じ'):x}function accepted(q){return(q.accepted_answers||q.answer_display||[]).map(compareReading)}function answerText(q){return(q.answer_display||q.accepted_answers||[]).join(' / ')}function rawMeaning(q){return q.meanings?.length?q.meanings.join(' · '):(q.meaning||'')}function meaningText(q){const m=rawMeaning(q);return m?esc(m):''}
 function recordMistake(q,userAnswer){const key=q.question_id||`${q.type}:${q.prompt}`;let item=mistakeLog.get(key);if(!item){item={type:typeName(q.type),prompt_html:q.prompt_html||esc(q.prompt),correct:answerText(q),meaning:rawMeaning(q),answers:[]};mistakeLog.set(key,item)}const a=String(userAnswer||'').trim();if(a&&!item.answers.includes(a))item.answers.push(a)}
 function hideAnswerNotice(){if(!answerNotice)return;answerNotice.classList.add('hidden');answerNotice.textContent=''}
 function showWrongNotice(wrong,correct){if(!answerNotice)return;answerNotice.textContent=t('quiz.wrong_compact',{wrong,correct});answerNotice.classList.remove('hidden')}
@@ -208,7 +209,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=22', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=23', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

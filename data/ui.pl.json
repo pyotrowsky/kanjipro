@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "v19 · PWA",
+    "badge": "v20 · PWA",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -82,7 +82,8 @@
     "wrong_stat": "błędy",
     "left_stat": "w kolejce",
     "back": "← Konfiguracja",
-    "enter_hint_html": "Klawisz <span class=\"kbd\">Enter</span>: sprawdź / dalej"
+    "enter_hint_html": "Klawisz <span class=\"kbd\">Enter</span>: sprawdź / dalej",
+    "wrong_compact": "✕ {wrong} → ✓ {correct}"
   },
   "finish": {
     "title": "Koniec sesji",
@@ -126,6 +127,16 @@
       "hiragino_sans": "Czysta i nowoczesna, bardzo czytelna na ekranie.",
       "kyokasho": "Bardziej podręcznikowy, szkolny kształt znaków.",
       "system_serif": "Systemowa czcionka szeryfowa dostępna na urządzeniu."
+    },
+    "answer_mode_title": "Enter / Return",
+    "answer_mode_note": "Wybierz sposób przechodzenia między pytaniami.",
+    "answer_modes": {
+      "one": "Jednoetapowo",
+      "two": "Dwuetapowo"
+    },
+    "answer_mode_descriptions": {
+      "one": "Sprawdź i od razu przejdź dalej.",
+      "two": "Najpierw sprawdź, potem przejdź dalej."
     }
   },
   "actions": {

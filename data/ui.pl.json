@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "v20 · PWA",
+    "badge": "v21 · PWA",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -87,7 +87,7 @@
   },
   "finish": {
     "title": "Koniec sesji",
-    "mistakes_title": "Do powtórki",
+    "mistakes_title": "Błędy w tej sesji",
     "mistake_correct": "Odpowiedź: {answer}",
     "mistake_yours": "Wpisałeś: {answer}",
     "again": "Powtórz sesję",
@@ -143,5 +143,20 @@
     "select_all": "Zaznacz wszystko",
     "clear": "Wyczyść",
     "whole_book": "Cały podręcznik"
+  },
+  "review": {
+    "title": "Do powtórki",
+    "count": "{count} do powtórki",
+    "show": "Pokaż",
+    "practice": "Ćwicz błędy",
+    "practice_remaining": "Ćwicz pozostałe",
+    "done": "Gotowe",
+    "back": "← Konfiguracja",
+    "quiz_back": "← Do powtórki",
+    "finish_back": "Do powtórki",
+    "finish_title": "Powtórka zakończona",
+    "empty": "Brak aktywnych błędów.",
+    "answer": "Odpowiedź: {answer}",
+    "item_meta": "Błędy: {wrong} · Postęp: {streak}/2"
   }
 }

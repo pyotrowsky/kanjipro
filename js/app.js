@@ -1,4 +1,4 @@
-const UI_RESPONSE = await fetch('./data/ui.pl.json', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=16', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -20,7 +20,7 @@ function renderFontSettings(){const root=document.querySelector('#fontOptions');
 function initFontSettings(){renderFontSettings();applyFontProfile(savedFontProfile(),false);const dialog=document.querySelector('#settingsDialog'),open=document.querySelector('#openSettings'),close=document.querySelector('#closeSettings'),closeX=document.querySelector('#closeSettingsX');const show=()=>{if(!dialog)return;if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','')};const hide=()=>{if(!dialog)return;if(typeof dialog.close==='function')dialog.close();else dialog.removeAttribute('open')};open?.addEventListener('click',show);close?.addEventListener('click',hide);closeX?.addEventListener('click',hide);dialog?.addEventListener('click',e=>{if(e.target===dialog)hide()})}
 initFontSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=16', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaLessonInput=$('#furiganaLessonInput'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map();
 const ROMAJI={
@@ -125,8 +125,14 @@ renderLessonGrid();renderKanjiGroups(false);restoreSessionControls();populateFur
 
 // PWA: offline support + iOS Home Screen experience.
 if ('serviceWorker' in navigator) {
+  let refreshingForServiceWorker = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (refreshingForServiceWorker) return;
+    refreshingForServiceWorker = true;
+    window.location.reload();
+  });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=16', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

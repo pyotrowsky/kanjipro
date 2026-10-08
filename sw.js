@@ -1,14 +1,12 @@
-const CACHE_NAME = 'wsjj-kanji-pro-v15-1';
+const CACHE_NAME = 'wsjj-kanji-pro-v16-1';
 const BASE = new URL('./', self.location.href);
-const DB_URL = new URL('./data/kanji_quiz_database.json', BASE).href;
-const UI_URL = new URL('./data/ui.pl.json', BASE).href;
-const FRESH_URLS = new Set([
-  DB_URL,
-  UI_URL,
-  new URL('./index.html', BASE).href,
-  new URL('./js/app.js', BASE).href,
-  new URL('./css/styles.css', BASE).href,
-  new URL('./manifest.webmanifest', BASE).href
+const FRESH_PATHS = new Set([
+  new URL('./data/kanji_quiz_database.json', BASE).pathname,
+  new URL('./data/ui.pl.json', BASE).pathname,
+  new URL('./index.html', BASE).pathname,
+  new URL('./js/app.js', BASE).pathname,
+  new URL('./css/styles.css', BASE).pathname,
+  new URL('./manifest.webmanifest', BASE).pathname
 ]);
 const PRECACHE = [
   './',
@@ -47,7 +45,7 @@ self.addEventListener('fetch', event => {
 
   // Mutable app files and database: network first so new chapters/code appear
   // on the first launch after deployment; cached copies remain the offline fallback.
-  if (FRESH_URLS.has(url.href)) {
+  if (FRESH_PATHS.has(url.pathname)) {
     event.respondWith(
       fetch(event.request, { cache: 'no-store' })
         .then(response => {

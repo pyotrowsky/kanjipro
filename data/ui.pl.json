@@ -1,14 +1,16 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "v15 · PWA",
+    "badge": "v16 · PWA",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
     "settings": "Ustawienia",
     "doki": "Doki {book}",
     "lesson": "Rozdział {chapter}",
-    "doki_lesson": "Doki {lesson}"
+    "doki_lesson": "Doki {lesson}",
+    "all": "Wszystkie",
+    "none": "Żadne"
   },
   "setup": {
     "chapters_title": "Rozdziały",

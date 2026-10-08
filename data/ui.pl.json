@@ -25,7 +25,10 @@
     "mode_vocab": "Słówka",
     "start": "START",
     "start_note": "Limit dotyczy tylko słówek. ON i KUN pojawiają się po jednym pytaniu na wybrane kanji. Błędne pytania wracają później.",
-    "session_help_title": "ⓘ Jak działa sesja?"
+    "session_help_title": "ⓘ Jak działa sesja?",
+    "choose_whole_book": "Cały Doki {book}",
+    "kanji_note_top": "Wybierz kanji do ćwiczenia.",
+    "kanji_note_bottom": "Słówka są dobierane do zaznaczonych kanji."
   },
   "furigana": {
     "title": "Furigana",
@@ -90,7 +93,8 @@
     "settings": "Ustawienia",
     "correct_stat": "poprawne",
     "wrong_stat": "błędy",
-    "attempts_stat": "próby"
+    "attempts_stat": "próby",
+    "summary": "Poprawne: {correct} · Błędy: {wrong} · Próby: {attempts}"
   },
   "errors": {
     "database_load": "Nie udało się wczytać bazy: {status}",

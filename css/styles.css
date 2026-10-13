@@ -127,7 +127,9 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 
 /* v20: compact one-step error notice + answer mode setting */
 #quiz{position:relative}
-.answer-notice{position:absolute;top:54px;left:50%;transform:translateX(-50%);z-index:3;max-width:calc(100% - 34px);padding:6px 10px;border:1px solid color-mix(in srgb,var(--bad) 35%,var(--line));border-radius:999px;background:color-mix(in srgb,var(--bad) 8%,var(--card));color:var(--bad);font-size:12px;font-weight:750;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.answer-notice{position:absolute;top:54px;left:50%;transform:translateX(-50%);z-index:3;max-width:calc(100% - 34px);padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:12px;font-weight:750;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.answer-notice.bad{border-color:color-mix(in srgb,var(--bad) 35%,var(--line));background:color-mix(in srgb,var(--bad) 8%,var(--card));color:var(--bad)}
+.answer-notice.good{border-color:color-mix(in srgb,var(--good) 38%,var(--line));background:color-mix(in srgb,var(--good) 9%,var(--card));color:var(--good)}
 .settings-divider{height:1px;background:var(--line);margin:18px 0}
 .settings-note{margin:-3px 0 9px}
 .answer-mode-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:18px}

@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "2.8",
+    "badge": "2.9",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -83,7 +83,8 @@
     "left_stat": "w kolejce",
     "back": "← Konfiguracja",
     "enter_hint_html": "Klawisz <span class=\"kbd\">Enter</span>: sprawdź / dalej",
-    "wrong_compact": "✕ {wrong} → ✓ {correct}"
+    "wrong_compact": "✕ {wrong} → ✓ {correct}",
+    "correct_compact": "✓ {meaning}"
   },
   "finish": {
     "title": "Koniec sesji",

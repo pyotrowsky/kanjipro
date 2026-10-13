@@ -50,7 +50,7 @@
 1763216199397,1763216199397,服,服,,,服[ふく],ふく,ふく,fuku,ubrania,1,1,1-1,1,服,,triple_cards,Doki Doki1-1 male_voice newVersion
 1763216199406,1763216199406,車,車,,,車[くるま],くるま,くるま,kuruma,samochód,1,1,1-1,1,車,,triple_cards,Doki Doki1-1 female_voice newVersion
 1763216199407,1763216199407,写真,写真,,,写[しゃ]真[しん],しゃしん,しゃしん,shashin,"zdjęcie, fotografia",1,1,1-1,1,写 真,,triple_cards,Doki Doki1-1 Doki1-3 female_voice newVersion
-1763221256480,1763221256480,様,様,,,様[さま],さま,さま,...sama,"zwrot grzecznościowy, bardziej formalny niż &quot;-san&quot;",1,1,1-1,1,様,,triple_cards,Doki Doki1-1 female_voice newVersion
+1763221256480,1763221256480,様,様,,,様[さま],さま,さま,...sama,"zwrot grzecznościowy, bardziej formalny niż ""-san""",1,1,1-1,1,様,,triple_cards,Doki Doki1-1 female_voice newVersion
 1763221256483,1763221256483,ポーランド人,ポーランド人,,,ポーランド人[じん],ポーランドじん,ぽーらんどじん,poorandojin,Polak/Polka,1,1,1-1,1,人,,triple_cards,Doki Doki1-1 male_voice newVersion
 1763221256484,1763221256484,何歳,何歳,,,何[なん]歳[さい],なんさい,なんさい,nansai,ile lat,1,1,1-1,1,何 歳,,triple_cards,Doki Doki1-1 male_voice newVersion
 1763221256485,1763221256485,歳,歳,,,歳[さい],さい,さい,...sai,...lat (klasyfikator wieku),1,1,1-1,1,歳,,triple_cards,Doki Doki1-1 female_voice newVersion
@@ -238,7 +238,7 @@
 1763813137797,1763813137797,神社,神社,,,神[じん]社[じゃ],じんじゃ,じんじゃ,jinja,świątynia shintoistyczna/chram,1,2,1-2,2,神 社,,triple_cards,Doki Doki1-2 female_voice newVersion
 1763813137798,1763813137798,叔父さん,叔父さん,,,叔父[おじ]さん,おじさん,おじさん,ojisan,wujek,1,2,1-2,2,父,叔,triple_cards,Doki Doki1-2 female_voice newVersion
 1763813137799,1763813137799,叔母さん,叔母さん,,,叔母[おば]さん,おばさん,おばさん,obasan,ciocia,1,2,1-2,2,母,叔,triple_cards,Doki Doki1-2 female_voice newVersion
-1763814618692,1763814618692,休む,休む,,,休[やす]む,やすむ,やすむ,yasumu,"odpoczywać, być nieobecnym,&nbsp;brać wolne",1,2,1-2,2,休,,triple_cards,Doki Doki1-2 Doki1-3 male_voice newVersion
+1763814618692,1763814618692,休む,休む,,,休[やす]む,やすむ,やすむ,yasumu,"odpoczywać, być nieobecnym, brać wolne",1,2,1-2,2,休,,triple_cards,Doki Doki1-2 Doki1-3 male_voice newVersion
 1763814618697,1763814618697,ご馳走様でした,ご馳走様でした,,,ご馳[ち]走[そう]様[さま]でした,ごちそうさまでした,ごちそうさまでした,gochisōsama deshita,Dziękuję za posiłek (po jedzeniu).,1,2,1-2,2,走 様,馳,triple_cards,Doki Doki1-2 Doki1-3 female_voice leech newVersion
 1763814618704,1763814618704,また明日,また明日,,,また明日[あした],またあした,またあした,mata ashita,do jutra!,1,2,1-2,2,明 日,,triple_cards,Doki Doki1-2 male_voice newVersion
 1763814618709,1763814618709,お大事に,お大事に,,,お大[だい]事[じ]に,おだいじに,おだいじに,odaijini,trzymaj się/wracaj do zdrowia/dbaj o siebie,1,2,1-2,2,大 事,,triple_cards,Doki Doki1-2 female_voice newVersion
@@ -250,7 +250,7 @@
 1764275207105,1764275207105,家,家,,,家[いえ],いえ,いえ,ie,dom (budynek),1,2,1-2,2,家,,triple_cards,Doki Doki1-2 female_voice newVersion
 1765304963078,1765304963078,映画館,映画館,,,映[えい]画[が]館[かん],えいがかん,えいがかん,eigakan,kino,1,2,1-2,2,映 画 館,,triple_cards,Doki Doki1-2 Doki1-3 female_voice newVersion
 1765399966837,1765399966837,時々,時々,,,時々[ときどき],ときどき,ときどき,tokidoki,czasami,1,2,1-2,2,時,,triple_cards,Doki Doki1-2 male_voice newVersion
-1765399966839,1765399966839,全然,全然,,,全[ぜん]然[ぜん],ぜんぜん,ぜんぜん,zenzen,wcale / nigdy&nbsp;,1,2,1-2,2,全,然,triple_cards,Doki Doki1-2 male_voice newVersion
+1765399966839,1765399966839,全然,全然,,,全[ぜん]然[ぜん],ぜんぜん,ぜんぜん,zenzen,wcale / nigdy,1,2,1-2,2,全,然,triple_cards,Doki Doki1-2 male_voice newVersion
 1765399966840,1765399966840,無理,無理,,,無[む]理[り],むり,むり,muri,niemożliwe / ponad siły / na siłę,1,2,1-2,2,無 理,,triple_cards,Doki Doki1-2 male_voice newVersion
 1765399966843,1765399966843,散歩する,散歩する,,,散[さん]歩[ぽ]する,さんぽする,さんぽする,sanpo suru,spacerować,1,2,1-2,2,歩,散,triple_cards,Doki Doki1-2 female_voice newVersion
 1765399966849,1765399966849,父,父,,,父[ちち],ちち,ちち,chichi,tata (mój tata),1,2,1-2,2,父,,triple_cards,Doki Doki1-2 male_voice newVersion
@@ -416,7 +416,7 @@
 1771440447490,1771440447490,小さい,小さい,,,小[ちい]さい,ちいさい,ちいさい,chiisai,mały,1,3,1-3,3,小,,triple_cards,Doki Doki1-3 male_voice newVersion
 1771440447491,1771440447491,休学,休学,,,休[きゅう]学[がく],きゅうがく,きゅうがく,kyuugaku,urlop dziekański / przerwa w nauce,1,3,1-3,3,休 学,,triple_cards,Doki Doki1-3 leech male_voice newVersion
 1771440447492,1771440447492,読書,読書,,,読[どく]書[しょ],どくしょ,どくしょ,dokusho,czytanie książek (jako hobby),1,3,1-3,3,読 書,,triple_cards,Doki Doki1-3 leech male_voice newVersion
-1771440447493,1771440447493,科学,科学,,,科[か]学[がく],かがく,かがく,kagaku,"nauka (ścisła), inżynieria&nbsp;",1,3,1-3,3,学,科,triple_cards,Doki Doki1-3 leech male_voice newVersion
+1771440447493,1771440447493,科学,科学,,,科[か]学[がく],かがく,かがく,kagaku,"nauka (ścisła), inżynieria",1,3,1-3,3,学,科,triple_cards,Doki Doki1-3 leech male_voice newVersion
 1771440447494,1771440447494,物理学,物理学,,,物[ぶつ]理[り]学[がく],ぶつりがく,ぶつりがく,butsurigaku,fizyka,1,3,1-3,3,物 理 学,,triple_cards,Doki Doki1-3 male_voice newVersion
 1771440447499,1771440447499,和食,和食,,,和[わ]食[しょく],わしょく,わしょく,washoku,kuchnia japońska / jedzenie japońskie,1,3,1-3,3,食,和,triple_cards,Doki Doki1-3 male_voice newVersion
 1771440447500,1771440447500,明治神宮,明治神宮,,,明[めい]治[じ]神[じん]宮[ぐう],めいじじんぐう,めいじじんぐう,meiji jinguu,Chram Meiji (w Tokio),1,3,1-3,3,明 神,治 宮,triple_cards,Doki Doki1-3 male_voice newVersion
@@ -440,7 +440,7 @@
 1771673977831,1771673977831,手伝う,手伝う,,,手[て]伝[つだ]う,てつだう,てつだう,tetsudau,pomagać,1,4,1-4,4,手,伝,triple_cards,Doki Doki1-4 female_voice newVersion
 1771673977834,1771673977834,急ぐ,急ぐ,,,急[いそ]ぐ,いそぐ,いそぐ,isogu,śpieszyć się,1,4,1-4,4,急,,triple_cards,Doki Doki1-4 female_voice leech newVersion
 1771673977835,1771673977835,入る,入る,,,入[はい]る,はいる,はいる,hairu,wchodzić,1,4,1-4,4,入,,triple_cards,Doki Doki1-4 Doki1-6 female_voice newVersion
-1771673977836,1771673977836,持つ,持つ,,,持[も]つ,もつ,もつ,motsu,"trzymać, chwycić, nieść&nbsp;",1,4,1-4,4,持,,triple_cards,Doki Doki1-4 female_voice newVersion
+1771673977836,1771673977836,持つ,持つ,,,持[も]つ,もつ,もつ,motsu,"trzymać, chwycić, nieść",1,4,1-4,4,持,,triple_cards,Doki Doki1-4 female_voice newVersion
 1771673977838,1771673977838,連れてくる,連れてくる,,,連[つ]れてくる,つれてくる,つれてくる,tsuretekuru,przyprowadzić (kogoś),1,4,1-4,4,連,,triple_cards,Doki Doki1-4 female_voice leech newVersion
 1771673977839,1771673977839,使う,使う,,,使[つか]う,つかう,つかう,tsukau,używać,1,4,1-4,4,使,,triple_cards,Doki Doki1-4 female_voice newVersion
 1771673977840,1771673977840,死ぬ,死ぬ,,,死[し]ぬ,しぬ,しぬ,shinu,umierać,1,4,1-4,4,死,,triple_cards,Doki Doki1-4 female_voice newVersion
@@ -657,7 +657,7 @@
 1777719811535,1777719811535,赤ちゃん,赤ちゃん,,,赤[あか]ちゃん,あかちゃん,あかちゃん,akachan,niemowlę,1,6,1-6,6,赤,,triple_cards,Doki Doki1-6 leech male_voice
 1777719811536,1777719811536,東口,東口,,,東[ひがし]口[ぐち],ひがしぐち,ひがしぐち,higashiguchi,wyjście wschodnie,1,6,1-6,6,東 口,,triple_cards,Doki Doki1-6 male_voice
 1777719811537,1777719811537,右利き,右利き,,,右[みぎ]利[き]き,みぎきき,みぎきき,migikiki,praworęczny,1,6,1-6,6,右,利,triple_cards,Doki Doki1-6 male_voice
-1777719811538,1777719811538,学ぶ,学ぶ,,,学[まな]ぶ,まなぶ,まなぶ,manabu,uczyć się / zdobywać wiedzę &nbsp;/ studiować,1,6,1-6,6,学,,triple_cards,Doki Doki1-6 male_voice
+1777719811538,1777719811538,学ぶ,学ぶ,,,学[まな]ぶ,まなぶ,まなぶ,manabu,uczyć się / zdobywać wiedzę / studiować,1,6,1-6,6,学,,triple_cards,Doki Doki1-6 male_voice
 1777719811539,1777719811539,国会,国会,,,国[こっ]会[かい],こっかい,こっかい,kokkai,parlament,1,6,1-6,6,国 会,,triple_cards,Doki Doki1-6 male_voice
 1777719811540,1777719811540,世界,世界,,,世[せ]界[かい],せかい,せかい,sekai,świat,1,6,1-6,6,世 界,,triple_cards,Doki Doki1-6 female_voice
 1777719811541,1777719811541,人口,人口,,,人[じん]口[こう],じんこう,じんこう,jinkō,populacja,1,6,1-6,6,人 口,,triple_cards,Doki Doki1-6 female_voice
@@ -926,16 +926,16 @@
 1781610943151,1781610943151,十枚,十枚,,,十[じゅう]枚[まい],じゅうまい,じゅうまい,jūmai,dziesięć płaskich rzeczy,2,12,2-12,12,十 枚,,triple_cards_new,Doki Doki2-12
 1781610943152,1781610943152,何枚,何枚,,,何[なん]枚[まい],なんまい,なんまい,nanmai,ile płaskich rzeczy,2,12,2-12,12,何 枚,,triple_cards_new,Doki Doki2-12
 1781610943154,1781610943154,一匹,一匹,,,一[いっ]匹[ぴき],いっぴき,いっぴき,ippiki,jedno małe zwierzę,2,12,2-12,12,一,匹,triple_cards_new,Doki Doki2-12
-1781610943155,1781610943155,二匹,二匹,,,二[に]匹[ひき],にひき,にひき,nihiki,dwa małe&nbsp;zwierzęta,2,12,2-12,12,二,匹,triple_cards_new,Doki Doki2-12
-1781610943156,1781610943156,三匹,三匹,,,三[さん]匹[びき],さんびき,さんびき,sanbiki,trzy małe&nbsp;zwierzęta,2,12,2-12,12,三,匹,triple_cards_new,Doki Doki2-12
-1781610943157,1781610943157,四匹,四匹,,,四[よん]匹[ひき],よんひき,よんひき,yonhiki,cztery małe&nbsp;zwierzęta,2,12,2-12,12,四,匹,triple_cards_new,Doki Doki2-12
+1781610943155,1781610943155,二匹,二匹,,,二[に]匹[ひき],にひき,にひき,nihiki,dwa małe zwierzęta,2,12,2-12,12,二,匹,triple_cards_new,Doki Doki2-12
+1781610943156,1781610943156,三匹,三匹,,,三[さん]匹[びき],さんびき,さんびき,sanbiki,trzy małe zwierzęta,2,12,2-12,12,三,匹,triple_cards_new,Doki Doki2-12
+1781610943157,1781610943157,四匹,四匹,,,四[よん]匹[ひき],よんひき,よんひき,yonhiki,cztery małe zwierzęta,2,12,2-12,12,四,匹,triple_cards_new,Doki Doki2-12
 1781610943158,1781610943158,五匹,五匹,,,五[ご]匹[ひき],ごひき,ごひき,gohiki,pięć małych zwierząt,2,12,2-12,12,五,匹,triple_cards_new,Doki Doki2-12
-1781610943159,1781610943159,六匹,六匹,,,六[ろっ]匹[ぴき],ろっぴき,ろっぴき,roppiki,sześć małych&nbsp;zwierząt,2,12,2-12,12,六,匹,triple_cards_new,Doki Doki2-12
-1781610943160,1781610943160,七匹,七匹,,,七[なな]匹[ひき],ななひき,ななひき,nanahiki,siedem małych&nbsp;zwierząt,2,12,2-12,12,七,匹,triple_cards_new,Doki Doki2-12
-1781610943161,1781610943161,八匹,八匹,,,八[はっ]匹[ぴき],はっぴき,はっぴき,happiki,osiem małych&nbsp;zwierząt,2,12,2-12,12,八,匹,triple_cards_new,Doki Doki2-12
-1781610943162,1781610943162,九匹,九匹,,,九[きゅう]匹[ひき],きゅうひき,きゅうひき,kyūhiki,dziewięć małych&nbsp;zwierząt,2,12,2-12,12,九,匹,triple_cards_new,Doki Doki2-12
-1781610943163,1781610943163,十匹,十匹,,,十[じゅっ]匹[ぴき],じゅっぴき,じゅっぴき,juppiki,dziesięć małych&nbsp;zwierząt,2,12,2-12,12,十,匹,triple_cards_new,Doki Doki2-12
-1781610943164,1781610943164,何匹,何匹,,,何[なん]匹[びき],なんびき,なんびき,nanbiki,ile małych&nbsp;zwierząt,2,12,2-12,12,何,匹,triple_cards_new,Doki Doki2-12
+1781610943159,1781610943159,六匹,六匹,,,六[ろっ]匹[ぴき],ろっぴき,ろっぴき,roppiki,sześć małych zwierząt,2,12,2-12,12,六,匹,triple_cards_new,Doki Doki2-12
+1781610943160,1781610943160,七匹,七匹,,,七[なな]匹[ひき],ななひき,ななひき,nanahiki,siedem małych zwierząt,2,12,2-12,12,七,匹,triple_cards_new,Doki Doki2-12
+1781610943161,1781610943161,八匹,八匹,,,八[はっ]匹[ぴき],はっぴき,はっぴき,happiki,osiem małych zwierząt,2,12,2-12,12,八,匹,triple_cards_new,Doki Doki2-12
+1781610943162,1781610943162,九匹,九匹,,,九[きゅう]匹[ひき],きゅうひき,きゅうひき,kyūhiki,dziewięć małych zwierząt,2,12,2-12,12,九,匹,triple_cards_new,Doki Doki2-12
+1781610943163,1781610943163,十匹,十匹,,,十[じゅっ]匹[ぴき],じゅっぴき,じゅっぴき,juppiki,dziesięć małych zwierząt,2,12,2-12,12,十,匹,triple_cards_new,Doki Doki2-12
+1781610943164,1781610943164,何匹,何匹,,,何[なん]匹[びき],なんびき,なんびき,nanbiki,ile małych zwierząt,2,12,2-12,12,何,匹,triple_cards_new,Doki Doki2-12
 1781610943166,1781610943166,一本,一本,,,一[いっ]本[ぽん],いっぽん,いっぽん,ippon,jedna długa rzecz,2,12,2-12,12,一 本,,triple_cards_new,Doki Doki2-12
 1781610943167,1781610943167,二本,二本,,,二[に]本[ほん],にほん,にほん,nihon,dwie długie rzeczy,2,12,2-12,12,二 本,,triple_cards_new,Doki Doki2-12
 1781610943168,1781610943168,三本,三本,,,三[さん]本[ぼん],さんぼん,さんぼん,sanbon,trzy długie rzeczy,2,12,2-12,12,三 本,,triple_cards_new,Doki Doki2-12
@@ -1003,7 +1003,7 @@
 1781684880246,1781684880246,友情,友情,,,友[ゆう]情[じょう],ゆうじょう,ゆうじょう,yūjō,przyjaźń,2,9,2-9,9,友,情,triple_cards_new,Doki Doki2-9
 1781684880248,1781684880248,人間,人間,,,人[にん]間[げん],にんげん,にんげん,ningen,człowiek / ludzkość,2,9,2-9,9,人 間,,triple_cards_new,Doki Doki2-9
 1781684880249,1781684880249,間に合う,間に合う,,,間[ま]に合[あ]う,まにあう,まにあう,maniau,zdążyć (na czas),2,9,2-9,9,間,合,triple_cards_new,Doki Doki2-9
-1781684880250,1781684880250,少年,少年,,,少[しょう]年[ねん],しょうねん,しょうねん,shōnen,"chłopiec,&nbsp;  dorastający chłopiec",2,9,2-9,9,少 年,,triple_cards_new,Doki Doki2-9
+1781684880250,1781684880250,少年,少年,,,少[しょう]年[ねん],しょうねん,しょうねん,shōnen,"chłopiec, dorastający chłopiec",2,9,2-9,9,少 年,,triple_cards_new,Doki Doki2-9
 1781684880251,1781684880251,多少,多少,,,多[た]少[しょう],たしょう,たしょう,tashō,trochę / nieco,2,9,2-9,9,多 少,,triple_cards_new,Doki Doki2-9
 1781684880252,1781684880252,知人,知人,,,知[ち]人[じん],ちじん,ちじん,chijin,znajomy (daleki),2,9,2-9,9,知 人,,triple_cards_new,Doki Doki2-9
 1781684880253,1781684880253,知り合う,知り合う,,,知[し]り合[あ]う,しりあう,しりあう,shiriau,poznać się,2,9,2-9,9,知,合,triple_cards_new,Doki Doki2-9

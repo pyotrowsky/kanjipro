@@ -1,4 +1,4 @@
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=2.6', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=2.7', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -28,7 +28,7 @@ function saveAnswerMode(value){try{localStorage.setItem(ANSWER_MODE_STORAGE_KEY,
 function initAnswerModeSettings(){const current=savedAnswerMode();document.querySelectorAll('input[name="answerMode"]').forEach(x=>{x.checked=x.value===current;x.addEventListener('change',()=>{if(x.checked)saveAnswerMode(x.value)})})}
 initAnswerModeSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=2.6', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=2.7', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set();
 const ROMAJI={
@@ -115,7 +115,9 @@ function learningStatsFor(q){const id=learningQuestionId(q);return id?learningSt
 function recordLearningResult(q,correct){const id=learningQuestionId(q);if(!id||sessionLearningRecordedIds.has(id))return;sessionLearningRecordedIds.add(id);const prev=learningStats[id]||{},reviews=Math.max(0,Number(prev.reviews)||0),correctCount=Math.max(0,Number(prev.correct)||0),wrongCount=Math.max(0,Number(prev.wrong)||0),streak=Math.max(0,Number(prev.correct_streak)||0),now=Date.now();learningStats[id]={reviews:reviews+1,correct:correctCount+(correct?1:0),wrong:wrongCount+(correct?0:1),correct_streak:correct?streak+1:0,last_seen_at:now,last_wrong_at:correct?(prev.last_wrong_at||null):now,last_result:correct?'correct':'wrong'};saveLearningStats(id)}
 function smoothedAccuracy(s){const reviews=Math.max(0,Number(s?.reviews)||0),correct=Math.max(0,Number(s?.correct)||0);return(correct+1)/(reviews+2)}
 function vocabPriority(q,now=Date.now()){const s=learningStatsFor(q)||{},reviews=Math.max(0,Number(s.reviews)||0),difficulty=1-smoothedAccuracy(s),lowExposure=1/Math.sqrt(reviews+1),newBonus=reviews===0?1:0,lastSeen=Number(s.last_seen_at)||0,daysSinceLastSeen=lastSeen?Math.max(0,now-lastSeen)/86400000:0,staleness=reviews===0?0:Math.min(daysSinceLastSeen/30,1),recentWrong=s.last_result==='wrong'?1:0;return Math.min(7,Math.max(1,1+2.5*difficulty+1.5*lowExposure+2.5*newBonus+staleness+recentWrong))}
-function weightedVocabSample(items,count){if(count>=items.length)return items.slice();const now=Date.now();return items.map(item=>({item,key:-Math.log(Math.max(Math.random(),Number.MIN_VALUE))/vocabPriority(item,now)})).sort((a,b)=>a.key-b.key).slice(0,count).map(x=>x.item)}
+function weightedSampleCore(items,count,now=Date.now()){if(count<=0)return[];if(count>=items.length)return items.slice();return items.map(item=>({item,key:-Math.log(Math.max(Math.random(),Number.MIN_VALUE))/vocabPriority(item,now)})).sort((a,b)=>a.key-b.key).slice(0,count).map(x=>x.item)}
+function activeVocabMistake(q){const exact=mistakeBank.get(persistentQuestionId(q));if(exact)return exact;return q.persistent_surface?mistakeBank.get(`VOCAB:${q.persistent_surface}`)||null:null}
+function weightedVocabSample(items,count){if(count>=items.length)return items.slice();const now=Date.now(),reserveLimit=Math.min(count,Math.max(1,Math.ceil(count*.25))),active=items.filter(item=>activeVocabMistake(item)),reserved=weightedSampleCore(active,Math.min(reserveLimit,active.length),now),reservedIds=new Set(reserved.map(item=>learningQuestionId(item)||item.question_id)),rest=items.filter(item=>!reservedIds.has(learningQuestionId(item)||item.question_id)),fill=weightedSampleCore(rest,count-reserved.length,now);return[...reserved,...fill]}
 
 function persistentQuestionId(q){return q?.persistent_id||q?.question_id||`${q?.type||'q'}:${q?.prompt||''}`}
 function snapshotQuestion(q){return{id:persistentQuestionId(q),type:q.type,persistent_surface:q.persistent_surface||null,persistent_note_id:q.persistent_note_id||null,disambiguation:q.disambiguation||'',prompt:q.prompt,prompt_html:q.prompt_html||esc(q.prompt),target_kanji:[...(q.target_kanji||[])],accepted_answers:[...(q.accepted_answers||[])],answer_display:[...(q.answer_display||[])],meanings:[...(q.meanings||[])]}}
@@ -285,7 +287,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=2.6', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=2.7', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

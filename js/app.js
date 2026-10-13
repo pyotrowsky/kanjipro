@@ -1,4 +1,4 @@
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=2.3', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=2.4', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -13,7 +13,7 @@ const FONT_PROFILES={
   kyokasho:{stack:'"YuKyokasho","Yu Kyokasho","Hiragino Kaku Gothic ProN","Yu Mincho",serif',weight:'400'},
   system_serif:{stack:'"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro",serif',weight:'400'}
 };
-function savedFontProfile(){try{return localStorage.getItem(FONT_STORAGE_KEY)||'mincho'}catch{return'mincho'}}
+function savedFontProfile(){try{return localStorage.getItem(FONT_STORAGE_KEY)||'meiryo'}catch{return'meiryo'}}
 function saveFontProfile(id){try{localStorage.setItem(FONT_STORAGE_KEY,id)}catch{}}
 function applyFontProfile(id,persist=true){const profile=FONT_PROFILES[id]||FONT_PROFILES.mincho;const key=FONT_PROFILES[id]?id:'mincho';document.documentElement.style.setProperty('--jp-font',profile.stack);document.documentElement.style.setProperty('--jp-font-weight',profile.weight);document.querySelectorAll('input[name="jpFont"]').forEach(x=>x.checked=x.value===key);if(persist)saveFontProfile(key)}
 function renderFontSettings(){const root=document.querySelector('#fontOptions');if(!root)return;root.innerHTML='';for(const [id,profile] of Object.entries(FONT_PROFILES)){const label=document.createElement('label');label.className='font-option';const input=document.createElement('input');input.type='radio';input.name='jpFont';input.value=id;input.addEventListener('change',()=>applyFontProfile(id,true));const card=document.createElement('span');card.className='font-option-card';const textWrap=document.createElement('span');const name=document.createElement('span');name.className='font-option-name';name.textContent=t('settings.fonts.'+id);const desc=document.createElement('span');desc.className='font-option-desc';desc.textContent=t('settings.font_descriptions.'+id);textWrap.append(name,desc);const sample=document.createElement('span');sample.className='font-option-sample';sample.textContent=t('settings.preview_text');sample.style.fontFamily=profile.stack;sample.style.fontWeight=profile.weight;card.append(textWrap,sample);label.append(input,card);root.appendChild(label)}}
@@ -28,7 +28,7 @@ function saveAnswerMode(value){try{localStorage.setItem(ANSWER_MODE_STORAGE_KEY,
 function initAnswerModeSettings(){const current=savedAnswerMode();document.querySelectorAll('input[name="answerMode"]').forEach(x=>{x.checked=x.value===current;x.addEventListener('change',()=>{if(x.checked)saveAnswerMode(x.value)})})}
 initAnswerModeSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=2.3', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=2.4', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set();
 const ROMAJI={
@@ -285,7 +285,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=2.3', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=2.4', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

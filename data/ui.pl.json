@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "2.3",
+    "badge": "2.4",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -140,7 +140,7 @@
     },
     "data_title": "Dane nauki",
     "data_summary_empty": "Historia nauki jest zapisywana lokalnie na tym urządzeniu.",
-    "data_summary": "{items} słówek ze statystykami · {reviews} powtórek · {mistakes} do powtórki",
+    "data_summary": "{items} słówek ze statystykami · {reviews} powtórzenia · {mistakes} do powtórki",
     "export_data": "Eksportuj kopię",
     "import_data": "Importuj kopię",
     "export_done": "Kopia została przygotowana.",

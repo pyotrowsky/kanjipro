@@ -105,6 +105,14 @@ def clean_text(s: str | None) -> str:
     return html.unescape(s or "").replace("\u00a0", " ")
 
 
+def clean_plain_text(s: str | None) -> str:
+    """Decode HTML entities, remove simple Anki HTML markup, and normalize whitespace."""
+    value = clean_text(s)
+    value = re.sub(r"<br\s*/?>", " ", value, flags=re.IGNORECASE)
+    value = HTML_RE.sub(" ", value)
+    return " ".join(value.split())
+
+
 def pattern_markers(*values: str | None) -> tuple[str, str]:
     """Return normalized visible pattern markers from source edges.
 
@@ -413,7 +421,7 @@ def build():
             "kunyomi_accepted": sorted(set(normalize_answer(x) for x in kunyomi if normalize_answer(x))),
             "onyomi_display": onyomi,
             "onyomi_accepted": sorted(set(normalize_answer(x) for x in onyomi if normalize_answer(x))),
-            "polish": (r.get("Polish") or "").strip(),
+            "polish": clean_plain_text(r.get("Polish")),
             "notes": (r.get("Notes") or "").strip(),
             "example_html": (r.get("Example") or "").strip(),
             "example_jp": (r.get("ExampleJP") or "").strip(),
@@ -488,14 +496,14 @@ def build():
                 "reading": clean_reading(r.get("Reading", "")),
                 "accepted_readings": split_reading_answers(r.get("Reading", "")),
                 "romaji": (r.get("Romaji") or "").strip(),
-                "polish": (r.get("Polish") or "").strip(),
+                "polish": clean_plain_text(r.get("Polish")),
                 **lo,
                 "all_kanji": all_chars,
                 "tracked_kanji": tracked,
                 "untracked_kanji": untracked,
                 "example_furigana": (r.get(ex_furi_field) or "").strip(),
                 "example_plain": (r.get(ex_plain_field) or "").strip(),
-                "example_pl": (r.get("ExamplePL") or "").strip(),
+                "example_pl": clean_plain_text(r.get("ExamplePL")),
                 "verb_form_affirmative": (r.get("VerbFormAffirmative") or "").strip(),
                 "verb_form_negative": (r.get("VerbFormNegative") or "").strip(),
                 "notes": (r.get("Notes") or "").strip(),

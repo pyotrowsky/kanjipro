@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wsjj-kanji-pro-2.1-1';
+const CACHE_NAME = 'wsjj-kanji-pro-2.3-1';
 const BASE = new URL('./', self.location.href);
 const FRESH_PATHS = new Set([
   new URL('./data/kanji_quiz_database.json', BASE).pathname,
@@ -8,6 +8,7 @@ const FRESH_PATHS = new Set([
   new URL('./css/styles.css', BASE).pathname,
   new URL('./manifest.webmanifest', BASE).pathname
 ]);
+function cached(request){return caches.match(request,{ignoreSearch:true})}
 const PRECACHE = [
   './',
   './index.html',
@@ -55,7 +56,7 @@ self.addEventListener('fetch', event => {
           }
           return response;
         })
-        .catch(() => caches.match(event.request))
+        .catch(() => cached(event.request))
     );
     return;
   }
@@ -69,22 +70,22 @@ self.addEventListener('fetch', event => {
           caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
           return response;
         })
-        .catch(() => caches.match(new URL('./index.html', BASE).href))
+        .catch(() => cached(new URL('./index.html', BASE).href))
     );
     return;
   }
 
   // Static assets: cache first with background refresh.
   event.respondWith(
-    caches.match(event.request).then(cached => {
+    cached(event.request).then(cachedResponse => {
       const network = fetch(event.request).then(response => {
         if (response.ok) {
           const copy = response.clone();
           caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
         }
         return response;
-      }).catch(() => cached);
-      return cached || network;
+      }).catch(() => cachedResponse);
+      return cachedResponse || network;
     })
   );
 });

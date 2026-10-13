@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=2.1"></head><body><main class="shell">
-<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">2.1</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<link rel="stylesheet" href="./css/styles.css?v=2.3"></head><body><main class="shell">
+<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">2.3</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <section id="setup" class="panel stack">
   <div>
     <div class="group-head"><div class="section-title" style="margin:0" data-i18n="setup.chapters_title">Rozdziały</div><div class="actions"><button type="button" id="lessonToggle" class="mini-btn">Zaznacz wszystko</button></div></div>
@@ -98,9 +98,18 @@
         <span class="answer-mode-card"><b data-i18n="settings.answer_modes.two">Dwuetapowo</b><small data-i18n="settings.answer_mode_descriptions.two">Najpierw sprawdź, potem przejdź dalej.</small></span>
       </label>
     </div>
+    <div class="settings-divider"></div>
+    <div class="settings-section-title" data-i18n="settings.data_title">Dane nauki</div>
+    <div id="dataBackupSummary" class="lesson-note settings-note" data-i18n="settings.data_summary_empty">Historia nauki jest zapisywana lokalnie na tym urządzeniu.</div>
+    <div class="data-backup-actions">
+      <button id="exportData" class="ghost" type="button" data-i18n="settings.export_data">Eksportuj kopię</button>
+      <button id="importData" class="ghost" type="button" data-i18n="settings.import_data">Importuj kopię</button>
+      <input id="importDataFile" class="hidden" type="file" accept="application/json,.json">
+    </div>
+    <div id="dataBackupStatus" class="lesson-note data-backup-status hidden"></div>
     <button id="closeSettings" class="primary" type="button" data-i18n="settings.close">Gotowe</button>
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=2.1"></script>
+<script type="module" src="./js/app.js?v=2.3"></script>
 </body></html>

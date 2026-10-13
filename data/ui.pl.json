@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "2.1",
+    "badge": "2.3",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -137,7 +137,16 @@
     "answer_mode_descriptions": {
       "one": "Sprawdź i od razu przejdź dalej.",
       "two": "Najpierw sprawdź, potem przejdź dalej."
-    }
+    },
+    "data_title": "Dane nauki",
+    "data_summary_empty": "Historia nauki jest zapisywana lokalnie na tym urządzeniu.",
+    "data_summary": "{items} słówek ze statystykami · {reviews} powtórek · {mistakes} do powtórki",
+    "export_data": "Eksportuj kopię",
+    "import_data": "Importuj kopię",
+    "export_done": "Kopia została przygotowana.",
+    "import_done": "Kopia została zaimportowana.",
+    "import_invalid": "Nie udało się odczytać tej kopii.",
+    "import_confirm": "Import zastąpi obecną historię nauki i ustawienia danymi z kopii. Kontynuować?"
   },
   "actions": {
     "select_all": "Zaznacz wszystko",

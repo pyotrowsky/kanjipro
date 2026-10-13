@@ -1,4 +1,4 @@
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=2.1', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=2.3', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -28,7 +28,7 @@ function saveAnswerMode(value){try{localStorage.setItem(ANSWER_MODE_STORAGE_KEY,
 function initAnswerModeSettings(){const current=savedAnswerMode();document.querySelectorAll('input[name="answerMode"]').forEach(x=>{x.checked=x.value===current;x.addEventListener('change',()=>{if(x.checked)saveAnswerMode(x.value)})})}
 initAnswerModeSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=2.1', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=2.3', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set();
 const ROMAJI={
@@ -77,16 +77,42 @@ function hira(s){return(s||'').normalize('NFKC').trim().replace(/[\s・･,，�
 const lessonMap=new Map(DB.quiz_lessons.map(x=>[x.lesson,x]));
 const kanjiLessonMap=new Map(DB.kanji.map(k=>[k.character,k]));
 const MISTAKE_BANK_KEY='wsjj-kanji-pro:mistake-bank:v1';
-function loadMistakeBank(){try{const raw=JSON.parse(localStorage.getItem(MISTAKE_BANK_KEY)||'{}');return new Map(Object.entries(raw&&typeof raw==='object'?raw:{}))}catch{return new Map()}}
-let mistakeBank=loadMistakeBank();
-function saveMistakeBank(){try{localStorage.setItem(MISTAKE_BANK_KEY,JSON.stringify(Object.fromEntries(mistakeBank)))}catch{}}
 const LEARNING_STATS_KEY='wsjj-kanji-pro:learning-stats:v1';
-function loadLearningStats(){try{const raw=JSON.parse(localStorage.getItem(LEARNING_STATS_KEY)||'{}');return raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{}}catch{return{}}}
-let learningStats=loadLearningStats();
-function saveLearningStats(){try{localStorage.setItem(LEARNING_STATS_KEY,JSON.stringify(learningStats))}catch{}}
+const APP_DB_NAME='wsjj-kanji-pro';
+const APP_DB_VERSION=1;
+let appDb=null,storageWriteQueue=Promise.resolve(),persistentStorageGranted=null;
+function localObject(key){try{const raw=JSON.parse(localStorage.getItem(key)||'{}');return raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{}}catch{return{}}}
+function openAppDb(){return new Promise(resolve=>{if(!('indexedDB'in window)){resolve(null);return}let settled=false;try{const req=indexedDB.open(APP_DB_NAME,APP_DB_VERSION);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains('learning_stats'))db.createObjectStore('learning_stats',{keyPath:'id'});if(!db.objectStoreNames.contains('mistakes'))db.createObjectStore('mistakes',{keyPath:'id'});if(!db.objectStoreNames.contains('meta'))db.createObjectStore('meta',{keyPath:'key'})};req.onsuccess=()=>{settled=true;resolve(req.result)};req.onerror=()=>{settled=true;console.warn('IndexedDB unavailable:',req.error);resolve(null)};req.onblocked=()=>{if(!settled){settled=true;console.warn('IndexedDB open blocked');resolve(null)}}}catch(err){console.warn('IndexedDB unavailable:',err);resolve(null)}})}
+function idbGetAll(store){return new Promise((resolve,reject)=>{if(!appDb){resolve([]);return}try{const tx=appDb.transaction(store,'readonly'),req=tx.objectStore(store).getAll();req.onsuccess=()=>resolve(req.result||[]);req.onerror=()=>reject(req.error)}catch(err){reject(err)}})}
+function idbPut(store,record){return new Promise((resolve,reject)=>{if(!appDb){resolve();return}try{const tx=appDb.transaction(store,'readwrite');tx.objectStore(store).put(record);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)}catch(err){reject(err)}})}
+function idbReplaceStore(store,records){return new Promise((resolve,reject)=>{if(!appDb){resolve();return}try{const tx=appDb.transaction(store,'readwrite'),os=tx.objectStore(store);os.clear();for(const record of records)os.put(record);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)}catch(err){reject(err)}})}
+function queueStorageWrite(task){storageWriteQueue=storageWriteQueue.then(task).catch(err=>console.warn('Persistent storage write failed:',err));return storageWriteQueue}
+function learningRowsFromObject(obj){return Object.entries(obj||{}).filter(([,v])=>v&&typeof v==='object'&&!Array.isArray(v)).map(([id,v])=>({id,...v}))}
+function mistakeRowsFromObject(obj){return Object.entries(obj||{}).filter(([,v])=>v&&typeof v==='object'&&!Array.isArray(v)).map(([id,v])=>({...v,id}))}
+function objectFromRows(rows){const out={};for(const row of rows||[]){if(!row?.id)continue;const {id,...rest}=row;out[id]=rest}return out}
+function mistakeObjectFromRows(rows){const out={};for(const row of rows||[]){if(!row?.id)continue;out[row.id]={...row}}return out}
+async function initializePersistentState(){
+  const legacyLearning=localObject(LEARNING_STATS_KEY),legacyMistakes=localObject(MISTAKE_BANK_KEY);
+  appDb=await openAppDb();
+  if(!appDb)return{learning:legacyLearning,mistakes:legacyMistakes};
+  try{
+    const [learningRows,mistakeRows]=await Promise.all([idbGetAll('learning_stats'),idbGetAll('mistakes')]);
+    const learning={...legacyLearning,...objectFromRows(learningRows)},mistakes={...legacyMistakes,...mistakeObjectFromRows(mistakeRows)};
+    await Promise.all([idbReplaceStore('learning_stats',learningRowsFromObject(learning)),idbReplaceStore('mistakes',mistakeRowsFromObject(mistakes)),idbPut('meta',{key:'schema',version:APP_DB_VERSION,migrated_at:Date.now()})]);
+    try{localStorage.setItem(LEARNING_STATS_KEY,JSON.stringify(learning));localStorage.setItem(MISTAKE_BANK_KEY,JSON.stringify(mistakes))}catch{}
+    return{learning,mistakes}
+  }catch(err){console.warn('IndexedDB initialization failed:',err);return{learning:legacyLearning,mistakes:legacyMistakes}}
+}
+const initialPersistentState=await initializePersistentState();
+let learningStats=initialPersistentState.learning;
+let mistakeBank=new Map(Object.entries(initialPersistentState.mistakes));
+function saveMistakeBank(){const obj=Object.fromEntries(mistakeBank);try{localStorage.setItem(MISTAKE_BANK_KEY,JSON.stringify(obj))}catch{}if(appDb)queueStorageWrite(()=>idbReplaceStore('mistakes',mistakeRowsFromObject(obj)))}
+function saveLearningStats(id=null){try{localStorage.setItem(LEARNING_STATS_KEY,JSON.stringify(learningStats))}catch{}if(!appDb)return;if(id&&learningStats[id])queueStorageWrite(()=>idbPut('learning_stats',{id,...learningStats[id]}));else queueStorageWrite(()=>idbReplaceStore('learning_stats',learningRowsFromObject(learningStats)))}
+async function requestPersistentStorage(){try{if(!navigator.storage?.persist)return false;persistentStorageGranted=navigator.storage.persisted?await navigator.storage.persisted():false;if(!persistentStorageGranted)persistentStorageGranted=await navigator.storage.persist();return persistentStorageGranted}catch{return false}}
+void requestPersistentStorage();
 function learningQuestionId(q){if(q?.type!=='vocabulary')return null;if(q.learning_id)return q.learning_id;const surface=q.persistent_surface||q.prompt||'',answers=[...(q.accepted_answers||[])].map(hira).filter(Boolean).sort();return `VOCAB:${surface}|${answers.join('/')}`}
 function learningStatsFor(q){const id=learningQuestionId(q);return id?learningStats[id]||null:null}
-function recordLearningResult(q,correct){const id=learningQuestionId(q);if(!id||sessionLearningRecordedIds.has(id))return;sessionLearningRecordedIds.add(id);const prev=learningStats[id]||{},reviews=Math.max(0,Number(prev.reviews)||0),correctCount=Math.max(0,Number(prev.correct)||0),wrongCount=Math.max(0,Number(prev.wrong)||0),streak=Math.max(0,Number(prev.correct_streak)||0),now=Date.now();learningStats[id]={reviews:reviews+1,correct:correctCount+(correct?1:0),wrong:wrongCount+(correct?0:1),correct_streak:correct?streak+1:0,last_seen_at:now,last_wrong_at:correct?(prev.last_wrong_at||null):now,last_result:correct?'correct':'wrong'};saveLearningStats()}
+function recordLearningResult(q,correct){const id=learningQuestionId(q);if(!id||sessionLearningRecordedIds.has(id))return;sessionLearningRecordedIds.add(id);const prev=learningStats[id]||{},reviews=Math.max(0,Number(prev.reviews)||0),correctCount=Math.max(0,Number(prev.correct)||0),wrongCount=Math.max(0,Number(prev.wrong)||0),streak=Math.max(0,Number(prev.correct_streak)||0),now=Date.now();learningStats[id]={reviews:reviews+1,correct:correctCount+(correct?1:0),wrong:wrongCount+(correct?0:1),correct_streak:correct?streak+1:0,last_seen_at:now,last_wrong_at:correct?(prev.last_wrong_at||null):now,last_result:correct?'correct':'wrong'};saveLearningStats(id)}
 function smoothedAccuracy(s){const reviews=Math.max(0,Number(s?.reviews)||0),correct=Math.max(0,Number(s?.correct)||0);return(correct+1)/(reviews+2)}
 function vocabPriority(q,now=Date.now()){const s=learningStatsFor(q)||{},reviews=Math.max(0,Number(s.reviews)||0),difficulty=1-smoothedAccuracy(s),lowExposure=1/Math.sqrt(reviews+1),newBonus=reviews===0?1:0,lastSeen=Number(s.last_seen_at)||0,daysSinceLastSeen=lastSeen?Math.max(0,now-lastSeen)/86400000:0,staleness=reviews===0?0:Math.min(daysSinceLastSeen/30,1),recentWrong=s.last_result==='wrong'?1:0;return Math.min(7,Math.max(1,1+2.5*difficulty+1.5*lowExposure+2.5*newBonus+staleness+recentWrong))}
 function weightedVocabSample(items,count){if(count>=items.length)return items.slice();const now=Date.now();return items.map(item=>({item,key:-Math.log(Math.max(Math.random(),Number.MIN_VALUE))/vocabPriority(item,now)})).sort((a,b)=>a.key-b.key).slice(0,count).map(x=>x.item)}
@@ -144,6 +170,43 @@ function refreshReviewUI(){
   renderReviewList(entries);return entries
 }
 function reviewQuestions(){return resolvedMistakeEntries().map(x=>({...x.question}))}
+
+function cleanRecordObject(value){if(!value||typeof value!=='object'||Array.isArray(value))return{};const out={};for(const [k,v] of Object.entries(value))if(v&&typeof v==='object'&&!Array.isArray(v))out[k]=v;return out}
+function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
+function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
+function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'2.3',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),session_prefs:loadSessionPrefs()}}}}
+function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
+async function importLearningData(file){
+  if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
+  try{
+    const parsed=JSON.parse(await file.text());
+    if(parsed?.format!=='wsjj-kanji-pro-backup'||parsed?.schema_version!==1||!parsed.data)throw new Error('format');
+    const nextLearning=cleanRecordObject(parsed.data.learning_stats),nextMistakes=cleanRecordObject(parsed.data.mistake_bank);
+    if(!confirm(t('settings.import_confirm')))return;
+    await storageWriteQueue;
+    learningStats=nextLearning;mistakeBank=new Map(Object.entries(nextMistakes));
+    try{
+      localStorage.setItem(LEARNING_STATS_KEY,JSON.stringify(learningStats));
+      localStorage.setItem(MISTAKE_BANK_KEY,JSON.stringify(Object.fromEntries(mistakeBank)));
+      const settings=parsed.data.settings||{};
+      if(typeof settings.font==='string')localStorage.setItem(FONT_STORAGE_KEY,settings.font);
+      if(settings.answer_mode==='one'||settings.answer_mode==='two')localStorage.setItem(ANSWER_MODE_STORAGE_KEY,settings.answer_mode);
+      if(settings.session_prefs&&typeof settings.session_prefs==='object'&&!Array.isArray(settings.session_prefs))localStorage.setItem(SESSION_PREFS_KEY,JSON.stringify(settings.session_prefs));
+    }catch{}
+    if(appDb)await Promise.all([idbReplaceStore('learning_stats',learningRowsFromObject(learningStats)),idbReplaceStore('mistakes',mistakeRowsFromObject(Object.fromEntries(mistakeBank))),idbPut('meta',{key:'last_import',imported_at:Date.now()})]);
+    setDataBackupStatus('settings.import_done');setTimeout(()=>window.location.reload(),350)
+  }catch(err){console.warn('Backup import failed:',err);setDataBackupStatus('settings.import_invalid')}
+}
+function initDataBackupSettings(){
+  const exportBtn=$('#exportData'),importBtn=$('#importData'),fileInput=$('#importDataFile');
+  exportBtn?.addEventListener('click',()=>{renderDataBackupSummary();exportLearningData()});
+  importBtn?.addEventListener('click',()=>{setDataBackupStatus(null);fileInput?.click()});
+  fileInput?.addEventListener('change',async()=>{const file=fileInput.files?.[0];fileInput.value='';await importLearningData(file)});
+  $('#openSettings')?.addEventListener('click',()=>{renderDataBackupSummary();setDataBackupStatus(null)});
+  renderDataBackupSummary()
+}
+
 const SESSION_PREFS_KEY='wsjj-kanji-pro:session-prefs';
 function loadSessionPrefs(){try{const x=JSON.parse(localStorage.getItem(SESSION_PREFS_KEY)||'{}');return x&&typeof x==='object'?x:{}}catch{return{}}}
 let sessionPrefs=loadSessionPrefs();
@@ -207,6 +270,7 @@ function updateStats(){correctEl.textContent=stats.correct;wrongEl.textContent=s
 function start(){hideAnswerNotice();saveSessionPrefs();if(!selectedLessons().length){alert(t('errors.choose_lesson'));return}if(!selectedKanji().size){alert(t('errors.choose_kanji'));return}if(!selectedModes().length){alert(t('errors.choose_mode'));return}if(furiganaMode()==='chapter'&&!furiganaLesson()){alert(t('errors.invalid_furigana'));return}const items=buildQueue();if(!items.length){alert(t('errors.empty_pool'));return}beginSession(items,'normal')}
 function showFinish(){hideAnswerNotice();quiz.classList.add('hidden');finished.classList.remove('hidden');refreshReviewUI();const total=stats.correct+stats.wrong,acc=total?Math.round(stats.correct/total*100):100,remaining=resolvedMistakeEntries().length;finishTitle.textContent=t(sessionKind==='review'?'review.finish_title':'finish.title');$('#finalScore').textContent=`${acc}%`;$('#finalCorrect').textContent=stats.correct;$('#finalWrong').textContent=stats.wrong;$('#finalAttempts').textContent=stats.attempts;$('#again').textContent=t(sessionKind==='review'?(remaining?'review.practice_remaining':'review.done'):'finish.again');$('#settings').textContent=t(sessionKind==='review'?(remaining?'review.finish_back':'finish.settings'):'finish.settings');renderMistakeSummary()}
 function back(){if(sessionKind==='review')showReviewBank();else showSetupScreen()}
+initDataBackupSettings();
 renderLessonGrid();renderKanjiGroups(false);restoreSessionControls();populateFuriganaLessons();refreshReviewUI();updatePreview();document.querySelectorAll('.mode input').forEach(x=>x.addEventListener('change',()=>{saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="vocabLimitMode"]').forEach(x=>x.addEventListener('change',()=>{vocabLimit.disabled=document.querySelector('input[name="vocabLimitMode"]:checked').value!=='limit';saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="furiganaMode"]').forEach(x=>x.addEventListener('change',syncFuriganaControls));furiganaLessonSelect.addEventListener('change',()=>{furiganaChapterManual=true;updatePreview()});vocabLimit.addEventListener('input',()=>{saveSessionPrefs();updatePreview()});document.querySelectorAll('input[name="inputMode"]').forEach(x=>x.addEventListener('change',syncInputMode));let answerComposing=false;
 input.addEventListener('compositionstart',()=>{answerComposing=true});
 input.addEventListener('compositionend',()=>{answerComposing=false});
@@ -221,7 +285,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=2.1', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=2.3', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

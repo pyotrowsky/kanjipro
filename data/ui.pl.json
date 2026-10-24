@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.6",
+    "badge": "3.7",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -223,6 +223,9 @@
     "stroke_replay": "Odtwórz ponownie",
     "stroke_loading": "Ładowanie diagramu…",
     "stroke_unavailable": "Nie udało się wczytać diagramu.",
-    "stroke_attribution_html": "Dane kolejności kresek: <a href=\"https://kanjivg.tagaini.net/\" target=\"_blank\" rel=\"noopener\">KanjiVG</a> © Ulrich Apel i współtwórcy, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener\">CC BY-SA 3.0</a>."
+    "stroke_attribution_html": "Dane kolejności kresek: <a href=\"https://kanjivg.tagaini.net/\" target=\"_blank\" rel=\"noopener\">KanjiVG</a> © Ulrich Apel i współtwórcy, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener\">CC BY-SA 3.0</a>.",
+    "example": "Przykład",
+    "example_jp_aria": "Przykładowe zdanie po japońsku",
+    "example_pl_aria": "Tłumaczenie przykładu"
   }
 }

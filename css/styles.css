@@ -259,3 +259,14 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .dictionary-stroke-attribution{margin-top:7px;font-size:10px;line-height:1.4;color:var(--muted)}
 .dictionary-stroke-attribution a{color:inherit;text-decoration:underline}
 @media(max-width:600px){.dictionary-stroke-card{min-height:230px}.dictionary-kanjivg-svg{width:min(100%,300px);max-height:300px}}
+
+
+/* Dictionary vocabulary example sentences. */
+.dictionary-example{margin:16px 0 18px;text-align:left}
+.dictionary-example .dictionary-related-title{margin:0 0 9px}
+.dictionary-example-card{padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.dictionary-example-jp{font-family:var(--jp-font);font-weight:var(--jp-font-weight);font-size:20px;line-height:1.9;color:var(--text);letter-spacing:.01em}
+.dictionary-example-jp ruby{ruby-position:over}
+.dictionary-example-jp rt{font-size:.52em;font-weight:500;color:var(--muted)}
+.dictionary-example-pl{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:14px;line-height:1.45;color:var(--muted)}
+@media(max-width:600px){.dictionary-example-jp{font-size:19px}.dictionary-example-card{padding:13px 14px}}

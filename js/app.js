@@ -1,4 +1,4 @@
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.6', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.7', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -46,7 +46,7 @@ function initStrokeAnimationModeSettings(){
 }
 initStrokeAnimationModeSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=3.6', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=3.7', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set();
@@ -409,6 +409,32 @@ function openKanjiDetail(k,index=DB.kanji.indexOf(k),pushHistory=true){
   dictionarySetDetailEntry({type:'kanji',index:Number(index)},pushHistory);
   loadStrokeOrder(k)
 }
+
+function renderBracketFurigana(value){
+  const source=String(value||'').trim();
+  if(!source)return'';
+  const re=/([々〆〇一-龯豈-頻]+)\[([^\]]+)\]/g;
+  let html='',last=0,m;
+  while((m=re.exec(source))){
+    html+=esc(source.slice(last,m.index));
+    html+='<ruby>'+esc(m[1])+'<rt>'+esc(m[2])+'</rt></ruby>';
+    last=re.lastIndex
+  }
+  html+=esc(source.slice(last));
+  return html
+}
+function dictionaryExampleHtml(v){
+  const jp=String(v.example_furigana||v.example_plain||'').trim(),pl=String(v.example_pl||'').trim();
+  if(!jp&&!pl)return'';
+  const jpHtml=jp?renderBracketFurigana(jp):'';
+  return '<section class="dictionary-example">'+
+    '<div class="dictionary-related-title">'+esc(t('dictionary.example'))+'</div>'+
+    '<div class="dictionary-example-card">'+
+      (jpHtml?'<div class="dictionary-example-jp" aria-label="'+esc(t('dictionary.example_jp_aria'))+'">'+jpHtml+'</div>':'')+
+      (pl?'<div class="dictionary-example-pl" aria-label="'+esc(t('dictionary.example_pl_aria'))+'">'+esc(pl)+'</div>':'')+
+    '</div>'+
+  '</section>'
+}
 function openVocabDetail(v,index=DB.vocabulary.indexOf(v),pushHistory=true){
   if(!v)return;
   const readings=(v.accepted_readings?.length?v.accepted_readings:[v.reading]).filter(Boolean).join(' / ')||'—',stats=dictionaryStats(v),status=dictionaryStatus(v);
@@ -427,6 +453,7 @@ function openVocabDetail(v,index=DB.vocabulary.indexOf(v),pushHistory=true){
       '<div class="dictionary-detail-lesson">'+esc(t('dictionary.lesson',{lesson:v.lesson}))+'</div>'+
       '<div class="dictionary-detail-status">'+dictionaryVocabBadge(v)+'</div>'+
       kanjiLinks+
+      dictionaryExampleHtml(v)+
       '<div class="dictionary-learning-box">'+
         '<div class="dictionary-learning-head"><b>'+esc(t('dictionary.learning'))+'</b></div>'+
         statsHtml+
@@ -555,7 +582,7 @@ function cleanRecordObject(value){if(!value||typeof value!=='object'||Array.isAr
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
-function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.6',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),session_prefs:loadSessionPrefs()}}}}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.7',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),session_prefs:loadSessionPrefs()}}}}
 function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
 async function importLearningData(file){
   if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
@@ -667,7 +694,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=3.6', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=3.7', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

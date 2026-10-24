@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "2.11",
+    "badge": "3.0",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -168,5 +168,33 @@
     "empty": "Brak aktywnych błędów.",
     "answer": "Odpowiedź: {answer}",
     "item_meta": "Błędy: {wrong} · Postęp: {streak}/2"
+  },
+  "dictionary": {
+    "nav_aria": "Główna nawigacja",
+    "nav_practice": "Ćwicz",
+    "nav_dictionary": "Słownik",
+    "title": "Słownik",
+    "subtitle": "Kanji i słownictwo z Twoich materiałów Doki.",
+    "tabs_aria": "Rodzaj wpisów",
+    "tab_kanji": "Kanji",
+    "tab_vocab": "Słówka",
+    "search_placeholder": "Szukaj po japońsku, romaji lub po polsku…",
+    "filter_aria": "Filtr Doki i rozdziału",
+    "filter_all": "Wszystkie",
+    "filter_book": "Doki {book}",
+    "result_count": "{shown} z {total}",
+    "result_count_all": "{total} wyników",
+    "no_results": "Brak wyników.",
+    "more": "Pokaż więcej",
+    "back": "← Słownik",
+    "lesson": "Doki {lesson}",
+    "on": "ON",
+    "kun": "KUN",
+    "related_vocab": "Powiązane słówka",
+    "no_related_vocab": "Brak powiązanych słówek w bazie.",
+    "learning": "Twoje statystyki",
+    "new_word": "Jeszcze nie ćwiczone",
+    "learning_stats": "{reviews} powt. · {correct} poprawnych · {wrong} błędów · {accuracy}%",
+    "active_mistake": "Do powtórki"
   }
 }

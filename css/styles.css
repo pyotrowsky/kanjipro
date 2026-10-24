@@ -178,3 +178,60 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .data-backup-actions .ghost{width:100%;padding:10px 12px;font-weight:700}
 .data-backup-status{margin-top:8px}
 @media(max-width:520px){.data-backup-actions{grid-template-columns:1fr}}
+
+
+/* Dictionary / browser */
+.app-nav{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 12px;padding:4px;background:color-mix(in srgb,var(--card) 92%,var(--line));border:1px solid var(--line);border-radius:14px}
+.app-nav-btn{border:0;background:transparent;color:var(--muted);padding:9px 12px;border-radius:10px;font:inherit;font-weight:750;cursor:pointer}
+.app-nav-btn.active{background:var(--card);color:var(--text);box-shadow:0 1px 5px rgba(0,0,0,.08)}
+.dictionary-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}
+.dictionary-title{font-size:20px}
+.dictionary-tabs{display:flex;gap:4px;padding:3px;border:1px solid var(--line);border-radius:11px;background:var(--bg)}
+.dictionary-tab{border:0;background:transparent;border-radius:8px;padding:7px 11px;font:inherit;font-size:13px;font-weight:750;color:var(--muted);cursor:pointer}
+.dictionary-tab.active{background:var(--card);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.dictionary-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.dictionary-search,.dictionary-filter{min-width:0;border:1px solid var(--line);border-radius:11px;background:var(--card);color:var(--text);font:inherit;padding:10px 12px}
+.dictionary-search{font-size:15px}
+.dictionary-filter{max-width:180px}
+.dictionary-count{font-size:12px;color:var(--muted);margin:9px 2px}
+.dictionary-list{display:grid;gap:7px}
+.dictionary-list.kanji-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.dictionary-item{width:100%;display:flex;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);border-radius:12px;padding:10px 11px;background:var(--card);color:var(--text);font:inherit;cursor:pointer}
+.dictionary-item:active{transform:scale(.995)}
+.dictionary-kanji{font-family:var(--jp-font);font-weight:var(--jp-font-weight);font-size:34px;line-height:1;min-width:42px;text-align:center}
+.dictionary-word{font-family:var(--jp-font);font-weight:var(--jp-font-weight);display:flex;flex-direction:column;gap:2px;min-width:115px;max-width:42%}
+.dictionary-word b{font-size:20px}
+.dictionary-word span{font-size:12px;color:var(--muted)}
+.dictionary-item-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:3px}
+.dictionary-item-copy b{font-size:13px;line-height:1.3;font-weight:650;overflow-wrap:anywhere}
+.dictionary-item-copy small{font-size:11px;color:var(--muted)}
+.dictionary-empty{padding:24px 10px;text-align:center;color:var(--muted);font-size:13px}
+.dictionary-more{width:100%;margin-top:10px}
+.dictionary-back{margin-bottom:15px}
+.dictionary-kanji-detail,.dictionary-vocab-detail{text-align:center}
+.dictionary-kanji-hero{font-family:var(--jp-font);font-weight:var(--jp-font-weight);font-size:92px;line-height:1.1;margin:5px 0 8px}
+.dictionary-vocab-hero{font-family:var(--jp-font);font-weight:var(--jp-font-weight);font-size:38px;line-height:1.25;margin:8px 0 4px}
+.dictionary-detail-reading{font-family:var(--jp-font);font-size:20px;color:var(--muted);margin-bottom:8px}
+.dictionary-detail-meaning{font-size:17px;font-weight:700;line-height:1.4}
+.dictionary-detail-lesson{font-size:12px;color:var(--muted);margin-top:5px}
+.dictionary-reading-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.dictionary-reading-grid>div{display:flex;flex-direction:column;gap:5px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.dictionary-reading-grid small{font-size:11px;color:var(--muted);font-weight:800}
+.dictionary-reading-grid b{font-family:var(--jp-font);font-weight:var(--jp-font-weight);font-size:17px}
+.dictionary-related-title{text-align:left;font-weight:800;margin:18px 0 9px}
+.dictionary-related-title span{color:var(--muted);font-weight:600;font-size:12px}
+.dictionary-vocab-kanji{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:14px 0}
+.dictionary-kanji-chip{font-family:var(--jp-font);font-size:24px;border:1px solid var(--line);border-radius:10px;padding:5px 9px;background:var(--card);color:var(--text);cursor:pointer}
+.dictionary-learning-box{text-align:left;margin-top:18px;padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.dictionary-learning-head{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px}
+.dictionary-learning-stats,.dictionary-learning-empty{margin-top:6px;font-size:12px;color:var(--muted)}
+.dictionary-mistake-badge{font-size:11px;font-weight:800;padding:4px 7px;border-radius:999px;color:var(--bad);background:color-mix(in srgb,var(--bad) 9%,var(--card));border:1px solid color-mix(in srgb,var(--bad) 28%,var(--line))}
+@media(max-width:600px){
+  .dictionary-head{display:block}
+  .dictionary-tabs{margin-top:12px}
+  .dictionary-controls{grid-template-columns:1fr}
+  .dictionary-filter{max-width:none;width:100%}
+  .dictionary-list.kanji-list{grid-template-columns:1fr}
+  .dictionary-word{min-width:95px}
+  .dictionary-kanji-hero{font-size:78px}
+}

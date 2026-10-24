@@ -14,8 +14,12 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=2.11"></head><body><main class="shell">
-<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">2.11</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<link rel="stylesheet" href="./css/styles.css?v=3.0"></head><body><main class="shell">
+<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.0</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<nav class="app-nav" aria-label="Główna nawigacja" data-i18n-aria="dictionary.nav_aria">
+  <button id="navPractice" class="app-nav-btn active" type="button" data-i18n="dictionary.nav_practice">Ćwicz</button>
+  <button id="navDictionary" class="app-nav-btn" type="button" data-i18n="dictionary.nav_dictionary">Słownik</button>
+</nav>
 <section id="setup" class="panel stack">
   <div>
     <div class="group-head"><div class="section-title" style="margin:0" data-i18n="setup.chapters_title">Rozdziały</div><div class="actions"><button type="button" id="lessonToggle" class="mini-btn">Zaznacz wszystko</button></div></div>
@@ -60,6 +64,31 @@
     </div>
     <div id="installedNote" class="installed-note hidden" data-i18n="install.installed">✓ Aplikacja jest już uruchomiona jako aplikacja.</div>
   </details>
+</section>
+<section id="dictionary" class="panel stack hidden">
+  <div id="dictionaryBrowse">
+    <div class="dictionary-head">
+      <div>
+        <div class="section-title dictionary-title" data-i18n="dictionary.title">Słownik</div>
+        <div class="lesson-note" data-i18n="dictionary.subtitle">Kanji i słownictwo z Twoich materiałów Doki.</div>
+      </div>
+      <div class="dictionary-tabs" role="tablist" aria-label="Rodzaj wpisów" data-i18n-aria="dictionary.tabs_aria">
+        <button id="dictTabKanji" class="dictionary-tab active" type="button" role="tab" aria-selected="true" data-i18n="dictionary.tab_kanji">Kanji</button>
+        <button id="dictTabVocab" class="dictionary-tab" type="button" role="tab" aria-selected="false" data-i18n="dictionary.tab_vocab">Słówka</button>
+      </div>
+    </div>
+    <div class="dictionary-controls">
+      <input id="dictSearch" class="dictionary-search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" data-i18n-placeholder="dictionary.search_placeholder" placeholder="Szukaj po japońsku, romaji lub po polsku…">
+      <select id="dictLessonFilter" class="dictionary-filter" data-i18n-aria="dictionary.filter_aria" aria-label="Filtr Doki i rozdziału"></select>
+    </div>
+    <div id="dictCount" class="dictionary-count"></div>
+    <div id="dictList" class="dictionary-list"></div>
+    <button id="dictMore" class="ghost dictionary-more hidden" type="button" data-i18n="dictionary.more">Pokaż więcej</button>
+  </div>
+  <div id="dictionaryDetail" class="dictionary-detail hidden">
+    <button id="dictBack" class="ghost dictionary-back" type="button" data-i18n="dictionary.back">← Słownik</button>
+    <div id="dictDetailContent"></div>
+  </div>
 </section>
 <section id="reviewBank" class="panel hidden">
   <div class="review-screen-head"><div><div class="quiz-type" data-i18n="review.title">Do powtórki</div><div id="reviewBankCount" class="review-screen-count">0 do powtórki</div></div><button id="reviewBankBack" type="button" class="ghost" data-i18n="review.back">← Konfiguracja</button></div>
@@ -111,5 +140,5 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=2.11"></script>
+<script type="module" src="./js/app.js?v=3.0"></script>
 </body></html>

@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=3.7"></head><body><main class="shell">
-<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.7</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<link rel="stylesheet" href="./css/styles.css?v=3.8"></head><body><main class="shell">
+<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.8</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <nav class="app-nav" aria-label="Główna nawigacja" data-i18n-aria="dictionary.nav_aria">
   <button id="navPractice" class="app-nav-btn active" type="button" data-i18n="dictionary.nav_practice">Ćwicz</button>
   <button id="navDictionary" class="app-nav-btn" type="button" data-i18n="dictionary.nav_dictionary">Słownik</button>
@@ -142,6 +142,10 @@
       </label>
     </div>
     <div class="settings-divider"></div>
+    <div class="settings-section-title" data-i18n="settings.example_furigana_title">Furigana w przykładach</div>
+    <label class="example-furigana-setting"><input type="checkbox" id="showExampleFurigana" checked><span data-i18n="settings.example_furigana_show">Pokaż furiganę w przykładowych zdaniach</span></label>
+    <div class="lesson-note settings-note" data-i18n="settings.example_furigana_note">Dotyczy zdań w słowniku. Ustawienie jest zapamiętywane na tym urządzeniu.</div>
+    <div class="settings-divider"></div>
     <div class="settings-section-title" data-i18n="settings.data_title">Dane nauki</div>
     <div id="dataBackupSummary" class="lesson-note settings-note" data-i18n="settings.data_summary_empty">Historia nauki jest zapisywana lokalnie na tym urządzeniu.</div>
     <div class="data-backup-actions">
@@ -154,5 +158,5 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=3.7"></script>
+<script type="module" src="./js/app.js?v=3.8"></script>
 </body></html>

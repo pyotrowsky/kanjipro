@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.4",
+    "badge": "3.5",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -147,7 +147,17 @@
     "export_done": "Kopia została przygotowana.",
     "import_done": "Kopia została zaimportowana.",
     "import_invalid": "Nie udało się odczytać tej kopii.",
-    "import_confirm": "Import zastąpi obecną historię nauki i ustawienia danymi z kopii. Kontynuować?"
+    "import_confirm": "Import zastąpi obecną historię nauki i ustawienia danymi z kopii. Kontynuować?",
+    "stroke_mode_title": "Animacja kolejności kresek",
+    "stroke_mode_note": "Wybierz sposób kolorowania kresek podczas animacji. Ustawienie zapisuje się na tym urządzeniu.",
+    "stroke_modes": {
+      "gradient": "Gradient kolejności",
+      "active": "Aktywna kreska"
+    },
+    "stroke_mode_descriptions": {
+      "gradient": "Każda kolejna kreska ma inny kolor.",
+      "active": "Aktualna kreska jest kolorowa, poprzednie czarne, a kolejne szare."
+    }
   },
   "actions": {
     "select_all": "Zaznacz wszystko",

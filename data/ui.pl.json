@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.1",
+    "badge": "3.4",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -208,6 +208,11 @@
     "practice_related_count": "{count} słówek",
     "practice_empty": "Brak słówek do ćwiczenia dla tego kanji.",
     "back_history": "← Wróć",
-    "return_to_dictionary": "Wróć do słownika"
+    "return_to_dictionary": "Wróć do słownika",
+    "stroke_order": "Kolejność kresek",
+    "stroke_replay": "Odtwórz ponownie",
+    "stroke_loading": "Ładowanie diagramu…",
+    "stroke_unavailable": "Nie udało się wczytać diagramu.",
+    "stroke_attribution_html": "Dane kolejności kresek: <a href=\"https://kanjivg.tagaini.net/\" target=\"_blank\" rel=\"noopener\">KanjiVG</a> © Ulrich Apel i współtwórcy, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener\">CC BY-SA 3.0</a>."
   }
 }

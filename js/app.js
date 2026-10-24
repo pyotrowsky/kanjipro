@@ -1,4 +1,4 @@
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.1', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.4', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -28,7 +28,7 @@ function saveAnswerMode(value){try{localStorage.setItem(ANSWER_MODE_STORAGE_KEY,
 function initAnswerModeSettings(){const current=savedAnswerMode();document.querySelectorAll('input[name="answerMode"]').forEach(x=>{x.checked=x.value===current;x.addEventListener('change',()=>{if(x.checked)saveAnswerMode(x.value)})})}
 initAnswerModeSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=3.1', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=3.4', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set();
@@ -249,6 +249,89 @@ function dictionarySetDetailEntry(entry,pushHistory=true){
   const backButton=$('#dictBack');if(backButton)backButton.textContent=t('dictionary.back_history');
   dictionary.scrollIntoView({block:'start'})
 }
+
+const KANJIVG_REVISION='70a0b7ae0c18ceb5cb358274b029cce0234a43bc';
+const KANJIVG_RAW_BASE='https://raw.githubusercontent.com/KanjiVG/kanjivg/'+KANJIVG_REVISION+'/kanji/';
+let strokeOrderAnimationToken=0;
+
+function kanjiVgFilename(character){
+  const cp=String(character||'').codePointAt(0);
+  return Number.isFinite(cp)?cp.toString(16).padStart(5,'0')+'.svg':''
+}
+function kanjiVgUrl(character){
+  const filename=kanjiVgFilename(character);
+  return filename?KANJIVG_RAW_BASE+filename:''
+}
+function strokeOrderSectionHtml(k){
+  return '<section class="dictionary-stroke-order" id="dictionaryStrokeOrder">'+
+    '<div class="dictionary-stroke-head"><div class="dictionary-related-title">'+esc(t('dictionary.stroke_order'))+'</div>'+
+      '<button id="strokeReplay" class="mini-btn hidden" type="button">'+esc(t('dictionary.stroke_replay'))+'</button></div>'+
+    '<div id="dictionaryStrokeCanvas" class="dictionary-stroke-card" aria-live="polite">'+
+      '<div class="dictionary-stroke-loading">'+esc(t('dictionary.stroke_loading'))+'</div>'+
+    '</div>'+
+    '<div class="dictionary-stroke-attribution">'+t('dictionary.stroke_attribution_html')+'</div>'+
+  '</section>'
+}
+function prepareKanjiVgSvg(svg){
+  svg.removeAttribute('width');svg.removeAttribute('height');
+  svg.classList.add('dictionary-kanjivg-svg');
+  const paths=[...svg.querySelectorAll('[id*="StrokePaths"] path')];
+  const numbers=[...svg.querySelectorAll('[id*="StrokeNumbers"] text')];
+  numbers.forEach(x=>x.classList.add('dictionary-stroke-number'));
+  paths.forEach((path,i)=>{
+    path.classList.add('dictionary-stroke-path');
+    path.dataset.strokeIndex=String(i);
+    const length=Math.max(1,path.getTotalLength());
+    path.style.strokeDasharray=String(length);
+    path.style.strokeDashoffset=String(length);
+    path.style.opacity='0.16'
+  });
+  return paths
+}
+function animateKanjiVg(svg){
+  const token=++strokeOrderAnimationToken,paths=[...svg.querySelectorAll('.dictionary-stroke-path')];
+  for(const path of paths)path.getAnimations?.().forEach(a=>a.cancel());
+  paths.forEach((path,i)=>{
+    const length=Math.max(1,path.getTotalLength());
+    path.style.strokeDasharray=String(length);
+    path.style.strokeDashoffset=String(length);
+    path.style.opacity='0.16';
+    const anim=path.animate(
+      [
+        {strokeDashoffset:String(length),opacity:0.16},
+        {strokeDashoffset:'0',opacity:1}
+      ],
+      {duration:520,delay:i*610,easing:'ease-out',fill:'forwards'}
+    );
+    anim.onfinish=()=>{if(token===strokeOrderAnimationToken){path.style.strokeDashoffset='0';path.style.opacity='1'}}
+  })
+}
+async function loadStrokeOrder(k){
+  const canvas=$('#dictionaryStrokeCanvas'),replay=$('#strokeReplay');
+  if(!canvas)return;
+  const url=kanjiVgUrl(k.character);
+  if(!url){canvas.innerHTML='<div class="dictionary-empty">'+esc(t('dictionary.stroke_unavailable'))+'</div>';return}
+  try{
+    const response=await fetch(url);
+    if(!response.ok)throw new Error('KanjiVG HTTP '+response.status);
+    const source=await response.text();
+    if(!canvas.isConnected)return;
+    const doc=new DOMParser().parseFromString(source,'image/svg+xml');
+    const svg=doc.documentElement;
+    if(svg.nodeName.toLowerCase()!=='svg'||doc.querySelector('parsererror'))throw new Error('Invalid KanjiVG SVG');
+    canvas.innerHTML='';
+    const adopted=document.importNode(svg,true);
+    canvas.appendChild(adopted);
+    const paths=prepareKanjiVgSvg(adopted);
+    if(!paths.length)throw new Error('No stroke paths');
+    replay?.classList.remove('hidden');
+    replay?.addEventListener('click',()=>animateKanjiVg(adopted));
+    requestAnimationFrame(()=>animateKanjiVg(adopted))
+  }catch(err){
+    console.warn('KanjiVG load failed:',err);
+    if(canvas.isConnected)canvas.innerHTML='<div class="dictionary-empty">'+esc(t('dictionary.stroke_unavailable'))+'</div>'
+  }
+}
 function openKanjiDetail(k,index=DB.kanji.indexOf(k),pushHistory=true){
   if(!k)return;
   const related=DB.vocabulary.filter(v=>(v.all_kanji||[]).includes(k.character)).sort((a,b)=>(a.lesson_order||0)-(b.lesson_order||0)||(a.surface||'').localeCompare(b.surface||'','ja'));
@@ -263,11 +346,13 @@ function openKanjiDetail(k,index=DB.kanji.indexOf(k),pushHistory=true){
         '<div><small>'+esc(t('dictionary.on'))+'</small><b>'+esc(on)+'</b></div>'+
         '<div><small>'+esc(t('dictionary.kun'))+'</small><b>'+esc(kun)+'</b></div>'+
       '</div>'+
+      strokeOrderSectionHtml(k)+
       (related.length?'<button class="primary dictionary-practice" type="button" data-dict-practice-kanji="'+Number(index)+'">'+esc(t('dictionary.practice_related'))+' <span>'+esc(t('dictionary.practice_related_count',{count:related.length}))+'</span></button>':'')+
       '<div class="dictionary-related-title">'+esc(t('dictionary.related_vocab'))+' <span>'+related.length+'</span></div>'+
       '<div class="dictionary-list">'+relatedHtml+'</div>'+
     '</div>';
-  dictionarySetDetailEntry({type:'kanji',index:Number(index)},pushHistory)
+  dictionarySetDetailEntry({type:'kanji',index:Number(index)},pushHistory);
+  loadStrokeOrder(k)
 }
 function openVocabDetail(v,index=DB.vocabulary.indexOf(v),pushHistory=true){
   if(!v)return;
@@ -415,7 +500,7 @@ function cleanRecordObject(value){if(!value||typeof value!=='object'||Array.isAr
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
-function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.1',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),session_prefs:loadSessionPrefs()}}}}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.4',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),session_prefs:loadSessionPrefs()}}}}
 function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
 async function importLearningData(file){
   if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
@@ -526,7 +611,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=3.1', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=3.4', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

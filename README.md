@@ -97,3 +97,7 @@ Baza używa strategii **network-first**. Gdy urządzenie ma internet, aplikacja 
 ## Ważne przy publicznym repo
 
 Jeżeli repozytorium jest publiczne, pliki w `imports/` również są publicznie widoczne na GitHubie. Sam artefakt GitHub Pages zawiera tylko aplikację i gotową bazę runtime, ale źródłowe eksporty nadal pozostają częścią publicznego repo.
+
+## Third-party data
+
+Stroke-order diagrams use [KanjiVG](https://kanjivg.tagaini.net/) © Ulrich Apel and contributors, licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). See `THIRD_PARTY_NOTICES.md`.

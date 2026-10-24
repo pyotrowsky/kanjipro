@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wsjj-kanji-pro-3.1-1';
+const CACHE_NAME = 'wsjj-kanji-pro-3.4-1';
 const BASE = new URL('./', self.location.href);
 const FRESH_PATHS = new Set([
   new URL('./data/kanji_quiz_database.json', BASE).pathname,
@@ -42,6 +42,27 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
+
+  // KanjiVG SVGs are fetched lazily and cached only after the user opens a kanji.
+  if (
+    url.hostname === 'raw.githubusercontent.com' &&
+    url.pathname.startsWith('/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/')
+  ) {
+    event.respondWith(
+      cached(event.request).then(cachedResponse => {
+        if (cachedResponse) return cachedResponse;
+        return fetch(event.request).then(response => {
+          if (response.ok) {
+            const copy=response.clone();
+            caches.open(CACHE_NAME).then(cache=>cache.put(event.request,copy));
+          }
+          return response;
+        });
+      })
+    );
+    return;
+  }
+
   if (url.origin !== self.location.origin) return;
 
   // Mutable app files and database: network first so new chapters/code appear

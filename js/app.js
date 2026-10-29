@@ -1,4 +1,4 @@
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.10', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.11', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -79,7 +79,7 @@ function initExampleFuriganaSettings(){
 }
 initExampleFuriganaSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=3.10', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=3.11', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set();
@@ -340,12 +340,60 @@ function setStrokeColor(path,color){
   path.setAttribute('stroke',color);
   path.style.setProperty('stroke',color,'important')
 }
+function addKanjiStrokeGuides(svg,strokeRoot){
+  // SVG viewBox is 0 0 109 109 in KanjiVG. All decorations are behind ink.
+  const ns='http://www.w3.org/2000/svg',side=109;
+  const guides=document.createElementNS(ns,'g');
+  guides.classList.add('dictionary-stroke-guides');
+  const bg=document.createElementNS(ns,'rect');
+  bg.setAttribute('width',String(side));
+  bg.setAttribute('height',String(side));
+  bg.setAttribute('fill','#f2f2f2');
+  guides.appendChild(bg);
+  const grid=document.createElementNS(ns,'g');
+  grid.setAttribute('stroke','#e9bdbd');
+  grid.setAttribute('stroke-opacity','0.46');
+  grid.setAttribute('stroke-width','0.42');
+  grid.setAttribute('stroke-dasharray','1.2 2.3');
+  grid.setAttribute('fill','none');
+  function line(x1,y1,x2,y2){
+    const el=document.createElementNS(ns,'line');
+    for(const [key,value] of Object.entries({x1,y1,x2,y2}))el.setAttribute(key,String(value));
+    grid.appendChild(el)
+  }
+  for(const fraction of [.25,.5,.75]){
+    const p=side*fraction;
+    line(p,0,p,side);
+    line(0,p,side,p)
+  }
+  line(0,0,side,side);
+  line(0,side,side,0);
+  guides.appendChild(grid);
+  svg.insertBefore(guides,svg.firstChild);
+  if(!strokeRoot)return;
+  const ghost=strokeRoot.cloneNode(true);
+  ghost.classList.add('dictionary-stroke-ghost');
+  ghost.removeAttribute('id');
+  ghost.removeAttribute('style');
+  ghost.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+  ghost.setAttribute('opacity','0.40');
+  ghost.querySelectorAll('path').forEach(path=>{
+    path.setAttribute('stroke','#9aa0a6');
+    path.style.setProperty('stroke','#9aa0a6','important');
+    path.style.setProperty('fill','none','important');
+    path.style.setProperty('stroke-width','2.75','important');
+    path.style.setProperty('stroke-linecap','round');
+    path.style.setProperty('stroke-linejoin','round')
+  });
+  strokeRoot.parentNode.insertBefore(ghost,strokeRoot)
+}
 function prepareKanjiVgSvg(svg){
   svg.removeAttribute('width');svg.removeAttribute('height');
   svg.classList.add('dictionary-kanjivg-svg');
   const strokeRoot=svg.querySelector('[id*="StrokePaths"]');
   const paths=[...(strokeRoot?.querySelectorAll('path')||[])];
   const numbers=[...svg.querySelectorAll('[id*="StrokeNumbers"] text')];
+  addKanjiStrokeGuides(svg,strokeRoot);
   if(strokeRoot){
     strokeRoot.style.removeProperty('stroke');
     strokeRoot.removeAttribute('stroke');
@@ -629,7 +677,7 @@ function cleanRecordObject(value){if(!value||typeof value!=='object'||Array.isAr
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
-function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.10',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,session_prefs:loadSessionPrefs()}}}}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.11',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,session_prefs:loadSessionPrefs()}}}}
 function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
 async function importLearningData(file){
   if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
@@ -743,7 +791,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=3.10', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=3.11', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

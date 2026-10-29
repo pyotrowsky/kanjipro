@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.9",
+    "badge": "3.10",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -150,15 +150,15 @@
     "import_done": "Kopia została zaimportowana.",
     "import_invalid": "Nie udało się odczytać tej kopii.",
     "import_confirm": "Import zastąpi obecną historię nauki i ustawienia danymi z kopii. Kontynuować?",
-    "stroke_mode_title": "Animacja kolejności kresek",
-    "stroke_mode_note": "Wybierz sposób kolorowania kresek podczas animacji. Ustawienie zapisuje się na tym urządzeniu.",
+    "stroke_mode_title": "Kolory kolejności kresek",
+    "stroke_mode_note": "Kolorowanie jak w Kanji Colorizer. Spectrum jest domyślne; ustawienie zapamiętuje się na tym urządzeniu.",
     "stroke_modes": {
-      "gradient": "Gradient kolejności",
-      "active": "Aktywna kreska"
+      "spectrum": "Spectrum",
+      "contrast": "Contrast"
     },
     "stroke_mode_descriptions": {
-      "gradient": "Każda kolejna kreska ma inny kolor.",
-      "active": "Aktualna kreska jest kolorowa, poprzednie czarne, a kolejne szare."
+      "spectrum": "Kolory tęczy według kolejności kresek.",
+      "contrast": "Mocno różniące się kolory kolejnych kresek."
     },
     "example_furigana_title": "Furigana w przykładach",
     "example_furigana_show": "Pokaż furiganę w przykładowych zdaniach",

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wsjj-kanji-pro-3.9-1';
+const CACHE_NAME = 'wsjj-kanji-pro-3.10-1';
 const BASE = new URL('./', self.location.href);
 const FRESH_PATHS = new Set([
   new URL('./data/kanji_quiz_database.json', BASE).pathname,

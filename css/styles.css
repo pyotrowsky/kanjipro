@@ -254,7 +254,7 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .dictionary-stroke-card{display:grid;place-items:center;min-height:260px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:#222;overflow:hidden}
 .dictionary-kanjivg-svg{display:block;width:min(100%,340px);height:auto;max-height:340px}
 .dictionary-stroke-path{fill:none!important;stroke:#222;stroke-width:3!important;stroke-linecap:round;stroke-linejoin:round}
-.dictionary-stroke-number{fill:#888!important;font-size:8px}
+.dictionary-stroke-number{fill:currentColor;font-size:8px}
 .dictionary-stroke-loading{font-size:12px;color:#666}
 .dictionary-stroke-attribution{margin-top:7px;font-size:10px;line-height:1.4;color:var(--muted)}
 .dictionary-stroke-attribution a{color:inherit;text-decoration:underline}

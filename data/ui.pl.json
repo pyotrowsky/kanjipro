@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.8",
+    "badge": "3.9",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -62,7 +62,9 @@
     "preview_kun": "{count} KUN",
     "preview_vocab_all": "{count} słówek",
     "preview_vocab_limited": "{chosen} z {total} słówek",
-    "preview_no_mode": "brak trybu"
+    "preview_no_mode": "brak trybu",
+    "preview_unpracticed_few": "({count} niećwiczone)",
+    "preview_unpracticed_many": "({count} niećwiczonych)"
   },
   "install": {
     "summary": "📱 Zainstaluj aplikację",

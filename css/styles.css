@@ -251,9 +251,11 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .dictionary-stroke-order{margin:4px 0 18px;text-align:left}
 .dictionary-stroke-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .dictionary-stroke-head .dictionary-related-title{margin:18px 0 9px}
-.dictionary-stroke-card{display:grid;place-items:center;min-height:260px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:#222;overflow:hidden}
+.dictionary-stroke-card{display:grid;place-items:center;min-height:260px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#f2f2f2;color:#222;overflow:hidden}
 .dictionary-kanjivg-svg{display:block;width:min(100%,340px);height:auto;max-height:340px}
 .dictionary-stroke-path{fill:none!important;stroke:#222;stroke-width:3!important;stroke-linecap:round;stroke-linejoin:round}
+.dictionary-stroke-guides,.dictionary-stroke-ghost{pointer-events:none}
+.dictionary-stroke-ghost path{fill:none!important;stroke:#9aa0a6!important;stroke-width:2.75!important;stroke-linecap:round;stroke-linejoin:round}
 .dictionary-stroke-number{fill:currentColor;font-size:8px}
 .dictionary-stroke-loading{font-size:12px;color:#666}
 .dictionary-stroke-attribution{margin-top:7px;font-size:10px;line-height:1.4;color:var(--muted)}

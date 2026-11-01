@@ -298,6 +298,8 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .vocab-timer-setting input{width:18px;height:18px;accent-color:var(--accent)}
 @media(max-width:460px){.finish-timing-grid{gap:6px}.finish-timing-grid>div{padding:8px 5px}.finish-timing-grid b{font-size:17px}.quiz-head-meta{gap:7px}}
 
+.finish-timing-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:600px){.finish-timing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* RSS tags and sorting in the vocabulary dictionary */
 .dictionary-speed{flex:0 0 auto;border:1px solid var(--line);border-radius:999px;padding:4px 7px;font-size:10px;font-weight:800;white-space:nowrap;color:var(--muted);background:var(--soft)}
 .dictionary-speed.slow{color:#976000;border-color:#d8a451;background:color-mix(in srgb,#e5a44c 12%,var(--card))}

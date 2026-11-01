@@ -103,8 +103,9 @@
     "vocab_timing_title": "Szybkość czytania słówek",
     "median_recognition": "Mediana do pierwszego wpisu",
     "median_answer": "Mediana do odpowiedzi",
-    "fast_correct": "Poprawne w ≤ 3 s",
-    "timing_note": "Tylko słówka. Mediany liczone dla poprawnych odpowiedzi, bez ON/KUN."
+    "fast_correct": "RSS poniżej Twojej mediany",
+    "timing_note": "Tylko słówka. Mediany liczone dla poprawnych odpowiedzi. Porównanie RSS dostępne po kalibracji profilu, bez ON/KUN.",
+    "median_rss": "Mediana RSS"
   },
   "errors": {
     "database_load": "Nie udało się wczytać bazy: {status}",
@@ -252,7 +253,7 @@
     "rss_sort_default": "Domyślne sortowanie",
     "rss_sort_slow_first": "RSS: najwolniejsze najpierw",
     "rss_sort_fast_first": "RSS: najszybsze najpierw",
-    "rss_details": "RSS (mediana): {rss} · Twoja typowa mediana: {baseline} · Pomiarów: {count}",
+    "rss_details": "RSS w trybie {mode}: {rss} · Twoja typowa mediana: {baseline} · Pomiarów: {count}",
     "rss_no_data": "RSS: za mało danych ({count}/3 poprawnych pomiarów z co najmniej dwóch sesji).",
     "rss_calibration": "Kalibracja profilu: {count}/{required} słówek z wiarygodnym RSS. Dopóki nie zbierzesz wystarczająco danych, wszystkie słówka pozostają bez klasyfikacji."
   }

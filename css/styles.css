@@ -297,3 +297,13 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .vocab-timer-setting{display:flex;align-items:center;gap:10px;font-size:14px;padding:10px 0;cursor:pointer}
 .vocab-timer-setting input{width:18px;height:18px;accent-color:var(--accent)}
 @media(max-width:460px){.finish-timing-grid{gap:6px}.finish-timing-grid>div{padding:8px 5px}.finish-timing-grid b{font-size:17px}.quiz-head-meta{gap:7px}}
+
+/* RSS tags and sorting in the vocabulary dictionary */
+.dictionary-speed{flex:0 0 auto;border:1px solid var(--line);border-radius:999px;padding:4px 7px;font-size:10px;font-weight:800;white-space:nowrap;color:var(--muted);background:var(--soft)}
+.dictionary-speed.slow{color:#976000;border-color:#d8a451;background:color-mix(in srgb,#e5a44c 12%,var(--card))}
+.dictionary-speed.fast{color:var(--good);border-color:color-mix(in srgb,var(--good) 32%,var(--line));background:color-mix(in srgb,var(--good) 8%,var(--card))}
+.dictionary-speed.typical{color:#386895;border-color:color-mix(in srgb,#5288aa 36%,var(--line));background:color-mix(in srgb,#5288aa 9%,var(--card))}
+.dictionary-detail-status{flex-wrap:wrap;gap:7px}
+.dictionary-item .dictionary-speed{font-size:10px;max-width:160px;overflow:hidden;text-overflow:ellipsis}
+@media(min-width:601px){.dictionary-controls{grid-template-columns:minmax(0,1fr) repeat(3,minmax(115px,auto));}.dictionary-filter{max-width:190px}}
+@media(max-width:600px){.dictionary-item .dictionary-speed{max-width:115px}.dictionary-controls{grid-template-columns:1fr}.dictionary-filter{max-width:none}}

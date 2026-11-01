@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.12",
+    "badge": "3.13",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -243,6 +243,17 @@
     "example_pl_aria": "Tłumaczenie przykładu",
     "example_hide_furigana": "Ukryj furiganę",
     "example_show_furigana": "Pokaż furiganę",
-    "timing_stats": "Czas poprawnej odpowiedzi (mediana): {response} · Początek wpisywania: {recognition} · Pomiarów: {count}"
+    "timing_stats": "Czas poprawnej odpowiedzi (mediana): {response} · Początek wpisywania: {recognition} · Pomiarów: {count}",
+    "speed_slow": "Wolne",
+    "speed_fast": "Szybkie",
+    "speed_typical": "Typowe",
+    "speed_unrated": "Brak danych",
+    "rss_sort_aria": "Sortuj słówka według szybkości czytania (RSS)",
+    "rss_sort_default": "Domyślne sortowanie",
+    "rss_sort_slow_first": "RSS: najwolniejsze najpierw",
+    "rss_sort_fast_first": "RSS: najszybsze najpierw",
+    "rss_details": "RSS (mediana): {rss} · Twoja typowa mediana: {baseline} · Pomiarów: {count}",
+    "rss_no_data": "RSS: za mało danych ({count}/3 poprawnych pomiarów z co najmniej dwóch sesji).",
+    "rss_calibration": "Kalibracja profilu: {count}/{required} słówek z wiarygodnym RSS. Dopóki nie zbierzesz wystarczająco danych, wszystkie słówka pozostają bez klasyfikacji."
   }
 }

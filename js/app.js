@@ -400,11 +400,12 @@ function dictionaryVocabResults(){
   // Sorting uses the word's stable median RSS (last 5 correct answers).
   // Unmeasured words stay last regardless of sort direction.
   const values=new Map(filtered.map(v=>[v,wordRssProfile(dictionaryStats(v),inputMode())]));
+  const originalOrder=new Map(filtered.map((v,i)=>[v,i]));
   return filtered.sort((a,b)=>{
     const x=values.get(a),y=values.get(b);
     if(x.eligible!==y.eligible)return x.eligible?-1:1;
     if(x.eligible&&y.eligible&&x.rss_ms!==y.rss_ms)return order==='slow_first'?y.rss_ms-x.rss_ms:x.rss_ms-y.rss_ms;
-    return DB.vocabulary.indexOf(a)-DB.vocabulary.indexOf(b)
+    return originalOrder.get(a)-originalOrder.get(b)
   })
 }
 function dictionaryEntryButton(type,index,body){
@@ -702,7 +703,7 @@ function openVocabDetail(v,index=DB.vocabulary.indexOf(v),pushHistory=true){
     }
   }
   if(rssProfile.eligible){
-    statsHtml+='<div class="dictionary-learning-stats">'+esc(t('dictionary.rss_details',{rss:formatTiming(rssProfile.rss_ms),baseline:formatTiming(personalBaseline.median_ms),count:rssProfile.count}))+'</div>'
+    statsHtml+='<div class="dictionary-learning-stats">'+esc(t('dictionary.rss_details',{rss:formatTiming(rssProfile.rss_ms),baseline:formatTiming(personalBaseline.median_ms),count:rssProfile.count,mode:personalBaseline.mode==='ime'?'IME':'Romaji'}))+'</div>'
   }else{
     statsHtml+='<div class="dictionary-learning-stats">'+esc(t('dictionary.rss_no_data',{count:rssProfile.count}))+'</div>'
   }
@@ -952,10 +953,13 @@ function renderVocabTimingSummary(){
   panel.classList.toggle('hidden',!sessionVocabTiming.length);
   if(!sessionVocabTiming.length)return;
   const correct=sessionVocabTiming.filter(x=>x.correct),responses=correct.map(x=>x.response_ms),recognitions=correct.map(x=>x.recognition_ms);
-  const fast=correct.filter(x=>x.response_ms<=3000).length;
+  const rssScores=correct.filter(x=>Number.isFinite(x.rss_ms)).map(x=>x.rss_ms);
+  const baseline=personalRssBaseline();
+  const fast=correct.filter(x=>Number.isFinite(x.rss_ms)&&x.input_mode===baseline.mode&&x.rss_ms<baseline.median_ms).length;
   $('#vocabMedianAnswer').textContent=formatTiming(medianMs(responses));
   $('#vocabMedianRecognition').textContent=formatTiming(medianMs(recognitions));
-  $('#vocabFastCount').textContent=fast+'/'+sessionVocabTiming.length
+  $('#vocabMedianRss').textContent=formatTiming(medianMs(rssScores));
+  $('#vocabFastCount').textContent=baseline.ready?fast+'/'+sessionVocabTiming.length:'—'
 }
 function back(){clearVocabTimer();if(sessionKind==='review')showReviewBank();else if(sessionKind==='dictionary')returnToDictionaryPracticeSource();else showSetupScreen()}
 initDataBackupSettings();

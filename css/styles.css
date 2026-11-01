@@ -251,7 +251,7 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .dictionary-stroke-order{margin:4px 0 18px;text-align:left}
 .dictionary-stroke-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .dictionary-stroke-head .dictionary-related-title{margin:18px 0 9px}
-.dictionary-stroke-card{display:grid;place-items:center;min-height:260px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#f2f2f2;color:#222;overflow:hidden}
+.dictionary-stroke-card{display:grid;place-items:center;min-height:260px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:#222;overflow:hidden}
 .dictionary-kanjivg-svg{display:block;width:min(100%,340px);height:auto;max-height:340px}
 .dictionary-stroke-path{fill:none!important;stroke:#222;stroke-width:3!important;stroke-linecap:round;stroke-linejoin:round}
 .dictionary-stroke-guides,.dictionary-stroke-ghost{pointer-events:none}
@@ -283,3 +283,17 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .dictionary-example.furigana-hidden .dictionary-example-with-ruby{display:none}
 .example-furigana-setting{display:flex;align-items:center;gap:10px;padding:9px 0;font-size:14px;cursor:pointer}
 .example-furigana-setting input{width:18px;height:18px;accent-color:var(--accent);flex-shrink:0}
+
+/* Vocabulary-only reading fluency timer */
+.quiz-head-meta{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+.vocab-timer{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+.finish-timing{margin:20px auto 18px;border:1px solid var(--line);border-radius:14px;padding:15px;max-width:610px;text-align:left}
+.finish-timing-title{font-size:14px;font-weight:800;margin-bottom:12px}
+.finish-timing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.finish-timing-grid>div{padding:10px;border-radius:10px;background:var(--soft);text-align:center}
+.finish-timing-grid b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.finish-timing-grid span{display:block;font-size:11px;color:var(--muted);margin-top:4px}
+.finish-timing-note{margin-top:12px;color:var(--muted);font-size:12px;line-height:1.5}
+.vocab-timer-setting{display:flex;align-items:center;gap:10px;font-size:14px;padding:10px 0;cursor:pointer}
+.vocab-timer-setting input{width:18px;height:18px;accent-color:var(--accent)}
+@media(max-width:460px){.finish-timing-grid{gap:6px}.finish-timing-grid>div{padding:8px 5px}.finish-timing-grid b{font-size:17px}.quiz-head-meta{gap:7px}}

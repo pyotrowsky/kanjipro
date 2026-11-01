@@ -424,7 +424,7 @@ function addKanjiStrokeGuides(svg,strokeRoot){
   const bg=document.createElementNS(ns,'rect');
   bg.setAttribute('width',String(side));
   bg.setAttribute('height',String(side));
-  bg.setAttribute('fill','#f2f2f2');
+  bg.setAttribute('fill','#ffffff');
   guides.appendChild(bg);
   const grid=document.createElementNS(ns,'g');
   grid.setAttribute('stroke','#e9bdbd');
@@ -616,7 +616,7 @@ function openVocabDetail(v,index=DB.vocabulary.indexOf(v),pushHistory=true){
     const correctTimes=(Array.isArray(stats.timing_history)?stats.timing_history:[]).filter(x=>x?.correct);
     if(correctTimes.length){
       const response=medianMs(correctTimes.map(x=>Number(x.response_ms)));
-      const recognition=medianMs(correctTimes.map(x=>Number(x.recognition_ms)));
+      const recognition=medianMs(correctTimes.map(x=>Number.isFinite(x.recognition_ms)?x.recognition_ms:null));
       statsHtml+='<div class="dictionary-learning-stats">'+esc(t('dictionary.timing_stats',{response:formatTiming(response),recognition:formatTiming(recognition),count:correctTimes.length}))+'</div>'
     }
   }

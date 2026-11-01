@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.11",
+    "badge": "3.12",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -86,7 +86,8 @@
     "back": "← Konfiguracja",
     "enter_hint_html": "Klawisz <span class=\"kbd\">Enter</span>: sprawdź / dalej",
     "wrong_compact": "✕ {wrong} → ✓ {correct}",
-    "correct_compact": "✓ {meaning}"
+    "correct_compact": "✓ {meaning}",
+    "timer": "Czas: {time}"
   },
   "finish": {
     "title": "Koniec sesji",
@@ -98,7 +99,12 @@
     "correct_stat": "poprawne",
     "wrong_stat": "błędy",
     "attempts_stat": "próby",
-    "summary": "Poprawne: {correct} · Błędy: {wrong} · Próby: {attempts}"
+    "summary": "Poprawne: {correct} · Błędy: {wrong} · Próby: {attempts}",
+    "vocab_timing_title": "Szybkość czytania słówek",
+    "median_recognition": "Mediana do pierwszego wpisu",
+    "median_answer": "Mediana do odpowiedzi",
+    "fast_correct": "Poprawne w ≤ 3 s",
+    "timing_note": "Tylko słówka. Mediany liczone dla poprawnych odpowiedzi, bez ON/KUN."
   },
   "errors": {
     "database_load": "Nie udało się wczytać bazy: {status}",
@@ -162,7 +168,10 @@
     },
     "example_furigana_title": "Furigana w przykładach",
     "example_furigana_show": "Pokaż furiganę w przykładowych zdaniach",
-    "example_furigana_note": "Dotyczy zdań w słowniku. Ustawienie jest zapamiętywane na tym urządzeniu."
+    "example_furigana_note": "Dotyczy zdań w słowniku. Ustawienie jest zapamiętywane na tym urządzeniu.",
+    "vocab_timer_title": "Szybkość czytania słówek",
+    "vocab_timer_note": "Czas mierzymy tylko przy słówkach, nigdy przy ON/KUN. Ukrycie licznika nie wyłącza zapisywania wyników.",
+    "show_vocab_timer": "Pokaż licznik podczas odpowiedzi"
   },
   "actions": {
     "select_all": "Zaznacz wszystko",
@@ -233,6 +242,7 @@
     "example_jp_aria": "Przykładowe zdanie po japońsku",
     "example_pl_aria": "Tłumaczenie przykładu",
     "example_hide_furigana": "Ukryj furiganę",
-    "example_show_furigana": "Pokaż furiganę"
+    "example_show_furigana": "Pokaż furiganę",
+    "timing_stats": "Czas poprawnej odpowiedzi (mediana): {response} · Początek wpisywania: {recognition} · Pomiarów: {count}"
   }
 }

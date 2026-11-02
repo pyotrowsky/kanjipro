@@ -1,4 +1,4 @@
-# Kanji.pro 3.15 — Firebase Sync (bez serwera, trwałe logowanie)
+# Kanji.pro 3.16 — Firebase Sync (bez serwera, trwałe logowanie)
 
 ## Konfiguracja Firebase przez właściciela Kanji.pro (wymagana)
 

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mergeDeviceJournals} from '../js/cloud-sync.js';
+import {mergeDeviceJournals} from '../js/history-merge.js';
 
 const doc=(device_id,seed,events=[])=>({
   format:'wsjj-kanji-pro-device-journal',version:1,device_id,seed,events

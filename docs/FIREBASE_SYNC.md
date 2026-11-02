@@ -30,7 +30,8 @@
 - Ponowne pobranie tego samego zdarzenia nie zwiększa liczby powtórek: każda odpowiedź ma stabilne ID.
 - Offline zapis lokalny (IndexedDB / localStorage) działa niezależnie; wysyłka następuje po odzyskaniu sieci, jeżeli użytkownik jest nadal zalogowany.
 - Baza nie używa real-time listeners: dane synchronizują się przy logowaniu, zakończeniu sesji oraz przy powrocie do aplikacji (z ograniczeniem częstotliwości).
-- Na jednym urządzeniu synchonizacja jest przypisana do jednego konta użytkownika. Jeśli zalogujesz się na inne konto, aplikacja nie połączy automatycznie obu historii.
+- Aby uniknąć zastąpienia chmurowej historii starszym JSON-em, ręczny **import zastępujący całą bazę** jest zablokowany po pierwszym podłączeniu Firebase na tym urządzeniu. Eksport kopii nadal działa.
+- Na jednym urządzeniu synchronizacja jest przypisana do jednego konta użytkownika. Jeśli zalogujesz się na inne konto, aplikacja nie połączy automatycznie obu historii.
 - Wersja 3.15 zapisuje lokalny dziennik w localStorage do 4 MB; potrzebna będzie przyszła archiwizacja bardzo długiej historii.
 - Pełną historię już wcześniej współdzieloną poprzez eksport/Drive i import dwóch urządzeń można zduplikować przy migracji w niektórych przypadkach; przed zmianą zrób kopię i porównaj sumy powtórek. Automatyczna deduplikacja dotyczy **nowych zdarzeń z identyfikatorami**.
 - Firestore to usługa Google Cloud, nie prywatny folder Google Drive; konto użytkownika i uprawnienia reguł ograniczają dostęp.

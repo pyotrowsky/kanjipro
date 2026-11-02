@@ -36,6 +36,14 @@ jobs:
       - name: Validate database
         run: python scripts/validate_data.py
 
+      - name: Set up Node.js for synchronization tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test cloud history merge and Firebase journal logic
+        run: npm test
+
       - name: Commit generated database files when changed
         shell: bash
         run: |

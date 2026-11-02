@@ -218,7 +218,7 @@ export function createCloudSync({snapshot,applySnapshot,onStatus,afterApply}){
         })
       }
       // A user gesture must initiate OAuth. The library should be loaded ahead of time by warmUp().
-      tokenClient.requestAccessToken({prompt:''})
+      tokenClient.requestAccessToken({prompt:validJournal(journal)?'':'consent'})
     }catch(err){state('error',String(err.message||err))}
   }
   function disconnect(){
@@ -229,9 +229,5 @@ export function createCloudSync({snapshot,applySnapshot,onStatus,afterApply}){
   function warmUp(){
     if(clientId)void loadGoogleScript().catch(()=>{})
   }
-  function resetForImport(){
-    // Import intentionally replaces history. An existing cloud journal must not silently restore old values.
-    if(validJournal(journal))throw new Error('Odłącz synchronizację i wykonaj kopię danych przed importem. Import do aktywnej historii synchronizacji jest zablokowany.');
-  }
-  return{loadConfig,connect,disconnect,warmUp,sync:performSync,appendAnswer,resetForImport,isConfigured:()=>Boolean(clientId),isConnected:()=>Boolean(token&&Date.now()<tokenExpiresAt-30000)}
+  return{loadConfig,connect,disconnect,warmUp,sync:performSync,appendAnswer,isConfigured:()=>Boolean(clientId),isConnected:()=>Boolean(token&&Date.now()<tokenExpiresAt-30000)}
 }

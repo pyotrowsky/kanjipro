@@ -198,7 +198,8 @@
     "firebase_sync_error": "Problem z synchronizacją Firebase",
     "firebase_sync_account_conflict": "Wykryto inne konto Google. Aby nie mieszać historii, zaloguj się na poprzednie konto.",
     "firebase_sync_limitations": "Po jednorazowym logowaniu Firebase zapamiętuje sesję na tym urządzeniu. Jeśli wyczyścisz dane aplikacji lub korzystasz z trybu prywatnego, logowanie może być konieczne ponownie.",
-    "google_sync_legacy_title": "Starsza synchronizacja Google Drive (do migracji)"
+    "google_sync_legacy_title": "Starsza synchronizacja Google Drive (do migracji)",
+    "import_blocked_firebase": "Import wstrzymany: na tym urządzeniu działa dziennik Firebase. Aby nie nadpisać historii chmurowej, przed podłączeniem nowej kopii wykonaj eksport i odłącz synchronizację na wszystkich urządzeniach."
   },
   "actions": {
     "select_all": "Zaznacz wszystko",

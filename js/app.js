@@ -858,6 +858,10 @@ async function importLearningData(file){
     const parsed=JSON.parse(await file.text());
     if(parsed?.format!=='wsjj-kanji-pro-backup'||parsed?.schema_version!==1||!parsed.data)throw new Error('format');
     const nextLearning=cleanRecordObject(parsed.data.learning_stats),nextMistakes=cleanRecordObject(parsed.data.mistake_bank);
+    if(firebaseSync?.hasJournal()){
+      setDataBackupStatus('settings.import_blocked_firebase');
+      return
+    }
     if(!confirm(t('settings.import_confirm')))return;
     await storageWriteQueue;
     learningStats=nextLearning;mistakeBank=new Map(Object.entries(nextMistakes));
@@ -1055,7 +1059,10 @@ function initFirebaseSync(){
   document.addEventListener('visibilitychange',()=>{
     if(!document.hidden&&quiz.classList.contains('hidden'))firebaseSync.syncOnReturn()
   });
-  window.addEventListener('online',()=>{if(quiz.classList.contains('hidden'))firebaseSync.syncOnReturn()});
+  window.addEventListener('online',()=>{
+    if(!firebaseSync.isInitialized())void firebaseSync.init();
+    else if(quiz.classList.contains('hidden'))firebaseSync.syncOnReturn()
+  });
   void firebaseSync.init()
 }
 initFirebaseSync();

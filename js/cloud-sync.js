@@ -194,11 +194,17 @@ export function createCloudSync({snapshot,applySnapshot,onStatus,afterApply}){
     })();
     return running
   }
-  async function connect(){
+  function connect(){
     if(!clientId){state('unconfigured');return}
     if(token&&Date.now()<tokenExpiresAt-30000){void performSync();return}
+    // Safari on iOS expects the popup request inside the original click gesture.
+    // The script is normally preloaded by warmUp(). If not, let the user retry.
+    if(!window.google?.accounts?.oauth2){
+      state('disconnected','Ładowanie logowania Google — kliknij Połącz ponownie.');
+      void loadGoogleScript().catch(err=>state('error',String(err.message||err)));
+      return
+    }
     try{
-      await loadGoogleScript();
       if(!tokenClient){
         tokenClient=window.google.accounts.oauth2.initTokenClient({
           client_id:clientId,scope:SCOPE,
@@ -212,7 +218,7 @@ export function createCloudSync({snapshot,applySnapshot,onStatus,afterApply}){
         })
       }
       // A user gesture must initiate OAuth. The library should be loaded ahead of time by warmUp().
-      tokenClient.requestAccessToken({prompt:'consent'})
+      tokenClient.requestAccessToken({prompt:''})
     }catch(err){state('error',String(err.message||err))}
   }
   function disconnect(){

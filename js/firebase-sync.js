@@ -1,7 +1,7 @@
 // Kanji.pro 3.15: Firebase Auth with persistent login + Firestore sync journals.
 // Each session is an independent immutable-ish document; device seeds are sharded.
 // No OAuth tokens or user data are placed in public app configuration.
-import {mergeDeviceJournals} from './cloud-sync.js';
+import {mergeDeviceJournals} from './history-merge.js';
 
 const FIREBASE_SDK_VERSION='12.19.0';
 const JOURNAL_FORMAT='wsjj-kanji-pro-device-journal';

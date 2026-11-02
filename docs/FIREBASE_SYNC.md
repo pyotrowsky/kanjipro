@@ -1,4 +1,4 @@
-# Kanji.pro 3.15 — Firebase Sync (bez serwera, trwałe logowanie)
+# Kanji.pro 3.16 — Firebase Sync (bez serwera, trwałe logowanie)
 
 ## Konfiguracja Firebase przez właściciela Kanji.pro (wymagana)
 
@@ -14,13 +14,9 @@
 8. Po zakończeniu GitHub Actions przeładuj Kanji.pro. W **Ustawienia → Firebase — automatyczna synchronizacja** naciśnij **Zaloguj się kontem Google**. Na każdym urządzeniu użyj **tego samego konta Google**.
 9. Od następnego uruchomienia Firebase przywróci sesję z lokalnej pamięci przeglądarki i wykona synchronizację automatycznie przy dostępie do internetu. W trybie prywatnym albo po usunięciu danych przeglądarki ponowne logowanie może być konieczne.
 
-## Przejście z Google Drive 3.14
+## Aktualizacja do 3.16 — Firebase jako jedyna synchronizacja
 
-1. Na urządzeniu z aktualną historią otwórz Kanji.pro 3.14, wybierz **Google Drive → Synchronizuj teraz**. Zapisz dodatkowo **Eksportuj kopię** do JSON.
-2. Dopiero teraz połącz Firebase na tym urządzeniu. Pierwsza kopia stanu lokalnego będzie zarejestrowana jako seed.
-3. Na drugim urządzeniu upewnij się najpierw, że dane w aplikacji są aktualne, a następnie zaloguj się do Firebase na to samo konto Google.
-4. Stary mechanizm Google Drive pozostał tymczasowo dostępny jako **Starsza synchronizacja Google Drive**, lecz po uruchomieniu Firebase jest automatycznie rozłączany. Unikaj równoczesnego używania obu synchronizacji na różnych urządzeniach.
-5. Zanim usuniesz stare dane z Drive, sprawdź historię nauki, błędy i RSS na obu urządzeniach. Firebase nie może sam przeczytać ukrytego folderu `appDataFolder` wykorzystywanego przez wcześniejszą aplikację Google Drive.
+Stara integracja Google Drive została usunięta z interfejsu, kodu i plików publikowanych przez Kanji.pro. Dane wcześniej zapisane na Twoim prywatnym Dysku Google **nie są usuwane**. Wersja 3.16 korzysta wyłącznie z Firebase oraz lokalnej pamięci urządzenia; eksport kopii JSON nadal działa. Przed wyczyszczeniem pamięci starego urządzenia upewnij się, że historia na innym urządzeniu została już zsynchronizowana przez Firebase.
 
 ## Działanie i ograniczenia
 

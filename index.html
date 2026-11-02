@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=3.15"></head><body><main class="shell">
-<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.15</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<link rel="stylesheet" href="./css/styles.css?v=3.16"></head><body><main class="shell">
+<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.16</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <nav class="app-nav" aria-label="Główna nawigacja" data-i18n-aria="dictionary.nav_aria">
   <button id="navPractice" class="app-nav-btn active" type="button" data-i18n="dictionary.nav_practice">Ćwicz</button>
   <button id="navDictionary" class="app-nav-btn" type="button" data-i18n="dictionary.nav_dictionary">Słownik</button>
@@ -155,29 +155,15 @@
     <label class="example-furigana-setting"><input type="checkbox" id="showExampleFurigana" checked><span data-i18n="settings.example_furigana_show">Pokaż furiganę w przykładowych zdaniach</span></label>
     <div class="lesson-note settings-note" data-i18n="settings.example_furigana_note">Dotyczy zdań w słowniku. Ustawienie jest zapamiętywane na tym urządzeniu.</div>
     <div class="settings-divider"></div>
-    
-    <div class="settings-divider"></div>
-    <div class="settings-divider"></div>
     <div class="settings-section-title" data-i18n="settings.firebase_sync_title">Firebase — automatyczna synchronizacja</div>
     <div class="lesson-note settings-note" data-i18n="settings.firebase_sync_note">Jedno logowanie Google i wspólna historia na telefonie oraz komputerze. Dane lokalne pozostają dostępne offline.</div>
-    <div class="google-sync-actions">
+    <div class="firebase-sync-actions">
       <button type="button" class="ghost" id="firebaseSyncConnect" disabled data-i18n="settings.firebase_sync_connect">Zaloguj się kontem Google</button>
       <button type="button" class="ghost" id="firebaseSyncNow" disabled data-i18n="settings.firebase_sync_now">Synchronizuj teraz</button>
       <button type="button" class="ghost" id="firebaseSyncDisconnect" disabled data-i18n="settings.firebase_sync_disconnect">Wyloguj</button>
     </div>
-    <div id="firebaseSyncStatus" class="lesson-note google-sync-status" role="status" aria-live="polite" data-i18n="settings.firebase_sync_initializing">Sprawdzanie konfiguracji Firebase…</div>
+    <div id="firebaseSyncStatus" class="lesson-note firebase-sync-status" role="status" aria-live="polite" data-i18n="settings.firebase_sync_initializing">Sprawdzanie konfiguracji Firebase…</div>
     <div class="lesson-note" data-i18n="settings.firebase_sync_limitations">Po pierwszym logowaniu aplikacja będzie automatycznie przywracać sesję. Wymaga konfiguracji Firebase przez właściciela strony.</div>
-    <div class="settings-divider"></div>
-    <div class="settings-section-title settings-legacy-title" data-i18n="settings.google_sync_legacy_title">Starsza synchronizacja Google Drive</div>
-    <div class="settings-section-title" data-i18n="settings.google_sync_title">Synchronizacja Google Drive</div>
-    <div class="lesson-note settings-note" data-i18n="settings.google_sync_note">Opcjonalnie: własne konto Google i bezpieczne scalanie historii między urządzeniami. Historia lokalna działa nadal offline.</div>
-    <div class="google-sync-actions">
-      <button type="button" class="ghost" id="googleSyncConnect" data-i18n="settings.google_sync_connect">Połącz Google Drive</button>
-      <button type="button" class="ghost" id="googleSyncNow" disabled data-i18n="settings.google_sync_now">Synchronizuj teraz</button>
-      <button type="button" class="ghost" id="googleSyncDisconnect" disabled data-i18n="settings.google_sync_disconnect">Rozłącz</button>
-    </div>
-    <div id="googleSyncStatus" class="lesson-note google-sync-status" role="status" aria-live="polite" data-i18n="settings.google_sync_disconnected">Niepołączono z Google Drive.</div>
-    <div class="lesson-note" data-i18n="settings.google_sync_limitations">W przeglądarce możesz potrzebować ponownie kliknąć Połącz po otwarciu aplikacji. Używamy prywatnego folderu aplikacji na Twoim Dysku Google.</div>
     <div class="settings-divider"></div>
     <div class="settings-section-title" data-i18n="settings.data_title">Dane nauki</div>
     <div id="dataBackupSummary" class="lesson-note settings-note" data-i18n="settings.data_summary_empty">Historia nauki jest zapisywana lokalnie na tym urządzeniu.</div>
@@ -191,5 +177,5 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=3.15"></script>
+<script type="module" src="./js/app.js?v=3.16"></script>
 </body></html>

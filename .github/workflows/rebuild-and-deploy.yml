@@ -59,6 +59,7 @@ jobs:
           cp data/kanji_quiz_database.json _site/data/
           cp data/ui.pl.json _site/data/
           cp data/cloud-config.json _site/data/
+          cp data/firebase-config.json _site/data/
           # Ensure that Google OAuth configuration ships with the deployed site.
           test -s _site/data/cloud-config.json
           touch _site/.nojekyll

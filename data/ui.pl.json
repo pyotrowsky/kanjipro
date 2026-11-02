@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.13",
+    "badge": "3.14",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -172,7 +172,18 @@
     "example_furigana_note": "Dotyczy zdań w słowniku. Ustawienie jest zapamiętywane na tym urządzeniu.",
     "vocab_timer_title": "Szybkość czytania słówek",
     "vocab_timer_note": "Czas mierzymy tylko przy słówkach, nigdy przy ON/KUN. Ukrycie licznika nie wyłącza zapisywania wyników.",
-    "show_vocab_timer": "Pokaż licznik podczas odpowiedzi"
+    "show_vocab_timer": "Pokaż licznik podczas odpowiedzi",
+    "google_sync_title": "Synchronizacja Google Drive",
+    "google_sync_note": "Opcjonalnie: własne konto Google i scalanie historii między urządzeniami. Lokalna nauka nadal działa offline.",
+    "google_sync_connect": "Połącz Google Drive",
+    "google_sync_now": "Synchronizuj teraz",
+    "google_sync_disconnect": "Rozłącz",
+    "google_sync_disconnected": "Niepołączono z Google Drive. Kliknij Połącz, żeby włączyć synchronizację.",
+    "google_sync_unconfigured": "Synchronizacja wymaga jednorazowej konfiguracji Google OAuth przez właściciela Kanji.pro.",
+    "google_sync_syncing": "Synchronizacja danych z Google Drive…",
+    "google_sync_synced": "Dane zsynchronizowane",
+    "google_sync_error": "Błąd synchronizacji",
+    "google_sync_limitations": "Po ponownym uruchomieniu aplikacji lub wygaśnięciu tokenu możesz potrzebować jeszcze raz kliknąć Połącz. Korzystamy z prywatnego folderu aplikacji na Twoim Dysku Google."
   },
   "actions": {
     "select_all": "Zaznacz wszystko",

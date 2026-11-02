@@ -309,3 +309,9 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .dictionary-item .dictionary-speed{font-size:10px;max-width:160px;overflow:hidden;text-overflow:ellipsis}
 @media(min-width:601px){.dictionary-controls{grid-template-columns:minmax(0,1fr) repeat(3,minmax(115px,auto));}.dictionary-filter{max-width:190px}}
 @media(max-width:600px){.dictionary-item .dictionary-speed{max-width:115px}.dictionary-controls{grid-template-columns:1fr}.dictionary-filter{max-width:none}}
+
+/* Optional Google Drive sync settings */
+.google-sync-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 7px}
+.google-sync-actions .ghost{font-weight:650;flex:1 1 120px}
+.google-sync-actions .ghost:disabled{opacity:.46;cursor:not-allowed}
+.google-sync-status{font-weight:700;margin:8px 0}

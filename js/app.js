@@ -1,5 +1,6 @@
 import {createCloudSync} from './cloud-sync.js';
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.14', { cache: 'no-store' });
+import {createFirebaseSync} from './firebase-sync.js';
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.15', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -93,7 +94,7 @@ function initExampleFuriganaSettings(){
 }
 initExampleFuriganaSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=3.14', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=3.15', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictRssSort=$('#dictRssSort'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set(),sessionVocabTiming=[],sessionRssId='';
@@ -849,7 +850,7 @@ function cleanRecordObject(value){if(!value||typeof value!=='object'||Array.isAr
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
-function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.14',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),session_prefs:loadSessionPrefs()}}}}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.15',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),session_prefs:loadSessionPrefs()}}}}
 function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
 async function importLearningData(file){
   if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
@@ -857,6 +858,10 @@ async function importLearningData(file){
     const parsed=JSON.parse(await file.text());
     if(parsed?.format!=='wsjj-kanji-pro-backup'||parsed?.schema_version!==1||!parsed.data)throw new Error('format');
     const nextLearning=cleanRecordObject(parsed.data.learning_stats),nextMistakes=cleanRecordObject(parsed.data.mistake_bank);
+    if(firebaseSync?.hasJournal()){
+      setDataBackupStatus('settings.import_blocked_firebase');
+      return
+    }
     if(!confirm(t('settings.import_confirm')))return;
     await storageWriteQueue;
     learningStats=nextLearning;mistakeBank=new Map(Object.entries(nextMistakes));
@@ -950,21 +955,23 @@ function check(advance=false){if(checked){showQuestion();return}
   const wasCredited=sessionCreditedIds.has(persistId);
   const typedRaw=input.value;if(inputMode()==='romaji')input.value=romajiToHiragana(input.value,true);const val=compareReading(input.value);if(!val)return;checked=true;stats.attempts++;const ok=accepted(current).includes(val),correct=answerText(current),meaning=rawMeaning(current),elapsed=finishVocabTimer();recordLearningResult(current,ok);recordVocabTiming(current,ok,elapsed,val);if(ok){stats.correct++;recordPersistentCorrect(current);if(!advance){feedback.className='feedback good';feedback.innerHTML=`<div><strong>✓ ${esc(correct)}</strong>${meaningText(current)?`<div class="meta">${meaningText(current)}</div>`:''}</div>`}}else{stats.wrong++;recordMistake(current,input.value);recordPersistentWrong(current);if(!advance){feedback.className='feedback bad';feedback.innerHTML=`<div><strong>✕ ${esc(correct)}</strong>${meaningText(current)?`<div class="meta">${meaningText(current)}</div>`:''}<div class="meta">${esc(t('quiz.your_answer',{answer:input.value}))}</div></div>`}if(sessionKind==='review')queue.push({...current});else{const min=Math.min(3,queue.length),max=Math.min(7,queue.length),pos=max?Math.floor(Math.random()*(max-min+1))+min:0;queue.splice(pos,0,{...current})}}
   // Every answer is recorded once as a stable event for cross-device replay.
-  if(cloudSync){
+  if(cloudSync||firebaseSync){
     try{
-      cloudSync.appendAnswer({
+      const cloudAnswer={
         at:Date.now(),question_id:persistId,learning_id:learningId,session_id:sessionRssId,
         correct:ok,learned:Boolean(learningId&&!wasLearned&&sessionLearningRecordedIds.has(learningId)),
         mistake_action:ok?(!wasCredited&&sessionCreditedIds.has(persistId)?'credit':'none'):'wrong',
         mistake_snapshot:ok?null:snapshotQuestion(current),
         timing:current.type==='vocabulary'?sessionVocabTiming[sessionVocabTiming.length-1]||null:null
-      })
-    }catch(err){console.warn('Google journal write failed:',err)}
+      };
+      if(firebaseSync?.hasJournal())firebaseSync.appendAnswer(cloudAnswer);
+      if(!firebaseSync?.isConnected())cloudSync?.appendAnswer(cloudAnswer)
+    }catch(err){console.warn('Cloud journal write failed:',err)}
   }
   updateStats();if(advance){showQuestion();if(ok)showCorrectNotice(meaning);else showWrongNotice(typedRaw,correct);return}input.disabled=true;submit.textContent=t('quiz.next');submit.focus()}
 function updateStats(){correctEl.textContent=stats.correct;wrongEl.textContent=stats.wrong;leftEl.textContent=queue.length+(current&&!checked?1:0)}
 function start(){hideAnswerNotice();saveSessionPrefs();if(!selectedLessons().length){alert(t('errors.choose_lesson'));return}if(!selectedKanji().size){alert(t('errors.choose_kanji'));return}if(!selectedModes().length){alert(t('errors.choose_mode'));return}if(furiganaMode()==='chapter'&&!furiganaLesson()){alert(t('errors.invalid_furigana'));return}const items=buildQueue();if(!items.length){alert(t('errors.empty_pool'));return}beginSession(items,'normal')}
-function showFinish(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('hidden');finished.classList.remove('hidden');refreshReviewUI();const total=stats.correct+stats.wrong,acc=total?Math.round(stats.correct/total*100):100,remaining=resolvedMistakeEntries().length;finishTitle.textContent=t(sessionKind==='review'?'review.finish_title':'finish.title');$('#finalScore').textContent=`${acc}%`;$('#finalCorrect').textContent=stats.correct;$('#finalWrong').textContent=stats.wrong;$('#finalAttempts').textContent=stats.attempts;$('#again').textContent=t(sessionKind==='review'?(remaining?'review.practice_remaining':'review.done'):'finish.again');$('#settings').textContent=t(sessionKind==='review'?(remaining?'review.finish_back':'finish.settings'):sessionKind==='dictionary'?'dictionary.return_to_dictionary':'finish.settings');renderMistakeSummary();renderVocabTimingSummary();if(cloudSync?.isConnected())void cloudSync.sync()}
+function showFinish(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('hidden');finished.classList.remove('hidden');refreshReviewUI();const total=stats.correct+stats.wrong,acc=total?Math.round(stats.correct/total*100):100,remaining=resolvedMistakeEntries().length;finishTitle.textContent=t(sessionKind==='review'?'review.finish_title':'finish.title');$('#finalScore').textContent=`${acc}%`;$('#finalCorrect').textContent=stats.correct;$('#finalWrong').textContent=stats.wrong;$('#finalAttempts').textContent=stats.attempts;$('#again').textContent=t(sessionKind==='review'?(remaining?'review.practice_remaining':'review.done'):'finish.again');$('#settings').textContent=t(sessionKind==='review'?(remaining?'review.finish_back':'finish.settings'):sessionKind==='dictionary'?'dictionary.return_to_dictionary':'finish.settings');renderMistakeSummary();renderVocabTimingSummary();if(firebaseSync?.isConnected())void firebaseSync.sync();else if(cloudSync?.isConnected())void cloudSync.sync()}
 function renderVocabTimingSummary(){
   const panel=$('#vocabTimingSummary');
   if(!panel)return;
@@ -981,7 +988,7 @@ function renderVocabTimingSummary(){
 }
 function back(){clearVocabTimer();if(sessionKind==='review')showReviewBank();else if(sessionKind==='dictionary')returnToDictionaryPracticeSource();else showSetupScreen()}
 // Google Drive sync — opt-in. No tokens are persisted or used without user consent.
-let cloudSync=null;
+let cloudSync=null,firebaseSync=null;
 function initCloudSync(){
   const status=$('#googleSyncStatus'),connect=$('#googleSyncConnect'),syncNow=$('#googleSyncNow'),disconnect=$('#googleSyncDisconnect');
   const display=(code,detail='')=>{
@@ -1015,6 +1022,50 @@ function initCloudSync(){
   void cloudSync.loadConfig().then(()=>cloudSync.warmUp())
 }
 initCloudSync();
+function initFirebaseSync(){
+  const status=$('#firebaseSyncStatus'),connect=$('#firebaseSyncConnect'),
+    syncNow=$('#firebaseSyncNow'),disconnect=$('#firebaseSyncDisconnect');
+  const display=(code,detail='')=>{
+    if(status)status.textContent=t('settings.firebase_sync_'+code)+(detail?' · '+detail:'');
+    if(connect)connect.disabled=code==='unconfigured'||code==='initializing'||code==='syncing';
+    if(syncNow)syncNow.disabled=code!=='connected'&&code!=='synced'&&code!=='error';
+    if(disconnect)disconnect.disabled=code==='unconfigured'||code==='initializing'||code==='disconnected';
+    if(firebaseSync?.isConnected()&&cloudSync?.isConnected())cloudSync.disconnect()
+  };
+  firebaseSync=createFirebaseSync({
+    snapshot:()=>({learning:learningStats,mistakes:Object.fromEntries(mistakeBank)}),
+    applySnapshot:async merged=>{
+      // Prevent overwriting a live quiz's local changes during a background sync.
+      if(!quiz.classList.contains('hidden'))return;
+      await storageWriteQueue;
+      learningStats=merged.learning;mistakeBank=new Map(Object.entries(merged.mistakes));
+      try{
+        localStorage.setItem(LEARNING_STATS_KEY,JSON.stringify(learningStats));
+        localStorage.setItem(MISTAKE_BANK_KEY,JSON.stringify(Object.fromEntries(mistakeBank)))
+      }catch(err){console.warn('Firebase local storage issue:',err)}
+      if(appDb){
+        await Promise.all([
+          idbReplaceStore('learning_stats',learningRowsFromObject(learningStats)),
+          idbReplaceStore('mistakes',mistakeRowsFromObject(Object.fromEntries(mistakeBank)))
+        ])
+      }
+    },
+    afterApply:()=>{refreshReviewUI();updatePreview();renderDictionary();renderDataBackupSummary()},
+    onStatus:display
+  });
+  connect?.addEventListener('click',()=>firebaseSync.connect());
+  syncNow?.addEventListener('click',()=>{void firebaseSync.sync()});
+  disconnect?.addEventListener('click',()=>{void firebaseSync.disconnect()});
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden&&quiz.classList.contains('hidden'))firebaseSync.syncOnReturn()
+  });
+  window.addEventListener('online',()=>{
+    if(!firebaseSync.isInitialized())void firebaseSync.init();
+    else if(quiz.classList.contains('hidden'))firebaseSync.syncOnReturn()
+  });
+  void firebaseSync.init()
+}
+initFirebaseSync();
 initDataBackupSettings();
 renderLessonGrid();renderKanjiGroups(false);restoreSessionControls();populateFuriganaLessons();refreshReviewUI();updatePreview();document.querySelectorAll('.mode input').forEach(x=>x.addEventListener('change',()=>{saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="vocabLimitMode"]').forEach(x=>x.addEventListener('change',()=>{vocabLimit.disabled=document.querySelector('input[name="vocabLimitMode"]:checked').value!=='limit';saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="furiganaMode"]').forEach(x=>x.addEventListener('change',syncFuriganaControls));furiganaLessonSelect.addEventListener('change',()=>{furiganaChapterManual=true;updatePreview()});vocabLimit.addEventListener('input',()=>{saveSessionPrefs();updatePreview()});document.querySelectorAll('input[name="inputMode"]').forEach(x=>x.addEventListener('change',syncInputMode));let answerComposing=false;
 input.addEventListener('compositionstart',()=>{answerComposing=true});
@@ -1030,7 +1081,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=3.14', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=3.15', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

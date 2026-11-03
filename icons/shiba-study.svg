@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300" role="img" aria-labelledby="title">
+<title id="title">Shiba Inu czyta książkę do nauki kanji</title>
+<defs>
+<linearGradient id="fur" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#ffce88"/><stop offset="1" stop-color="#e88839"/></linearGradient>
+<linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffdf6"/><stop offset="1" stop-color="#ffe5b6"/></linearGradient>
+</defs>
+<circle cx="275" cy="72" r="55" fill="#ffe2b2" opacity=".75"/>
+<path d="M25 215q39-25 85-12t90-16 107 25" fill="none" stroke="#f3c38e" stroke-width="12" stroke-linecap="round" opacity=".5"/>
+<path d="M265 189q37-5 43 17t-26 31" fill="none" stroke="#be682e" stroke-width="23" stroke-linecap="round"/>
+<path d="M92 194Q72 145 117 123q66-32 132 5 39 25 19 71l-50 49H125Z" fill="url(#fur)" stroke="#93502c" stroke-width="6"/>
+<path d="M113 114 106 30q0-10 10-5l51 41m88 47 8-83q1-10-10-5l-50 41" fill="url(#fur)" stroke="#93502c" stroke-width="6" stroke-linejoin="round"/>
+<path d="m119 43 7 43 25-20m100-23-7 43-25-20" fill="#f4a49b"/>
+<path d="M88 127q-8-76 86-89 101-12 105 87-3 83-103 91Q91 215 88 127Z" fill="url(#fur)" stroke="#93502c" stroke-width="6"/>
+<path d="M100 133q16-17 38-5 26 22 38 20 12 2 38-20 22-12 38 5-8 54-76 65-67-10-76-65Z" fill="#fff1da"/>
+<path d="M130 123q9-10 20 0m51 0q11-10 20 0" fill="none" stroke="#6e3e2c" stroke-width="6" stroke-linecap="round"/>
+<path d="M165 146q11-7 23 0c-1 7-10 12-12 12s-11-5-11-12Z" fill="#54332b"/>
+<path d="M176 158v8q-11 15-20 2m20-2q11 15 20 2" fill="none" stroke="#54332b" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="119" cy="144" rx="11" ry="7" fill="#f6a68b" opacity=".8"/><ellipse cx="234" cy="144" rx="11" ry="7" fill="#f6a68b" opacity=".8"/>
+<path d="M113 182q58 38 126 0l-8 20q-51 33-110 0Z" fill="#c95538" stroke="#a84332" stroke-width="3"/>
+<path d="m163 195 13 27 17-27" fill="#e98b52" stroke="#a84332" stroke-width="3"/>
+<path d="M34 208q69-27 143 5 74-32 143-5v66q-75-24-143 8-74-32-143-8Z" fill="url(#paper)" stroke="#a3643a" stroke-width="6" stroke-linejoin="round"/>
+<path d="M177 215v64" fill="none" stroke="#b77a4b" stroke-width="4"/>
+<path d="M59 226q43-12 84 3m-84 13q40-7 80 5m75-18q40-12 81-2m-81 22q42-8 81-5" fill="none" stroke="#e4b987" stroke-width="4" stroke-linecap="round"/>
+<path d="M78 212q-20-8-19 12 1 18 24 17l17-17q5-17-22-12m196 0q20-8 19 12-1 18-24 17l-17-17q-5-17 22-12" fill="#fff1d4" stroke="#9c5c33" stroke-width="5" stroke-linejoin="round"/>
+<path d="M26 83q-5-6-11-5m18-9-2-8M317 103l10-5m-10 20 9 5" stroke="#f49449" stroke-width="6" stroke-linecap="round"/>
+</svg>

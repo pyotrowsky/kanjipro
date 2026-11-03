@@ -23,8 +23,15 @@
 <path d="M186 212q-5-4-8 1m8-1q3-6 7-2m-7 2v7m46-23q-4-4-8 0m8 0q4-5 8 1m-8-1v8"
  fill="none" stroke="#ffe9c9" stroke-width="3.3" stroke-linecap="round"/>
 <!-- Main mascot's face at Shiba-like round-body proportions -->
-<g transform="translate(66,-7) scale(1.08)">
-
+<g transform="translate(66,-7) scale(1.08)"><defs>
+  <linearGradient id="fur" x1=".12" y1=".03" x2=".89" y2=".94">
+    <stop stop-color="#ffe2a1"/><stop offset=".43" stop-color="#ffbd69"/><stop offset="1" stop-color="#e88435"/>
+  </linearGradient>
+  <linearGradient id="furLight" x1="0" x2=".8" y1="0" y2="1"><stop stop-color="#ffe0a1"/><stop offset="1" stop-color="#ef9644"/></linearGradient>
+  <linearGradient id="cream" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff9e9"/><stop offset="1" stop-color="#fff1d5"/></linearGradient>
+  <linearGradient id="tongue" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff9683"/><stop offset="1" stop-color="#e96661"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-25%" width="140%" height="155%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#8e603b" flood-opacity=".14"/></filter>
+</defs>
 <g stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
   <!-- Broad, unmistakable foxlike upright Shiba ears -->
   <path d="M47 87Q39 60 33 18Q31 8 40 11Q64 14 91 51" fill="url(#fur)" stroke="#68412b" stroke-width="5"/>

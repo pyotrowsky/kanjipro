@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.20",
+    "badge": "3.21",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -32,8 +32,8 @@
     "rss_help_html": "<strong>Czym jest RSS?</strong> To wskaźnik tempa rozpoznawania słówek: czas do rozpoczęcia pisania plus pozostały czas odpowiedzi podzielony przez liczbę mor w odczycie. Im niższy RSS, tym płynniej rozpoznajesz słówko. Liczymy go tylko dla poprawnych odpowiedzi, osobno w trybie Romaji i IME.",
     "rss_adaptive_html": "<strong>Kiedy widać wynik?</strong> Wstępny RSS pojawia się już po pierwszej poprawnej odpowiedzi na słówko. Od 8 różnych zmierzonych słówek w danym trybie Kanji.pro porównuje je z Twoim osobistym tempem i oznacza jako Szybkie, Typowe lub Wolne. Po 3 poprawnych pomiarach słówka z co najmniej 2 sesji jego wynik jest bardziej wiarygodny. W sesjach z limitem do 20% miejsc może przypadać na wolniejsze słówka.",
     "shiba_kicker": "🐾 Twój trening japońskiego",
-    "shiba_title": "Nauka kanji",
-    "shiba_subtitle": "Wybierz rozdziały i ćwicz słówka we własnym tempie.",
+    "shiba_title": "Gotowy na naukę?",
+    "shiba_subtitle": "Poćwicz słówka, utrwal czytanie i znaczenie. Aplikacja dobierze materiał do Twojego tempa.",
     "rss_progress_none": "RSS · {mode}: brak poprawnych pomiarów. Wystarczy pierwsza poprawna odpowiedź na słówko.",
     "rss_progress_collecting": "RSS · {mode}: mediana {median} · {count}/{required} różnych słówek (kalibracja wstępna).",
     "rss_progress_ready": "RSS · {mode}: mediana {median} · {count} słówek, w tym {reliable} wielokrotnie zmierzonych."
@@ -98,7 +98,7 @@
     "timer": "Czas: {time}"
   },
   "finish": {
-    "title": "Koniec sesji",
+    "title": "Podsumowanie sesji",
     "mistakes_title": "Błędy w tej sesji",
     "mistake_correct": "Odpowiedź: {answer}",
     "mistake_yours": "Wpisałeś: {answer}",
@@ -113,7 +113,9 @@
     "median_answer": "Mediana do odpowiedzi",
     "fast_correct": "RSS poniżej Twojej mediany",
     "timing_note": "Tylko słówka. Mediany liczone dla poprawnych odpowiedzi. Porównanie RSS dostępne po kalibracji profilu, bez ON/KUN.",
-    "median_rss": "Mediana RSS"
+    "median_rss": "Mediana RSS",
+    "celebrate_title": "Dobra robota!",
+    "celebrate_subtitle": "Sesja zakończona."
   },
   "errors": {
     "database_load": "Nie udało się wczytać bazy: {status}",
@@ -288,5 +290,28 @@
     "rss_measured_label": "RSS",
     "rss_preliminary_short": "wstępne",
     "rss_preliminary_note": "Wstępny wynik. Powtórz słówko przynajmniej 3 razy w co najmniej 2 sesjach, aby uzyskać bardziej wiarygodny pomiar."
+  },
+  "sidebar": {
+    "practice": "Nauka",
+    "history": "Historia",
+    "dictionary": "Słownik",
+    "settings": "Ustawienia"
+  },
+  "stats": {
+    "words": "Przećwiczone słówka",
+    "words_note": "Różne słówka",
+    "accuracy": "Poprawność",
+    "accuracy_note": "Ze wszystkich odpowiedzi na słówka",
+    "accuracy_detail": "{correct} / {reviews} poprawnych odpowiedzi",
+    "rss": "Mediana RSS",
+    "rss_note": "Oddzielnie dla Romaji i IME",
+    "rss_detail": "{mode} · {words} zmierzonych słówek"
+  },
+  "history": {
+    "title": "Historia nauki",
+    "subtitle": "Podsumowanie nauki zapisanej lokalnie i synchronizowanej przez Firebase.",
+    "recent_title": "Ostatnio ćwiczone słówka",
+    "empty": "Nie masz jeszcze zapisanych powtórek słówek.",
+    "no_rss": "Brak pomiaru RSS"
   }
 }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wsjj-kanji-pro-3.23-1';
+const CACHE_NAME = 'wsjj-kanji-pro-3.23-2';
 const BASE = new URL('./', self.location.href);
 const FRESH_PATHS = new Set([
   new URL('./data/kanji_quiz_database.json', BASE).pathname,
@@ -22,7 +22,7 @@ const PRECACHE = [
   './css/shiba-theme.css',
   './css/shiba-dashboard.css',
   './css/shiba-approved.css',
-  './icons/japan-banner.svg',
+  './icons/kanjipro-pastel-banner.png',
   './icons/shiba-face.svg',
   './icons/shiba-study.svg',
   './icons/shiba-peek.svg',

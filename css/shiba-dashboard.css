@@ -52,7 +52,7 @@
 .home-stat-card strong{display:block;line-height:1.22;letter-spacing:-.04em;font-size:27px;font-weight:850;font-variant-numeric:tabular-nums;margin:4px 0}
 .home-stat-card small{display:block;font-size:10px;line-height:1.3;color:var(--muted)}
 :root[data-theme="shiba"] .home-stat-card{background:linear-gradient(145deg,#fffcf6,#fff7ee);border:1px solid #f2dcc6;box-shadow:0 5px 15px rgba(114,58,24,.09)}
-:root[data-theme="shiba"] #setup>.home-dashboard-stats{padding:0;background:transparent;border:0;box-shadow:none}
+:root[data-theme="shiba"] #setup>div.home-dashboard-stats:not(.shiba-hero):not(.review-card):not(.limit-box){padding:0;background:transparent;border:0;box-shadow:none}
 @media(max-width:580px){
   .home-dashboard-stats{gap:7px}
   .home-stat-card{flex-direction:column;align-items:flex-start;padding:10px 8px;gap:6px;border-radius:15px}

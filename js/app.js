@@ -1045,7 +1045,7 @@ function desiredVocabCount(poolLen){const mode=document.querySelector('input[nam
 function poolCounts(){const r=buildReadingPools(),v=buildVocabPool();return{on:r.on.length,kun:r.kun.length,v:v.length,vChosen:desiredVocabCount(v.length),vUnpracticed:v.filter(q=>Math.max(0,Number(learningStatsFor(q)?.reviews)||0)===0).length}}
 function unpracticedVocabLabel(count){const few=count===1||(count%10>=2&&count%10<=4&&(count%100<12||count%100>14));return t(few?'vocab.preview_unpracticed_few':'vocab.preview_unpracticed_many',{count})}
 function updatePreview(){const ls=selectedLessons(),ks=selectedKanji(),m=selectedModes();if(kanjiSelectionSummary)kanjiSelectionSummary.textContent=t('setup.kanji_selected',{count:ks.size});const c=poolCounts();const pieces=[];if(m.includes('onyomi'))pieces.push(t('vocab.preview_on',{count:c.on}));if(m.includes('kunyomi'))pieces.push(t('vocab.preview_kun',{count:c.kun}));if(m.includes('vocabulary')){const label=c.vChosen===c.v?t('vocab.preview_vocab_all',{count:c.v}):t('vocab.preview_vocab_limited',{chosen:c.vChosen,total:c.v});pieces.push(label+' '+unpracticedVocabLabel(c.vUnpracticed))}sessionPreview.textContent=ls.length?t('vocab.preview',{lessons:ls.length,kanji:ks.size,session:pieces.join(' · ')||t('vocab.preview_no_mode')}):t('vocab.preview_no_lessons')}
-function beginSession(items,kind='normal'){clearVocabTimer();sessionKind=kind;queue=shuffle(items.map(x=>({...x})));sessionVocabTiming=[];sessionRssId=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);stats={correct:0,wrong:0,attempts:0,initial:queue.length};mistakeLog=new Map();sessionWrongIds=new Set();sessionCreditedIds=new Set();sessionLearningRecordedIds=new Set();setup.classList.add('hidden');reviewBank.classList.add('hidden');finished.classList.add('hidden');dictionary?.classList.add('hidden');quiz.classList.remove('hidden');$('#quit').textContent=t(kind==='review'?'review.quiz_back':kind==='dictionary'?'dictionary.back':'quiz.back');showQuestion()}
+function beginSession(items,kind='normal'){clearVocabTimer();sessionKind=kind;queue=shuffle(items.map(x=>({...x})));sessionVocabTiming=[];sessionRssId=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);stats={correct:0,wrong:0,attempts:0,initial:queue.length};mistakeLog=new Map();sessionWrongIds=new Set();sessionCreditedIds=new Set();sessionLearningRecordedIds=new Set();setup.classList.add('hidden');reviewBank.classList.add('hidden');finished.classList.add('hidden');dictionary?.classList.add('hidden');quiz.classList.remove('hidden');$('#quit').textContent=t(kind==='review'?'review.quiz_back':kind==='dictionary'?'dictionary.back':'quiz.back');showQuestion();restoreQuizFocusAfterStart()}
 function showSetupScreen(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('hidden');finished.classList.add('hidden');reviewBank.classList.add('hidden');$('#history')?.classList.add('hidden');setup.classList.remove('hidden');setSidebarNav('practice');refreshReviewUI();updatePreview();renderRssProgress()}
 function showReviewBank(){hideAnswerNotice();const entries=refreshReviewUI();if(!entries.length){showSetupScreen();return}setup.classList.add('hidden');quiz.classList.add('hidden');finished.classList.add('hidden');reviewBank.classList.remove('hidden')}
 function startReview(){hideAnswerNotice();const items=reviewQuestions();if(!items.length){showSetupScreen();return}beginSession(items,'review')}
@@ -1082,6 +1082,19 @@ function focusAnswerField(){
     try{input.focus({preventScroll:true})}catch{input.focus()}
   }
   keepAnswerVisible()
+}
+// On iPadOS a tap can restore focus to START *after* its click handler.
+ // Reassert the answer field after the activation event has finished, while
+ // keeping the first question and any user-entered text intact.
+function restoreQuizFocusAfterStart(){
+  const firstQuestion=current;
+  const refocus=()=>{
+    if(current!==firstQuestion||checked||input.disabled||quiz.classList.contains('hidden'))return;
+    if(document.activeElement!==input)focusAnswerField()
+  };
+  requestAnimationFrame(()=>requestAnimationFrame(refocus));
+  setTimeout(refocus,80);
+  setTimeout(refocus,220)
 }
 function showQuestion(){clearVocabTimer();if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);const hint=current.type==='vocabulary'?String(current.disambiguation||'').trim():'';promptHint.textContent=hint;promptHint.classList.toggle('hidden',!hint);feedback.className='feedback empty';feedback.innerHTML='';updateStats();startVocabTimer();focusAnswerField()}function compareReading(s){const x=hira(s);return inputMode()==='romaji'?x.replace(/[-‐‑‒–—―−]/g,'ー').replace(/づ/g,'ず').replace(/ぢ/g,'じ'):x}function accepted(q){return(q.accepted_answers||q.answer_display||[]).map(compareReading)}function answerText(q){return(q.answer_display||q.accepted_answers||[]).join(' / ')}function rawMeaning(q){return q.meanings?.length?q.meanings.join(' · '):(q.meaning||'')}function meaningText(q){const m=rawMeaning(q);return m?esc(m):''}
 function recordMistake(q,userAnswer){const key=q.question_id||`${q.type}:${q.prompt}`;let item=mistakeLog.get(key);if(!item){item={type:typeName(q.type),prompt_html:q.prompt_html||esc(q.prompt),correct:answerText(q),meaning:rawMeaning(q),answers:[]};mistakeLog.set(key,item)}const a=String(userAnswer||'').trim();if(a&&!item.answers.includes(a))item.answers.push(a)}
@@ -1189,7 +1202,9 @@ document.addEventListener('keydown',event=>{
      document.activeElement===input||event.defaultPrevented||
      event.metaKey||event.ctrlKey||event.altKey||event.isComposing)return;
   const active=document.activeElement;
-  if(active?.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(active?.tagName||''))return;
+  // Ignore an open settings dialog, but allow a stale setup input to lose focus.
+  if(document.querySelector('#settingsDialog')?.open||active?.isContentEditable)return;
+  if(/^(INPUT|TEXTAREA|SELECT)$/.test(active?.tagName||'')&&active?.closest?.('#quiz'))return;
   if(event.key.length!==1||event.key===' '&&event.target?.closest?.('button'))return;
   event.preventDefault();
   focusAnswerField();

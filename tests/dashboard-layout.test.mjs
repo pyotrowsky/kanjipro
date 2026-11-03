@@ -50,7 +50,7 @@ test('shows accurate global stats and RSS from selected input method',()=>{
   const f=fixture();f.sandbox.renderHome();
   assert.equal(f.elements['#homeWords'].textContent,'2');
   assert.equal(f.elements['#homeAccuracy'].textContent,'67%');
-  assert.equal(f.elements['#homeRss'].textContent,'780 ms');
+  assert.equal(f.elements['#homeRss'].textContent,'0,78 s');
   assert.match(f.elements['#homeAccuracyNote'].textContent,/4/);
   assert.match(f.elements['#homeRssNote'].textContent,/Romaji/);
 });
@@ -86,5 +86,5 @@ test('Otsukaresama finish uses session stats; original mockup cutouts remain ava
     assert.match(art,/data:image\/webp;base64,UklGR/);
     assert.ok(sw.includes("'./"+path+"'"),'offline '+path);
   }
-  assert.match(sw,/wsjj-kanji-pro-3\.21-1/);
+  assert.match(sw,/wsjj-kanji-pro-3\.22-1/);
 });

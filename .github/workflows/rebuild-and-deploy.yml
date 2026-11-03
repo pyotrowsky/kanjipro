@@ -36,6 +36,9 @@ jobs:
       - name: Validate database
         run: python scripts/validate_data.py
 
+      - name: Validate approved Shiba PWA icons
+        run: python scripts/install_shiba_pwa_icons.py /tmp/kanjipro-icons-test
+
       - name: Set up Node.js for synchronization tests
         uses: actions/setup-node@v4
         with:
@@ -64,6 +67,7 @@ jobs:
           mkdir -p _site/data
           cp index.html manifest.webmanifest sw.js _site/
           cp -R css js icons _site/
+          python scripts/install_shiba_pwa_icons.py _site/icons
           cp data/kanji_quiz_database.json _site/data/
           cp data/ui.pl.json _site/data/
           cp data/firebase-config.json _site/data/

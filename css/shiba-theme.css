@@ -1,0 +1,159 @@
+/* Kanji.pro Shiba Inu theme — opt-in reversible visual layer.
+   No positioning overrides on focused quiz input: iPadOS focus fix stays intact. */
+
+/* Both themes use one persistent accessible selector in Settings. */
+.theme-options{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:12px 0 8px}
+.theme-option{display:block;position:relative;cursor:pointer}
+.theme-option input{position:absolute;opacity:0;width:1px;height:1px}
+.theme-option-card{display:flex;align-items:center;gap:11px;min-height:80px;padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--card);transition:border-color .14s,background .14s,transform .14s}
+.theme-option-card b,.theme-option-card small{display:block}
+.theme-option-card b{font-size:13px;font-weight:800}
+.theme-option-card small{font-size:11px;line-height:1.45;color:var(--muted);margin-top:4px}
+.theme-option input:checked+.theme-option-card{border:2px solid var(--accent);padding:11px;background:color-mix(in srgb,var(--accent) 7%,var(--card))}
+.theme-option input:focus-visible+.theme-option-card{outline:3px solid var(--accent);outline-offset:3px}
+.theme-option-card:hover{transform:translateY(-1px)}
+.theme-swatch{width:42px;height:42px;flex:0 0 42px;border-radius:14px;display:grid;place-items:center;border:1px solid var(--line)}
+.theme-swatch-shiba{background:#ffead4}
+.theme-swatch-shiba img{width:42px;height:42px}
+.theme-swatch-classic{background:linear-gradient(145deg,#fafafa 0 52%,#d63031 52% 100%)}
+.theme-swatch-classic::after{content:"漢";font-family:var(--jp-font,serif);color:#34343b;font-size:20px}
+@media(max-width:420px){.theme-options{grid-template-columns:1fr}.theme-option-card{min-height:68px}}
+
+.shiba-brand-mark,.shiba-hero,.shiba-quiz-accent,.shiba-finish-accent{display:none}
+
+:root[data-theme="shiba"]{
+  color-scheme:light;
+  --bg:#fff7ee;
+  --card:#fffdf8;
+  --text:#3a2925;
+  --muted:#846c5e;
+  --line:#efd9c5;
+  --accent:#de6d27;
+  --good:#39784c;
+  --bad:#bc4a3d;
+  --soft:#fff0dd;
+  --shadow:0 10px 28px rgba(129,68,29,.085);
+}
+:root[data-theme="shiba"] body{
+  background:
+    radial-gradient(ellipse 230px 230px at 98% 3%,rgba(250,200,150,.31),transparent 72%),
+    radial-gradient(ellipse 280px 300px at 0 55%,rgba(255,216,171,.24),transparent 70%),
+    linear-gradient(180deg,#fff9f1,#fff4e8 70%,#fff9f0);
+}
+:root[data-theme="shiba"] .shell{position:relative}
+:root[data-theme="shiba"] .brand{margin-bottom:14px;align-items:center}
+:root[data-theme="shiba"] .brand h1{font-size:24px;letter-spacing:-.04em;color:#3e2921}
+:root[data-theme="shiba"] .brand h1::first-letter{color:var(--accent)}
+:root[data-theme="shiba"] .shiba-brand-mark{display:inline-block;width:43px;height:43px;flex:0 0 43px;vertical-align:middle;margin-right:6px;filter:drop-shadow(0 3px 3px rgba(101,46,19,.1))}
+:root[data-theme="shiba"] .brand-title-group{display:flex;align-items:center;min-width:0}
+:root[data-theme="shiba"] .brand-title-group h1{white-space:nowrap}
+:root[data-theme="shiba"] .badge{background:#fff1e1;border-color:#ebc7a8;color:#965c39}
+:root[data-theme="shiba"] .icon-btn{box-shadow:0 2px 8px rgba(137,78,35,.07)}
+:root[data-theme="shiba"] .app-nav{background:#ffecdc;border:1px solid #f2d7bd;border-radius:18px;padding:5px;box-shadow:0 4px 14px rgba(150,75,27,.055)}
+:root[data-theme="shiba"] .app-nav-btn{border-radius:13px}
+:root[data-theme="shiba"] .app-nav-btn.active{color:#a44f20;background:var(--card);box-shadow:0 3px 10px rgba(132,70,31,.1)}
+:root[data-theme="shiba"] .panel{border-color:#edcfb2;border-radius:23px;box-shadow:0 9px 26px rgba(128,67,28,.075)}
+/* Section cards float on the cream background rather than nesting in an enormous sheet. */
+:root[data-theme="shiba"] #setup{background:transparent;box-shadow:none;border:none;padding:0;gap:13px}
+:root[data-theme="shiba"] #setup>div:not(.shiba-hero):not(.review-card):not(.limit-box),
+:root[data-theme="shiba"] #setup>.limit-box,
+:root[data-theme="shiba"] #setup>.selector-details,
+:root[data-theme="shiba"] #setup>#installHelp{
+  border:1px solid #efd4ba;border-radius:20px;background:rgba(255,252,246,.96);
+  padding:16px;box-shadow:0 5px 15px rgba(156,80,27,.065)
+}
+:root[data-theme="shiba"] #setup>.selector-details,
+:root[data-theme="shiba"] #setup>#installHelp{padding:0}
+:root[data-theme="shiba"] #setup>.selector-details>summary,
+:root[data-theme="shiba"] #setup>#installHelp>summary{padding:15px 16px}
+:root[data-theme="shiba"] #setup>.selector-details .selector-details-body,
+:root[data-theme="shiba"] #setup>#installHelp .install-steps{padding-left:16px;padding-right:16px}
+:root[data-theme="shiba"] #setup>.limit-box{margin:0}
+:root[data-theme="shiba"] #setup .section-title{color:#563522}
+:root[data-theme="shiba"] #setup .mode span,
+:root[data-theme="shiba"] #setup .choice span,
+:root[data-theme="shiba"] .lesson-chip span,
+:root[data-theme="shiba"] .kanji-chip span{background:#fffefb;border-color:#edd7c2;border-radius:13px}
+:root[data-theme="shiba"] #setup input:checked+span,
+:root[data-theme="shiba"] .lesson-chip input:checked+span,
+:root[data-theme="shiba"] .kanji-chip input:checked+span{color:#af4c19;background:#fff0df;border-color:#de7738}
+:root[data-theme="shiba"] #start{border-radius:17px;background:linear-gradient(118deg,#e78432,#cf5e23);font-size:17px;letter-spacing:.02em;padding:17px 20px;box-shadow:0 7px 18px rgba(197,91,30,.21);width:100%}
+:root[data-theme="shiba"] #start::before{content:"🐾";margin-right:10px;font-size:16px}
+:root[data-theme="shiba"] button.primary{background:linear-gradient(118deg,#e78432,#cf5e23)}
+:root[data-theme="shiba"] button.primary:hover:not(:disabled){filter:brightness(1.035)}
+:root[data-theme="shiba"] button.primary:active:not(:disabled){transform:translateY(1px)}
+:root[data-theme="shiba"] button:focus-visible,
+:root[data-theme="shiba"] a:focus-visible{outline:3px solid #f3a15d;outline-offset:2px}
+:root[data-theme="shiba"] .review-card{background:#fff4eb;border-color:#f1cdb7}
+:root[data-theme="shiba"] .review-primary{background:#de6d27}
+:root[data-theme="shiba"] .lesson-select,
+:root[data-theme="shiba"] .limit-number,
+:root[data-theme="shiba"] .lesson-input,
+:root[data-theme="shiba"] .dictionary-filter,
+:root[data-theme="shiba"] .dictionary-search{border-color:#ead1b9;background:#fffefa;color:var(--text)}
+:root[data-theme="shiba"] .book-folder,
+:root[data-theme="shiba"] .selector-details{background:#fff7ed;border-color:#efd8c2}
+:root[data-theme="shiba"] .book-folder[open],
+:root[data-theme="shiba"] .selector-details[open]{background:#fff9f1}
+:root[data-theme="shiba"] .mini-btn,
+:root[data-theme="shiba"] .ghost{background:#fffaf3;border-color:#ecccad;color:#8b5638}
+:root[data-theme="shiba"] .settings-sheet{border-color:#edcfb2;background:#fffaf3}
+:root[data-theme="shiba"] .settings-dialog::backdrop{background:rgba(56,32,21,.48)}
+:root[data-theme="shiba"] .font-option-card,
+:root[data-theme="shiba"] .answer-mode-card{background:#fffdf8}
+:root[data-theme="shiba"] #dictionary,
+:root[data-theme="shiba"] #reviewBank,
+:root[data-theme="shiba"] #quiz,
+:root[data-theme="shiba"] #finished{background:#fffdf7}
+:root[data-theme="shiba"] .dictionary-item,
+:root[data-theme="shiba"] .dictionary-detail,
+:root[data-theme="shiba"] .review-item{border-color:#efd9c5}
+:root[data-theme="shiba"] .dictionary-item:hover{background:#fff6eb}
+:root[data-theme="shiba"] .dictionary-stroke-card{background:#fff;color:#222} /* Preserve kanji-stroke contrast. */
+:root[data-theme="shiba"] .answer-box input{background:#fff;border-color:#e8cbb0}
+:root[data-theme="shiba"] .answer-box input:focus{border-color:#dd7e39}
+:root[data-theme="shiba"] .prompt-wrap{border-radius:18px;background:
+  radial-gradient(circle at 95% 10%,rgba(255,206,158,.3),transparent 35%),
+  linear-gradient(#fffdf8,#fff9f0);border:1px solid #f2e0ce;margin:8px 0 16px}
+:root[data-theme="shiba"] #quiz{position:relative}
+:root[data-theme="shiba"] .shiba-quiz-accent{display:block;position:absolute;width:55px;height:55px;right:18px;top:35px;pointer-events:none;opacity:.9}
+:root[data-theme="shiba"] .shiba-finish-accent{display:block;width:100px;height:100px;margin:0 auto 12px;filter:drop-shadow(0 4px 9px rgba(130,66,28,.1))}
+:root[data-theme="shiba"] .stat{background:#fff9f1;border-color:#eed7c0}
+:root[data-theme="shiba"] .finish .big{color:#cf6628}
+:root[data-theme="shiba"] .vocab-timer{color:#986d55}
+/* Theme-specific hero: decorative image never steals touch, keyboard or focus. */
+:root[data-theme="shiba"] .shiba-hero{
+  display:flex;align-items:center;justify-content:space-between;position:relative;min-height:169px;
+  overflow:hidden;padding:22px 22px 18px;border-radius:23px;border:1px solid #edcbaa;
+  background:linear-gradient(120deg,#fff6e6 2%,#ffdfb9 100%);
+  box-shadow:0 10px 22px rgba(160,81,27,.1);isolation:isolate
+}
+:root[data-theme="shiba"] .shiba-hero::before{content:"";position:absolute;width:230px;height:230px;
+  background:radial-gradient(circle,#ffe5c0 0 32%,transparent 33%),radial-gradient(circle,#f5bd85 0 35%,transparent 36%);
+  opacity:.32;right:-60px;top:-118px;z-index:-1}
+:root[data-theme="shiba"] .shiba-hero::after{content:"🐾";position:absolute;left:17px;bottom:-27px;font-size:68px;color:#e9a977;opacity:.16;transform:rotate(-22deg);pointer-events:none}
+:root[data-theme="shiba"] .shiba-hero-copy{position:relative;z-index:1;flex:1;min-width:0}
+:root[data-theme="shiba"] .shiba-hero-kicker{display:inline-flex;align-items:center;gap:6px;letter-spacing:.075em;font-size:11px;font-weight:800;color:#aa6138;text-transform:uppercase}
+:root[data-theme="shiba"] .shiba-hero h2{font-size:clamp(23px,4vw,32px);margin:8px 0 5px;font-weight:850;letter-spacing:-.055em;line-height:1.1;color:#52311f}
+:root[data-theme="shiba"] .shiba-hero p{font-size:13px;line-height:1.55;max-width:300px;margin:0;color:#8a6348}
+:root[data-theme="shiba"] .shiba-hero img{display:block;position:relative;z-index:1;align-self:flex-end;width:clamp(134px,33%,216px);height:auto;margin:-15px -8px -23px 0;pointer-events:none;filter:drop-shadow(0 5px 2px rgba(142,68,20,.1))}
+:root[data-theme="shiba"] .shiba-hero-jp{font-size:11px;font-weight:700;color:#b46e40;margin-top:10px}
+@media(max-width:600px){
+  :root[data-theme="shiba"] .shell{padding-top:18px}
+  :root[data-theme="shiba"] .brand h1{font-size:21px}
+  :root[data-theme="shiba"] .shiba-brand-mark{width:36px;height:36px;flex-basis:36px;margin-right:4px}
+  :root[data-theme="shiba"] .shiba-hero{min-height:148px;padding:18px 14px}
+  :root[data-theme="shiba"] .shiba-hero h2{font-size:25px}
+  :root[data-theme="shiba"] .shiba-hero p{font-size:12px;max-width:205px}
+  :root[data-theme="shiba"] .shiba-hero img{width:130px;margin:-8px -16px -20px -6px}
+  :root[data-theme="shiba"] #setup>div:not(.shiba-hero):not(.review-card):not(.limit-box),
+  :root[data-theme="shiba"] #setup>.limit-box{padding:13px}
+  :root[data-theme="shiba"] .prompt-wrap{min-height:190px}
+  :root[data-theme="shiba"] .shiba-quiz-accent{width:44px;height:44px;right:12px;top:33px}
+}
+@media(max-width:360px){
+  :root[data-theme="shiba"] .shiba-hero img{width:102px;margin-right:-10px}
+  :root[data-theme="shiba"] .shiba-hero h2{font-size:22px}
+  :root[data-theme="shiba"] .shiba-hero p{max-width:190px}
+}
+@media(prefers-reduced-motion:reduce){.theme-option-card{transition:none}}

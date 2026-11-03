@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title">
+<title id="title">Uśmiechnięty Shiba Inu</title>
+<defs><linearGradient id="fur" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#ffd092"/><stop offset="1" stop-color="#e9853a"/></linearGradient></defs>
+<path d="M29 78 21 17Q20 10 30 15l46 30M151 78l8-61q1-9-9-2l-46 30" fill="url(#fur)" stroke="#884728" stroke-width="6" stroke-linejoin="round"/>
+<path d="m31 33 7 32 26-19M149 33l-7 32-26-19" fill="#f7a69b"/>
+<path d="M21 96C20 47 52 33 90 33s70 15 69 63c-1 42-29 66-69 66s-68-24-69-66Z" fill="url(#fur)" stroke="#884728" stroke-width="6"/>
+<path d="M29 98c7-10 22-13 34-5 14 9 15 12 27 12s13-3 27-12c12-8 27-5 34 5-3 32-24 52-61 52S32 130 29 98Z" fill="#fff2da"/>
+<path d="M53 87q9-10 20 0M107 87q11-10 20 0" fill="none" stroke="#623526" stroke-width="6" stroke-linecap="round"/>
+<path d="m79 101q11-6 22 0c3 3-6 12-11 12s-14-9-11-12Z" fill="#553329"/>
+<path d="M90 113v9m0 0q-11 16-23 1m23-1q11 16 23 1" fill="none" stroke="#553329" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M84 129c1 14 12 19 17 4 1-4-1-8-2-11" fill="#fa9c92" stroke="#a75b57" stroke-width="2.5" stroke-linejoin="round"/>
+<ellipse cx="50" cy="109" rx="11" ry="7" fill="#f7a18d" opacity=".65"/><ellipse cx="130" cy="109" rx="11" ry="7" fill="#f7a18d" opacity=".65"/>
+<path d="M66 52q-6-5-14-2m62 2q6-5 14-2" fill="none" stroke="#ffe1af" stroke-width="5" stroke-linecap="round"/>
+</svg>

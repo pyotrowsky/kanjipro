@@ -22,15 +22,12 @@ test('all six user-approved Shibas use real transparent high-resolution WebP spr
   }
 });
 
-test('Fuji, torii and sakura are drawn as a scalable Japanese landscape banner',()=>{
-  const banner=read('icons/japan-banner.svg');
-  assert.match(banner,/viewBox="0 0 1600 340"/);
-  assert.match(banner,/Fuji|Fudżi/i);
-  assert.match(banner,/torii/i);
-  assert.match(banner,/blossom|sakura|cherry/i);
-  assert.doesNotMatch(banner,/base64|<image\b/);
-  assert.match(css,/url\('\.\.\/icons\/japan-banner\.svg'\)/);
-  assert.ok(sw.includes("'./icons/japan-banner.svg'"));
+test('approved pastel anime banner is used and available offline',()=>{
+  const image=readFileSync(new URL('../icons/kanjipro-pastel-banner.png',import.meta.url));
+  assert.ok(image.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])));
+  assert.ok(image.length>100000,'Approved artwork should not be an empty placeholder');
+  assert.match(css,/url\('\.\.\/icons\/kanjipro-pastel-banner\.png'\)/);
+  assert.ok(sw.includes("'./icons/kanjipro-pastel-banner.png'"));
 });
 
 test('mascots appear in their correct positions on the actual app screens',()=>{

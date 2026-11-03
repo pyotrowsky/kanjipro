@@ -59,12 +59,12 @@ test('the classic app hides decorative Shiba components',()=>{
 });
 
 test('Shiba theme remains offline-ready, localized and versioned',()=>{
-  assert.equal(ui.app.badge,'3.19');
+  assert.equal(ui.app.badge,'3.20');
   assert.ok(ui.settings.theme_shiba&&ui.settings.theme_classic&&ui.setup.shiba_title);
   assert.match(sw,/'\.\/css\/shiba-theme\.css'/);
   assert.match(sw,/'\.\/icons\/shiba-face\.svg'/);
   assert.match(sw,/'\.\/icons\/shiba-study\.svg'/);
-  assert.match(html,/shiba-theme\.css\?v=3\.19/);
+  assert.match(html,/shiba-theme\.css\?v=3\.20/);
   assert.equal(manifest.theme_color,'#de6d27');
 });
 

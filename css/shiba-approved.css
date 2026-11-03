@@ -18,13 +18,13 @@
 }
 :root[data-theme="shiba"] .shiba-card-paws{
   position:absolute;z-index:4;
-  right:clamp(16px,8%,105px);bottom:-4px;
-  display:block;width:clamp(115px,17vw,195px);
-  height:auto;max-height:100%;object-fit:contain;
+  right:clamp(16px,4%,44px);bottom:-8px;
+  display:block;width:clamp(112px,14vw,155px);
+  height:auto;max-height:75%;object-fit:contain;
   filter:drop-shadow(0 3px 3px rgba(90,45,20,.12));
   pointer-events:none;user-select:none
 }
-/* The paws overlap the hero's upper rim; Shiba face remains completely visible. */
+/* The mascot rests on the welcome card's bottom rim, keeping the torii unobstructed. */
 :root[data-theme="shiba"] #setup>.shiba-hero-dashboard{
   position:relative;z-index:1;
   min-height:154px;margin:0;
@@ -61,7 +61,7 @@
 }
 @media(max-width:680px){
   :root[data-theme="shiba"] #setup>.shiba-scene{height:125px;margin-bottom:-28px;background-position:53% 56%}
-  :root[data-theme="shiba"] .shiba-card-paws{width:112px;right:13px;bottom:-4px}
+  :root[data-theme="shiba"] .shiba-card-paws{width:108px;right:12px;bottom:-7px;max-height:50%}
   :root[data-theme="shiba"] #setup>.shiba-hero-dashboard{
     min-height:143px;padding:22px 14px 17px
   }
@@ -71,7 +71,7 @@
   :root[data-theme="shiba"] .shiba-history-dance{width:84px;max-height:98px}
 }
 @media(max-width:370px){
-  :root[data-theme="shiba"] .shiba-card-paws{width:102px;right:7px}
+  :root[data-theme="shiba"] .shiba-card-paws{width:100px;right:7px;bottom:-7px}
   :root[data-theme="shiba"] .shiba-hero-dashboard .shiba-hero-copy{max-width:72%}
   :root[data-theme="shiba"] .shiba-hero-dashboard h2{font-size:21px}
 }

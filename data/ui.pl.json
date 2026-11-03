@@ -115,7 +115,9 @@
     "timing_note": "Tylko słówka. Mediany liczone dla poprawnych odpowiedzi. Porównanie RSS dostępne po kalibracji profilu, bez ON/KUN.",
     "median_rss": "Mediana RSS",
     "celebrate_title": "Dobra robota!",
-    "celebrate_subtitle": "Sesja zakończona."
+    "celebrate_subtitle": "Sesja zakończona.",
+    "celebrate_words": "Słówka w sesji",
+    "celebrate_correct": "Poprawne odpowiedzi"
   },
   "errors": {
     "database_load": "Nie udało się wczytać bazy: {status}",

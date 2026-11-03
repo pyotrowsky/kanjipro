@@ -24,7 +24,10 @@ function engine(entries,mode='romaji'){
   const ctx={DB:{vocabulary},learningStats,
     dictionaryVocabId:v=>v.id,inputMode:()=>mode,formatTiming:n=>Number.isFinite(n)?(n/1000).toFixed(2)+' s':'—',
     medianMs:values=>{const sorted=values.filter(Number.isFinite).sort((a,b)=>a-b);if(!sorted.length)return null;const m=Math.floor(sorted.length/2);return sorted.length%2?sorted[m]:(sorted[m-1]+sorted[m])/2},
-    $:()=>progress,t:(key,values)=>key+':'+JSON.stringify(values)};
+    // Only the RSS progress element exists in this focused fixture. Dashboard
+    // metrics have their own IDs and must not overwrite the RSS status text.
+    $:selector=>selector==='#rssProgress'?progress:null,
+    t:(key,values)=>key+':'+JSON.stringify(values)};
   vm.runInNewContext(app.slice(start,end)+'\nthis.profile=wordRssProfile;this.baseline=personalRssBaseline;this.speed=rssSpeedCategory;this.render=renderRssProgress;',ctx);
   return {...ctx,progress}
 }

@@ -1,26 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300" role="img" aria-labelledby="title">
-<title id="title">Shiba Inu czyta książkę do nauki kanji</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 350" role="img" aria-labelledby="title">
+<title id="title">Ruda Shiba Inu w czerwonej bandanie uczy się kanji z książki</title>
 <defs>
-<linearGradient id="fur" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#ffce88"/><stop offset="1" stop-color="#e88839"/></linearGradient>
-<linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffdf6"/><stop offset="1" stop-color="#ffe5b6"/></linearGradient>
+  <linearGradient id="bodyFur" x1=".2" y1=".1" x2=".85" y2="1"><stop stop-color="#ffda8b"/><stop offset=".48" stop-color="#f6a64f"/><stop offset="1" stop-color="#dc7c32"/></linearGradient>
+  <linearGradient id="bookPage" x1="0" y1="0" x2=".5" y2="1"><stop stop-color="#fffefa"/><stop offset="1" stop-color="#ffe7c2"/></linearGradient>
+  <linearGradient id="scarf" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#f8774b"/><stop offset="1" stop-color="#bd4636"/></linearGradient>
 </defs>
-<circle cx="275" cy="72" r="55" fill="#ffe2b2" opacity=".75"/>
-<path d="M25 215q39-25 85-12t90-16 107 25" fill="none" stroke="#f3c38e" stroke-width="12" stroke-linecap="round" opacity=".5"/>
-<path d="M265 189q37-5 43 17t-26 31" fill="none" stroke="#be682e" stroke-width="23" stroke-linecap="round"/>
-<path d="M92 194Q72 145 117 123q66-32 132 5 39 25 19 71l-50 49H125Z" fill="url(#fur)" stroke="#93502c" stroke-width="6"/>
-<path d="M113 114 106 30q0-10 10-5l51 41m88 47 8-83q1-10-10-5l-50 41" fill="url(#fur)" stroke="#93502c" stroke-width="6" stroke-linejoin="round"/>
-<path d="m119 43 7 43 25-20m100-23-7 43-25-20" fill="#f4a49b"/>
-<path d="M88 127q-8-76 86-89 101-12 105 87-3 83-103 91Q91 215 88 127Z" fill="url(#fur)" stroke="#93502c" stroke-width="6"/>
-<path d="M100 133q16-17 38-5 26 22 38 20 12 2 38-20 22-12 38 5-8 54-76 65-67-10-76-65Z" fill="#fff1da"/>
-<path d="M130 123q9-10 20 0m51 0q11-10 20 0" fill="none" stroke="#6e3e2c" stroke-width="6" stroke-linecap="round"/>
-<path d="M165 146q11-7 23 0c-1 7-10 12-12 12s-11-5-11-12Z" fill="#54332b"/>
-<path d="M176 158v8q-11 15-20 2m20-2q11 15 20 2" fill="none" stroke="#54332b" stroke-width="4" stroke-linecap="round"/>
-<ellipse cx="119" cy="144" rx="11" ry="7" fill="#f6a68b" opacity=".8"/><ellipse cx="234" cy="144" rx="11" ry="7" fill="#f6a68b" opacity=".8"/>
-<path d="M113 182q58 38 126 0l-8 20q-51 33-110 0Z" fill="#c95538" stroke="#a84332" stroke-width="3"/>
-<path d="m163 195 13 27 17-27" fill="#e98b52" stroke="#a84332" stroke-width="3"/>
-<path d="M34 208q69-27 143 5 74-32 143-5v66q-75-24-143 8-74-32-143-8Z" fill="url(#paper)" stroke="#a3643a" stroke-width="6" stroke-linejoin="round"/>
-<path d="M177 215v64" fill="none" stroke="#b77a4b" stroke-width="4"/>
-<path d="M59 226q43-12 84 3m-84 13q40-7 80 5m75-18q40-12 81-2m-81 22q42-8 81-5" fill="none" stroke="#e4b987" stroke-width="4" stroke-linecap="round"/>
-<path d="M78 212q-20-8-19 12 1 18 24 17l17-17q5-17-22-12m196 0q20-8 19 12-1 18-24 17l-17-17q-5-17 22-12" fill="#fff1d4" stroke="#9c5c33" stroke-width="5" stroke-linejoin="round"/>
-<path d="M26 83q-5-6-11-5m18-9-2-8M317 103l10-5m-10 20 9 5" stroke="#f49449" stroke-width="6" stroke-linecap="round"/>
+<ellipse cx="195" cy="328" rx="160" ry="14" fill="#eabf94" opacity=".25"/>
+<!-- Large curled fluffy tail, bright orange outline and white inner swirl -->
+<path d="M123 257Q89 224 54 235Q20 245 23 282Q24 318 59 324Q100 329 125 294L137 262Z"
+  fill="url(#bodyFur)" stroke="#70412d" stroke-width="5.3" stroke-linejoin="round"/>
+<path d="M47 248Q29 268 40 290Q50 310 74 304Q100 295 105 276Q91 287 81 276Q74 267 87 253Q61 238 47 248Z" fill="#fff4dd"/>
+<path d="M79 264Q60 267 61 282Q65 297 82 289" fill="none" stroke="#f3bd73" stroke-width="11" stroke-linecap="round"/>
+<!-- Orange seated body and white bib -->
+<path d="M139 168Q193 150 249 175Q289 202 301 262Q302 317 259 322H121Q82 318 99 267Q104 205 139 168Z"
+  fill="url(#bodyFur)" stroke="#70412d" stroke-width="5.5" stroke-linejoin="round"/>
+<path d="M158 211Q192 235 235 208Q254 267 238 314H152Q130 276 158 211Z" fill="#fff5e2"/>
+<!-- Red printed bandana, like the earlier Shiba mockup -->
+<path d="M119 181Q187 209 261 181Q249 222 221 238Q201 236 186 257Q172 230 150 224Q129 209 119 181Z"
+  fill="url(#scarf)" stroke="#8b3e2d" stroke-width="4.2" stroke-linejoin="round"/>
+<path d="M135 193q7 4 9-2m19 16q6 5 11-1m21-5q8 4 12-4m22 10q7 4 10-3m-85 11q8 3 10-3m41 21q8 4 12-4"
+ fill="none" stroke="#fff3d5" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M186 212q-5-4-8 1m8-1q3-6 7-2m-7 2v7m46-23q-4-4-8 0m8 0q4-5 8 1m-8-1v8"
+ fill="none" stroke="#ffe9c9" stroke-width="3.3" stroke-linecap="round"/>
+<!-- Main mascot's face at Shiba-like round-body proportions -->
+<g transform="translate(66,-7) scale(1.08)">
+
+<g stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
+  <!-- Broad, unmistakable foxlike upright Shiba ears -->
+  <path d="M47 87Q39 60 33 18Q31 8 40 11Q64 14 91 51" fill="url(#fur)" stroke="#68412b" stroke-width="5"/>
+  <path d="M193 87Q201 60 207 18Q209 8 200 11Q176 14 149 51" fill="url(#fur)" stroke="#68412b" stroke-width="5"/>
+  <path d="M43 27Q57 34 76 59Q56 60 48 70Z" fill="#ffb5aa"/>
+  <path d="M197 27Q183 34 164 59Q184 60 192 70Z" fill="#ffb5aa"/>
+  <path d="M48 29Q53 40 58 52M192 29Q187 40 182 52" fill="none" stroke="#fff6d5" stroke-width="5"/>
+  <!-- Chunky round Shiba head and orange forehead -->
+  <path d="M22 111Q17 72 49 51Q78 31 120 34Q162 31 191 51Q223 72 218 111Q215 156 177 170Q152 180 120 180Q88 180 63 170Q25 156 22 111Z" fill="url(#fur)" stroke="#68412b" stroke-width="5.2"/>
+  <path d="M30 109Q45 97 62 103Q85 111 93 124Q120 136 147 124Q155 111 178 103Q195 97 210 109Q210 146 181 162Q160 177 120 177Q80 177 59 162Q30 146 30 109Z" fill="url(#cream)"/>
+  <path d="M40 118Q54 110 66 120Q70 137 61 150Q46 142 40 118Z" fill="#fff9ee" opacity=".8"/>
+  <path d="M200 118Q186 110 174 120Q170 137 179 150Q194 142 200 118Z" fill="#fff9ee" opacity=".8"/>
+  <!-- Shiba eyebrow spots, happy crescent eyes, rosy cheeks -->
+  <ellipse cx="83" cy="77" rx="11.5" ry="5.5" transform="rotate(-14 83 77)" fill="#fff3d8"/>
+  <ellipse cx="157" cy="77" rx="11.5" ry="5.5" transform="rotate(14 157 77)" fill="#fff3d8"/>
+  <path d="M65 106Q80 90 96 105M144 105Q160 90 175 106" fill="none" stroke="#5c382a" stroke-width="6.5"/>
+  <ellipse cx="53" cy="123" rx="12.5" ry="7" fill="#faaf95" opacity=".52"/>
+  <ellipse cx="187" cy="123" rx="12.5" ry="7" fill="#faaf95" opacity=".52"/>
+  <!-- Dark heart nose, smiling cheeks and visible tongue -->
+  <path d="M107 117Q120 109 133 117Q134 124 120 129Q106 124 107 117Z" fill="#563329" stroke="#4d2c24" stroke-width="2"/>
+  <path d="M120 129V137M120 137Q105 154 92 134M120 137Q135 154 148 134" fill="none" stroke="#563329" stroke-width="5.2"/>
+  <path d="M109 142Q120 153 131 142Q136 155 127 166Q120 174 113 166Q104 155 109 142Z" fill="url(#tongue)" stroke="#723c31" stroke-width="3"/>
+  <path d="M114 159Q120 156 126 159" fill="none" stroke="#e15b56" stroke-width="2.6"/>
+  <!-- Comically fluffy paws over the bottom edge -->
+  <path d="M52 163Q40 162 36 173Q30 189 45 193L77 193Q94 187 82 170Q74 162 65 163Z" fill="url(#cream)" stroke="#68412b" stroke-width="4.5"/>
+  <path d="M188 163Q200 162 204 173Q210 189 195 193L163 193Q146 187 158 170Q166 162 175 163Z" fill="url(#cream)" stroke="#68412b" stroke-width="4.5"/>
+  <path d="M56 176v9M66 177v9M184 176v9M174 177v9" fill="none" stroke="#c89068" stroke-width="2.7"/>
+</g></g>
+<!-- Forearms folded around an open textbook -->
+<path d="M119 234Q98 228 91 244Q85 269 114 277L137 274Q153 252 135 239Z" fill="#fff0d3" stroke="#70412d" stroke-width="4.5"/>
+<path d="M271 234Q292 228 299 244Q305 269 276 277L253 274Q237 252 255 239Z" fill="#fff0d3" stroke="#70412d" stroke-width="4.5"/>
+<!-- Open book with gently curved ivory pages and warm spine -->
+<path d="M45 269Q113 250 195 280Q277 250 345 269V323Q274 304 195 338Q117 304 45 323Z"
+  fill="url(#bookPage)" stroke="#a46d45" stroke-width="5" stroke-linejoin="round"/>
+<path d="M195 280V336" stroke="#b38563" stroke-width="4" fill="none"/>
+<path d="M62 281Q113 272 166 288M62 295Q113 285 166 301M62 310Q118 298 166 314M224 288Q276 272 329 281M224 301Q279 285 329 295M224 314Q279 298 329 310"
+  fill="none" stroke="#e4bc8c" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M91 272Q101 265 120 272Q129 279 121 292Q103 299 94 283Z"
+ fill="#fff3db" stroke="#a46d45" stroke-width="3.5"/>
+<path d="M299 272Q289 265 270 272Q261 279 269 292Q287 299 296 283Z"
+ fill="#fff3db" stroke="#a46d45" stroke-width="3.5"/>
+<text x="195" y="312" font-size="22" fill="#d78848" text-anchor="middle" font-family="sans-serif">✿</text>
+<path d="M18 176l-8-8m20-6-1-12M354 158l11-8m-6 21 13 1" fill="none" stroke="#f1a45a" stroke-width="5" stroke-linecap="round"/>
 </svg>

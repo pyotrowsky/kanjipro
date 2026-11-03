@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wsjj-kanji-pro-3.22-1';
+const CACHE_NAME = 'wsjj-kanji-pro-3.23-1';
 const BASE = new URL('./', self.location.href);
 const FRESH_PATHS = new Set([
   new URL('./data/kanji_quiz_database.json', BASE).pathname,
@@ -11,6 +11,7 @@ const FRESH_PATHS = new Set([
   new URL('./css/styles.css', BASE).pathname,
   new URL('./css/shiba-theme.css', BASE).pathname,
   new URL('./css/shiba-dashboard.css', BASE).pathname,
+  new URL('./css/shiba-approved.css', BASE).pathname,
   new URL('./manifest.webmanifest', BASE).pathname
 ]);
 function cached(request){return caches.match(request,{ignoreSearch:true})}
@@ -20,10 +21,14 @@ const PRECACHE = [
   './css/styles.css',
   './css/shiba-theme.css',
   './css/shiba-dashboard.css',
+  './css/shiba-approved.css',
+  './icons/japan-banner.svg',
   './icons/shiba-face.svg',
   './icons/shiba-study.svg',
   './icons/shiba-peek.svg',
   './icons/shiba-cheer.svg',
+  './icons/shiba-paws.svg',
+  './icons/shiba-dance.svg',
   './js/app.js',
   './js/history-merge.js',
   './js/firebase-sync.js',

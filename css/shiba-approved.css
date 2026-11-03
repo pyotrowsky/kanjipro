@@ -1,0 +1,81 @@
+/* Kanji.pro 3.23 — approved Shiba illustration set and Japanese landscape.
+   Purely decorative: never manipulates the answer field, focus, scroll or study stats. */
+
+/* Classic theme stays exactly as before, without the new artwork. */
+.shiba-scene,.shiba-history-dance{display:none}
+:root[data-theme="shiba"] #setup>.shiba-scene{
+  display:block;position:relative;isolation:isolate;
+  height:clamp(136px,17vw,205px);
+  padding:0!important;margin:0 0 -33px;overflow:visible;
+  border:1px solid #f0d2bd!important;border-bottom:0!important;
+  border-radius:24px 24px 0 0;
+  background:#ffecdf url('../icons/japan-banner.svg') center 54%/cover no-repeat!important;
+  box-shadow:0 9px 20px rgba(126,67,37,.065)!important
+}
+:root[data-theme="shiba"] #setup>.shiba-scene::after{
+  content:"";position:absolute;bottom:0;left:0;right:0;height:28px;
+  background:linear-gradient(180deg,transparent,rgba(255,247,238,.65));pointer-events:none
+}
+:root[data-theme="shiba"] .shiba-card-paws{
+  position:absolute;z-index:4;
+  right:clamp(16px,8%,105px);bottom:-4px;
+  display:block;width:clamp(115px,17vw,195px);
+  height:auto;max-height:100%;object-fit:contain;
+  filter:drop-shadow(0 3px 3px rgba(90,45,20,.12));
+  pointer-events:none;user-select:none
+}
+/* The paws overlap the hero's upper rim; Shiba face remains completely visible. */
+:root[data-theme="shiba"] #setup>.shiba-hero-dashboard{
+  position:relative;z-index:1;
+  min-height:154px;margin:0;
+  border-radius:0 0 23px 23px;
+  border-top:1px solid rgba(232,196,165,.8);
+  padding:27px 25px 20px;
+  background:linear-gradient(112deg,#fff9f0,#ffe6ce);
+  overflow:visible
+}
+:root[data-theme="shiba"] .shiba-hero-dashboard .shiba-hero-copy{max-width:70%}
+:root[data-theme="shiba"] .shiba-hero-dashboard::after{display:none}
+/* Shiba wearing a patterned bandana stays in the quiz as a small companion. */
+:root[data-theme="shiba"] #quiz .shiba-quiz-accent{
+  width:clamp(78px,11vw,111px);height:auto;max-height:110px;
+  top:40px;right:16px;object-fit:contain;opacity:.94;pointer-events:none;
+  filter:drop-shadow(0 2px 3px rgba(127,69,32,.09))
+}
+/* The cheerful scarf-wearing Shiba is fully shown in the finish card. */
+:root[data-theme="shiba"] .shiba-finish-celebration{
+  bottom:0;right:6px;width:auto;height:94%;max-height:232px;
+  object-fit:contain;object-position:bottom;
+  filter:drop-shadow(0 3px 4px rgba(117,62,33,.06))
+}
+:root[data-theme="shiba"] .sidebar-mascot img{
+  width:auto;max-width:96%;height:auto;max-height:258px;object-fit:contain;
+  filter:drop-shadow(0 5px 6px rgba(117,62,33,.07))
+}
+/* The dancing Shiba is an additional, small illustration in History. */
+.history-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.history-head>div{min-width:0;flex:1}
+:root[data-theme="shiba"] .shiba-history-dance{
+  display:block;flex:0 0 auto;width:clamp(80px,14%,124px);height:auto;max-height:128px;
+  margin:-10px 5px 0 0;object-fit:contain;pointer-events:none
+}
+@media(max-width:680px){
+  :root[data-theme="shiba"] #setup>.shiba-scene{height:125px;margin-bottom:-28px;background-position:53% 56%}
+  :root[data-theme="shiba"] .shiba-card-paws{width:112px;right:13px;bottom:-4px}
+  :root[data-theme="shiba"] #setup>.shiba-hero-dashboard{
+    min-height:143px;padding:22px 14px 17px
+  }
+  :root[data-theme="shiba"] .shiba-hero-dashboard .shiba-hero-copy{max-width:72%}
+  :root[data-theme="shiba"] #quiz .shiba-quiz-accent{width:75px;right:10px;top:35px}
+  :root[data-theme="shiba"] .shiba-finish-celebration{height:84%;max-height:178px;right:0}
+  :root[data-theme="shiba"] .shiba-history-dance{width:84px;max-height:98px}
+}
+@media(max-width:370px){
+  :root[data-theme="shiba"] .shiba-card-paws{width:102px;right:7px}
+  :root[data-theme="shiba"] .shiba-hero-dashboard .shiba-hero-copy{max-width:72%}
+  :root[data-theme="shiba"] .shiba-hero-dashboard h2{font-size:21px}
+}
+@media(prefers-reduced-motion:reduce){
+ :root[data-theme="shiba"] .shiba-card-paws,
+ :root[data-theme="shiba"] .shiba-history-dance{animation:none}
+}

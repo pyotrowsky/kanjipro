@@ -13,11 +13,12 @@
 <meta name="format-detection" content="telephone=no">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="./icons/shiba-face.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=3.22">
-<link rel="stylesheet" href="./css/shiba-theme.css?v=3.22">
-<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.22"></head><body><main class="shell">
+<link rel="stylesheet" href="./css/styles.css?v=3.23">
+<link rel="stylesheet" href="./css/shiba-theme.css?v=3.23">
+<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.23"></head><body><main class="shell">
 <aside class="desktop-sidebar" aria-label="Menu boczne">
   <div class="sidebar-brand"><img src="./icons/shiba-face.svg" alt="" width="56" height="56"><span>Kanji<span class="brand-dot">.pro</span></span></div>
   <nav class="sidebar-navigation" aria-label="Nawigacja">
@@ -29,12 +30,15 @@
   <div class="sidebar-mascot" aria-hidden="true"><span>今日もがんばろう！</span><img src="./icons/shiba-study.svg" width="220" height="250" alt=""></div>
 </aside>
 <div class="main-workspace">
-<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.22</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.23</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <nav class="app-nav" aria-label="Główna nawigacja" data-i18n-aria="dictionary.nav_aria">
   <button id="navPractice" class="app-nav-btn active" type="button" data-i18n="dictionary.nav_practice">Ćwicz</button>
   <button id="navDictionary" class="app-nav-btn" type="button" data-i18n="dictionary.nav_dictionary">Słownik</button>
 </nav>
 <section id="setup" class="panel stack">
+  <div class="shiba-scene" aria-hidden="true">
+    <img class="shiba-card-paws" src="./icons/shiba-paws.svg" width="180" height="126" alt="" loading="eager">
+  </div>
   <div class="shiba-hero shiba-hero-dashboard" aria-label="Motyw Shiba Inu">
     <div class="shiba-hero-copy">
       <span class="shiba-hero-kicker" data-i18n="setup.shiba_kicker">🐾 Twój trening japońskiego</span>
@@ -42,7 +46,6 @@
       <p data-i18n="setup.shiba_subtitle">Poćwicz słówka, utrwal czytanie i znaczenie. Aplikacja dobierze materiał do Twojego tempa.</p>
       <div class="shiba-hero-jp" lang="ja">今日もがんばろう！</div>
     </div>
-    <img src="./icons/shiba-peek.svg" width="210" height="165" alt="" aria-hidden="true" decoding="async">
   </div>
   <div>
     <div class="group-head"><div class="section-title" style="margin:0" data-i18n="setup.chapters_title">Rozdziały</div><div class="actions"><button type="button" id="lessonToggle" class="mini-btn">Zaznacz wszystko</button></div></div>
@@ -131,7 +134,7 @@
   </div>
 </section>
 <section id="history" class="panel history-screen hidden">
-  <div class="history-head"><div><h2 data-i18n="history.title">Historia nauki</h2><p data-i18n="history.subtitle">Twoje postępy ze wszystkich urządzeń zsynchronizowanych przez Firebase.</p></div></div>
+  <div class="history-head"><div><h2 data-i18n="history.title">Historia nauki</h2><p data-i18n="history.subtitle">Twoje postępy ze wszystkich urządzeń zsynchronizowanych przez Firebase.</p></div><img class="shiba-history-dance" src="./icons/shiba-dance.svg" width="126" height="130" alt="" aria-hidden="true" loading="lazy"></div>
   <div id="historyStats" class="home-dashboard-stats" aria-label="Łączne statystyki nauki">
     <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Przećwiczone słówka</span><strong id="historyWords">0</strong></div></div>
     <div class="home-stat-card"><span class="home-stat-icon home-stat-good" aria-hidden="true">✓</span><div><span class="home-stat-label" data-i18n="stats.accuracy">Poprawność</span><strong id="historyAccuracy">—</strong></div></div>
@@ -145,7 +148,7 @@
   <div id="reviewBankList" class="review-bank-list"></div>
   <div class="review-bank-actions"><button id="reviewBankStart" type="button" class="primary" data-i18n="review.practice">Ćwicz błędy</button></div>
 </section>
-<section id="quiz" class="panel hidden"><img class="shiba-quiz-accent" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="55" height="55"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div class="quiz-head-meta"><span id="vocabTimer" class="vocab-timer hidden" aria-live="off"></span><div id="progress" class="counter"></div></div></div><div id="answerNotice" class="answer-notice hidden"></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div><div id="promptHint" class="prompt-hint hidden"></div></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" enterkeyhint="go" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><button id="submit" class="primary" data-i18n="quiz.check">Sprawdź</button></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span data-i18n="quiz.correct_stat">poprawne</span></div><div class="stat"><b id="wrong">0</b><span data-i18n="quiz.wrong_stat">błędy</span></div><div class="stat"><b id="left">0</b><span data-i18n="quiz.left_stat">w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost" data-i18n="quiz.back">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px" data-i18n-html="quiz.enter_hint_html">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
+<section id="quiz" class="panel hidden"><img class="shiba-quiz-accent" src="./icons/shiba-peek.svg" alt="" aria-hidden="true" width="55" height="55"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div class="quiz-head-meta"><span id="vocabTimer" class="vocab-timer hidden" aria-live="off"></span><div id="progress" class="counter"></div></div></div><div id="answerNotice" class="answer-notice hidden"></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div><div id="promptHint" class="prompt-hint hidden"></div></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" enterkeyhint="go" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><button id="submit" class="primary" data-i18n="quiz.check">Sprawdź</button></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span data-i18n="quiz.correct_stat">poprawne</span></div><div class="stat"><b id="wrong">0</b><span data-i18n="quiz.wrong_stat">błędy</span></div><div class="stat"><b id="left">0</b><span data-i18n="quiz.left_stat">w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost" data-i18n="quiz.back">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px" data-i18n-html="quiz.enter_hint_html">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
 <section id="finished" class="panel finish hidden"><div class="finish-celebration">
   <div class="finish-celebration-copy"><div class="finish-check" aria-hidden="true">✓</div><div class="finish-headline" data-i18n="finish.celebrate_title">Dobra robota!</div>
   <p class="finish-japanese" lang="ja">おつかれさま！</p><p class="finish-subtitle" data-i18n="finish.celebrate_subtitle">Sesja zakończona.</p>
@@ -250,5 +253,5 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=3.22"></script>
+<script type="module" src="./js/app.js?v=3.23"></script>
 </body></html>

@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=3.17"></head><body><main class="shell">
-<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.17</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<link rel="stylesheet" href="./css/styles.css?v=3.18"></head><body><main class="shell">
+<div class="brand"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.18</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <nav class="app-nav" aria-label="Główna nawigacja" data-i18n-aria="dictionary.nav_aria">
   <button id="navPractice" class="app-nav-btn active" type="button" data-i18n="dictionary.nav_practice">Ćwicz</button>
   <button id="navDictionary" class="app-nav-btn" type="button" data-i18n="dictionary.nav_dictionary">Słownik</button>
@@ -54,7 +54,11 @@
   <button id="start" class="primary" data-i18n="setup.start">START</button>
   <details class="selector-details session-help">
     <summary><span class="details-title" data-i18n="setup.session_help_title">ⓘ Jak działa sesja?</span></summary>
-    <div class="selector-details-body"><div class="lesson-note" data-i18n="setup.start_note">Przy limicie częściej trafiają nowe i trudniejsze słówka, a aktywne błędy mają zarezerwowane miejsce w kolejnych sesjach. ON i KUN pojawiają się po jednym pytaniu na wybrane kanji.</div></div>
+    <div class="selector-details-body">
+      <div class="lesson-note" data-i18n="setup.start_note">Przy limicie częściej trafiają nowe i trudniejsze słówka, a aktywne błędy mają zarezerwowane miejsce w kolejnych sesjach. ON i KUN pojawiają się po jednym pytaniu na wybrane kanji.</div>
+      <div class="lesson-note" data-i18n-html="setup.rss_help_html"><strong>Czym jest RSS?</strong> To wskaźnik tempa rozpoznawania słówek: czas do pierwszego wpisanego znaku plus pozostały czas odpowiedzi podzielony przez długość odczytu w morach (japońskich jednostkach rytmicznych). Im niższy RSS, tym płynniejsza odpowiedź. Liczymy go tylko dla poprawnych odpowiedzi na słówka, oddzielnie dla Romaji i IME.</div>
+      <div class="lesson-note" data-i18n-html="setup.rss_adaptive_html"><strong>Jak RSS wpływa na sesję?</strong> Po co najmniej 3 poprawnych pomiarach danego słówka z 2 sesji oraz kalibracji na minimum 8 słówkach Kanji.pro oznacza je jako Szybkie, Typowe lub Wolne. W sesji z limitem może zarezerwować do 20% miejsc dla wolniejszych słówek. Bez wystarczających danych pokazuje „Brak danych”.</div>
+    </div>
   </details>
   <details id="installHelp" class="install-help">
     <summary data-i18n="install.summary">📱 Zainstaluj na urządzeniu mobilnym</summary>
@@ -177,5 +181,5 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=3.17"></script>
+<script type="module" src="./js/app.js?v=3.18"></script>
 </body></html>

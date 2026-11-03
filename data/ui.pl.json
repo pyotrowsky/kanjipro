@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.17",
+    "badge": "3.18",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -28,7 +28,9 @@
     "session_help_title": "ⓘ Jak działa sesja?",
     "choose_whole_book": "Cały Doki {book}",
     "kanji_note_top": "Wybierz kanji do ćwiczenia.",
-    "kanji_note_bottom": "Słówka są dobierane do zaznaczonych kanji."
+    "kanji_note_bottom": "Słówka są dobierane do zaznaczonych kanji.",
+    "rss_help_html": "<strong>Czym jest RSS?</strong> To wskaźnik tempa rozpoznawania słówek: czas do pierwszego wpisanego znaku plus pozostały czas odpowiedzi podzielony przez długość odczytu w morach (japońskich jednostkach rytmicznych). Im niższy RSS, tym płynniejsza odpowiedź. Liczymy go tylko dla poprawnych odpowiedzi na słówka, oddzielnie dla Romaji i IME.",
+    "rss_adaptive_html": "<strong>Jak RSS wpływa na sesję?</strong> Po co najmniej 3 poprawnych pomiarach danego słówka z 2 sesji oraz kalibracji na minimum 8 słówkach Kanji.pro oznacza je jako Szybkie, Typowe lub Wolne. W sesji z limitem może zarezerwować do 20% miejsc dla wolniejszych słówek. Bez wystarczających danych pokazuje „Brak danych”."
   },
   "furigana": {
     "title": "Furigana",

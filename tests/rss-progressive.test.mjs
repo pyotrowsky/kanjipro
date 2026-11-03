@@ -71,10 +71,10 @@ test('old histories without RSS remain unmeasurable; no times are fabricated',()
   assert.equal(x.baseline().median_ms,null);
   assert.equal(x.profile(x.learningStats.one,'romaji').eligible,false)
 });
-test('session help, dictionary, and setup all explain progressive calibration',()=>{
+test('session help and dictionary explain calibration without duplicate setup RSS banner',()=>{
   assert.match(ui.setup.rss_adaptive_html,/pierwszej poprawnej odpowiedzi/i);
   assert.match(ui.setup.rss_adaptive_html,/8 różnych/i);
   assert.match(ui.dictionary.rss_preliminary_note,/2 sesjach/i);
-  assert.match(html,/id="rssProgress"/);
+  assert.doesNotMatch(html,/id="rssProgress"/);
   assert.match(app,/input\.addEventListener\('beforeinput'/);
 });

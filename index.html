@@ -84,11 +84,6 @@
       <div class="lesson-note" data-i18n-html="setup.rss_adaptive_html"><strong>Kiedy widać wynik?</strong> Wstępny RSS pojawia się już po pierwszej poprawnej odpowiedzi na słówko. Od 8 różnych zmierzonych słówek w danym trybie Kanji.pro porównuje je z Twoim osobistym tempem i oznacza jako Szybkie, Typowe lub Wolne. Po 3 poprawnych pomiarach słówka z co najmniej 2 sesji jego wynik jest bardziej wiarygodny. W sesjach z limitem do 20% miejsc może przypadać na wolniejsze słówka.</div>
     </div>
   </details>
-  <div class="home-dashboard-stats" id="homeStats" aria-label="Łączne statystyki nauki">
-    <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Przećwiczone słówka</span><strong id="homeWords">0</strong><small data-i18n="stats.words_note">Różne słówka</small></div></div>
-    <div class="home-stat-card"><span class="home-stat-icon home-stat-good" aria-hidden="true">✓</span><div><span class="home-stat-label" data-i18n="stats.accuracy">Poprawność</span><strong id="homeAccuracy">—</strong><small id="homeAccuracyNote" data-i18n="stats.accuracy_note">Ze wszystkich odpowiedzi na słówka</small></div></div>
-    <div class="home-stat-card"><span class="home-stat-icon home-stat-rss" aria-hidden="true">ϟ</span><div><span class="home-stat-label" data-i18n="stats.rss">Mediana RSS</span><strong id="homeRss">—</strong><small id="homeRssNote" data-i18n="stats.rss_note">Oddzielnie dla Romaji i IME</small></div></div>
-  </div>
   <details id="installHelp" class="install-help">
     <summary data-i18n="install.summary">📱 Zainstaluj na urządzeniu mobilnym</summary>
     <div class="install-steps">
@@ -97,6 +92,12 @@
     </div>
     <div id="installedNote" class="installed-note hidden" data-i18n="install.installed">✓ Aplikacja jest już uruchomiona jako aplikacja.</div>
   </details>
+  <div class="home-dashboard-stats" id="homeStats" aria-label="Łączne statystyki nauki">
+    <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Przećwiczone słówka</span><strong id="homeWords">0</strong><small data-i18n="stats.words_note">Różne słówka</small></div></div>
+    <div class="home-stat-card"><span class="home-stat-icon home-stat-good" aria-hidden="true">✓</span><div><span class="home-stat-label" data-i18n="stats.accuracy">Poprawność</span><strong id="homeAccuracy">—</strong><small id="homeAccuracyNote" data-i18n="stats.accuracy_note">Ze wszystkich odpowiedzi na słówka</small></div></div>
+    <div class="home-stat-card"><span class="home-stat-icon home-stat-rss" aria-hidden="true">ϟ</span><div><span class="home-stat-label" data-i18n="stats.rss">Mediana RSS</span><strong id="homeRss">—</strong><small id="homeRssNote" data-i18n="stats.rss_note">Oddzielnie dla Romaji i IME</small></div></div>
+  </div>
+
 </section>
 <section id="dictionary" class="panel stack hidden">
   <div id="dictionaryBrowse">
@@ -147,7 +148,12 @@
 <section id="quiz" class="panel hidden"><img class="shiba-quiz-accent" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="55" height="55"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div class="quiz-head-meta"><span id="vocabTimer" class="vocab-timer hidden" aria-live="off"></span><div id="progress" class="counter"></div></div></div><div id="answerNotice" class="answer-notice hidden"></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div><div id="promptHint" class="prompt-hint hidden"></div></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" enterkeyhint="go" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><button id="submit" class="primary" data-i18n="quiz.check">Sprawdź</button></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span data-i18n="quiz.correct_stat">poprawne</span></div><div class="stat"><b id="wrong">0</b><span data-i18n="quiz.wrong_stat">błędy</span></div><div class="stat"><b id="left">0</b><span data-i18n="quiz.left_stat">w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost" data-i18n="quiz.back">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px" data-i18n-html="quiz.enter_hint_html">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
 <section id="finished" class="panel finish hidden"><div class="finish-celebration">
   <div class="finish-celebration-copy"><div class="finish-check" aria-hidden="true">✓</div><div class="finish-headline" data-i18n="finish.celebrate_title">Dobra robota!</div>
-  <p class="finish-japanese" lang="ja">おつかれさま！</p><p class="finish-subtitle" data-i18n="finish.celebrate_subtitle">Sesja zakończona.</p></div>
+  <p class="finish-japanese" lang="ja">おつかれさま！</p><p class="finish-subtitle" data-i18n="finish.celebrate_subtitle">Sesja zakończona.</p>
+  <div class="finish-mini-results">
+    <div><span data-i18n="finish.celebrate_words">Słówka w sesji</span><strong id="finishVocabCount">0</strong></div>
+    <div><span data-i18n="finish.celebrate_correct">Poprawne odpowiedzi</span><strong id="finishSessionAccuracy">0</strong></div>
+    <div><span data-i18n="finish.median_rss">Mediana RSS</span><strong id="finishSessionRss">—</strong></div>
+  </div></div>
   <img class="shiba-finish-celebration" src="./icons/shiba-cheer.svg" alt="" aria-hidden="true" width="230" height="270">
 </div><div id="finishTitle" class="quiz-type" data-i18n="finish.title">Koniec sesji</div><div id="finalScore" class="big">100%</div><div class="stats finish-stats"><div class="stat"><b id="finalCorrect">0</b><span data-i18n="finish.correct_stat">poprawne</span></div><div class="stat"><b id="finalWrong">0</b><span data-i18n="finish.wrong_stat">błędy</span></div><div class="stat"><b id="finalAttempts">0</b><span data-i18n="finish.attempts_stat">próby</span></div></div><section id="vocabTimingSummary" class="finish-timing hidden"><div class="finish-timing-title" data-i18n="finish.vocab_timing_title">Szybkość czytania słówek</div><div class="finish-timing-grid"><div><b id="vocabMedianRecognition">—</b><span data-i18n="finish.median_recognition">Mediana do pierwszego wpisu</span></div><div><b id="vocabMedianAnswer">—</b><span data-i18n="finish.median_answer">Mediana do odpowiedzi</span></div><div><b id="vocabMedianRss">—</b><span data-i18n="finish.median_rss">Mediana RSS</span></div><div><b id="vocabFastCount">0/0</b><span data-i18n="finish.fast_correct">Poprawne w ≤ 3 s</span></div></div><div class="finish-timing-note" data-i18n="finish.timing_note">Tylko słówka. Mediany liczone dla poprawnych odpowiedzi, bez ON/KUN.</div></section><details id="mistakesDetails" class="mistakes-summary hidden"><summary><span data-i18n="finish.mistakes_title">Do powtórki</span><span id="mistakesCount" class="mistakes-count">0</span></summary><div id="mistakesList" class="mistakes-list"></div></details><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button id="again" class="primary" data-i18n="finish.again">Powtórz sesję</button><button id="settings" class="ghost" data-i18n="finish.settings">Ustawienia</button></div></section>
 </div>

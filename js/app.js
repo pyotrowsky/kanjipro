@@ -316,6 +316,7 @@ function personalRssBaseline(mode=inputMode()){
   return {mode,words:values.length,reliable_words:reliableWords,ready:values.length>=RSS_BASELINE_MIN_WORDS,
     median_ms:quantile(values,.5),fast_cutoff_ms:quantile(values,.25),slow_cutoff_ms:quantile(values,.75)}
 }
+function formatDashboardRss(ms){return Number.isFinite(ms)?Math.round(ms)+' ms':'—'}
 function globalVocabularySummary(){
   // Match the *actual* dictionary IDs; ON/KUN records and duplicate vocabulary
   // entries must never inflate the global accuracy/word totals.
@@ -336,7 +337,7 @@ function renderHomeStats(){
   const number=new Intl.NumberFormat('pl-PL');
   for(const id of ['#homeWords','#historyWords']){const el=$(id);if(el)el.textContent=number.format(value.practiced)}
   for(const id of ['#homeAccuracy','#historyAccuracy']){const el=$(id);if(el)el.textContent=value.accuracy===null?'—':value.accuracy+'%'}
-  for(const id of ['#homeRss','#historyRss']){const el=$(id);if(el)el.textContent=formatTiming(value.rss_ms)}
+  for(const id of ['#homeRss','#historyRss']){const el=$(id);if(el)el.textContent=formatDashboardRss(value.rss_ms)}
   const accNote=$('#homeAccuracyNote');
   if(accNote)accNote.textContent=t('stats.accuracy_detail',{correct:number.format(value.correct),reviews:number.format(value.reviews)});
   const rssNote=$('#homeRssNote');
@@ -1110,7 +1111,7 @@ function showFinish(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('h
   const words=$('#finishVocabCount'),accurate=$('#finishSessionAccuracy'),rss=$('#finishSessionRss');
   if(words)words.textContent=String(sessionLearningRecordedIds.size);
   if(accurate)accurate.textContent=stats.correct+' ('+acc+'%)';
-  if(rss)rss.textContent=formatTiming(medianMs(sessionVocabTiming.filter(x=>x.correct).map(x=>x.rss_ms)));
+  if(rss)rss.textContent=formatDashboardRss(medianMs(sessionVocabTiming.filter(x=>x.correct).map(x=>x.rss_ms)));
   if(firebaseSync?.isConnected())void firebaseSync.sync()}
 function renderVocabTimingSummary(){
   const panel=$('#vocabTimingSummary');

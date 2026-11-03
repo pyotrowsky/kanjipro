@@ -26,7 +26,7 @@
     <button id="sidePractice" type="button" class="side-nav-item active" aria-current="page"><span class="side-nav-icon" aria-hidden="true">⌂</span><span data-i18n="sidebar.practice">Nauka</span></button>
     <button id="sideHistory" type="button" class="side-nav-item"><span class="side-nav-icon" aria-hidden="true">▥</span><span data-i18n="sidebar.history">Historia</span></button>
     <button id="sideDictionary" type="button" class="side-nav-item"><span class="side-nav-icon" aria-hidden="true">⌕</span><span data-i18n="sidebar.dictionary">Słownik</span></button>
-    <button id="sideSettings" type="button" class="side-nav-item"><span class="side-nav-icon" aria-hidden="true">⚙</span><span data-i18n="sidebar.settings">Ustawienia</span></button>
+    <button id="sideSettings" type="button" class="side-nav-item"><span class="side-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.4" fill="var(--card)"/><circle cx="15" cy="17" r="2.4" fill="var(--card)"/></svg></span><span data-i18n="sidebar.settings">Ustawienia</span></button>
   </nav>
   <div class="sidebar-mascot" aria-hidden="true"><span>今日もがんばろう！</span><img src="./icons/shiba-study.svg" width="220" height="250" alt=""></div>
 </aside>
@@ -78,7 +78,7 @@
   <div><label class="section-title" data-i18n="setup.practice_title">Co ćwiczymy?</label><div class="modes"><label class="mode"><input type="checkbox" value="onyomi"><span data-i18n="setup.mode_on">ON</span></label><label class="mode"><input type="checkbox" value="kunyomi"><span data-i18n="setup.mode_kun">KUN</span></label><label class="mode"><input type="checkbox" value="vocabulary" checked><span data-i18n="setup.mode_vocab">Słówka</span></label></div></div>
   <div class="limit-box"><div class="section-title" data-i18n="input.title">Wpisywanie odpowiedzi</div><div class="limit-row"><label class="choice"><input type="radio" name="inputMode" value="romaji" checked><span data-i18n="input.romaji">Romaji → hiragana</span></label><label class="choice"><input type="radio" name="inputMode" value="ime"><span data-i18n="input.ime">Japońskie IME</span></label></div><div id="inputModeHelp" class="lesson-note input-mode-note" data-i18n-html="input.help_romaji_html">np. <b>gakusei</b> → <b>がくせい</b></div></div>
   <div class="limit-box"><div class="section-title" data-i18n="vocab.title">Słówka w sesji</div><div class="limit-row"><label class="choice"><input type="radio" name="vocabLimitMode" value="all" checked><span data-i18n="vocab.all">Wszystkie</span></label><label class="choice"><input type="radio" name="vocabLimitMode" value="limit"><span data-i18n="vocab.limit">Ogranicz do</span></label><input id="vocabLimit" class="limit-number" type="number" min="1" step="1" value="40" disabled></div><div id="sessionPreview" class="session-preview"></div></div>
-  <div id="rssProgress" class="rss-progress" role="status" aria-live="polite" data-i18n="setup.rss_progress_none">RSS: po pierwszym poprawnym odczycie słówka zobaczysz tutaj wstępną medianę.</div>
+  
   <button id="start" class="primary" data-i18n="setup.start">START</button>
   <details class="selector-details session-help">
     <summary><span class="details-title" data-i18n="setup.session_help_title">ⓘ Jak działa sesja?</span></summary>

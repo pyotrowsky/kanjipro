@@ -1,5 +1,5 @@
 import {createFirebaseSync} from './firebase-sync.js';
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.16', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.17', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -93,7 +93,7 @@ function initExampleFuriganaSettings(){
 }
 initExampleFuriganaSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=3.16', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=3.17', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictRssSort=$('#dictRssSort'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set(),sessionVocabTiming=[],sessionRssId='';
@@ -849,7 +849,7 @@ function cleanRecordObject(value){if(!value||typeof value!=='object'||Array.isAr
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
-function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.16',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),session_prefs:loadSessionPrefs()}}}}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.17',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),session_prefs:loadSessionPrefs()}}}}
 function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
 async function importLearningData(file){
   if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
@@ -941,7 +941,37 @@ function startReview(){hideAnswerNotice();const items=reviewQuestions();if(!item
 function restartSession(){if(sessionKind==='review'){if(reviewQuestions().length)startReview();else showSetupScreen()}else if(sessionKind==='dictionary'&&Number.isInteger(dictionaryPracticeKanjiIndex)){startDictionaryKanjiPractice(dictionaryPracticeKanjiIndex)}else start()}
 function finishBack(){if(sessionKind==='review'&&reviewQuestions().length)showReviewBank();else if(sessionKind==='dictionary')returnToDictionaryPracticeSource();else showSetupScreen()}
 function buildQueue(){const modes=selectedModes(),r=buildReadingPools();let v=buildVocabPool().slice(),q=[];if(document.querySelector('input[name="vocabLimitMode"]:checked')?.value==='limit')v=weightedVocabSample(v,desiredVocabCount(v.length));if(modes.includes('onyomi'))q.push(...r.on);if(modes.includes('kunyomi'))q.push(...r.kun);if(modes.includes('vocabulary'))q.push(...v);return shuffle(q.map(x=>({...x})))}
-function focusAnswerField(){try{input.focus({preventScroll:true})}catch{input.focus()}if(document.activeElement!==input)requestAnimationFrame(()=>{try{input.focus({preventScroll:true})}catch{input.focus()}})}
+// iPadOS Safari can scroll the whole page away from a focused text field,
+// particularly when a hardware keyboard is attached and the value changes.
+// Restore the *field's* visibility only after an unexpected browser scroll;
+// do not pin the screen continuously or interfere with manual scrolling.
+const IPADOS_WEBKIT=/iPad|iPhone|iPod/.test(navigator.userAgent)||
+  (navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+let answerVisibilityFramePending=false;
+function keepAnswerVisible(){
+  if(!IPADOS_WEBKIT||answerVisibilityFramePending)return;
+  answerVisibilityFramePending=true;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    answerVisibilityFramePending=false;
+    if(document.activeElement!==input||quiz.classList.contains('hidden'))return;
+    const viewport=window.visualViewport;
+    const visibleTop=viewport?.offsetTop??0;
+    const visibleBottom=visibleTop+(viewport?.height??window.innerHeight);
+    const rect=input.getBoundingClientRect();
+    const padding=24;
+    if(rect.top>=visibleTop+padding&&rect.bottom<=visibleBottom-padding)return;
+    // Prefer the lower half of the viewport so the prompt stays above the answer.
+    const usable=Math.max(0,visibleBottom-visibleTop-2*padding-rect.height);
+    const targetTop=visibleTop+padding+usable*.62;
+    window.scrollBy({top:rect.top-targetTop,behavior:'auto'});
+  }))
+}
+function focusAnswerField(){
+  if(document.activeElement!==input){
+    try{input.focus({preventScroll:true})}catch{input.focus()}
+  }
+  keepAnswerVisible()
+}
 function showQuestion(){clearVocabTimer();if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);const hint=current.type==='vocabulary'?String(current.disambiguation||'').trim():'';promptHint.textContent=hint;promptHint.classList.toggle('hidden',!hint);feedback.className='feedback empty';feedback.innerHTML='';updateStats();startVocabTimer();focusAnswerField()}function compareReading(s){const x=hira(s);return inputMode()==='romaji'?x.replace(/[-‐‑‒–—―−]/g,'ー').replace(/づ/g,'ず').replace(/ぢ/g,'じ'):x}function accepted(q){return(q.accepted_answers||q.answer_display||[]).map(compareReading)}function answerText(q){return(q.answer_display||q.accepted_answers||[]).join(' / ')}function rawMeaning(q){return q.meanings?.length?q.meanings.join(' · '):(q.meaning||'')}function meaningText(q){const m=rawMeaning(q);return m?esc(m):''}
 function recordMistake(q,userAnswer){const key=q.question_id||`${q.type}:${q.prompt}`;let item=mistakeLog.get(key);if(!item){item={type:typeName(q.type),prompt_html:q.prompt_html||esc(q.prompt),correct:answerText(q),meaning:rawMeaning(q),answers:[]};mistakeLog.set(key,item)}const a=String(userAnswer||'').trim();if(a&&!item.answers.includes(a))item.answers.push(a)}
 function hideAnswerNotice(){if(!answerNotice)return;answerNotice.classList.add('hidden');answerNotice.classList.remove('good','bad');answerNotice.textContent=''}
@@ -966,7 +996,7 @@ function check(advance=false){if(checked){showQuestion();return}
       firebaseSync.appendAnswer(cloudAnswer)
     }catch(err){console.warn('Cloud journal write failed:',err)}
   }
-  updateStats();if(advance){showQuestion();if(ok)showCorrectNotice(meaning);else showWrongNotice(typedRaw,correct);return}input.disabled=true;submit.textContent=t('quiz.next');submit.focus()}
+  updateStats();if(advance){showQuestion();if(ok)showCorrectNotice(meaning);else showWrongNotice(typedRaw,correct);return}input.disabled=true;submit.textContent=t('quiz.next');try{submit.focus({preventScroll:true})}catch{submit.focus()}}
 function updateStats(){correctEl.textContent=stats.correct;wrongEl.textContent=stats.wrong;leftEl.textContent=queue.length+(current&&!checked?1:0)}
 function start(){hideAnswerNotice();saveSessionPrefs();if(!selectedLessons().length){alert(t('errors.choose_lesson'));return}if(!selectedKanji().size){alert(t('errors.choose_kanji'));return}if(!selectedModes().length){alert(t('errors.choose_mode'));return}if(furiganaMode()==='chapter'&&!furiganaLesson()){alert(t('errors.invalid_furigana'));return}const items=buildQueue();if(!items.length){alert(t('errors.empty_pool'));return}beginSession(items,'normal')}
 function showFinish(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('hidden');finished.classList.remove('hidden');refreshReviewUI();const total=stats.correct+stats.wrong,acc=total?Math.round(stats.correct/total*100):100,remaining=resolvedMistakeEntries().length;finishTitle.textContent=t(sessionKind==='review'?'review.finish_title':'finish.title');$('#finalScore').textContent=`${acc}%`;$('#finalCorrect').textContent=stats.correct;$('#finalWrong').textContent=stats.wrong;$('#finalAttempts').textContent=stats.attempts;$('#again').textContent=t(sessionKind==='review'?(remaining?'review.practice_remaining':'review.done'):'finish.again');$('#settings').textContent=t(sessionKind==='review'?(remaining?'review.finish_back':'finish.settings'):sessionKind==='dictionary'?'dictionary.return_to_dictionary':'finish.settings');renderMistakeSummary();renderVocabTimingSummary();if(firebaseSync?.isConnected())void firebaseSync.sync()}
@@ -1034,7 +1064,14 @@ initDataBackupSettings();
 renderLessonGrid();renderKanjiGroups(false);restoreSessionControls();populateFuriganaLessons();refreshReviewUI();updatePreview();document.querySelectorAll('.mode input').forEach(x=>x.addEventListener('change',()=>{saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="vocabLimitMode"]').forEach(x=>x.addEventListener('change',()=>{vocabLimit.disabled=document.querySelector('input[name="vocabLimitMode"]:checked').value!=='limit';saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="furiganaMode"]').forEach(x=>x.addEventListener('change',syncFuriganaControls));furiganaLessonSelect.addEventListener('change',()=>{furiganaChapterManual=true;updatePreview()});vocabLimit.addEventListener('input',()=>{saveSessionPrefs();updatePreview()});document.querySelectorAll('input[name="inputMode"]').forEach(x=>x.addEventListener('change',syncInputMode));let answerComposing=false;
 input.addEventListener('compositionstart',()=>{answerComposing=true});
 input.addEventListener('compositionend',()=>{answerComposing=false});
-input.addEventListener('input',()=>{if(vocabTiming&&vocabTiming.firstInputMs===null&&input.value) vocabTiming.firstInputMs=vocabActiveMs();if(input.value)hideAnswerNotice();if(inputMode()==='romaji'&&!answerComposing){const p=input.selectionStart??input.value.length;const before=input.value;const after=romajiToHiragana(before,false);if(after!==before){input.value=after;input.setSelectionRange(input.value.length,input.value.length)}}});$('#lessonToggle').addEventListener('click',toggleLessons);$('#kanjiToggle').addEventListener('click',toggleKanji);$('#start').addEventListener('click',start);$('#reviewOpen').addEventListener('click',showReviewBank);$('#reviewStart').addEventListener('click',startReview);$('#reviewBankStart').addEventListener('click',startReview);$('#reviewBankBack').addEventListener('click',showSetupScreen);submit.addEventListener('click',()=>check(answerMode()==='one'));input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing&&!answerComposing){e.preventDefault();e.stopPropagation();const oneStep=answerMode()==='one';check(oneStep);if(oneStep)requestAnimationFrame(()=>{if(!quiz.classList.contains('hidden'))input.focus({preventScroll:true})})}});$('#quit').addEventListener('click',back);$('#again').addEventListener('click',restartSession);$('#settings').addEventListener('click',finishBack);syncFuriganaControls();syncInputMode();
+input.addEventListener('focus',keepAnswerVisible);
+input.addEventListener('input',()=>{if(vocabTiming&&vocabTiming.firstInputMs===null&&input.value) vocabTiming.firstInputMs=vocabActiveMs();if(input.value)hideAnswerNotice();if(inputMode()==='romaji'&&!answerComposing){const p=input.selectionStart??input.value.length;const before=input.value;const after=romajiToHiragana(before,false);if(after!==before){
+    // Assigning .value already places the caret at the end in the normal
+    // typing flow; explicit setSelectionRange triggers iPadOS auto-scrolling.
+    input.value=after
+  }}
+  keepAnswerVisible()
+});$('#lessonToggle').addEventListener('click',toggleLessons);$('#kanjiToggle').addEventListener('click',toggleKanji);$('#start').addEventListener('click',start);$('#reviewOpen').addEventListener('click',showReviewBank);$('#reviewStart').addEventListener('click',startReview);$('#reviewBankStart').addEventListener('click',startReview);$('#reviewBankBack').addEventListener('click',showSetupScreen);submit.addEventListener('click',()=>check(answerMode()==='one'));input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing&&!answerComposing){e.preventDefault();e.stopPropagation();const oneStep=answerMode()==='one';check(oneStep);if(oneStep)requestAnimationFrame(()=>{if(!quiz.classList.contains('hidden'))focusAnswerField()})}});$('#quit').addEventListener('click',back);$('#again').addEventListener('click',restartSession);$('#settings').addEventListener('click',finishBack);syncFuriganaControls();syncInputMode();
 
 // PWA: offline support + iOS Home Screen experience.
 if ('serviceWorker' in navigator) {
@@ -1045,7 +1082,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=3.16', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=3.17', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

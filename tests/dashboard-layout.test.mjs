@@ -51,6 +51,7 @@ test('shows accurate global stats and RSS from selected input method',()=>{
   assert.equal(f.elements['#homeWords'].textContent,'2');
   assert.equal(f.elements['#homeAccuracy'].textContent,'67%');
   assert.equal(f.elements['#homeRss'].textContent,'0,78 s');
+  assert.equal(f.elements['#historyRss'].textContent,'0,78 s');
   assert.match(f.elements['#homeAccuracyNote'].textContent,/4/);
   assert.match(f.elements['#homeRssNote'].textContent,/Romaji/);
 });
@@ -83,7 +84,10 @@ test('Otsukaresama finish uses session stats; original mockup cutouts remain ava
   assert.match(app,/sessionLearningRecordedIds\.size/);
   for(const path of ['icons/shiba-peek.svg','icons/shiba-cheer.svg','icons/shiba-study.svg','icons/shiba-face.svg']){
     const art=read(path);
-    assert.match(art,/data:image\/webp;base64,UklGR/);
+    assert.match(art,/<svg\b/);
+    assert.match(art,/<path\b/);
+    assert.match(art,/<linearGradient\b/);
+    assert.doesNotMatch(art,/data:image\/|<image\b/);
     assert.ok(sw.includes("'./"+path+"'"),'offline '+path);
   }
   assert.match(sw,/wsjj-kanji-pro-3\.22-1/);

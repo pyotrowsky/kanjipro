@@ -9,7 +9,7 @@
   padding:0!important;margin:0 0 -33px;overflow:visible;
   border:1px solid #f0d2bd!important;border-bottom:0!important;
   border-radius:24px 24px 0 0;
-  background:#ffecdf url('../icons/japan-banner.svg') center 54%/cover no-repeat!important;
+  background:#ffecdf url('../icons/kanjipro-pastel-banner.png') center 54%/cover no-repeat!important;
   box-shadow:0 9px 20px rgba(126,67,37,.065)!important
 }
 :root[data-theme="shiba"] #setup>.shiba-scene::after{

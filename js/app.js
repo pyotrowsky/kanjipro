@@ -1,5 +1,5 @@
 import {createFirebaseSync} from './firebase-sync.js';
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.20', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.21', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -115,7 +115,7 @@ function initExampleFuriganaSettings(){
 }
 initExampleFuriganaSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=3.20', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=3.21', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictRssSort=$('#dictRssSort'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set(),sessionVocabTiming=[],sessionRssId='';
@@ -316,13 +316,62 @@ function personalRssBaseline(mode=inputMode()){
   return {mode,words:values.length,reliable_words:reliableWords,ready:values.length>=RSS_BASELINE_MIN_WORDS,
     median_ms:quantile(values,.5),fast_cutoff_ms:quantile(values,.25),slow_cutoff_ms:quantile(values,.75)}
 }
+function globalVocabularySummary(){
+  // Match the *actual* dictionary IDs; ON/KUN records and duplicate vocabulary
+  // entries must never inflate the global accuracy/word totals.
+  const ids=new Set(DB.vocabulary.map(dictionaryVocabId));
+  let practiced=0,reviews=0,correct=0;
+  for(const id of ids){
+    const stat=learningStats[id];if(!stat)continue;
+    const count=Math.max(0,Number(stat.reviews)||0);
+    if(!count)continue;
+    practiced++;reviews+=count;correct+=Math.min(count,Math.max(0,Number(stat.correct)||0))
+  }
+  const rss=personalRssBaseline();
+  return {practiced,reviews,correct,accuracy:reviews?Math.round(correct/reviews*100):null,
+    rss_ms:rss.median_ms,rss_words:rss.words,mode:rss.mode}
+}
+function renderHomeStats(){
+  const value=globalVocabularySummary();
+  const number=new Intl.NumberFormat('pl-PL');
+  for(const id of ['#homeWords','#historyWords']){const el=$(id);if(el)el.textContent=number.format(value.practiced)}
+  for(const id of ['#homeAccuracy','#historyAccuracy']){const el=$(id);if(el)el.textContent=value.accuracy===null?'—':value.accuracy+'%'}
+  for(const id of ['#homeRss','#historyRss']){const el=$(id);if(el)el.textContent=formatTiming(value.rss_ms)}
+  const accNote=$('#homeAccuracyNote');
+  if(accNote)accNote.textContent=t('stats.accuracy_detail',{correct:number.format(value.correct),reviews:number.format(value.reviews)});
+  const rssNote=$('#homeRssNote');
+  if(rssNote)rssNote.textContent=t('stats.rss_detail',{mode:value.mode==='ime'?'IME':'Romaji',words:value.rss_words})
+}
+function renderHistoryScreen(){
+  renderHomeStats();
+  const host=$('#historyRecent');if(!host)return;
+  const seen=new Set(),records=[];
+  for(const word of DB.vocabulary){
+    const id=dictionaryVocabId(word);if(seen.has(id))continue;seen.add(id);
+    const stat=learningStats[id],reviews=Math.max(0,Number(stat?.reviews)||0);
+    if(reviews>0)records.push({word,stat,reviews})
+  }
+  records.sort((a,b)=>(Number(b.stat.last_seen_at)||0)-(Number(a.stat.last_seen_at)||0));
+  if(!records.length){host.innerHTML='<div class="history-empty">'+esc(t('history.empty'))+'</div>';return}
+  host.innerHTML=records.slice(0,15).map(({word,stat,reviews})=>{
+    const accurate=Math.round(Math.max(0,Number(stat.correct)||0)/reviews*100);
+    const rss=wordRssProfile(stat,inputMode());
+    const measured=rss.eligible?' · RSS '+formatTiming(rss.rss_ms):'';
+    return '<div class="history-entry"><div class="history-entry-main"><b lang="ja">'+esc(word.display_surface||word.surface)+'</b>'+
+      '<span>'+esc(word.polish||'')+'</span></div><div class="history-entry-meta"><b>'+reviews+'× · '+accurate+'%</b>'+
+      '<small>'+esc(measured?measured.slice(3):t('history.no_rss'))+'</small></div></div>'
+  }).join('')
+}
 function renderRssProgress(){
-  const el=$('#rssProgress');if(!el)return;
-  const baseline=personalRssBaseline();
-  const values={mode:baseline.mode==='ime'?'IME':'Romaji',median:formatTiming(baseline.median_ms),
-    count:baseline.words,reliable:baseline.reliable_words,required:RSS_BASELINE_MIN_WORDS};
-  const key=!baseline.words?'setup.rss_progress_none':baseline.ready?'setup.rss_progress_ready':'setup.rss_progress_collecting';
-  el.textContent=t(key,values)
+  const el=$('#rssProgress');
+  if(el){
+    const baseline=personalRssBaseline();
+    const values={mode:baseline.mode==='ime'?'IME':'Romaji',median:formatTiming(baseline.median_ms),
+      count:baseline.words,reliable:baseline.reliable_words,required:RSS_BASELINE_MIN_WORDS};
+    const key=!baseline.words?'setup.rss_progress_none':baseline.ready?'setup.rss_progress_ready':'setup.rss_progress_collecting';
+    el.textContent=t(key,values)
+  }
+  renderHomeStats()
 }
 function rssSpeedCategory(profile,baseline){
   if(!profile?.eligible||!baseline?.ready)return 'unrated';
@@ -794,7 +843,7 @@ function startDictionaryKanjiPractice(index){
 }
 function returnToDictionaryPracticeSource(){
   quiz.classList.add('hidden');finished.classList.add('hidden');setup.classList.add('hidden');reviewBank.classList.add('hidden');
-  dictionary.classList.remove('hidden');navPractice.classList.remove('active');navDictionary.classList.add('active');
+  dictionary.classList.remove('hidden');navPractice.classList.remove('active');navDictionary.classList.add('active');setSidebarNav('dictionary');
   if(Number.isInteger(dictionaryPracticeKanjiIndex))openKanjiDetail(DB.kanji[dictionaryPracticeKanjiIndex],dictionaryPracticeKanjiIndex,false);
   else showDictionaryBrowse()
 }
@@ -802,22 +851,38 @@ function visiblePracticeSection(){
   for(const el of [setup,reviewBank,quiz,finished])if(el&&!el.classList.contains('hidden'))return el.id;
   return 'setup'
 }
+function setSidebarNav(which){
+  const groups={practice:'#sidePractice',history:'#sideHistory',dictionary:'#sideDictionary'};
+  for(const [key,selector] of Object.entries(groups)){
+    const button=$(selector);if(!button)continue;
+    const active=key===which;button.classList.toggle('active',active);
+    if(active)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current')
+  }
+}
 function setMainNav(which){
-  const useDictionary=which==='dictionary';
-  navPractice.classList.toggle('active',!useDictionary);navDictionary.classList.toggle('active',useDictionary);
-  if(useDictionary){
-    practiceViewBeforeDictionary=visiblePracticeSection();
-    for(const el of [setup,reviewBank,quiz,finished])el?.classList.add('hidden');
-    dictionary.classList.remove('hidden');showDictionaryBrowse(true);renderDictionary()
-  }else{
-    dictionary.classList.add('hidden');
-    for(const el of [setup,reviewBank,quiz,finished])el?.classList.add('hidden');
-    const restore=document.getElementById(practiceViewBeforeDictionary)||setup;restore.classList.remove('hidden');if(restore===setup)updatePreview()
+  const useDictionary=which==='dictionary',useHistory=which==='history';
+  navPractice.classList.toggle('active',!useDictionary);
+  navDictionary.classList.toggle('active',useDictionary);
+  setSidebarNav(which);
+  const currentlyPractice=[setup,reviewBank,quiz,finished].some(el=>el&&!el.classList.contains('hidden'));
+  if(which!=='practice'&&currentlyPractice)practiceViewBeforeDictionary=visiblePracticeSection();
+  for(const el of [setup,reviewBank,quiz,finished])el?.classList.add('hidden');
+  dictionary?.classList.add('hidden');$('#history')?.classList.add('hidden');
+  if(useDictionary){dictionary.classList.remove('hidden');showDictionaryBrowse(true);renderDictionary()}
+  else if(useHistory){$('#history')?.classList.remove('hidden');renderHistoryScreen()}
+  else {
+    const restore=document.getElementById(practiceViewBeforeDictionary)||setup;
+    restore.classList.remove('hidden');
+    if(restore===setup){updatePreview();renderRssProgress()}
   }
 }
 function initDictionary(){
   dictionaryFilterOptions();dictStatusFilter.classList.add('hidden');dictRssSort?.classList.add('hidden');renderDictionary();
   navPractice?.addEventListener('click',()=>setMainNav('practice'));navDictionary?.addEventListener('click',()=>setMainNav('dictionary'));
+  $('#sidePractice')?.addEventListener('click',()=>setMainNav('practice'));
+  $('#sideDictionary')?.addEventListener('click',()=>setMainNav('dictionary'));
+  $('#sideHistory')?.addEventListener('click',()=>setMainNav('history'));
+  $('#sideSettings')?.addEventListener('click',()=>$('#openSettings')?.click());
   dictTabKanji?.addEventListener('click',()=>setDictionaryTab('kanji'));dictTabVocab?.addEventListener('click',()=>setDictionaryTab('vocab'));
   dictRssSort?.addEventListener('change',()=>{dictionaryLimit=120;renderDictionary()});
   dictSearch?.addEventListener('input',()=>{dictionaryLimit=120;renderDictionary()});
@@ -890,7 +955,7 @@ function cleanRecordObject(value){if(!value||typeof value!=='object'||Array.isAr
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
-function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.20',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{theme:savedAppTheme(),font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),session_prefs:loadSessionPrefs()}}}}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.21',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{theme:savedAppTheme(),font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),session_prefs:loadSessionPrefs()}}}}
 function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
 async function importLearningData(file){
   if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
@@ -977,7 +1042,7 @@ function poolCounts(){const r=buildReadingPools(),v=buildVocabPool();return{on:r
 function unpracticedVocabLabel(count){const few=count===1||(count%10>=2&&count%10<=4&&(count%100<12||count%100>14));return t(few?'vocab.preview_unpracticed_few':'vocab.preview_unpracticed_many',{count})}
 function updatePreview(){const ls=selectedLessons(),ks=selectedKanji(),m=selectedModes();if(kanjiSelectionSummary)kanjiSelectionSummary.textContent=t('setup.kanji_selected',{count:ks.size});const c=poolCounts();const pieces=[];if(m.includes('onyomi'))pieces.push(t('vocab.preview_on',{count:c.on}));if(m.includes('kunyomi'))pieces.push(t('vocab.preview_kun',{count:c.kun}));if(m.includes('vocabulary')){const label=c.vChosen===c.v?t('vocab.preview_vocab_all',{count:c.v}):t('vocab.preview_vocab_limited',{chosen:c.vChosen,total:c.v});pieces.push(label+' '+unpracticedVocabLabel(c.vUnpracticed))}sessionPreview.textContent=ls.length?t('vocab.preview',{lessons:ls.length,kanji:ks.size,session:pieces.join(' · ')||t('vocab.preview_no_mode')}):t('vocab.preview_no_lessons')}
 function beginSession(items,kind='normal'){clearVocabTimer();sessionKind=kind;queue=shuffle(items.map(x=>({...x})));sessionVocabTiming=[];sessionRssId=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);stats={correct:0,wrong:0,attempts:0,initial:queue.length};mistakeLog=new Map();sessionWrongIds=new Set();sessionCreditedIds=new Set();sessionLearningRecordedIds=new Set();setup.classList.add('hidden');reviewBank.classList.add('hidden');finished.classList.add('hidden');dictionary?.classList.add('hidden');quiz.classList.remove('hidden');$('#quit').textContent=t(kind==='review'?'review.quiz_back':kind==='dictionary'?'dictionary.back':'quiz.back');showQuestion()}
-function showSetupScreen(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('hidden');finished.classList.add('hidden');reviewBank.classList.add('hidden');setup.classList.remove('hidden');refreshReviewUI();updatePreview();renderRssProgress()}
+function showSetupScreen(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('hidden');finished.classList.add('hidden');reviewBank.classList.add('hidden');$('#history')?.classList.add('hidden');setup.classList.remove('hidden');setSidebarNav('practice');refreshReviewUI();updatePreview();renderRssProgress()}
 function showReviewBank(){hideAnswerNotice();const entries=refreshReviewUI();if(!entries.length){showSetupScreen();return}setup.classList.add('hidden');quiz.classList.add('hidden');finished.classList.add('hidden');reviewBank.classList.remove('hidden')}
 function startReview(){hideAnswerNotice();const items=reviewQuestions();if(!items.length){showSetupScreen();return}beginSession(items,'review')}
 function restartSession(){if(sessionKind==='review'){if(reviewQuestions().length)startReview();else showSetupScreen()}else if(sessionKind==='dictionary'&&Number.isInteger(dictionaryPracticeKanjiIndex)){startDictionaryKanjiPractice(dictionaryPracticeKanjiIndex)}else start()}
@@ -1086,7 +1151,7 @@ function initFirebaseSync(){
         ])
       }
     },
-    afterApply:()=>{refreshReviewUI();updatePreview();renderDictionary();renderDataBackupSummary();renderRssProgress()},
+    afterApply:()=>{refreshReviewUI();updatePreview();renderDictionary();renderDataBackupSummary();renderRssProgress();if(!$('#history')?.classList.contains('hidden'))renderHistoryScreen()},
     onStatus:display
   });
   connect?.addEventListener('click',()=>firebaseSync.connect());
@@ -1125,7 +1190,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=3.20', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=3.21', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

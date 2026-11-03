@@ -1181,6 +1181,23 @@ renderLessonGrid();renderKanjiGroups(false);restoreSessionControls();populateFur
 input.addEventListener('compositionstart',()=>{answerComposing=true;markFirstVocabInput()});
 input.addEventListener('beforeinput',e=>{if(e.inputType?.startsWith('insert'))markFirstVocabInput()});
 input.addEventListener('compositionend',()=>{answerComposing=false});
+// iPadOS can leave START focused after the quiz is revealed, especially with
+// an external keyboard. A real keypress restores focus; preserve its first
+// character so the user never has to tap the answer field manually.
+document.addEventListener('keydown',event=>{
+  if(!IPADOS_WEBKIT||quiz.classList.contains('hidden')||checked||input.disabled||
+     document.activeElement===input||event.defaultPrevented||
+     event.metaKey||event.ctrlKey||event.altKey||event.isComposing)return;
+  const active=document.activeElement;
+  if(active?.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(active?.tagName||''))return;
+  if(event.key.length!==1||event.key===' '&&event.target?.closest?.('button'))return;
+  event.preventDefault();
+  focusAnswerField();
+  const start=input.selectionStart??input.value.length;
+  const end=input.selectionEnd??start;
+  input.setRangeText(event.key,start,end,'end');
+  input.dispatchEvent(new Event('input',{bubbles:true}));
+},true);
 input.addEventListener('focus',keepAnswerVisible);
 input.addEventListener('input',()=>{if(input.value)markFirstVocabInput();if(input.value)hideAnswerNotice();if(inputMode()==='romaji'&&!answerComposing){const p=input.selectionStart??input.value.length;const before=input.value;const after=romajiToHiragana(before,false);if(after!==before){
     // Assigning .value already places the caret at the end in the normal

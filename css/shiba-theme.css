@@ -157,3 +157,7 @@
   :root[data-theme="shiba"] .shiba-hero p{max-width:190px}
 }
 @media(prefers-reduced-motion:reduce){.theme-option-card{transition:none}}
+
+
+:root[data-theme="shiba"] #setup>.rss-progress{padding:11px 14px;border-radius:14px;
+  background:#fff1df;color:#915333;border:1px solid #ebc69e;box-shadow:0 3px 9px rgba(160,85,40,.04)}

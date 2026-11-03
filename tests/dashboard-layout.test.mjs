@@ -50,7 +50,7 @@ test('shows accurate global stats and RSS from selected input method',()=>{
   const f=fixture();f.sandbox.renderHome();
   assert.equal(f.elements['#homeWords'].textContent,'2');
   assert.equal(f.elements['#homeAccuracy'].textContent,'67%');
-  assert.equal(f.elements['#homeRss'].textContent,'0.78 s');
+  assert.equal(f.elements['#homeRss'].textContent,'780 ms');
   assert.match(f.elements['#homeAccuracyNote'].textContent,/4/);
   assert.match(f.elements['#homeRssNote'].textContent,/Romaji/);
 });

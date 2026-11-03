@@ -85,10 +85,10 @@ test('Otsukaresama finish uses session stats; original mockup cutouts remain ava
   for(const path of ['icons/shiba-peek.svg','icons/shiba-cheer.svg','icons/shiba-study.svg','icons/shiba-face.svg']){
     const art=read(path);
     assert.match(art,/<svg\b/);
-    assert.match(art,/<path\b/);
-    assert.match(art,/<linearGradient\b/);
-    assert.doesNotMatch(art,/data:image\/|<image\b/);
+    assert.match(art,/data:image\/webp;base64,UklGR/);
+    assert.match(art,/<image\b/);
+    assert.ok(art.length>20000,'high resolution approved source '+path);
     assert.ok(sw.includes("'./"+path+"'"),'offline '+path);
   }
-  assert.match(sw,/wsjj-kanji-pro-3\.22-1/);
+  assert.match(sw,/wsjj-kanji-pro-3\.23-1/);
 });

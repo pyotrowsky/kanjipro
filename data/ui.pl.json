@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.19",
+    "badge": "3.20",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -29,11 +29,14 @@
     "choose_whole_book": "Cały Doki {book}",
     "kanji_note_top": "Wybierz kanji do ćwiczenia.",
     "kanji_note_bottom": "Słówka są dobierane do zaznaczonych kanji.",
-    "rss_help_html": "<strong>Czym jest RSS?</strong> To wskaźnik tempa rozpoznawania słówek: czas do pierwszego wpisanego znaku plus pozostały czas odpowiedzi podzielony przez długość odczytu w morach (japońskich jednostkach rytmicznych). Im niższy RSS, tym płynniejsza odpowiedź. Liczymy go tylko dla poprawnych odpowiedzi na słówka, oddzielnie dla Romaji i IME.",
-    "rss_adaptive_html": "<strong>Jak RSS wpływa na sesję?</strong> Po co najmniej 3 poprawnych pomiarach danego słówka z 2 sesji oraz kalibracji na minimum 8 słówkach Kanji.pro oznacza je jako Szybkie, Typowe lub Wolne. W sesji z limitem może zarezerwować do 20% miejsc dla wolniejszych słówek. Bez wystarczających danych pokazuje „Brak danych”.",
+    "rss_help_html": "<strong>Czym jest RSS?</strong> To wskaźnik tempa rozpoznawania słówek: czas do rozpoczęcia pisania plus pozostały czas odpowiedzi podzielony przez liczbę mor w odczycie. Im niższy RSS, tym płynniej rozpoznajesz słówko. Liczymy go tylko dla poprawnych odpowiedzi, osobno w trybie Romaji i IME.",
+    "rss_adaptive_html": "<strong>Kiedy widać wynik?</strong> Wstępny RSS pojawia się już po pierwszej poprawnej odpowiedzi na słówko. Od 8 różnych zmierzonych słówek w danym trybie Kanji.pro porównuje je z Twoim osobistym tempem i oznacza jako Szybkie, Typowe lub Wolne. Po 3 poprawnych pomiarach słówka z co najmniej 2 sesji jego wynik jest bardziej wiarygodny. W sesjach z limitem do 20% miejsc może przypadać na wolniejsze słówka.",
     "shiba_kicker": "🐾 Twój trening japońskiego",
     "shiba_title": "Nauka kanji",
-    "shiba_subtitle": "Wybierz rozdziały i ćwicz słówka we własnym tempie."
+    "shiba_subtitle": "Wybierz rozdziały i ćwicz słówka we własnym tempie.",
+    "rss_progress_none": "RSS · {mode}: brak poprawnych pomiarów. Wystarczy pierwsza poprawna odpowiedź na słówko.",
+    "rss_progress_collecting": "RSS · {mode}: mediana {median} · {count}/{required} różnych słówek (kalibracja wstępna).",
+    "rss_progress_ready": "RSS · {mode}: mediana {median} · {count} słówek, w tym {reliable} wielokrotnie zmierzonych."
   },
   "furigana": {
     "title": "Furigana",
@@ -280,7 +283,10 @@
     "rss_sort_slow_first": "RSS: najwolniejsze najpierw",
     "rss_sort_fast_first": "RSS: najszybsze najpierw",
     "rss_details": "RSS w trybie {mode}: {rss} · Twoja typowa mediana: {baseline} · Pomiarów: {count}",
-    "rss_no_data": "RSS: za mało danych ({count}/3 poprawnych pomiarów z co najmniej dwóch sesji).",
-    "rss_calibration": "Kalibracja profilu: {count}/{required} słówek z wiarygodnym RSS. Dopóki nie zbierzesz wystarczająco danych, wszystkie słówka pozostają bez klasyfikacji."
+    "rss_no_data": "RSS: brak poprawnego pomiaru w aktualnym trybie wpisywania.",
+    "rss_calibration": "Kalibracja: {count}/{required} różnych słówek z RSS. Wstępna mediana jest już dostępna; porównanie szybkości zaczyna się od 8 słówek.",
+    "rss_measured_label": "RSS",
+    "rss_preliminary_short": "wstępne",
+    "rss_preliminary_note": "Wstępny wynik. Powtórz słówko przynajmniej 3 razy w co najmniej 2 sesjach, aby uzyskać bardziej wiarygodny pomiar."
   }
 }

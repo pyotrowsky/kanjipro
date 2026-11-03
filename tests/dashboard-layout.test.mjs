@@ -69,7 +69,7 @@ test('an empty history shows blank statistics, never fake data',()=>{
 });
 test('sidebar on large iPad/desktop, mobile top navigation, genuine history and settings controls',()=>{
   for(const id of ['sidePractice','sideHistory','sideDictionary','sideSettings','navPractice','navDictionary','historyRecent'])assert.match(html,new RegExp('id="'+id+'"'));
-  assert.match(css,/@media\(min-width:780px\)/);
+  assert.match(css,/@media\(min-width:740px\)/);
   assert.match(css,/\.desktop-sidebar\{display:flex/);
   assert.match(css,/\.main-workspace/);
   assert.match(app,/setMainNav\('history'\)/);

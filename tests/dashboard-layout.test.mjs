@@ -5,7 +5,7 @@ import vm from 'node:vm';
 
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const app=read('js/app.js'),html=read('index.html'),css=read('css/shiba-dashboard.css'),sw=read('sw.js');
-const start=app.indexOf('function globalVocabularySummary(){');
+const start=app.indexOf('function formatDashboardRss(ms){');
 const end=app.indexOf('function renderRssProgress(){',start);
 assert.ok(start>0&&end>start,'dashboard calculation functions are present');
 

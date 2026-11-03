@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.18",
+    "badge": "3.19",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -30,7 +30,10 @@
     "kanji_note_top": "Wybierz kanji do ćwiczenia.",
     "kanji_note_bottom": "Słówka są dobierane do zaznaczonych kanji.",
     "rss_help_html": "<strong>Czym jest RSS?</strong> To wskaźnik tempa rozpoznawania słówek: czas do pierwszego wpisanego znaku plus pozostały czas odpowiedzi podzielony przez długość odczytu w morach (japońskich jednostkach rytmicznych). Im niższy RSS, tym płynniejsza odpowiedź. Liczymy go tylko dla poprawnych odpowiedzi na słówka, oddzielnie dla Romaji i IME.",
-    "rss_adaptive_html": "<strong>Jak RSS wpływa na sesję?</strong> Po co najmniej 3 poprawnych pomiarach danego słówka z 2 sesji oraz kalibracji na minimum 8 słówkach Kanji.pro oznacza je jako Szybkie, Typowe lub Wolne. W sesji z limitem może zarezerwować do 20% miejsc dla wolniejszych słówek. Bez wystarczających danych pokazuje „Brak danych”."
+    "rss_adaptive_html": "<strong>Jak RSS wpływa na sesję?</strong> Po co najmniej 3 poprawnych pomiarach danego słówka z 2 sesji oraz kalibracji na minimum 8 słówkach Kanji.pro oznacza je jako Szybkie, Typowe lub Wolne. W sesji z limitem może zarezerwować do 20% miejsc dla wolniejszych słówek. Bez wystarczających danych pokazuje „Brak danych”.",
+    "shiba_kicker": "🐾 Twój trening japońskiego",
+    "shiba_title": "Nauka kanji",
+    "shiba_subtitle": "Wybierz rozdziały i ćwicz słówka we własnym tempie."
   },
   "furigana": {
     "title": "Furigana",
@@ -189,7 +192,13 @@
     "firebase_sync_error": "Problem z synchronizacją Firebase",
     "firebase_sync_account_conflict": "Wykryto inne konto Google. Aby nie mieszać historii, zaloguj się na poprzednie konto.",
     "firebase_sync_limitations": "Po jednorazowym logowaniu Firebase zapamiętuje sesję na tym urządzeniu. Jeśli wyczyścisz dane aplikacji lub korzystasz z trybu prywatnego, logowanie może być konieczne ponownie.",
-    "import_blocked_firebase": "Import wstrzymany: na tym urządzeniu działa dziennik Firebase. Aby nie nadpisać historii chmurowej, przed podłączeniem nowej kopii wykonaj eksport i odłącz synchronizację na wszystkich urządzeniach."
+    "import_blocked_firebase": "Import wstrzymany: na tym urządzeniu działa dziennik Firebase. Aby nie nadpisać historii chmurowej, przed podłączeniem nowej kopii wykonaj eksport i odłącz synchronizację na wszystkich urządzeniach.",
+    "theme_title": "Motyw aplikacji",
+    "theme_note": "Wybierz styl Kanji.pro. Ustawienie zostanie zapamiętane na tym urządzeniu.",
+    "theme_shiba": "Shiba Inu",
+    "theme_shiba_note": "Kremowe karty, pomarańczowe akcenty i maskotka.",
+    "theme_classic": "Klasyczny",
+    "theme_classic_note": "Dotychczasowy wygląd Kanji.pro."
   },
   "actions": {
     "select_all": "Zaznacz wszystko",

@@ -316,3 +316,8 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .firebase-sync-actions .ghost:disabled{opacity:.46;cursor:not-allowed}
 .firebase-sync-status{font-weight:700;margin:8px 0}
 
+
+
+/* RSS: first measured word starts a visible personal reading-speed profile. */
+.rss-progress{border:1px solid var(--line);border-radius:13px;background:var(--soft);
+  padding:11px 13px;color:var(--muted);font-size:12px;font-weight:700;line-height:1.5}

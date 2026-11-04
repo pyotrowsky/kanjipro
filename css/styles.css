@@ -332,3 +332,8 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .app-update-banner{position:fixed;z-index:10000;bottom:max(14px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:space-between;gap:12px;width:min(460px,calc(100vw - 24px));padding:12px 14px;border-radius:17px;background:var(--card);border:1px solid var(--line);color:var(--text);box-shadow:0 9px 25px rgba(0,0,0,.15);font-size:13px;font-weight:650}
 .app-update-banner.hidden{display:none!important}
 .app-update-banner button{flex:0 0 auto;padding:9px 12px}
+
+/* Compact icon-only audio controls inside ON/KUN dictionary reading columns. */
+.private-audio-play svg{display:block;flex:none;pointer-events:none}
+.private-audio-play.compact{min-height:34px;min-width:38px;width:auto;margin:8px 0 0;padding:7px 9px;border-radius:11px}
+.dictionary-reading-grid .private-audio-play.compact{display:inline-flex;vertical-align:middle;margin:8px 0 0}

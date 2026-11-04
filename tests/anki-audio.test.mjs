@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {cleanAudioText,extractSounds,selectNoteAudio,matchAudioNotes,selectAnkiCollection,selectAudioMediaEntries} from '../js/anki-audio.js';
+import {cleanAudioText,extractSounds,selectNoteAudio,matchAudioNotes,selectAnkiCollection,selectAudioMediaEntries,matchAllAudioNotes} from '../js/anki-audio.js';
 
 test('audio field priority prefers dictionary recording',()=>{
   const fields={Audio:'[sound:second.mp3]',AudioDictionary:'[sound:first.mp3]',AudioOnyomi:'[sound:third.ogg]'};
@@ -30,9 +30,9 @@ test('ambiguous fallback is excluded and reported rather than guessed',()=>{
   assert.equal(r.matched.size,0);
   assert.equal(r.ambiguous.length,1);
 });
-test('rejects modern .anki21b package instead of silently loading its dummy .anki2',()=>{
-  assert.throws(()=>selectAnkiCollection(new Map([['collection.anki2',{fake:true}],['collection.anki21b',{modern:true}]])),/starsze wersje Anki/);
-  const legacy={legacy:true};
+test('prefers the modern .anki21b database over dummy and legacy files',()=>{
+  const modern={filename:'collection.anki21b'},legacy={filename:'collection.anki21'};
+  assert.equal(selectAnkiCollection(new Map([['collection.anki2',{fake:true}],['collection.anki21b',modern]])),modern);
   assert.equal(selectAnkiCollection(new Map([['collection.anki21',legacy],['collection.anki2',{fake:true}]])),legacy);
   assert.equal(selectAnkiCollection(new Map([['collection.anki2',legacy]])),legacy);
 });
@@ -69,4 +69,29 @@ test('GIFs, images, videos and unmatched audio are excluded from extraction',()=
   assert.equal(chosen.get('VOCAB_NOTE:1').entry.filename,'1');
   assert.equal(chosen.get('VOCAB_NOTE:2').entry.filename,'4');
   assert.equal([...chosen.values()].some(x=>/gif|png|mp4|other/.test(x.filename)),false);
+});
+
+test('imports ON/KUN recordings from kanji note fields independently of vocabulary',()=>{
+  const kanji=[{note_id:'999',character:'学'},{note_id:'888',character:'水'}];
+  const notes=[
+    {id:'999',fields:{Expression:'学',AudioDictionary:'[sound:word.mp3]',AudioOnyomi:'[sound:onyomi.mp3]',AudioKunyomi:'[sound:kunyomi.ogg]'}},
+    {id:'888',fields:{Expression:'水',AudioOn:'[sound:on-alt.mp3]',AudioKun:'[sound:kun-alt.mp3]'}}
+  ];
+  const {matched}=matchAllAudioNotes(notes,[],kanji);
+  assert.equal(matched.get('ON:学').filename,'onyomi.mp3');
+  assert.equal(matched.get('KUN:学').filename,'kunyomi.ogg');
+  assert.equal(matched.get('ON:水').filename,'on-alt.mp3');
+  assert.equal(matched.get('KUN:水').filename,'kun-alt.mp3');
+});
+test('post-answer quiz audio and reading-specific dictionary buttons use SVG, not emoji',()=>{
+  const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
+  const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
+  const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
+  assert.match(app,/startVocabTimer\(\);\$\('#playQuizAudio'\)\?\.classList\.add\('hidden'\)/);
+  assert.match(app,/if\(!advance&&current\.type==='vocabulary'&&privateAudio\.has/);
+  assert.match(app,/privateAudioButton\('ON:'\+k\.character,true\)/);
+  assert.match(app,/privateAudioButton\('KUN:'\+k\.character,true\)/);
+  assert.doesNotMatch(html,/🔊/);
+  assert.match(html,/id="playQuizAudio"[^>]*>[\s\S]*?<svg/);
+  assert.ok(sw.includes("'./js/anki-modern.js'"));
 });

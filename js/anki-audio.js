@@ -2,13 +2,16 @@
 // ZIP reading is lazy; the SQLite parser is loaded only when an import is requested.
 import {hira} from './japanese-text.js';
 import {dictionaryVocabId} from './dictionary-helpers.js';
+import {decodeAnkiCollection,decodeAnkiMediaIndex,decodeAnkiAudioFile} from './anki-modern.js';
 
 const DB_NAME='wsjj-kanji-pro-private-audio';
 const ZIP_JS='https://cdn.jsdelivr.net/npm/@zip.js/zip.js@2.8.15/+esm';
 const SQL_JS='https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/sql-wasm.js';
 const SQL_WASM='https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/sql-wasm.wasm';
 const ALLOWED=/\.(?:mp3|ogg|oga|opus|wav|m4a|aac)$/i;
-const FIELDS=['AudioDictionary','Audio','AudioOnyomi','AudioKunyomi'];
+const FIELDS=['AudioDictionary','Audio'];
+const ON_FIELDS=['AudioOnyomi','AudioOn'];
+const KUN_FIELDS=['AudioKunyomi','AudioKun'];
 
 export function cleanAudioText(value){
   return hira(String(value??'').replace(/<[^>]*>/g,'').replace(/\[[^\]]*\]/g,'').replace(/[\s\u3000]/g,'')).normalize('NFKC');
@@ -17,14 +20,15 @@ export function extractSounds(value){
   return [...String(value||'').matchAll(/\[sound:([^\]]+)\]/gi)]
     .map(m=>m[1]).filter(name=>ALLOWED.test(name)&&!name.includes('/')&&!name.includes('\\'));
 }
-export function selectNoteAudio(fields){
-  for(const name of FIELDS){
-    const key=Object.keys(fields).find(k=>k.toLowerCase()===name.toLowerCase());
+export function selectNamedAudio(fields,names){
+  for(const name of names){
+    const key=Object.keys(fields||{}).find(k=>k.toLowerCase()===name.toLowerCase());
     const sounds=extractSounds(key?fields[key]:'');
-    if(sounds.length)return sounds[0];
+    if(sounds.length)return sounds[0]
   }
-  return null;
+  return null
 }
+export function selectNoteAudio(fields){return selectNamedAudio(fields,FIELDS)}
 export function matchAudioNotes(notes,vocabulary){
   const byId=new Map(),byPair=new Map();
   const key=(surface,reading)=>cleanAudioText(surface)+'|'+cleanAudioText(reading);
@@ -61,6 +65,27 @@ export function matchAudioNotes(notes,vocabulary){
   return {matched,ambiguous};
 }
 
+// Audio from Japanese (Kanji) notes belongs to ON/KUN readings, not vocab playback.
+export function matchAllAudioNotes(notes,vocabulary,kanji=[]){
+  const {matched,ambiguous}=matchAudioNotes(notes,vocabulary);
+  const kanjiById=new Map(),kanjiByCharacter=new Map();
+  for(const k of kanji){
+    if(!k?.character)continue;
+    if(k.note_id!=null)kanjiById.set(String(k.note_id),k.character);
+    kanjiByCharacter.set(k.character,k.character)
+  }
+  for(const note of notes){
+    const fields=note.fields||{};
+    const on=selectNamedAudio(fields,ON_FIELDS),kun=selectNamedAudio(fields,KUN_FIELDS);
+    if(!on&&!kun)continue;
+    const expression=Object.entries(fields).find(([name])=>['expression','kanji','character'].includes(name.toLowerCase()))?.[1]||'';
+    const kanjiChar=kanjiById.get(String(note.id))||kanjiByCharacter.get(cleanAudioText(expression));
+    if(!kanjiChar)continue;
+    if(on&&!matched.has('ON:'+kanjiChar))matched.set('ON:'+kanjiChar,{filename:on,noteId:note.id});
+    if(kun&&!matched.has('KUN:'+kanjiChar))matched.set('KUN:'+kanjiChar,{filename:kun,noteId:note.id})
+  }
+  return {matched,ambiguous}
+}
 function loadScript(src){
   return new Promise((resolve,reject)=>{
     if(typeof window.initSqlJs==='function'){resolve();return}
@@ -75,7 +100,17 @@ async function readNotes(sqliteBytes){
   const SQL=await window.initSqlJs({locateFile:()=>SQL_WASM});
   const db=new SQL.Database(sqliteBytes);
   try{
-    const models=JSON.parse(db.exec('SELECT models FROM col LIMIT 1')[0]?.values?.[0]?.[0]||'{}');
+    // Modern Anki SQLite moved note types and field names into dedicated tables.
+    const modern=Boolean(db.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='notetypes'")[0]?.values?.length);
+    let models={};
+    if(modern){
+      const names=db.exec('SELECT ntid,ord,name FROM fields ORDER BY ntid,ord');
+      for(const [mid,ord,name] of names[0]?.values||[]){
+        const id=String(mid);
+        if(!models[id])models[id]={flds:[]};
+        models[id].flds.push({name,ord:Number(ord)})
+      }
+    }else models=JSON.parse(db.exec('SELECT models FROM col LIMIT 1')[0]?.values?.[0]?.[0]||'{}');
     const result=db.exec('SELECT id,mid,flds FROM notes');
     if(!result.length)return [];
     return result[0].values.map(([id,mid,flds])=>{
@@ -125,12 +160,12 @@ export function selectAudioMediaEntries(matched,mediaMap,zipEntries){
 }
 export function selectAnkiCollection(entries){
   // Newer exports include a dummy collection.anki2 containing a warning card.
+  if(entries.has('collection.anki21b'))return entries.get('collection.anki21b');
   if(entries.has('collection.anki21'))return entries.get('collection.anki21');
-  if(entries.has('collection.anki21b'))throw new Error('Nowy format Anki (.anki21b) nie jest jeszcze obsługiwany. Wyeksportuj talię ponownie z opcją „Obsługuj starsze wersje Anki” oraz „Dołącz multimedia”.');
   if(entries.has('collection.anki2'))return entries.get('collection.anki2');
   throw new Error('Brakuje collection.anki21 lub collection.anki2 w archiwum.');
 }
-export function createPrivateAudioLibrary(vocabulary){
+export function createPrivateAudioLibrary(vocabulary,kanji=[]){
   let dbPromise=null,ids=new Set();
   const ready=async()=>{
     if(!dbPromise)dbPromise=openAudioDb().then(async db=>{
@@ -175,13 +210,16 @@ export function createPrivateAudioLibrary(vocabulary){
       const entries=await reader.getEntries();
       const index=new Map(entries.map(entry=>[entry.filename,entry]));
       const sqlite=selectAnkiCollection(index);
+      const modern=sqlite.filename==='collection.anki21b';
       const media=index.get('media');
       if(!media)throw new Error('Eksport nie zawiera indeksu mediów. Zaznacz multimedia podczas eksportu.');
-      const decoder=new TextDecoder();
-      const map=JSON.parse(decoder.decode(await media.getData(new zip.Uint8ArrayWriter())));
-      onProgress('Odczytywanie notatek i dopasowywanie nagrań…');
-      const notes=await readNotes(await sqlite.getData(new zip.Uint8ArrayWriter()));
-      const {matched,ambiguous}=matchAudioNotes(notes,vocabulary);
+      onProgress('Odczytywanie indeksu mediów Anki…');
+      const map=await decodeAnkiMediaIndex(await media.getData(new zip.Uint8ArrayWriter()),modern);
+      onProgress('Dekodowanie bazy notatek '+(modern?'Anki 21b':'Anki')+'…');
+      const collectionBytes=await decodeAnkiCollection(await sqlite.getData(new zip.Uint8ArrayWriter()),modern);
+      const notes=await readNotes(collectionBytes);
+      onProgress('Dopasowywanie nagrań do słówek i odczytów kanji…');
+      const {matched,ambiguous}=matchAllAudioNotes(notes,vocabulary,kanji);
       const {chosen,ignoredNonAudio}=selectAudioMediaEntries(matched,map,index);
       let imported=0,skipped=0,processed=0;
       const db=await ready();
@@ -190,7 +228,7 @@ export function createPrivateAudioLibrary(vocabulary){
         const entry=chosen.get(id)?.entry;
         if(!entry||entry.uncompressedSize>8*1024*1024){skipped++;continue}
         try{
-          const bytes=await entry.getData(new zip.Uint8ArrayWriter());
+          const bytes=await decodeAnkiAudioFile(await entry.getData(new zip.Uint8ArrayWriter()),modern);
           const ext=filename.split('.').pop().toLowerCase();
           const mime={mp3:'audio/mpeg',ogg:'audio/ogg',oga:'audio/ogg',opus:'audio/ogg',wav:'audio/wav',m4a:'audio/mp4',aac:'audio/aac'}[ext];
           const blob=new Blob([bytes],{type:mime});

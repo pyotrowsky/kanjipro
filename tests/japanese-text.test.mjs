@@ -31,5 +31,5 @@ test('new helper module is imported and precached for offline launches',()=>{
   const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
   assert.match(app,/import \{romajiToHiragana,hira,esc\} from '\.\/japanese-text\.js'/);
   assert.ok(sw.includes("'./js/japanese-text.js'"));
-  assert.match(sw,/wsjj-kanji-pro-3\.23-3/);
+  assert.match(sw,/wsjj-kanji-pro-3\.23-4/);
 });

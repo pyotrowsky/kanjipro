@@ -4,6 +4,7 @@ import {medianMs,kanaReadingUnits,rssFromTimes,quantile,smoothedAccuracy} from '
 import {dictionaryLessonMatch,dictionarySearchTerms,dictionaryVocabId,includesDictionaryQuery as matchDictionaryQuery} from './dictionary-helpers.js';
 import {normalizeAnswer,acceptedAnswers,answerText,rawMeaning,meaningText,requeueWrongAnswer} from './quiz-logic.js';
 import {learningRowsFromObject,mistakeRowsFromObject,objectFromRows,mistakeObjectFromRows,cleanRecordObject} from './storage-records.js';
+import {createQuizFocusController} from './quiz-focus.js';
 const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.23', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
@@ -966,46 +967,9 @@ function buildQueue(){const modes=selectedModes(),r=buildReadingPools();let v=bu
 // particularly when a hardware keyboard is attached and the value changes.
 // Restore the *field's* visibility only after an unexpected browser scroll;
 // do not pin the screen continuously or interfere with manual scrolling.
-const IPADOS_WEBKIT=/iPad|iPhone|iPod/.test(navigator.userAgent)||
-  (navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
-let answerVisibilityFramePending=false;
-function keepAnswerVisible(){
-  if(!IPADOS_WEBKIT||answerVisibilityFramePending)return;
-  answerVisibilityFramePending=true;
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    answerVisibilityFramePending=false;
-    if(document.activeElement!==input||quiz.classList.contains('hidden'))return;
-    const viewport=window.visualViewport;
-    const visibleTop=viewport?.offsetTop??0;
-    const visibleBottom=visibleTop+(viewport?.height??window.innerHeight);
-    const rect=input.getBoundingClientRect();
-    const padding=24;
-    if(rect.top>=visibleTop+padding&&rect.bottom<=visibleBottom-padding)return;
-    // Prefer the lower half of the viewport so the prompt stays above the answer.
-    const usable=Math.max(0,visibleBottom-visibleTop-2*padding-rect.height);
-    const targetTop=visibleTop+padding+usable*.62;
-    window.scrollBy({top:rect.top-targetTop,behavior:'auto'});
-  }))
-}
-function focusAnswerField(){
-  if(document.activeElement!==input){
-    try{input.focus({preventScroll:true})}catch{input.focus()}
-  }
-  keepAnswerVisible()
-}
-// On iPadOS a tap can restore focus to START *after* its click handler.
- // Reassert the answer field after the activation event has finished, while
- // keeping the first question and any user-entered text intact.
-function restoreQuizFocusAfterStart(){
-  const firstQuestion=current;
-  const refocus=()=>{
-    if(current!==firstQuestion||checked||input.disabled||quiz.classList.contains('hidden'))return;
-    if(document.activeElement!==input)focusAnswerField()
-  };
-  requestAnimationFrame(()=>requestAnimationFrame(refocus));
-  setTimeout(refocus,80);
-  setTimeout(refocus,220)
-}
+// Centralized focus controller; quiz lifecycle and behavior stay unchanged.
+const quizFocus=createQuizFocusController({input,quiz,getCurrent:()=>current,isChecked:()=>checked});
+const {focusAnswerField,keepAnswerVisible,restoreQuizFocusAfterStart}=quizFocus;
 function showQuestion(){clearVocabTimer();if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);const hint=current.type==='vocabulary'?String(current.disambiguation||'').trim():'';promptHint.textContent=hint;promptHint.classList.toggle('hidden',!hint);feedback.className='feedback empty';feedback.innerHTML='';updateStats();startVocabTimer();focusAnswerField()}function compareReading(s){return normalizeAnswer(s,inputMode())}function accepted(q){return acceptedAnswers(q,inputMode())}
 function recordMistake(q,userAnswer){const key=q.question_id||`${q.type}:${q.prompt}`;let item=mistakeLog.get(key);if(!item){item={type:typeName(q.type),prompt_html:q.prompt_html||esc(q.prompt),correct:answerText(q),meaning:rawMeaning(q),answers:[]};mistakeLog.set(key,item)}const a=String(userAnswer||'').trim();if(a&&!item.answers.includes(a))item.answers.push(a)}
 function hideAnswerNotice(){if(!answerNotice)return;answerNotice.classList.add('hidden');answerNotice.classList.remove('good','bad');answerNotice.textContent=''}
@@ -1104,25 +1068,8 @@ renderLessonGrid();renderKanjiGroups(false);restoreSessionControls();populateFur
 input.addEventListener('compositionstart',()=>{answerComposing=true;markFirstVocabInput()});
 input.addEventListener('beforeinput',e=>{if(e.inputType?.startsWith('insert'))markFirstVocabInput()});
 input.addEventListener('compositionend',()=>{answerComposing=false});
-// iPadOS can leave START focused after the quiz is revealed, especially with
-// an external keyboard. A real keypress restores focus; preserve its first
-// character so the user never has to tap the answer field manually.
-document.addEventListener('keydown',event=>{
-  if(!IPADOS_WEBKIT||quiz.classList.contains('hidden')||checked||input.disabled||
-     document.activeElement===input||event.defaultPrevented||
-     event.metaKey||event.ctrlKey||event.altKey||event.isComposing)return;
-  const active=document.activeElement;
-  // Ignore an open settings dialog, but allow a stale setup input to lose focus.
-  if(document.querySelector('#settingsDialog')?.open||active?.isContentEditable)return;
-  if(/^(INPUT|TEXTAREA|SELECT)$/.test(active?.tagName||'')&&active?.closest?.('#quiz'))return;
-  if(event.key.length!==1||event.key===' '&&event.target?.closest?.('button'))return;
-  event.preventDefault();
-  focusAnswerField();
-  const start=input.selectionStart??input.value.length;
-  const end=input.selectionEnd??start;
-  input.setRangeText(event.key,start,end,'end');
-  input.dispatchEvent(new Event('input',{bubbles:true}));
-},true);
+// iPadOS hardware-keyboard recovery without losing the initial keystroke.
+document.addEventListener('keydown',quizFocus.handleStaleFocusKeydown,true);
 input.addEventListener('focus',keepAnswerVisible);
 input.addEventListener('input',()=>{if(input.value)markFirstVocabInput();if(input.value)hideAnswerNotice();if(inputMode()==='romaji'&&!answerComposing){const p=input.selectionStart??input.value.length;const before=input.value;const after=romajiToHiragana(before,false);if(after!==before){
     // Assigning .value already places the caret at the end in the normal

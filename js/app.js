@@ -7,7 +7,8 @@ import {learningRowsFromObject,mistakeRowsFromObject,objectFromRows,mistakeObjec
 import {createQuizFocusController} from './quiz-focus.js';
 import {createPrivateAudioLibrary} from './anki-audio.js';
 import {createAppUpdater} from './app-update.js';
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.26', { cache: 'no-store' });
+import {createQuizActionGuard} from './quiz-action-guard.js';
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.27', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -58,6 +59,18 @@ function answerMode(){return document.querySelector('input[name="answerMode"]:ch
 function saveAnswerMode(value){try{localStorage.setItem(ANSWER_MODE_STORAGE_KEY,value)}catch{}}
 function initAnswerModeSettings(){const current=savedAnswerMode();document.querySelectorAll('input[name="answerMode"]').forEach(x=>{x.checked=x.value===current;x.addEventListener('change',()=>{if(x.checked)saveAnswerMode(x.value)})})}
 initAnswerModeSettings();
+const AUTO_AUDIO_KEY='wsjj-kanji-pro:auto-audio-after-answer';
+function savedAutoAudio(){try{return localStorage.getItem(AUTO_AUDIO_KEY)==='enabled'}catch{return false}}
+function initAutoAudioSettings(){
+  const checkbox=document.querySelector('#autoAudioAfterAnswer');
+  if(!checkbox)return;
+  checkbox.checked=savedAutoAudio();
+  checkbox.addEventListener('change',()=>{
+    try{localStorage.setItem(AUTO_AUDIO_KEY,checkbox.checked?'enabled':'disabled')}catch{}
+  })
+}
+initAutoAudioSettings();
+
 
 const VOCAB_TIMER_VISIBLE_KEY='wsjj-kanji-pro:vocab-timer-visible';
 function savedVocabTimerVisible(){try{return localStorage.getItem(VOCAB_TIMER_VISIBLE_KEY)!=='hidden'}catch{return true}}
@@ -123,7 +136,7 @@ function initExampleFuriganaSettings(){
 }
 initExampleFuriganaSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=3.26', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=3.27', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictRssSort=$('#dictRssSort'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
 const privateAudio=createPrivateAudioLibrary(DB.vocabulary,DB.kanji);
@@ -143,6 +156,17 @@ function updatePrivateAudioControls(){
   $('#playQuizAudio')?.classList.toggle('hidden',!current||!checked||current.type!=='vocabulary'||!privateAudio.has(persistentQuestionId(current)));
   if(dictionaryCurrentEntry?.type==='vocab')openVocabDetail(DB.vocabulary[dictionaryCurrentEntry.index],dictionaryCurrentEntry.index,false);
   else if(dictionaryCurrentEntry?.type==='kanji')openKanjiDetail(DB.kanji[dictionaryCurrentEntry.index],dictionaryCurrentEntry.index,false)
+}
+function questionAudioId(question){
+  if(!question)return null;
+  if(question.type==='onyomi')return 'ON:'+question.prompt;
+  if(question.type==='kunyomi')return 'KUN:'+question.prompt;
+  if(question.type==='vocabulary')return persistentQuestionId(question);
+  return null
+}
+function shouldAutoPlayAnswer(question){
+  const id=questionAudioId(question);
+  return savedAutoAudio()&&Boolean(id)&&privateAudio.has(id)?id:null
 }
 function initPrivateAudioImport(){
   const choose=$('#importAnkiAudio'),fileInput=$('#importAnkiAudioFile'),clear=$('#clearAnkiAudio'),status=$('#ankiAudioStatus');
@@ -175,6 +199,11 @@ function initPrivateAudioImport(){
   });
   void privateAudio.ready().then(updatePrivateAudioControls).catch(err=>statusText(t('settings.audio_storage_error')+' '+(err?.message||'')))
 }
+// Absorb accidental rapid repeated activation (touch double-tap/Enter key repeat).
+// This prevents checking and advancing twice on the same intended tap.
+const quizActionGuard=createQuizActionGuard({minIntervalMs:420});
+const startActionGuard=createQuizActionGuard({minIntervalMs:650});
+let pendingAudioAdvance=false;
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set(),sessionVocabTiming=[],sessionRssId='';
 let vocabTiming=null,vocabTimingInterval=null;
 function vocabActiveMs(now=performance.now()){
@@ -922,7 +951,7 @@ function reviewQuestions(){return resolvedMistakeEntries().map(x=>({...x.questio
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
-function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.26',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{theme:savedAppTheme(),font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),session_prefs:loadSessionPrefs()}}}}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.27',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{theme:savedAppTheme(),font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),auto_audio_after_answer:savedAutoAudio(),session_prefs:loadSessionPrefs()}}}}
 function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
 async function importLearningData(file){
   if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
@@ -947,6 +976,7 @@ async function importLearningData(file){
       if(settings.stroke_animation_mode==='spectrum'||settings.stroke_animation_mode==='contrast')localStorage.setItem(STROKE_ANIMATION_MODE_KEY,settings.stroke_animation_mode);
       if(typeof settings.example_furigana_visible==='boolean')localStorage.setItem(EXAMPLE_FURIGANA_STORAGE_KEY,settings.example_furigana_visible?'visible':'hidden');
       if(typeof settings.show_vocab_timer==='boolean')localStorage.setItem(VOCAB_TIMER_VISIBLE_KEY,settings.show_vocab_timer?'visible':'hidden');
+      if(typeof settings.auto_audio_after_answer==='boolean')localStorage.setItem(AUTO_AUDIO_KEY,settings.auto_audio_after_answer?'enabled':'disabled');
       if(settings.session_prefs&&typeof settings.session_prefs==='object'&&!Array.isArray(settings.session_prefs))localStorage.setItem(SESSION_PREFS_KEY,JSON.stringify(settings.session_prefs));
     }catch{}
     if(appDb)await Promise.all([idbReplaceStore('learning_stats',learningRowsFromObject(learningStats)),idbReplaceStore('mistakes',mistakeRowsFromObject(Object.fromEntries(mistakeBank))),idbPut('meta',{key:'last_import',imported_at:Date.now()})]);
@@ -1022,13 +1052,13 @@ function buildQueue(){const modes=selectedModes(),r=buildReadingPools();let v=bu
 // Centralized focus controller; quiz lifecycle and behavior stay unchanged.
 const quizFocus=createQuizFocusController({input,quiz,getCurrent:()=>current,isChecked:()=>checked});
 const {focusAnswerField,keepAnswerVisible,restoreQuizFocusAfterStart}=quizFocus;
-function showQuestion(){clearVocabTimer();if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);const hint=current.type==='vocabulary'?String(current.disambiguation||'').trim():'';promptHint.textContent=hint;promptHint.classList.toggle('hidden',!hint);feedback.className='feedback empty';feedback.innerHTML='';updateStats();startVocabTimer();$('#playQuizAudio')?.classList.add('hidden');focusAnswerField()}function compareReading(s){return normalizeAnswer(s,inputMode())}function accepted(q){return acceptedAnswers(q,inputMode())}
+function showQuestion(){pendingAudioAdvance=false;submit.disabled=false;clearVocabTimer();if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);const hint=current.type==='vocabulary'?String(current.disambiguation||'').trim():'';promptHint.textContent=hint;promptHint.classList.toggle('hidden',!hint);feedback.className='feedback empty';feedback.innerHTML='';updateStats();startVocabTimer();$('#playQuizAudio')?.classList.add('hidden');const audioId=questionAudioId(current);if(audioId&&privateAudio.has(audioId))void privateAudio.prepare(audioId).catch(err=>console.warn('Audio preload failed:',err));focusAnswerField()}function compareReading(s){return normalizeAnswer(s,inputMode())}function accepted(q){return acceptedAnswers(q,inputMode())}
 function recordMistake(q,userAnswer){const key=q.question_id||`${q.type}:${q.prompt}`;let item=mistakeLog.get(key);if(!item){item={type:typeName(q.type),prompt_html:q.prompt_html||esc(q.prompt),correct:answerText(q),meaning:rawMeaning(q),answers:[]};mistakeLog.set(key,item)}const a=String(userAnswer||'').trim();if(a&&!item.answers.includes(a))item.answers.push(a)}
 function hideAnswerNotice(){if(!answerNotice)return;answerNotice.classList.add('hidden');answerNotice.classList.remove('good','bad');answerNotice.textContent=''}
 function showWrongNotice(wrong,correct){if(!answerNotice)return;answerNotice.classList.remove('good');answerNotice.classList.add('bad');answerNotice.textContent=t('quiz.wrong_compact',{wrong,correct});answerNotice.classList.remove('hidden')}
 function showCorrectNotice(meaning){if(!answerNotice||!meaning)return;answerNotice.classList.remove('bad');answerNotice.classList.add('good');answerNotice.textContent=t('quiz.correct_compact',{meaning});answerNotice.classList.remove('hidden')}
 function renderMistakeSummary(){const details=$('#mistakesDetails'),list=$('#mistakesList'),count=$('#mistakesCount');if(!details||!list||!count)return;list.innerHTML='';details.open=false;if(!mistakeLog.size){details.classList.add('hidden');count.textContent='0';return}details.classList.remove('hidden');count.textContent=String(mistakeLog.size);for(const item of mistakeLog.values()){const el=document.createElement('div');el.className='mistake-item';const yours=item.answers.map(esc).join(' · ');el.innerHTML=`<div class="mistake-head"><div class="mistake-prompt">${item.prompt_html}</div><div class="mistake-type">${esc(item.type)}</div></div><div class="mistake-answer">${esc(t('finish.mistake_correct',{answer:item.correct}))}</div>${yours?`<div class="mistake-yours">${esc(t('finish.mistake_yours',{answer:yours}))}</div>`:''}${item.meaning?`<div class="mistake-meaning">${esc(item.meaning)}</div>`:''}`;list.appendChild(el)}}
-function check(advance=false){if(checked){showQuestion();return}
+function check(advance=false){if(pendingAudioAdvance)return;if(checked){showQuestion();return}
   const learningId=learningQuestionId(current),persistId=persistentQuestionId(current);
   const wasLearned=learningId?sessionLearningRecordedIds.has(learningId):false;
   const wasCredited=sessionCreditedIds.has(persistId);
@@ -1046,7 +1076,34 @@ function check(advance=false){if(checked){showQuestion();return}
       firebaseSync.appendAnswer(cloudAnswer)
     }catch(err){console.warn('Cloud journal write failed:',err)}
   }
-  updateStats();if(!advance&&current.type==='vocabulary'&&privateAudio.has(persistentQuestionId(current)))$('#playQuizAudio')?.classList.remove('hidden');if(advance){showQuestion();if(ok)showCorrectNotice(meaning);else showWrongNotice(typedRaw,correct);return}input.disabled=true;submit.textContent=t('quiz.next');try{submit.focus({preventScroll:true})}catch{submit.focus()}}
+  updateStats();
+  if(!advance&&current.type==='vocabulary'&&privateAudio.has(persistentQuestionId(current)))$('#playQuizAudio')?.classList.remove('hidden');
+  const autoId=shouldAutoPlayAnswer(current);
+  if(advance){
+    const continueSession=()=>{
+      showQuestion();
+      if(ok)showCorrectNotice(meaning);else showWrongNotice(typedRaw,correct)
+    };
+    if(autoId){
+      const answeredQuestion=current;
+      pendingAudioAdvance=true;
+      input.disabled=true;
+      submit.disabled=true;
+      // The question remains visible while its recording plays; one tap still advances.
+      void privateAudio.play(autoId,{waitForEnd:true}).catch(err=>console.warn('Auto audio playback failed:',err))
+        .finally(()=>{
+          if(current===answeredQuestion&&!quiz.classList.contains('hidden'))continueSession();
+          else{pendingAudioAdvance=false;submit.disabled=false}
+        });
+      return
+    }
+    continueSession();
+    return
+  }
+  input.disabled=true;submit.textContent=t('quiz.next');
+  try{submit.focus({preventScroll:true})}catch{submit.focus()}
+  if(autoId)void privateAudio.play(autoId).catch(err=>console.warn('Auto audio playback failed:',err))
+}
 function updateStats(){correctEl.textContent=stats.correct;wrongEl.textContent=stats.wrong;leftEl.textContent=queue.length+(current&&!checked?1:0)}
 function start(){hideAnswerNotice();saveSessionPrefs();if(!selectedLessons().length){alert(t('errors.choose_lesson'));return}if(!selectedKanji().size){alert(t('errors.choose_kanji'));return}if(!selectedModes().length){alert(t('errors.choose_mode'));return}if(furiganaMode()==='chapter'&&!furiganaLesson()){alert(t('errors.invalid_furigana'));return}const items=buildQueue();if(!items.length){alert(t('errors.empty_pool'));return}beginSession(items,'normal')}
 function showFinish(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('hidden');finished.classList.remove('hidden');refreshReviewUI();const total=stats.correct+stats.wrong,acc=total?Math.round(stats.correct/total*100):100,remaining=resolvedMistakeEntries().length;finishTitle.textContent=t(sessionKind==='review'?'review.finish_title':'finish.title');$('#finalScore').textContent=`${acc}%`;$('#finalCorrect').textContent=stats.correct;$('#finalWrong').textContent=stats.wrong;$('#finalAttempts').textContent=stats.attempts;$('#again').textContent=t(sessionKind==='review'?(remaining?'review.practice_remaining':'review.done'):'finish.again');$('#settings').textContent=t(sessionKind==='review'?(remaining?'review.finish_back':'finish.settings'):sessionKind==='dictionary'?'dictionary.return_to_dictionary':'finish.settings');renderMistakeSummary();renderVocabTimingSummary();renderRssProgress();
@@ -1131,7 +1188,7 @@ input.addEventListener('input',()=>{if(input.value)markFirstVocabInput();if(inpu
     input.value=after
   }}
   keepAnswerVisible()
-});$('#lessonToggle').addEventListener('click',toggleLessons);$('#kanjiToggle').addEventListener('click',toggleKanji);$('#start').addEventListener('click',start);$('#reviewOpen').addEventListener('click',showReviewBank);$('#reviewStart').addEventListener('click',startReview);$('#reviewBankStart').addEventListener('click',startReview);$('#reviewBankBack').addEventListener('click',showSetupScreen);submit.addEventListener('click',()=>check(answerMode()==='one'));input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing&&!answerComposing){e.preventDefault();e.stopPropagation();const oneStep=answerMode()==='one';check(oneStep);if(oneStep)requestAnimationFrame(()=>{if(!quiz.classList.contains('hidden'))focusAnswerField()})}});$('#quit').addEventListener('click',back);$('#again').addEventListener('click',restartSession);$('#settings').addEventListener('click',finishBack);syncFuriganaControls();syncInputMode();
+});$('#lessonToggle').addEventListener('click',toggleLessons);$('#kanjiToggle').addEventListener('click',toggleKanji);$('#start').addEventListener('click',()=>{if(startActionGuard.accept())start()});$('#reviewOpen').addEventListener('click',showReviewBank);$('#reviewStart').addEventListener('click',()=>{if(startActionGuard.accept())startReview()});$('#reviewBankStart').addEventListener('click',()=>{if(startActionGuard.accept())startReview()});$('#reviewBankBack').addEventListener('click',showSetupScreen);submit.addEventListener('click',()=>{if(quizActionGuard.accept())check(answerMode()==='one')});input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing&&!answerComposing){e.preventDefault();e.stopPropagation();if(e.repeat||!quizActionGuard.accept())return;const oneStep=answerMode()==='one';check(oneStep);if(oneStep)requestAnimationFrame(()=>{if(!quiz.classList.contains('hidden'))focusAnswerField()})}});$('#quit').addEventListener('click',back);$('#again').addEventListener('click',restartSession);$('#settings').addEventListener('click',finishBack);syncFuriganaControls();syncInputMode();
 
 // PWA: offline support + iOS Home Screen experience.
 if ('serviceWorker' in navigator) {
@@ -1142,7 +1199,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=3.26', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=3.27', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

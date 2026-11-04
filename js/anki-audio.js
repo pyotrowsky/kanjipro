@@ -180,24 +180,62 @@ export function createPrivateAudioLibrary(vocabulary,kanji=[]){
   };
   const has=id=>ids.has(id);
   const count=()=>ids.size;
-  const play=async id=>{
-    if(!has(id))return false;
+  // Warm the next question before the answer tap, so iOS can start playback
+  // inside the user gesture (without an IndexedDB round trip).
+  let prepared=null,preparing=null;
+  const fetchRow=async id=>{
     const db=await ready();
-    const row=await new Promise((resolve,reject)=>{
+    return new Promise((resolve,reject)=>{
       const req=db.transaction('audio','readonly').objectStore('audio').get(id);
       req.onsuccess=()=>resolve(req.result);
       req.onerror=()=>reject(req.error)
-    });
-    if(!row?.blob)return false;
-    const url=URL.createObjectURL(row.blob);
-    const player=new Audio(url);
-    const cleanup=()=>URL.revokeObjectURL(url);
-    player.addEventListener('ended',cleanup,{once:true});
-    player.addEventListener('error',cleanup,{once:true});
-    try{await player.play();return true}catch(err){cleanup();throw err}
+    })
+  };
+  const prepare=async id=>{
+    if(!id||!has(id))return false;
+    if(prepared?.id===id)return true;
+    if(preparing?.id===id)return preparing.promise;
+    const job=(async()=>{
+      const row=await fetchRow(id);
+      if(!row?.blob)return false;
+      const url=URL.createObjectURL(row.blob);
+      if(prepared?.url)URL.revokeObjectURL(prepared.url);
+      prepared={id,url};
+      return true
+    })();
+    preparing={id,promise:job};
+    try{return await job}finally{if(preparing?.promise===job)preparing=null}
+  };
+  const play=async(id,{waitForEnd=false}={})=>{
+    if(!has(id))return false;
+    // Start synchronously when warm: essential for Safari gesture restrictions.
+    if(prepared?.id!==id)await prepare(id);
+    if(prepared?.id!==id)return false;
+    const player=new Audio(prepared.url);
+    let resolveFinished;
+    const finished=new Promise(resolve=>{resolveFinished=resolve});
+    let finishedOnce=false;
+    const finish=()=>{
+      if(finishedOnce)return;
+      finishedOnce=true;
+      player.removeEventListener('ended',finish);
+      player.removeEventListener('error',finish);
+      player.removeEventListener('abort',finish);
+      resolveFinished()
+    };
+    player.addEventListener('ended',finish);
+    player.addEventListener('error',finish);
+    player.addEventListener('abort',finish);
+    try{
+      await player.play();
+      if(waitForEnd)await finished;
+      return true
+    }catch(err){finish();throw err}
   };
   const clear=async()=>{
-    const db=await ready();await transaction(db,'readwrite',store=>store.clear());ids.clear()
+    const db=await ready();await transaction(db,'readwrite',store=>store.clear());ids.clear();
+    if(prepared?.url)URL.revokeObjectURL(prepared.url);
+    prepared=null;preparing=null
   };
   const importApkg=async(file,onProgress=()=>{})=>{
     if(!file||!file.name.toLowerCase().endsWith('.apkg'))throw new Error('Wybierz pakiet .apkg.');
@@ -240,5 +278,5 @@ export function createPrivateAudioLibrary(vocabulary,kanji=[]){
       return{notes:notes.length,matched:matched.size,imported,skipped,ambiguous:ambiguous.length,ignoredNonAudio,total:ids.size}
     }finally{await reader.close()}
   };
-  return {ready,has,count,play,clear,importApkg}
+  return {ready,has,count,play,prepare,clear,importApkg}
 }

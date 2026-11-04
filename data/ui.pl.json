@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.26",
+    "badge": "3.27",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -222,7 +222,10 @@
     "audio_delete_confirm": "Usunąć wszystkie lokalne nagrania Anki z tego urządzenia? Nie wpłynie to na Anki ani historię nauki.",
     "update_title": "Aktualizacje aplikacji",
     "update_note": "Sprawdź, czy dostępna jest nowa wersja Kanji.pro. Aktualizacja nie usuwa historii nauki ani nagrań z Anki.",
-    "update_check": "Sprawdź aktualizację"
+    "update_check": "Sprawdź aktualizację",
+    "auto_audio_title": "Automatyczny odsłuch po odpowiedzi",
+    "auto_audio_toggle": "Odtwarzaj nagranie automatycznie po sprawdzeniu odpowiedzi",
+    "auto_audio_note": "Domyślnie wyłączone. W trybie jednoetapowym kolejne pytanie pojawi się po zakończeniu nagrania. W trybie dwuetapowym pozostajesz na sprawdzonej odpowiedzi."
   },
   "actions": {
     "select_all": "Zaznacz wszystko",

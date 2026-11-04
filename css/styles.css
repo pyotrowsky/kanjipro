@@ -337,3 +337,8 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .private-audio-play svg{display:block;flex:none;pointer-events:none}
 .private-audio-play.compact{min-height:34px;min-width:38px;width:auto;margin:8px 0 0;padding:7px 9px;border-radius:11px}
 .dictionary-reading-grid .private-audio-play.compact{display:inline-flex;vertical-align:middle;margin:8px 0 0}
+
+/* Tap targets never trigger double-tap zoom or accidental text selection. */
+button,[role="button"],.lesson-chip,.kanji-chip,.mode,.answer-mode-option,.theme-option,.font-option{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+button{-webkit-user-select:none;user-select:none}
+button:disabled{cursor:default;opacity:.6}

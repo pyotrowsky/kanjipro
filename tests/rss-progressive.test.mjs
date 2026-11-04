@@ -8,7 +8,7 @@ const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
 const ui=JSON.parse(readFileSync(new URL('../data/ui.pl.json',import.meta.url),'utf8'));
 const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
 const start=app.indexOf('const RSS_MIN_SAMPLES=');
-const end=app.indexOf('function smoothedAccuracy(',start);
+const end=app.indexOf('function vocabPriority(',start);
 assert.ok(start>=0&&end>start,'RSS profile code can be isolated');
 
 function sample(rss,session_id='session-1',mode='romaji'){

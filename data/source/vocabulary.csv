@@ -1373,7 +1373,7 @@
 1791199258566,1791199258566,朝寝坊する,朝寝坊する,,,朝[あさ]寝[ね]坊[ぼう]する,あさねぼうする,あさねぼうする,asanebō suru,"zaspać rano, późno wstać rano",3,14,3-14,14,朝,寝 坊,triple_cards_new,AIfixed Doki Doki3-14
 1791199258571,1791199258571,目を閉じる,目を閉じる,,,目[め]を閉[と]じる,めをとじる,めをとじる,me o tojiru,zamknąć oczy,3,14,3-14,14,目,閉,triple_cards_new,Doki Doki3-14
 1791199258573,1791199258573,道に迷う,道に迷う,,,道[みち]に迷[まよ]う,みちにまよう,みちにまよう,michi ni mayou,"zgubić się, zabłądzić",3,14,3-14,14,道,迷,triple_cards_new,Doki Doki3-14
-1791199258574,1791199258574,連れて行く,連れて行く,,,連[つ]れて行[い]く,つれていく,つれていく,tsurete iku,"zabrać kogoś ze sobą, zaprowadzić",3,14,3-14,14,連 行,,triple_cards_new,Doki Doki3-14
+1791199258574,1791199258574,連れて行く,連れて行く,,,連[つ]れて行[い]く,つれていく,つれていく,tsurete iku,"zabrać kogoś ze sobą, zaprowadzić",2,12,2-12,12,連 行,,triple_cards_new,Doki Doki2-12 Doki3-14
 1791199258575,1791199258575,連れて来る,連れて来る,,,連[つ]れて来[く]る,つれてくる,つれてくる,tsurete kuru,"przyprowadzić, przywieźć kogoś tutaj",1,4,1-4,4,連 来,,triple_cards_new,AIfixed Doki Doki1-4 Doki3-14 female_voice leech newVersion
 1791199258576,1791199258576,連れて帰る,連れて帰る,,,連[つ]れて帰[かえ]る,つれてかえる,つれてかえる,tsurete kaeru,"zabrać kogoś do domu, odprowadzić",3,14,3-14,14,連 帰,,triple_cards_new,Doki Doki3-14
 1791199258577,1791199258577,迎えに来る,迎えに来る,,,迎[むか]えに来[く]る,むかえにくる,むかえにくる,mukae ni kuru,przyjechać lub przyjść po kogoś,3,14,3-14,14,来,迎,triple_cards_new,Doki Doki3-14
@@ -1677,7 +1677,7 @@
 1791359316922,1791359316922,漢文,漢文,,,漢[かん]文[ぶん],かんぶん,かんぶん,kanbun,"klasyczny tekst chiński, język starochiński",3,19,3-19,19,漢 文,,triple_cards_new,Doki Doki3-19
 1791359316923,1791359316923,不景気,不景気,,,不[ふ]景[けい]気[き],ふけいき,ふけいき,fukeiki,"kryzys gospodarczy, zła koniunktura",3,19,3-19,19,不 気,景,triple_cards_new,Doki Doki3-19
 1791359316925,1791359316925,皆様,皆様,,,皆[みな]様[さま],みなさま,みなさま,minasama,"Szanowni Państwo, wszyscy",3,19,3-19,19,様,皆,triple_cards_new,Doki Doki3-19
-1791359316926,1791359316926,神話,神話,,,神[しん]話[わ],しんわ,しんわ,shinwa,"mitologia, mit",3,19,3-19,19,神 話,,triple_cards_new,Doki Doki3-19
+1791359316926,1791359316926,神話,神話,,,神[しん]話[わ],しんわ,しんわ,shinwa,"mitologia, mit",2,12,2-12,12,神 話,,triple_cards_new,Doki Doki2-12 Doki3-19
 1791359316927,1791359316927,様子,様子,,,様[よう]子[す],ようす,ようす,yōsu,"stan, sytuacja, wygląd",3,19,3-19,19,様 子,,triple_cards_new,Doki Doki3-19
 1791359316928,1791359316928,工学,工学,,,工[こう]学[がく],こうがく,こうがく,kōgaku,inżynieria,3,19,3-19,19,工 学,,triple_cards_new,Doki Doki3-19
 1791359316929,1791359316929,工事,工事,,,工[こう]事[じ],こうじ,こうじ,kōji,"roboty, remont, budowa",3,19,3-19,19,工 事,,triple_cards_new,Doki Doki3-19
@@ -1726,3 +1726,21 @@
 1792834595028,1792834595028,和菓子,和菓子,,,和[わ]菓[が]子[し],わがし,わがし,wagashi,tradycyjne japońskie słodycze,2,11,2-11,11,子,和 菓,triple_cards_new,Doki Doki2-11
 1793449555634,1793449555634,義理,義理,,,義[ぎ]理[り],ぎり,ぎり,giri,"obowiązek społeczny, powinność wobec innych",2,11,2-11,11,理,義,triple_cards_new,AICreated Doki Doki2-11
 1793449555636,1793449555636,彼女たち,彼女たち,,,彼[かの]女[じょ]たち,かのじょたち,かのじょたち,kanojo-tachi,one (grupa kobiet lub dziewcząt),2,12,2-12,12,彼 女,,triple_cards_new,AICreated Doki Doki2-12
+1793786069126,1793786069126,水色,水色,,,水[みず]色[いろ],みずいろ,みずいろ,mizuiro,"jasnoniebieski, błękitny",2,12,2-12,12,水 色,,triple_cards_new,AICreated Doki Doki2-12
+1793786069127,1793786069127,国々,国々,,,国々[くにぐに],くにぐに,くにぐに,kuniguni,"różne kraje, kraje",2,12,2-12,12,国,,triple_cards_new,AICreated Doki Doki2-12
+1793786069128,1793786069128,早口,早口,,,早[はや]口[くち],はやくち,はやくち,hayakuchi,"szybkie mówienie, mówienie szybko",2,12,2-12,12,早 口,,triple_cards_new,AICreated Doki Doki2-12
+1793786069129,1793786069129,手早い,手早い,,,手[て]早[ばや]い,てばやい,てばやい,tebayai,"sprawny, szybki i skuteczny",2,12,2-12,12,手 早,,triple_cards_new,AICreated Doki Doki2-12
+1793786069130,1793786069130,起こる,起こる,,,起[お]こる,おこる,おこる,okoru,"wydarzać się, zdarzać się",2,12,2-12,12,起,,triple_cards_new,AICreated Doki Doki2-12
+1793786069131,1793786069131,使い方,使い方,,,使[つか]い方[かた],つかいかた,つかいかた,tsukaikata,"sposób użycia, jak używać",2,12,2-12,12,使 方,,triple_cards_new,AICreated Doki Doki2-12
+1793786069132,1793786069132,本店,本店,,,本[ほん]店[てん],ほんてん,ほんてん,honten,"główna siedziba sklepu, sklep główny",2,12,2-12,12,本 店,,triple_cards_new,AICreated Doki Doki2-12
+1793786069133,1793786069133,共働き,共働き,,,共[とも]働[ばたら]き,ともばたらき,ともばたらき,tomobataraki,oboje małżonkowie pracujący zawodowo,2,12,2-12,12,働,共,triple_cards_new,AICreated Doki Doki2-12
+1793786069134,1793786069134,ソ連,ソ連,,,ソ連[れん],それん,それん,Soren,"Związek Radziecki, ZSRR",2,12,2-12,12,連,,triple_cards_new,AICreated Doki Doki2-12
+1793786069135,1793786069135,連れてくる,連れてくる,,,連[つ]れてくる,つれてくる,つれてくる,tsurete kuru,"przyprowadzić kogoś, przywieźć kogoś",2,12,2-12,12,連,,triple_cards_new,AICreated Doki Doki2-12
+1793786069136,1793786069136,二度と,二度と,,,二[に]度[ど]と,にどと,にどと,nido to,"już nigdy, nigdy więcej",2,12,2-12,12,二 度,,triple_cards_new,AICreated Doki Doki2-12
+1793786069137,1793786069137,寺,寺,,,寺[てら],てら,てら,tera,świątynia buddyjska,2,12,2-12,12,寺,,triple_cards_new,AICreated Doki Doki2-12
+1793786069138,1793786069138,東大寺,東大寺,,,東[とう]大[だい]寺[じ],とうだいじ,とうだいじ,toudaiji,"Tōdaiji, świątynia Tōdai-ji",2,12,2-12,12,東 大 寺,,triple_cards_new,AICreated Doki Doki2-12
+1793786069139,1793786069139,山寺,山寺,,,山[やま]寺[でら],やまでら,やまでら,yamadera,górska świątynia,2,12,2-12,12,山 寺,,triple_cards_new,AICreated Doki Doki2-12
+1793786069140,1793786069140,禅寺,禅寺,,,禅[ぜん]寺[でら],ぜんでら,ぜんでら,zendera,świątynia zen,2,12,2-12,12,寺,禅,triple_cards_new,AICreated Doki Doki2-12
+1793786069141,1793786069141,心がける,心がける,,,心[こころ]がける,こころがける,こころがける,kokorogakeru,"starać się pamiętać o czymś, mieć coś na uwadze",2,12,2-12,12,心,,triple_cards_new,AICreated Doki Doki2-12
+1793786069142,1793786069142,中心,中心,,,中[ちゅう]心[しん],ちゅうしん,ちゅうしん,chuushin,"centrum, środek",2,12,2-12,12,中 心,,triple_cards_new,AICreated Doki Doki2-12
+1793786069143,1793786069143,心地,心地,,,心[ここ]地[ち],ここち,ここち,kokochi,"odczucie, samopoczucie, wrażenie",2,12,2-12,12,心 地,,triple_cards_new,AICreated Doki Doki2-12

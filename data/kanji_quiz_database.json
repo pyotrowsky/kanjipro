@@ -4,15 +4,15 @@
     "name": "WSJJ Kanji.pro database",
     "source": "Anki exports in imports/",
     "kanji_count": 272,
-    "vocabulary_entries": 1727,
-    "source_vocabulary_notes": 1726,
-    "vocabulary_source_total": 2967,
+    "vocabulary_entries": 1745,
+    "source_vocabulary_notes": 1744,
+    "vocabulary_source_total": 2985,
     "vocabulary_excluded_no_tracked_kanji": 1241,
     "slash_combined_notes_split": 1,
     "quiz_lessons": 18,
     "cleaned_vocabulary_records": 64,
     "ambiguous_surface_multiple_readings": 15,
-    "source_max_modified": 1793720059,
+    "source_max_modified": 1793786913,
     "rules": {
       "knownKanji_field": "ignored",
       "course_kanji_source": "imports/kanji.csv only",
@@ -118,7 +118,7 @@
       "lesson": "2-12",
       "lesson_order": 12,
       "kanji_count": 15,
-      "vocabulary_source_count": 122
+      "vocabulary_source_count": 142
     },
     {
       "book": 2,
@@ -134,7 +134,7 @@
       "lesson": "3-14",
       "lesson_order": 14,
       "kanji_count": 15,
-      "vocabulary_source_count": 44
+      "vocabulary_source_count": 43
     },
     {
       "book": 3,
@@ -174,7 +174,7 @@
       "lesson": "3-19",
       "lesson_order": 19,
       "kanji_count": 15,
-      "vocabulary_source_count": 45
+      "vocabulary_source_count": 44
     },
     {
       "book": 3,
@@ -81084,14 +81084,14 @@
       "example_pl": "Kiedy nauczyciel wchodzi, uczniowie wstają.",
       "verb_form_affirmative": "",
       "verb_form_negative": "",
-      "notes": "rzeczownik / czasownik suru. Formalne określenie wstawania. Używane w szkołach lub ceremoniach jako komenda &quot;wstać!&quot; (起立!).",
+      "notes": "\"rzeczownik / czasownik suru. Formalne określenie wstawania. Używane w szkołach lub ceremoniach jako komenda \"\"wstać!\"\" (起立!).\"",
       "audio": "[sound:hypertts-053ed36467d5c20897e6c77f43e910dfda3520803f1e90d853d2220d.mp3]",
       "example_audio": "[sound:hypertts-3e1710e0801019c29f1b09f83c9cef7008ba3507077cb3ae922b063e.mp3]",
       "audio_dictionary": "[sound:起立_キリツ━_0_NHK-2016.mp3]",
       "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">キ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">リツ</span> <span class=\"\"pitch_number\"\">0</span>\"",
       "source_note_type": "triple_cards_new",
       "source_tags": "Doki Doki2-12",
-      "last_modified": 1781696023,
+      "last_modified": 1793786671,
       "needs_surface_review": false
     },
     {
@@ -81278,14 +81278,14 @@
       "example_pl": "Chcę zjeść wołowinę wagyu w Japonii.",
       "verb_form_affirmative": "",
       "verb_form_negative": "",
-      "notes": "rzeczownik. Japońska rasa krów o charakterystycznym mięsie. Przedrostek 和 (wa) oznacza &quot;japoński&quot;.",
+      "notes": "\"rzeczownik. Japońska rasa krów o charakterystycznym mięsie. Przedrostek 和 (wa) oznacza \"\"japoński\"\".\"",
       "audio": "[sound:hypertts-7773e2fa1f5b9c7129ba6a7cbe0352a860d8c6d230dc797be27d31dd.mp3]",
       "example_audio": "[sound:hypertts-6a6189672f0d2df944766d29ff1823e03fe3857ca24c2368324b5ec9.mp3]",
       "audio_dictionary": "[sound:和牛_ワキ゚ュー━_0_NHK-2016.mp3]",
       "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ワ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">キ<span style=\"\"color: red;\"\">°</span>ュー</span> <span class=\"\"pitch_number\"\">0</span>\"",
       "source_note_type": "triple_cards_new",
       "source_tags": "Doki Doki2-12",
-      "last_modified": 1781696362,
+      "last_modified": 1793786703,
       "needs_surface_review": false
     },
     {
@@ -102566,10 +102566,10 @@
       ],
       "romaji": "tsurete iku",
       "polish": "zabrać kogoś ze sobą, zaprowadzić",
-      "book": 3,
-      "chapter": 14,
-      "lesson": "3-14",
-      "lesson_order": 14,
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
       "all_kanji": [
         "連",
         "行"
@@ -102590,8 +102590,8 @@
       "audio_dictionary": "[sound:連れて行く_ツレテイク_taas.mp3]",
       "pitch_accent_html": "",
       "source_note_type": "triple_cards_new",
-      "source_tags": "Doki Doki3-14",
-      "last_modified": 1791199515,
+      "source_tags": "Doki Doki2-12 Doki3-14",
+      "last_modified": 1793786913,
       "needs_surface_review": false
     },
     {
@@ -123366,10 +123366,10 @@
       ],
       "romaji": "shinwa",
       "polish": "mitologia, mit",
-      "book": 3,
-      "chapter": 19,
-      "lesson": "3-19",
-      "lesson_order": 19,
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
       "all_kanji": [
         "神",
         "話"
@@ -123390,8 +123390,8 @@
       "audio_dictionary": "[sound:神話_シンワ━_0_nhk-2016.mp3]",
       "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">シ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ンワ</span> <span class=\"\"pitch_number\"\">0</span>\"",
       "source_note_type": "triple_cards_new",
-      "source_tags": "Doki Doki3-19",
-      "last_modified": 1791359551,
+      "source_tags": "Doki Doki2-12 Doki3-19",
+      "last_modified": 1793786558,
       "needs_surface_review": false
     },
     {
@@ -126637,6 +126637,1164 @@
       "source_note_type": "triple_cards_new",
       "source_tags": "AICreated Doki Doki2-12",
       "last_modified": 1793449749,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069126",
+      "source_note_id": "1793786069126",
+      "surface": "水色",
+      "display_surface": "水色",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "水[みず]色[いろ]",
+      "furigana_segments": [
+        {
+          "text": "水",
+          "reading": "みず",
+          "kanji": [
+            "水"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        },
+        {
+          "text": "色",
+          "reading": "いろ",
+          "kanji": [
+            "色"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        }
+      ],
+      "reading": "みずいろ",
+      "accepted_readings": [
+        "みずいろ"
+      ],
+      "romaji": "mizuiro",
+      "polish": "jasnoniebieski, błękitny",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "水",
+        "色"
+      ],
+      "tracked_kanji": [
+        "水",
+        "色"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "このシャツは 水[みず] 色[いろ]です。",
+      "example_plain": "このシャツは水色です。",
+      "example_pl": "Ta koszula jest jasnoniebieska.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik oznaczający jasny odcień niebieskiego.",
+      "audio": "[sound:hypertts-f0f4078a27d438d540e8e83eb2ec136342ff489538190980e1582f3a.mp3]",
+      "example_audio": "[sound:hypertts-c3154415b657d95b0a0f844f87d365639ac261828e3ec845ceca3815.mp3]",
+      "audio_dictionary": "[sound:水色_ミズイロ━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ミ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ズイロ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786327,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069127",
+      "source_note_id": "1793786069127",
+      "surface": "国々",
+      "display_surface": "国々",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "国々[くにぐに]",
+      "furigana_segments": [
+        {
+          "text": "国々",
+          "reading": "くにぐに",
+          "kanji": [
+            "国"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 6,
+          "hide_from_lesson": "1-6"
+        }
+      ],
+      "reading": "くにぐに",
+      "accepted_readings": [
+        "くにぐに"
+      ],
+      "romaji": "kuniguni",
+      "polish": "różne kraje, kraje",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "国"
+      ],
+      "tracked_kanji": [
+        "国"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "いつか 色々[いろいろ]な 国々[くにぐに]へ 行[い]きたいです。",
+      "example_plain": "いつか色々な国々へ行きたいです。",
+      "example_pl": "Chcę kiedyś pojechać do różnych krajów.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. Znak 々 powtarza poprzednie kanji, a w wymowie zachodzi rendaku: くにぐに.",
+      "audio": "[sound:hypertts-f5525912612ebd14aed57adcd3f4c580bfe3ada6fc7695d3d8655429.mp3]",
+      "example_audio": "[sound:hypertts-329b70adc958cd9fa1a1d178199265f68bb98a6cc87e7595b6edf65a.mp3]",
+      "audio_dictionary": "[sound:国々_クニ＼ク゚ニ_2_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ク</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ニ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ク<span style=\"\"color: red;\"\">°</span>ニ</span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786329,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069128",
+      "source_note_id": "1793786069128",
+      "surface": "早口",
+      "display_surface": "早口",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "早[はや]口[くち]",
+      "furigana_segments": [
+        {
+          "text": "早",
+          "reading": "はや",
+          "kanji": [
+            "早"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "口",
+          "reading": "くち",
+          "kanji": [
+            "口"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 6,
+          "hide_from_lesson": "1-6"
+        }
+      ],
+      "reading": "はやくち",
+      "accepted_readings": [
+        "はやくち"
+      ],
+      "romaji": "hayakuchi",
+      "polish": "szybkie mówienie, mówienie szybko",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "早",
+        "口"
+      ],
+      "tracked_kanji": [
+        "早",
+        "口"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "先[せん] 生[せい]は 早[はや] 口[くち]で 話[はな]します。",
+      "example_plain": "先生は早口で話します。",
+      "example_pl": "Nauczyciel mówi szybko.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik i określenie sposobu mówienia. 早口で話す oznacza mówić szybko.",
+      "audio": "[sound:hypertts-2022f20333c29579d884faddf8274c995da6ff44e1e17a6fa1586516.mp3]",
+      "example_audio": "[sound:hypertts-028d080e061d4590adff5353e6e4b4e0799363e882bc0fbb5b43d35c.mp3]",
+      "audio_dictionary": "[sound:早口_ハヤ＼クチ_2_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ハ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ヤ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\"><span style=\"\"color: royalblue;\"\">ク</span>チ</span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786331,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069129",
+      "source_note_id": "1793786069129",
+      "surface": "手早い",
+      "display_surface": "手早い",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "手[て]早[ばや]い",
+      "furigana_segments": [
+        {
+          "text": "手",
+          "reading": "て",
+          "kanji": [
+            "手"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 11,
+          "hide_from_lesson": "2-11"
+        },
+        {
+          "text": "早",
+          "reading": "ばや",
+          "kanji": [
+            "早"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "い",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "てばやい",
+      "accepted_readings": [
+        "てばやい"
+      ],
+      "romaji": "tebayai",
+      "polish": "sprawny, szybki i skuteczny",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "手",
+        "早"
+      ],
+      "tracked_kanji": [
+        "手",
+        "早"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "彼[かれ]は 料[りょう] 理[り]を 手[て] 早[ばや]く 作[つく]ります。",
+      "example_plain": "彼は料理を手早く作ります。",
+      "example_pl": "On przygotowuje potrawy szybko i sprawnie.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "i-adj. Opisuje wykonanie czegoś szybko i sprawnie. W złożeniu zachodzi rendaku: はやい → ばやい.",
+      "audio": "[sound:hypertts-80e8c6750434d4a900ade33c0d5f24c186b40722a276436f0c579ccc.mp3]",
+      "example_audio": "[sound:hypertts-135336a9a7574d672c78342ecbc8e4e9a8f957e10ee82023ea6571d2.mp3]",
+      "audio_dictionary": "[sound:手早い_テバヤ＼イ_3_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">テ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">バヤ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">イ</span> <span class=\"\"pitch_number\"\">3</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786332,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069130",
+      "source_note_id": "1793786069130",
+      "surface": "起こる",
+      "display_surface": "起こる",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "起[お]こる",
+      "furigana_segments": [
+        {
+          "text": "起",
+          "reading": "お",
+          "kanji": [
+            "起"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "こる",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "おこる",
+      "accepted_readings": [
+        "おこる"
+      ],
+      "romaji": "okoru",
+      "polish": "wydarzać się, zdarzać się",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "起"
+      ],
+      "tracked_kanji": [
+        "起"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "駅[えき]の 近[ちか]くで 事[じ] 故[こ]が 起[お]こりました。",
+      "example_plain": "駅の近くで事故が起こりました。",
+      "example_pl": "W pobliżu stacji wydarzył się wypadek.",
+      "verb_form_affirmative": "起[お]こります",
+      "verb_form_negative": "起[お]こりません",
+      "notes": "Czasownik gr. 1, nieprzechodni. Używany o zdarzeniach i problemach. Nie mylić z 起こす, czyli budzić lub powodować.",
+      "audio": "[sound:hypertts-7044a9f929b91d9cb4de25c2b7bf6f22d07b7d4a8ec5f15aa638c97a.mp3]",
+      "example_audio": "[sound:hypertts-f6be44249b4e745094e513d51c3cddb7b7953384f0d9689e83daedd1.mp3]",
+      "audio_dictionary": "[sound:起こる_オコ＼ル_2_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">オ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">コ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ル</span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786334,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069131",
+      "source_note_id": "1793786069131",
+      "surface": "使い方",
+      "display_surface": "使い方",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "使[つか]い方[かた]",
+      "furigana_segments": [
+        {
+          "text": "使",
+          "reading": "つか",
+          "kanji": [
+            "使"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "い",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "方",
+          "reading": "かた",
+          "kanji": [
+            "方"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 20,
+          "hide_from_lesson": "3-20"
+        }
+      ],
+      "reading": "つかいかた",
+      "accepted_readings": [
+        "つかいかた"
+      ],
+      "romaji": "tsukaikata",
+      "polish": "sposób użycia, jak używać",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "使",
+        "方"
+      ],
+      "tracked_kanji": [
+        "使",
+        "方"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "このアプリの 使[つか]い 方[かた]を 教[おし]えてください。",
+      "example_plain": "このアプリの使い方を教えてください。",
+      "example_pl": "Proszę mi powiedzieć, jak używać tej aplikacji.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. Konstrukcja: temat czasownika w formie ます bez ます + 方, czyli sposób wykonania czynności.",
+      "audio": "[sound:hypertts-783206e7dc2098767db2657962c34be22fc2b73f10ac77deac1df4f9.mp3]",
+      "example_audio": "[sound:hypertts-96861ee392041b8a0b04065052e44c8c75873e52d3f6c254a056dbf8.mp3]",
+      "audio_dictionary": "[sound:使い方_ツカイカタ━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\"><span style=\"\"color: royalblue;\"\">ツ</span></span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">カイカタ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786336,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069132",
+      "source_note_id": "1793786069132",
+      "surface": "本店",
+      "display_surface": "本店",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "本[ほん]店[てん]",
+      "furigana_segments": [
+        {
+          "text": "本",
+          "reading": "ほん",
+          "kanji": [
+            "本"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        },
+        {
+          "text": "店",
+          "reading": "てん",
+          "kanji": [
+            "店"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        }
+      ],
+      "reading": "ほんてん",
+      "accepted_readings": [
+        "ほんてん"
+      ],
+      "romaji": "honten",
+      "polish": "główna siedziba sklepu, sklep główny",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "本",
+        "店"
+      ],
+      "tracked_kanji": [
+        "本",
+        "店"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "この 店[みせ]の 本[ほん] 店[てん]は 大[おお] 阪[さか]にあります。",
+      "example_plain": "この店の本店は大阪にあります。",
+      "example_pl": "Główna siedziba tego sklepu znajduje się w Osace.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. Główna placówka firmy lub sieci sklepów, w odróżnieniu od oddziału 支店.",
+      "audio": "[sound:hypertts-73f9d34b2934e7364f6de4010b6ab39683caa97f1d9a2785bda37b22.mp3]",
+      "example_audio": "[sound:hypertts-fefb0d86b57262eaafde8538453ab0a1dc8f2ac95e25b04f5d962964.mp3]",
+      "audio_dictionary": "[sound:本店_ホンテン━_0_nhk-2016.mp3]<br>[sound:本店_ホ＼ンテン_1_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ホ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ンテン</span> <span class=\"\"pitch_number\"\">0</span>, <span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ホ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ンテン</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786338,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069133",
+      "source_note_id": "1793786069133",
+      "surface": "共働き",
+      "display_surface": "共働き",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "共[とも]働[ばたら]き",
+      "furigana_segments": [
+        {
+          "text": "共",
+          "reading": "とも",
+          "kanji": [
+            "共"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "働",
+          "reading": "ばたら",
+          "kanji": [
+            "働"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "き",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "ともばたらき",
+      "accepted_readings": [
+        "ともばたらき"
+      ],
+      "romaji": "tomobataraki",
+      "polish": "oboje małżonkowie pracujący zawodowo",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "共",
+        "働"
+      ],
+      "tracked_kanji": [
+        "働"
+      ],
+      "untracked_kanji": [
+        "共"
+      ],
+      "example_furigana": "両[りょう] 親[しん]は 共[とも] 働[ばたら]きです。",
+      "example_plain": "両親は共働きです。",
+      "example_pl": "Oboje moi rodzice pracują zawodowo.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. Oznacza gospodarstwo domowe, w którym oboje partnerzy pracują zawodowo. W złożeniu zachodzi rendaku: はたらき → ばたらき.",
+      "audio": "[sound:hypertts-e47014a8cd148ce50c58125ac290eda56e0a79e2160b23609ad66029.mp3]",
+      "example_audio": "[sound:hypertts-e881c51a18ba9eaf196b516f661b168d7332f8430424f54d23cfd7ff.mp3]",
+      "audio_dictionary": "[sound:共働き_トモバタラキ━_0_nhk-2016.mp3]<br>[sound:共働き_トモバ＼タラキ_3_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ト</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">モバ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">タラキ</span> <span class=\"\"pitch_number\"\">3</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786339,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069134",
+      "source_note_id": "1793786069134",
+      "surface": "ソ連",
+      "display_surface": "ソ連",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "ソ連[れん]",
+      "furigana_segments": [
+        {
+          "text": "ソ",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "連",
+          "reading": "れん",
+          "kanji": [
+            "連"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        }
+      ],
+      "reading": "それん",
+      "accepted_readings": [
+        "それん"
+      ],
+      "romaji": "Soren",
+      "polish": "Związek Radziecki, ZSRR",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "連"
+      ],
+      "tracked_kanji": [
+        "連"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "昔[むかし]、ソ 連[れん]という 国[くに]がありました。",
+      "example_plain": "昔、ソ連という国がありました。",
+      "example_pl": "Dawniej istniało państwo nazywane Związkiem Radzieckim.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Skrót historycznej nazwy ソビエト連邦, czyli Związek Radziecki.",
+      "audio": "[sound:hypertts-29be89cdacee1232e5f2e92c06946c99ad5c8fc5af71786190cfdc24.mp3]",
+      "example_audio": "[sound:hypertts-001791694c9aad9ee88affa51823ef1186a2d494710ff700e7bd06ec.mp3]",
+      "audio_dictionary": "[sound:ソ連_ソ↓レン_1_daijisen.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ソ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">レン</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786341,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069135",
+      "source_note_id": "1793786069135",
+      "surface": "連れてくる",
+      "display_surface": "連れてくる",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "連[つ]れてくる",
+      "furigana_segments": [
+        {
+          "text": "連",
+          "reading": "つ",
+          "kanji": [
+            "連"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "れてくる",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "つれてくる",
+      "accepted_readings": [
+        "つれてくる"
+      ],
+      "romaji": "tsurete kuru",
+      "polish": "przyprowadzić kogoś, przywieźć kogoś",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "連"
+      ],
+      "tracked_kanji": [
+        "連"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "明日[あした]、友[とも] 達[だち]をパーティーに 連[つ]れてきます。",
+      "example_plain": "明日、友達をパーティーに連れてきます。",
+      "example_pl": "Jutro przyprowadzę przyjaciela na imprezę.",
+      "verb_form_affirmative": "連[つ]れてきます",
+      "verb_form_negative": "連[つ]れてきません",
+      "notes": "Wyrażenie z nieregularnym czasownikiem くる. Używane, gdy ktoś przyprowadza osobę w kierunku mówiącego lub miejsca odniesienia.",
+      "audio": "[sound:hypertts-7a632c2c9bef3fabacc3c2ea99e393c473257edc457c698fadb49d39.mp3]",
+      "example_audio": "[sound:hypertts-fb7a398977d0a0ee79e8aa1886f877b0e44dba9059dd72128d0e1c58.mp3]",
+      "audio_dictionary": "[sound:連れてくる_ツレテクル_taas.mp3]",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786343,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069136",
+      "source_note_id": "1793786069136",
+      "surface": "二度と",
+      "display_surface": "二度と",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "二[に]度[ど]と",
+      "furigana_segments": [
+        {
+          "text": "二",
+          "reading": "に",
+          "kanji": [
+            "二"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 3,
+          "hide_from_lesson": "1-3"
+        },
+        {
+          "text": "度",
+          "reading": "ど",
+          "kanji": [
+            "度"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "と",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "にどと",
+      "accepted_readings": [
+        "にどと"
+      ],
+      "romaji": "nido to",
+      "polish": "już nigdy, nigdy więcej",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "二",
+        "度"
+      ],
+      "tracked_kanji": [
+        "二",
+        "度"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "もう 二[に] 度[ど]と 遅[ち] 刻[こく]しません。",
+      "example_plain": "もう二度と遅刻しません。",
+      "example_pl": "Już nigdy więcej się nie spóźnię.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Przysłówek zwykle używany z przeczeniem: 二度と〜ない, czyli nigdy więcej.",
+      "audio": "[sound:hypertts-2f28e77a68d13b933d4c60644d5c44583bd0eb82dce8a6b840c2b4ae.mp3]",
+      "example_audio": "[sound:hypertts-74823549919799652aee8fd6c7b2be1326685b9da2eedd02aba5eb23.mp3]",
+      "audio_dictionary": "[sound:二度と_ニド＼ト_2_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ニ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ド</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ト</span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786345,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069137",
+      "source_note_id": "1793786069137",
+      "surface": "寺",
+      "display_surface": "寺",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "寺[てら]",
+      "furigana_segments": [
+        {
+          "text": "寺",
+          "reading": "てら",
+          "kanji": [
+            "寺"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        }
+      ],
+      "reading": "てら",
+      "accepted_readings": [
+        "てら"
+      ],
+      "romaji": "tera",
+      "polish": "świątynia buddyjska",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "寺"
+      ],
+      "tracked_kanji": [
+        "寺"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "京[きょう] 都[と]で 古[ふる]い 寺[てら]を 見[み]ました。",
+      "example_plain": "京都で古い寺を見ました。",
+      "example_pl": "W Kioto zobaczyłem starą świątynię buddyjską.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. Świątynia buddyjska. Świątynia shintō to 神社.",
+      "audio": "[sound:hypertts-793305d120cef3e17d8eadf5437dc47b0b49336645579e8d58129890.mp3]",
+      "example_audio": "[sound:hypertts-4560c5ba5f729867677c98b6f5f65fa3ee4fde2d9593fb71b02e3040.mp3]",
+      "audio_dictionary": "[sound:寺_テラ＼_2_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">テ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ラ</span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786347,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069138",
+      "source_note_id": "1793786069138",
+      "surface": "東大寺",
+      "display_surface": "東大寺",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "東[とう]大[だい]寺[じ]",
+      "furigana_segments": [
+        {
+          "text": "東",
+          "reading": "とう",
+          "kanji": [
+            "東"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 6,
+          "hide_from_lesson": "1-6"
+        },
+        {
+          "text": "大",
+          "reading": "だい",
+          "kanji": [
+            "大"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 6,
+          "hide_from_lesson": "1-6"
+        },
+        {
+          "text": "寺",
+          "reading": "じ",
+          "kanji": [
+            "寺"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        }
+      ],
+      "reading": "とうだいじ",
+      "accepted_readings": [
+        "とうだいじ"
+      ],
+      "romaji": "toudaiji",
+      "polish": "Tōdaiji, świątynia Tōdai-ji",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "東",
+        "大",
+        "寺"
+      ],
+      "tracked_kanji": [
+        "東",
+        "大",
+        "寺"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "奈[な] 良[ら]で 東[とう] 大[だい] 寺[じ]を 見[けん] 学[がく]しました。",
+      "example_plain": "奈良で東大寺を見学しました。",
+      "example_pl": "W Narze zwiedziłem świątynię Tōdaiji.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Nazwa słynnej świątyni buddyjskiej w Narze, znanej z Wielkiego Buddy.",
+      "audio": "[sound:hypertts-7a2db19771aed2376b2a5afc9fff6ad4e1b043d99346dfb35eeccccb.mp3]",
+      "example_audio": "[sound:hypertts-3d5247b07d0bd211d2beef7ba7da7bf3bf28628396e6f2b9e09a7ee4.mp3]",
+      "audio_dictionary": "[sound:東大寺_ト＼ーダイジ_1_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ト</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ウダイジ</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786349,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069139",
+      "source_note_id": "1793786069139",
+      "surface": "山寺",
+      "display_surface": "山寺",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "山[やま]寺[でら]",
+      "furigana_segments": [
+        {
+          "text": "山",
+          "reading": "やま",
+          "kanji": [
+            "山"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 5,
+          "hide_from_lesson": "1-5"
+        },
+        {
+          "text": "寺",
+          "reading": "でら",
+          "kanji": [
+            "寺"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        }
+      ],
+      "reading": "やまでら",
+      "accepted_readings": [
+        "やまでら"
+      ],
+      "romaji": "yamadera",
+      "polish": "górska świątynia",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "山",
+        "寺"
+      ],
+      "tracked_kanji": [
+        "山",
+        "寺"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "休[やす]みに 山[やま] 寺[でら]へ 行[い]きました。",
+      "example_plain": "休みに山寺へ行きました。",
+      "example_pl": "W dzień wolny pojechałem do górskiej świątyni.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. Świątynia buddyjska położona w górach. W złożeniu zachodzi rendaku: てら → でら.",
+      "audio": "[sound:hypertts-d31affb2ff182af4e5bc5e18b19a20811443b129511d9bec0227990f.mp3]",
+      "example_audio": "[sound:hypertts-7e06c2d2734577bfced175dd6efeffd8efd7befcbb44eaafb3c11986.mp3]",
+      "audio_dictionary": "[sound:山寺_ヤマ＼デラ_2_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ヤ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">マ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">デラ</span> <span class=\"\"pitch_number\"\">2</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786350,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069140",
+      "source_note_id": "1793786069140",
+      "surface": "禅寺",
+      "display_surface": "禅寺",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "禅[ぜん]寺[でら]",
+      "furigana_segments": [
+        {
+          "text": "禅",
+          "reading": "ぜん",
+          "kanji": [
+            "禅"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "寺",
+          "reading": "でら",
+          "kanji": [
+            "寺"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        }
+      ],
+      "reading": "ぜんでら",
+      "accepted_readings": [
+        "ぜんでら"
+      ],
+      "romaji": "zendera",
+      "polish": "świątynia zen",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "禅",
+        "寺"
+      ],
+      "tracked_kanji": [
+        "寺"
+      ],
+      "untracked_kanji": [
+        "禅"
+      ],
+      "example_furigana": "京[きょう] 都[と]の 禅[ぜん] 寺[でら]で 静[しず]かに 座[すわ]りました。",
+      "example_plain": "京都の禅寺で静かに座りました。",
+      "example_pl": "W świątyni zen w Kioto siedziałem w ciszy.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. Świątynia buddyjska należąca do szkoły zen. W złożeniu 寺 jest czytane でら.",
+      "audio": "[sound:hypertts-7ffb3444ff135a8c4fd311820fb3c810f917983fa200eb94a07b7bea.mp3]",
+      "example_audio": "[sound:hypertts-faf76e31348b0c8e58622b0d56772b399671db11c05a9a3b1a419094.mp3]",
+      "audio_dictionary": "[sound:禅寺_ゼンデラ━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ゼ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ンデラ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786352,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069141",
+      "source_note_id": "1793786069141",
+      "surface": "心がける",
+      "display_surface": "心がける",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "心[こころ]がける",
+      "furigana_segments": [
+        {
+          "text": "心",
+          "reading": "こころ",
+          "kanji": [
+            "心"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "がける",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "こころがける",
+      "accepted_readings": [
+        "こころがける"
+      ],
+      "romaji": "kokorogakeru",
+      "polish": "starać się pamiętać o czymś, mieć coś na uwadze",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "心"
+      ],
+      "tracked_kanji": [
+        "心"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "毎[まい] 日[にち]、 健[けん] 康[こう]な 食[しょく] 事[じ]を 心[こころ]がけています。",
+      "example_plain": "毎日、健康な食事を心がけています。",
+      "example_pl": "Codziennie staram się dbać o zdrowe odżywianie.",
+      "verb_form_affirmative": "心[こころ]がけます",
+      "verb_form_negative": "心[こころ]がけません",
+      "notes": "Czasownik gr. 2. Konstrukcja 〜を心がける oznacza świadomie pamiętać o czymś i starać się to praktykować.",
+      "audio": "[sound:hypertts-c73ef42a8ca13c80ef4f1a825f1fdd55696ff17fbf709751b203e810.mp3]",
+      "example_audio": "[sound:hypertts-fe4dfd55c1f5da9c2db98887a37a8fbdc91dcab1459a18a43694af4a.mp3]",
+      "audio_dictionary": "[sound:心がける_ココロカ゚ケ＼ル_5_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">コ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">コロカ<span style=\"\"color: red;\"\">°</span>ケ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ル</span> <span class=\"\"pitch_number\"\">5</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786441,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069142",
+      "source_note_id": "1793786069142",
+      "surface": "中心",
+      "display_surface": "中心",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "中[ちゅう]心[しん]",
+      "furigana_segments": [
+        {
+          "text": "中",
+          "reading": "ちゅう",
+          "kanji": [
+            "中"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        },
+        {
+          "text": "心",
+          "reading": "しん",
+          "kanji": [
+            "心"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        }
+      ],
+      "reading": "ちゅうしん",
+      "accepted_readings": [
+        "ちゅうしん"
+      ],
+      "romaji": "chuushin",
+      "polish": "centrum, środek",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "中",
+        "心"
+      ],
+      "tracked_kanji": [
+        "中",
+        "心"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "駅[えき]は 町[まち]の 中[ちゅう] 心[しん]にあります。",
+      "example_plain": "駅は町の中心にあります。",
+      "example_pl": "Stacja znajduje się w centrum miasta.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. Oznacza centrum miejsca albo główny punkt tematu i działania.",
+      "audio": "[sound:hypertts-4f0f25abdddeda7b77d125bd38e3aace24546a9f3605b2d7786a2b3f.mp3]",
+      "example_audio": "[sound:hypertts-9d07ab764e7daa22b606a542e4adbd68fb27eb6a6879c0cf8bb511e0.mp3]",
+      "audio_dictionary": "[sound:中心_チューシン━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">チュ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ーシン</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786356,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1793786069143",
+      "source_note_id": "1793786069143",
+      "surface": "心地",
+      "display_surface": "心地",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "心[ここ]地[ち]",
+      "furigana_segments": [
+        {
+          "text": "心",
+          "reading": "ここ",
+          "kanji": [
+            "心"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 12,
+          "hide_from_lesson": "2-12"
+        },
+        {
+          "text": "地",
+          "reading": "ち",
+          "kanji": [
+            "地"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 15,
+          "hide_from_lesson": "3-15"
+        }
+      ],
+      "reading": "ここち",
+      "accepted_readings": [
+        "ここち"
+      ],
+      "romaji": "kokochi",
+      "polish": "odczucie, samopoczucie, wrażenie",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "心",
+        "地"
+      ],
+      "tracked_kanji": [
+        "心",
+        "地"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "春[はる]の 風[かぜ]が 心[ここ] 地[ち]よいです。",
+      "example_plain": "春の風が心地よいです。",
+      "example_pl": "Wiosenny wiatr jest przyjemny.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik, często używany w 心地よい lub jako drugi człon złożeń, np. 居心地 i 座り心地.",
+      "audio": "[sound:hypertts-eab54218c7c8d2149f23894e418ebcbdffef7e807303158d7411cda6.mp3]",
+      "example_audio": "[sound:hypertts-3eb56df1537ce9e018a2e54591d5e27a1a06eb023d34d37d53964c5b.mp3]",
+      "audio_dictionary": "[sound:心地_ココチ━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">コ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">コチ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1793786357,
       "needs_surface_review": false
     }
   ],

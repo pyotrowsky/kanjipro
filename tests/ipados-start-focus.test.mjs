@@ -72,6 +72,7 @@ test('IME composition and hidden quiz are not intercepted',()=>{
 test('session keeps the same direct focus invocation and keyboard listener',()=>{
   const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
   assert.match(app,/showQuestion\(\);restoreQuizFocusAfterStart\(\)/);
-  assert.match(app,/startVocabTimer\(\);focusAnswerField\(\)/);
+  // Audio button visibility now updates between timer start and focus; both behaviors must remain.
+  assert.match(app,/startVocabTimer\(\);[\s\S]{0,300}focusAnswerField\(\)/);
   assert.match(app,/document\.addEventListener\('keydown',quizFocus\.handleStaleFocusKeydown,true\)/);
 });

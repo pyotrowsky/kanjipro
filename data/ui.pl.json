@@ -205,7 +205,21 @@
     "theme_shiba": "Shiba Inu",
     "theme_shiba_note": "Kremowe karty, pomarańczowe akcenty i maskotka.",
     "theme_classic": "Klasyczny",
-    "theme_classic_note": "Dotychczasowy wygląd Kanji.pro."
+    "theme_classic_note": "Dotychczasowy wygląd Kanji.pro.",
+    "audio_title": "Nagrania z Anki (prywatne)",
+    "audio_note": "Wyeksportuj talię .apkg z opcjami „Dołącz multimedia” i „Obsługuj starsze wersje Anki”. Pliki pozostaną wyłącznie na tym urządzeniu. Pierwszy import wymaga internetu.",
+    "audio_import": "Importuj audio z .apkg",
+    "audio_delete": "Usuń lokalne audio",
+    "audio_initial": "Sprawdzanie lokalnych nagrań…",
+    "audio_legal": "Importuj wyłącznie pliki, na których użycie masz odpowiednie prawa. Audio nie trafia do Firebase ani na GitHub.",
+    "audio_play": "🔊 Odtwórz wymowę",
+    "audio_play_error": "Nie udało się odtworzyć nagrania na tym urządzeniu.",
+    "audio_saved": "Lokalne nagrania: {count}",
+    "audio_import_done": "Zaimportowano {imported} nagrań (dopasowano {matched} z {notes} notatek; pominięto {skipped}). Na urządzeniu: {total}.",
+    "audio_ambiguous": "Niejednoznacznych dopasowań: {count}.",
+    "audio_import_error": "Błąd importu:",
+    "audio_storage_error": "Nie można uruchomić lokalnego magazynu:",
+    "audio_delete_confirm": "Usunąć wszystkie lokalne nagrania Anki z tego urządzenia? Nie wpłynie to na Anki ani historię nauki."
   },
   "actions": {
     "select_all": "Zaznacz wszystko",

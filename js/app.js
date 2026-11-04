@@ -5,6 +5,7 @@ import {dictionaryLessonMatch,dictionarySearchTerms,dictionaryVocabId,includesDi
 import {normalizeAnswer,acceptedAnswers,answerText,rawMeaning,meaningText,requeueWrongAnswer} from './quiz-logic.js';
 import {learningRowsFromObject,mistakeRowsFromObject,objectFromRows,mistakeObjectFromRows,cleanRecordObject} from './storage-records.js';
 import {createQuizFocusController} from './quiz-focus.js';
+import {createPrivateAudioLibrary} from './anki-audio.js';
 const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.23', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
@@ -124,6 +125,50 @@ initExampleFuriganaSettings();
 const DB = await fetch('./data/kanji_quiz_database.json?v=3.23', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictRssSort=$('#dictRssSort'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
+const privateAudio=createPrivateAudioLibrary(DB.vocabulary);
+function privateAudioButton(id){
+  return privateAudio.has(id)?'<button type="button" class="ghost private-audio-play" data-private-audio-id="'+esc(id)+'" aria-label="'+esc(t('settings.audio_play'))+'">🔊 '+esc(t('settings.audio_play'))+'</button>':''
+}
+async function playPrivateAudio(id){
+  try{await privateAudio.play(id)}catch(err){console.warn('Local audio playback failed:',err);alert(t('settings.audio_play_error'))}
+}
+function updatePrivateAudioControls(){
+  const label=$('#ankiAudioStatus');
+  if(label&&!label.dataset.importing)label.textContent=t('settings.audio_saved',{count:privateAudio.count()});
+  $('#playQuizAudio')?.classList.toggle('hidden',!current||current.type!=='vocabulary'||!privateAudio.has(persistentQuestionId(current)));
+  if(dictionaryCurrentEntry?.type==='vocab')openVocabDetail(DB.vocabulary[dictionaryCurrentEntry.index],dictionaryCurrentEntry.index,false)
+}
+function initPrivateAudioImport(){
+  const choose=$('#importAnkiAudio'),fileInput=$('#importAnkiAudioFile'),clear=$('#clearAnkiAudio'),status=$('#ankiAudioStatus');
+  const busy=value=>{choose.disabled=value;clear.disabled=value};
+  const statusText=value=>{status.textContent=value};
+  choose?.addEventListener('click',()=>fileInput.click());
+  fileInput?.addEventListener('change',async()=>{
+    const file=fileInput.files?.[0];fileInput.value='';if(!file)return;
+    busy(true);status.dataset.importing='1';
+    try{
+      const result=await privateAudio.importApkg(file,statusText);
+      statusText(t('settings.audio_import_done',{imported:result.imported,matched:result.matched,notes:result.notes,skipped:result.skipped,total:result.total}));
+      if(result.ambiguous)statusText(status.textContent+' '+t('settings.audio_ambiguous',{count:result.ambiguous}));
+      delete status.dataset.importing;
+      updatePrivateAudioControls()
+    }catch(err){console.warn('APKG import failed:',err);statusText(t('settings.audio_import_error')+' '+(err?.message||String(err)));delete status.dataset.importing}
+    finally{busy(false)}
+  });
+  clear?.addEventListener('click',async()=>{
+    if(!confirm(t('settings.audio_delete_confirm')))return;
+    busy(true);
+    try{await privateAudio.clear();updatePrivateAudioControls()}
+    catch(err){statusText(t('settings.audio_import_error')+' '+(err?.message||String(err)))}
+    finally{busy(false)}
+  });
+  $('#playQuizAudio')?.addEventListener('click',()=>{if(current)void playPrivateAudio(persistentQuestionId(current))});
+  $('#dictDetailContent')?.addEventListener('click',event=>{
+    const button=event.target.closest('[data-private-audio-id]');
+    if(button){event.preventDefault();void playPrivateAudio(button.dataset.privateAudioId)}
+  });
+  void privateAudio.ready().then(updatePrivateAudioControls).catch(err=>statusText(t('settings.audio_storage_error')+' '+(err?.message||'')))
+}
 let queue=[],current=null,checked=false,stats={correct:0,wrong:0,attempts:0,initial:0},mistakeLog=new Map(),sessionKind='normal',sessionWrongIds=new Set(),sessionCreditedIds=new Set(),sessionLearningRecordedIds=new Set(),sessionVocabTiming=[],sessionRssId='';
 let vocabTiming=null,vocabTimingInterval=null;
 function vocabActiveMs(now=performance.now()){
@@ -721,6 +766,7 @@ function openVocabDetail(v,index=DB.vocabulary.indexOf(v),pushHistory=true){
     '<div class="dictionary-vocab-detail">'+
       '<div class="dictionary-vocab-hero">'+esc(v.display_surface||v.surface)+'</div>'+
       '<div class="dictionary-detail-reading">'+esc(readings)+'</div>'+
+      privateAudioButton(dictionaryVocabId(v))+
       '<div class="dictionary-detail-meaning">'+esc(v.polish||'—')+'</div>'+
       '<div class="dictionary-detail-lesson">'+esc(t('dictionary.lesson',{lesson:v.lesson}))+'</div>'+
       '<div class="dictionary-detail-status">'+dictionaryVocabBadge(v)+dictionarySpeedBadge(v,personalBaseline,true)+'</div>'+
@@ -970,7 +1016,7 @@ function buildQueue(){const modes=selectedModes(),r=buildReadingPools();let v=bu
 // Centralized focus controller; quiz lifecycle and behavior stay unchanged.
 const quizFocus=createQuizFocusController({input,quiz,getCurrent:()=>current,isChecked:()=>checked});
 const {focusAnswerField,keepAnswerVisible,restoreQuizFocusAfterStart}=quizFocus;
-function showQuestion(){clearVocabTimer();if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);const hint=current.type==='vocabulary'?String(current.disambiguation||'').trim():'';promptHint.textContent=hint;promptHint.classList.toggle('hidden',!hint);feedback.className='feedback empty';feedback.innerHTML='';updateStats();startVocabTimer();focusAnswerField()}function compareReading(s){return normalizeAnswer(s,inputMode())}function accepted(q){return acceptedAnswers(q,inputMode())}
+function showQuestion(){clearVocabTimer();if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);const hint=current.type==='vocabulary'?String(current.disambiguation||'').trim():'';promptHint.textContent=hint;promptHint.classList.toggle('hidden',!hint);feedback.className='feedback empty';feedback.innerHTML='';updateStats();startVocabTimer();$('#playQuizAudio')?.classList.toggle('hidden',current.type!=='vocabulary'||!privateAudio.has(persistentQuestionId(current)));focusAnswerField()}function compareReading(s){return normalizeAnswer(s,inputMode())}function accepted(q){return acceptedAnswers(q,inputMode())}
 function recordMistake(q,userAnswer){const key=q.question_id||`${q.type}:${q.prompt}`;let item=mistakeLog.get(key);if(!item){item={type:typeName(q.type),prompt_html:q.prompt_html||esc(q.prompt),correct:answerText(q),meaning:rawMeaning(q),answers:[]};mistakeLog.set(key,item)}const a=String(userAnswer||'').trim();if(a&&!item.answers.includes(a))item.answers.push(a)}
 function hideAnswerNotice(){if(!answerNotice)return;answerNotice.classList.add('hidden');answerNotice.classList.remove('good','bad');answerNotice.textContent=''}
 function showWrongNotice(wrong,correct){if(!answerNotice)return;answerNotice.classList.remove('good');answerNotice.classList.add('bad');answerNotice.textContent=t('quiz.wrong_compact',{wrong,correct});answerNotice.classList.remove('hidden')}
@@ -1064,6 +1110,7 @@ function initFirebaseSync(){
 }
 initFirebaseSync();
 initDataBackupSettings();
+initPrivateAudioImport();
 renderLessonGrid();renderKanjiGroups(false);restoreSessionControls();populateFuriganaLessons();refreshReviewUI();updatePreview();document.querySelectorAll('.mode input').forEach(x=>x.addEventListener('change',()=>{saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="vocabLimitMode"]').forEach(x=>x.addEventListener('change',()=>{vocabLimit.disabled=document.querySelector('input[name="vocabLimitMode"]:checked').value!=='limit';saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="furiganaMode"]').forEach(x=>x.addEventListener('change',syncFuriganaControls));furiganaLessonSelect.addEventListener('change',()=>{furiganaChapterManual=true;updatePreview()});vocabLimit.addEventListener('input',()=>{saveSessionPrefs();updatePreview()});document.querySelectorAll('input[name="inputMode"]').forEach(x=>x.addEventListener('change',syncInputMode));let answerComposing=false;
 input.addEventListener('compositionstart',()=>{answerComposing=true;markFirstVocabInput()});
 input.addEventListener('beforeinput',e=>{if(e.inputType?.startsWith('insert'))markFirstVocabInput()});

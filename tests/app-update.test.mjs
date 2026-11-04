@@ -41,6 +41,8 @@ test('updating reloads with a new navigation URL without clearing user storage',
 });
 test('does not announce an update when installed version is current',async()=>{
   const f=fixture('3.24');
+  // The constructor starts an automatic check; finish it before the manual one.
+  await f.controller.check();
   await f.controller.check(true);
   assert.equal(f.notice.classList.removed.length,0);
   assert.match(f.status.textContent,/aktualną wersję/);

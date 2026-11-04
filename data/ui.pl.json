@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.29",
+    "badge": "3.30",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -207,11 +207,10 @@
     "theme_classic": "Klasyczny",
     "theme_classic_note": "Dotychczasowy wygląd Kanji.pro.",
     "audio_title": "Nagrania z Anki (prywatne)",
-    "audio_note": "Importuj .apkg z dołączonymi multimediami, także w nowym formacie Anki. AudioDictionary / Audio służą słówkom, a AudioOnyomi / AudioKunyomi odpowiednio odczytom ON i KUN. GIF-y i obrazy są pomijane; wszystko zostaje na urządzeniu. Pierwszy import wymaga internetu.",
     "audio_import": "Importuj audio z .apkg",
     "audio_delete": "Usuń lokalne audio",
     "audio_initial": "Sprawdzanie lokalnych nagrań…",
-    "audio_legal": "Importuj wyłącznie pliki, na których użycie masz odpowiednie prawa. Audio nie trafia do Firebase ani na GitHub.",
+    "audio_legal": "Importuj tylko nagrania, do których użycia masz odpowiednie prawa.",
     "audio_play": "Odtwórz wymowę",
     "audio_play_error": "Nie udało się odtworzyć nagrania na tym urządzeniu.",
     "audio_saved": "Lokalne nagrania: {count}",

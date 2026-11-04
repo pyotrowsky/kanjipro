@@ -49,7 +49,7 @@
 1773752282388,左,1,6,1-6,6,ひだり,サ,lewo,,Doki Doki1-6 Kanji
 1773752282389,東,1,6,1-6,6,ひがし,トウ,wschód,,Doki Doki1-6 Kanji
 1773752282390,西,1,6,1-6,6,にし,"セイ, サイ",zachód,,Doki Doki1-6 Kanji
-1773752282391,南,1,6,1-6,6,みなみ,ナン,południe,,Doki Doki1-6 Kanji
+1773752282391,南,1,6,1-6,6,みなみ,ナン,południe (kierunek),,Doki Doki1-6 Kanji
 1773752282392,北,1,6,1-6,6,きた,ホク,północ,,Doki Doki1-6 Kanji
 1773752282393,口,1,6,1-6,6,くち,コウ,usta,,Doki Doki1-6 Kanji
 1773752282394,出,1,6,1-6,6,"で.る, だ.す",シュツ,wyjść,,Doki Doki1-6 Kanji
@@ -135,7 +135,7 @@
 1781676412809,有,2,11,2-11,11,あ.る,ユウ,istnieć,,Doki Doki2-11 Kanji
 1781676412810,旅,2,11,2-11,11,たび,リョ,podróż,,Doki Doki2-11 Kanji
 1781676412811,歌,2,11,2-11,11,"うた, うた.う",カ,śpiewać,,Doki Doki2-11 Kanji
-1781679839110,昔,2,12,2-12,12,むかし,-,dawno temu,,Doki Doki2-12 Kanji
+1781679839110,昔,2,12,2-12,12,むかし,-,dawno temu,,Doki Doki2-12 Kanji weryfikacja
 1781679839111,神,2,12,2-12,12,かみ,"ジン, シン",Bóg,"八百万 (やおよろず) - specjalne, nieregularne czytanie oznaczające nieskończoną/ogromną liczbę bogów.",Doki Doki2-12 Kanji
 1781679839112,色,2,12,2-12,12,いろ,"シキ, ショク",Kolor,,Doki Doki2-12 Kanji
 1781679839113,々,2,12,2-12,12,-,-,znak powtórzenia,今日 (きょう) traktujemy z reguły jako nierozłączny blok lub wyjątek.,Doki Doki2-12 Kanji
@@ -270,4 +270,4 @@
 1791307166622,続,3,20,3-20,20,"つづ.く, つづ.ける",ゾク,kontynuować,"続く = trwać/kontynuować się, 続ける = kontynuować coś. ゾク występuje w 連続.",Doki Doki3-20 Kanji
 1791307166623,無,3,20,3-20,20,な.い,"ム, ブ","nic, brak","Na zrzucie jest 5 przykładów, więc zachowano wszystkie. ム występuje m.in. w 無理・無駄・無料, ブ w 無礼, a 無い czyta się な.い.",Doki Doki3-20 Kanji
 1791307166624,払,3,20,3-20,20,はら.う,,płacić,Na zrzucie były 2 przykłady; dodano 現金で払う jako trzeci. W 分割払い odczyt 払い ulega udźwięcznieniu do ばらい.,Doki Doki3-20 Kanji
-1791307166625,茶,3,20,3-20,20,ちゃ,サ,herbata,"Na zrzucie jest 6 przykładów, więc zachowano wszystkie. Materiał podaje odczyty ちゃ i サ; w 喫茶店・茶道 znak czyta się さ.",Doki Doki3-20 Kanji
+1791307166625,茶,3,20,3-20,20,ちゃ,"<div>チャ, サ</div>",herbata,"Na zrzucie jest 6 przykładów, więc zachowano wszystkie. Materiał podaje odczyty ちゃ i サ; w 喫茶店・茶道 znak czyta się さ.",Doki Doki3-20 Kanji

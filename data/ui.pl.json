@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.24",
+    "badge": "3.25",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -219,7 +219,10 @@
     "audio_ambiguous": "Niejednoznacznych dopasowań: {count}.",
     "audio_import_error": "Błąd importu:",
     "audio_storage_error": "Nie można uruchomić lokalnego magazynu:",
-    "audio_delete_confirm": "Usunąć wszystkie lokalne nagrania Anki z tego urządzenia? Nie wpłynie to na Anki ani historię nauki."
+    "audio_delete_confirm": "Usunąć wszystkie lokalne nagrania Anki z tego urządzenia? Nie wpłynie to na Anki ani historię nauki.",
+    "update_title": "Aktualizacje aplikacji",
+    "update_note": "Sprawdź, czy dostępna jest nowa wersja Kanji.pro. Aktualizacja nie usuwa historii nauki ani nagrań z Anki.",
+    "update_check": "Sprawdź aktualizację"
   },
   "actions": {
     "select_all": "Zaznacz wszystko",

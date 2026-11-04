@@ -327,3 +327,8 @@ body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left)
 .dictionary-vocab-detail>.private-audio-play{display:flex;margin:8px 0 12px}
 .private-audio-play.hidden{display:none!important}
 #ankiAudioStatus{overflow-wrap:anywhere}
+
+/* Updates are opt-in: never interrupt an active quiz or edit user data. */
+.app-update-banner{position:fixed;z-index:10000;bottom:max(14px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:space-between;gap:12px;width:min(460px,calc(100vw - 24px));padding:12px 14px;border-radius:17px;background:var(--card);border:1px solid var(--line);color:var(--text);box-shadow:0 9px 25px rgba(0,0,0,.15);font-size:13px;font-weight:650}
+.app-update-banner.hidden{display:none!important}
+.app-update-banner button{flex:0 0 auto;padding:9px 12px}

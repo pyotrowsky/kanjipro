@@ -16,10 +16,10 @@
 <link rel="icon" type="image/svg+xml" href="./icons/shiba-face.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=3.24">
-<link rel="stylesheet" href="./css/shiba-theme.css?v=3.24">
-<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.24">
-<link rel="stylesheet" href="./css/shiba-approved.css?v=3.24"></head><body><main class="shell">
+<link rel="stylesheet" href="./css/styles.css?v=3.25">
+<link rel="stylesheet" href="./css/shiba-theme.css?v=3.25">
+<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.25">
+<link rel="stylesheet" href="./css/shiba-approved.css?v=3.25"></head><body><main class="shell">
 <aside class="desktop-sidebar" aria-label="Menu boczne">
   <div class="sidebar-brand"><img src="./icons/shiba-face.svg" alt="" width="56" height="56"><span>Kanji<span class="brand-dot">.pro</span></span></div>
   <nav class="sidebar-navigation" aria-label="Nawigacja">
@@ -29,10 +29,10 @@
     <button id="sideSettings" type="button" class="side-nav-item"><span class="side-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.4" fill="var(--card)"/><circle cx="15" cy="17" r="2.4" fill="var(--card)"/></svg></span><span data-i18n="sidebar.settings">Ustawienia</span></button>
   </nav>
   <div class="sidebar-mascot" aria-hidden="true"><span>今日もがんばろう！</span><img src="./icons/shiba-study.svg" width="220" height="250" alt=""></div>
-  <div class="sidebar-version" aria-label="Wersja aplikacji">v<span data-i18n="app.badge">3.24</span></div>
+  <div class="sidebar-version" aria-label="Wersja aplikacji">v<span data-i18n="app.badge">3.25</span></div>
 </aside>
 <div class="main-workspace">
-<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.24</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.25</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <nav class="app-nav" aria-label="Główna nawigacja" data-i18n-aria="dictionary.nav_aria">
   <button id="navPractice" class="app-nav-btn active" type="button" data-i18n="dictionary.nav_practice">Ćwicz</button>
   <button id="navDictionary" class="app-nav-btn" type="button" data-i18n="dictionary.nav_dictionary">Słownik</button>
@@ -163,6 +163,11 @@
 </div>
 </main>
 
+<div id="appUpdateBanner" class="app-update-banner hidden" role="status" aria-live="polite">
+  <span id="appUpdateLabel">Dostępna aktualizacja Kanji.pro</span>
+  <button id="applyAppUpdate" class="primary" type="button">Aktualizuj</button>
+</div>
+
 <dialog id="settingsDialog" class="settings-dialog">
   <div class="settings-sheet">
     <div class="settings-head">
@@ -219,6 +224,11 @@
     <label class="example-furigana-setting"><input type="checkbox" id="showExampleFurigana" checked><span data-i18n="settings.example_furigana_show">Pokaż furiganę w przykładowych zdaniach</span></label>
     <div class="lesson-note settings-note" data-i18n="settings.example_furigana_note">Dotyczy zdań w słowniku. Ustawienie jest zapamiętywane na tym urządzeniu.</div>
     <div class="settings-divider"></div>
+    <div class="settings-section-title" data-i18n="settings.update_title">Aktualizacje aplikacji</div>
+    <div class="lesson-note settings-note" data-i18n="settings.update_note">Sprawdź, czy dostępna jest nowsza wersja Kanji.pro. Aktualizacja nie usuwa historii ani nagrań z Anki.</div>
+    <button id="checkAppUpdate" type="button" class="ghost" data-i18n="settings.update_check">Sprawdź aktualizację</button>
+    <div id="appUpdateStatus" class="lesson-note settings-note" role="status" aria-live="polite"></div>
+    <div class="settings-divider"></div>
     <div class="settings-section-title" data-i18n="settings.audio_title">Nagrania z Anki (prywatne)</div>
     <div class="lesson-note settings-note" data-i18n="settings.audio_note">Importuj nagrania z własnego pliku .apkg z multimediami. Są zapisywane wyłącznie na tym urządzeniu, bez Firebase i GitHuba. Wybierz pakiet .apkg z opcjami „Dołącz multimedia” i „Obsługuj starsze wersje Anki”. Importujemy tylko pasujące nagrania; GIF-y i obrazy są pomijane. Pierwszy import wymaga internetu.</div>
     <div class="data-backup-actions">
@@ -251,5 +261,5 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=3.24"></script>
+<script type="module" src="./js/app.js?v=3.25"></script>
 </body></html>

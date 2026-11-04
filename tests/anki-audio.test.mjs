@@ -6,7 +6,7 @@ import {cleanAudioText,extractSounds,selectNoteAudio,matchAudioNotes,selectAnkiC
 test('audio field priority prefers dictionary recording',()=>{
   const fields={Audio:'[sound:second.mp3]',AudioDictionary:'[sound:first.mp3]',AudioOnyomi:'[sound:third.ogg]'};
   assert.equal(selectNoteAudio(fields),'first.mp3');
-  assert.equal(selectNoteAudio({AudioKunyomi:'[sound:kun.mp3]'}),'kun.mp3');
+  assert.equal(selectNoteAudio({AudioKunyomi:'[sound:kun.mp3]'}),null); // Kanji-only audio must not become vocabulary audio
 });
 test('rejects unsupported and traversal-style sound references',()=>{
   assert.deepEqual(extractSounds('[sound:../private.mp3][sound:safe.mp3][sound:img.png][sound:foo.ogg]'),['safe.mp3','foo.ogg']);
@@ -40,7 +40,7 @@ test('import UI and offline entry code are wired',()=>{
   const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
   const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
   const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
-  assert.match(app,/createPrivateAudioLibrary\(DB\.vocabulary\)/);
+  assert.match(app,/createPrivateAudioLibrary\(DB\.vocabulary,DB\.kanji\)/);
   assert.match(app,/initPrivateAudioImport\(\)/);
   assert.match(html,/id="importAnkiAudio"/);
   assert.match(html,/id="importAnkiAudioFile"/);

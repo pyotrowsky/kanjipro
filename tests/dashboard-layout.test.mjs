@@ -90,5 +90,5 @@ test('Otsukaresama finish uses session stats; original mockup cutouts remain ava
     assert.ok(art.length>20000,'high resolution approved source '+path);
     assert.ok(sw.includes("'./"+path+"'"),'offline '+path);
   }
-  assert.match(sw,/wsjj-kanji-pro-3\.23-6/);
+  assert.match(sw,/wsjj-kanji-pro-3\.23-7/);
 });

@@ -3,6 +3,7 @@ import {romajiToHiragana,hira,esc} from './japanese-text.js';
 import {medianMs,kanaReadingUnits,rssFromTimes,quantile,smoothedAccuracy} from './learning-math.js';
 import {dictionaryLessonMatch,dictionarySearchTerms,dictionaryVocabId,includesDictionaryQuery as matchDictionaryQuery} from './dictionary-helpers.js';
 import {normalizeAnswer,acceptedAnswers,answerText,rawMeaning,meaningText,requeueWrongAnswer} from './quiz-logic.js';
+import {learningRowsFromObject,mistakeRowsFromObject,objectFromRows,mistakeObjectFromRows,cleanRecordObject} from './storage-records.js';
 const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.23', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
@@ -190,10 +191,6 @@ function idbGetAll(store){return new Promise((resolve,reject)=>{if(!appDb){resol
 function idbPut(store,record){return new Promise((resolve,reject)=>{if(!appDb){resolve();return}try{const tx=appDb.transaction(store,'readwrite');tx.objectStore(store).put(record);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)}catch(err){reject(err)}})}
 function idbReplaceStore(store,records){return new Promise((resolve,reject)=>{if(!appDb){resolve();return}try{const tx=appDb.transaction(store,'readwrite'),os=tx.objectStore(store);os.clear();for(const record of records)os.put(record);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)}catch(err){reject(err)}})}
 function queueStorageWrite(task){storageWriteQueue=storageWriteQueue.then(task).catch(err=>console.warn('Persistent storage write failed:',err));return storageWriteQueue}
-function learningRowsFromObject(obj){return Object.entries(obj||{}).filter(([,v])=>v&&typeof v==='object'&&!Array.isArray(v)).map(([id,v])=>({id,...v}))}
-function mistakeRowsFromObject(obj){return Object.entries(obj||{}).filter(([,v])=>v&&typeof v==='object'&&!Array.isArray(v)).map(([id,v])=>({...v,id}))}
-function objectFromRows(rows){const out={};for(const row of rows||[]){if(!row?.id)continue;const {id,...rest}=row;out[id]=rest}return out}
-function mistakeObjectFromRows(rows){const out={};for(const row of rows||[]){if(!row?.id)continue;out[row.id]={...row}}return out}
 async function initializePersistentState(){
   const legacyLearning=localObject(LEARNING_STATS_KEY),legacyMistakes=localObject(MISTAKE_BANK_KEY);
   appDb=await openAppDb();
@@ -869,7 +866,6 @@ function refreshReviewUI(){
 }
 function reviewQuestions(){return resolvedMistakeEntries().map(x=>({...x.question}))}
 
-function cleanRecordObject(value){if(!value||typeof value!=='object'||Array.isArray(value))return{};const out={};for(const [k,v] of Object.entries(value))if(v&&typeof v==='object'&&!Array.isArray(v))out[k]=v;return out}
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}

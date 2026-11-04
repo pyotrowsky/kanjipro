@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {medianMs,kanaReadingUnits,rssFromTimes,quantile,smoothedAccuracy} from '../js/learning-math.js';
+import {medianMs,kanaReadingUnits,rssFromTimes,quantile,smoothedAccuracy,sessionRssFasterCount} from '../js/learning-math.js';
 
 test('median uses valid nonnegative measurements only and never edits its input',()=>{
   const values=[3400,700,NaN,-10,1900,Infinity];
@@ -44,4 +44,22 @@ test('math module is imported by app and precached for offline PWA launches',()=
   const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
   assert.match(app,/from '\.\/learning-math\.js'/);
   assert.ok(sw.includes("'./js/learning-math.js'"));
+});
+
+test('session RSS faster count uses correct readings below pre-session baseline, not above',()=>{
+  const baseline={mode:'romaji',median_ms:2600,ready:true};
+  const rows=[3000,3200,3100].map(rss_ms=>({correct:true,input_mode:'romaji',rss_ms}));
+  assert.deepEqual(sessionRssFasterCount(rows,baseline),{faster:0,eligible:3});
+  assert.deepEqual(sessionRssFasterCount([{correct:true,input_mode:'romaji',rss_ms:2300},...rows],baseline),{faster:1,eligible:4});
+});
+test('RSS count denominator excludes wrong answers, missing timing and other input modes',()=>{
+  const baseline={mode:'romaji',median_ms:2600,ready:true};
+  const rows=[
+    {correct:true,input_mode:'romaji',rss_ms:2200},
+    {correct:false,input_mode:'romaji',rss_ms:2100},
+    {correct:true,input_mode:'romaji',rss_ms:null},
+    {correct:true,input_mode:'ime',rss_ms:1300},
+    {correct:true,input_mode:'romaji',rss_ms:2700}
+  ];
+  assert.deepEqual(sessionRssFasterCount(rows,baseline),{faster:1,eligible:2});
 });

@@ -27,3 +27,10 @@ export function quantile(sorted,fraction){
 }
 
 export function smoothedAccuracy(s){const reviews=Math.max(0,Number(s?.reviews)||0),correct=Math.max(0,Number(s?.correct)||0);return(correct+1)/(reviews+2)}
+
+/** Session RSS comparison against the baseline captured at session start. */
+export function sessionRssFasterCount(timings,baseline){
+  const eligible=(timings||[]).filter(x=>x?.correct===true&&x.input_mode===baseline?.mode&&Number.isFinite(x.rss_ms)&&x.rss_ms>=0);
+  const faster=Number.isFinite(baseline?.median_ms)?eligible.filter(x=>x.rss_ms<baseline.median_ms).length:0;
+  return {faster,eligible:eligible.length};
+}

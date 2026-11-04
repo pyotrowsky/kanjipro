@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.27",
+    "badge": "3.28",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -111,8 +111,8 @@
     "vocab_timing_title": "Szybkość czytania słówek",
     "median_recognition": "Mediana do pierwszego wpisu",
     "median_answer": "Mediana do odpowiedzi",
-    "fast_correct": "RSS poniżej Twojej mediany",
-    "timing_note": "Tylko słówka. Mediany liczone dla poprawnych odpowiedzi. Porównanie RSS dostępne po kalibracji profilu, bez ON/KUN.",
+    "fast_correct": "Szybsze od Twojej mediany RSS",
+    "timing_note": "Tylko poprawne odpowiedzi na słówka z prawidłowym RSS, bez ON/KUN. Niższy RSS oznacza szybszą odpowiedź. Porównanie odbywa się z Twoją medianą sprzed sesji, po kalibracji profilu.",
     "median_rss": "Mediana RSS",
     "celebrate_title": "Dobra robota!",
     "celebrate_subtitle": "Sesja zakończona.",

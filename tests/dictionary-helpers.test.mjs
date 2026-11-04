@@ -38,5 +38,5 @@ test('dictionary module is imported and precached offline',()=>{
   const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
   assert.match(app,/from '\.\/dictionary-helpers\.js'/);
   assert.ok(sw.includes("'./js/dictionary-helpers.js'"));
-  assert.match(sw,/wsjj-kanji-pro-3\.23-5/);
+  assert.match(sw,/wsjj-kanji-pro-3\.23-6/);
 });

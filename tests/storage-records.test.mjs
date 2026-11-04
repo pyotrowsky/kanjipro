@@ -36,5 +36,5 @@ test('storage record module is used by app and cached for offline startup',()=>{
   const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
   assert.match(app,/from '\.\/storage-records\.js'/);
   assert.ok(sw.includes("'./js/storage-records.js'"));
-  assert.match(sw,/wsjj-kanji-pro-3\.23-7/);
+  assert.match(sw,/wsjj-kanji-pro-3\.23-8/);
 });

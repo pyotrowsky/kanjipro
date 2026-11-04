@@ -44,5 +44,5 @@ test('math module is imported by app and precached for offline PWA launches',()=
   const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
   assert.match(app,/from '\.\/learning-math\.js'/);
   assert.ok(sw.includes("'./js/learning-math.js'"));
-  assert.match(sw,/wsjj-kanji-pro-3\.23-7/);
+  assert.match(sw,/wsjj-kanji-pro-3\.23-8/);
 });

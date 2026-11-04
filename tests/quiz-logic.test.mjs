@@ -46,5 +46,5 @@ test('module is imported and available in PWA offline cache',()=>{
   const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
   assert.match(app,/from '\.\/quiz-logic\.js'/);
   assert.ok(sw.includes("'./js/quiz-logic.js'"));
-  assert.match(sw,/wsjj-kanji-pro-3\.23-7/);
+  assert.match(sw,/wsjj-kanji-pro-3\.23-8/);
 });

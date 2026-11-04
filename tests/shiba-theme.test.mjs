@@ -72,5 +72,5 @@ test('theme persistence never modifies Firestore or study data',()=>{
   assert.match(app,/theme:savedAppTheme\(\)/);
   assert.match(app,/settings\.theme==='shiba'\|\|settings\.theme==='classic'/);
   assert.match(app,/createFirebaseSync/);
-  assert.match(app,/function keepAnswerVisible\(\)/);
+  assert.match(app,/createQuizFocusController/);
 });

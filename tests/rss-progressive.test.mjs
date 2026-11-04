@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
+import {quantile} from '../js/learning-math.js';
 
 const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
 const ui=JSON.parse(readFileSync(new URL('../data/ui.pl.json',import.meta.url),'utf8'));
@@ -21,7 +22,7 @@ function engine(entries,mode='romaji'){
     learningStats[id]={timing_history:history,reviews:history.length}
   }
   const progress={textContent:''};
-  const ctx={DB:{vocabulary},learningStats,
+  const ctx={DB:{vocabulary},learningStats,quantile,
     dictionaryVocabId:v=>v.id,inputMode:()=>mode,formatTiming:n=>Number.isFinite(n)?(n/1000).toFixed(2)+' s':'—',
     medianMs:values=>{const sorted=values.filter(Number.isFinite).sort((a,b)=>a-b);if(!sorted.length)return null;const m=Math.floor(sorted.length/2);return sorted.length%2?sorted[m]:(sorted[m-1]+sorted[m])/2},
     // Only the RSS progress element exists in this focused fixture. Dashboard

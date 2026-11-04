@@ -1,5 +1,6 @@
 import {createFirebaseSync} from './firebase-sync.js';
 import {romajiToHiragana,hira,esc} from './japanese-text.js';
+import {medianMs,kanaReadingUnits,rssFromTimes,quantile,smoothedAccuracy} from './learning-math.js';
 const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.23', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
@@ -213,28 +214,13 @@ void requestPersistentStorage();
 function learningQuestionId(q){if(q?.type!=='vocabulary')return null;if(q.learning_id)return q.learning_id;const surface=q.persistent_surface||q.prompt||'',answers=[...(q.accepted_answers||[])].map(hira).filter(Boolean).sort();return `VOCAB:${surface}|${answers.join('/')}`}
 function learningStatsFor(q){const id=learningQuestionId(q);return id?learningStats[id]||null:null}
 function recordLearningResult(q,correct){const id=learningQuestionId(q);if(!id||sessionLearningRecordedIds.has(id))return;sessionLearningRecordedIds.add(id);const prev=learningStats[id]||{},reviews=Math.max(0,Number(prev.reviews)||0),correctCount=Math.max(0,Number(prev.correct)||0),wrongCount=Math.max(0,Number(prev.wrong)||0),streak=Math.max(0,Number(prev.correct_streak)||0),now=Date.now();learningStats[id]={...prev,reviews:reviews+1,correct:correctCount+(correct?1:0),wrong:wrongCount+(correct?0:1),correct_streak:correct?streak+1:0,last_seen_at:now,last_wrong_at:correct?(prev.last_wrong_at||null):now,last_result:correct?'correct':'wrong'};saveLearningStats(id)}
-function medianMs(values){
-  const sorted=values.filter(v=>Number.isFinite(v)&&v>=0).sort((a,b)=>a-b);
-  if(!sorted.length)return null;
-  const mid=Math.floor(sorted.length/2);
-  return sorted.length%2?sorted[mid]:(sorted[mid-1]+sorted[mid])/2
-}
 function formatTiming(ms){return Number.isFinite(ms)?(ms/1000).toFixed(2).replace('.',',')+' s':'—'}
 const TIMING_HISTORY_LIMIT=30;
 // A kana mora counts as one unit: きょ is one, while っ, ん and ー are their own units.
-function kanaReadingUnits(reading){
-  const kana=Array.from(hira(String(reading||''))).filter(ch=>/[ぁ-ゖー]/u.test(ch));
-  const count=kana.filter((ch,i)=>!/^[ぁぃぅぇぉゃゅょゎ]$/u.test(ch)||i===0).length;
-  return Math.max(1,count)
-}
 function answerReadingUnits(q,submitted){
   const answers=[...(q.accepted_answers||q.answer_display||[])];
   const chosen=answers.find(a=>compareReading(a)===submitted)||answers[0]||submitted;
   return kanaReadingUnits(chosen)
-}
-function rssFromTimes(responseMs,recognitionMs,units){
-  if(!Number.isFinite(responseMs)||!Number.isFinite(recognitionMs)||!Number.isFinite(units)||units<1||recognitionMs<0||responseMs<recognitionMs)return null;
-  return recognitionMs+(responseMs-recognitionMs)/units
 }
 function recordVocabTiming(q,correct,measurement,submitted){
   const id=learningQuestionId(q);
@@ -258,11 +244,6 @@ function wordRssProfile(stats,mode){
   const sessions=new Set(recent.map(x=>x.session_id));
   return {rss_ms:medianMs(recent.map(x=>x.rss_ms)),count:recent.length,sessions:sessions.size,
     eligible:recent.length>0,reliable:recent.length>=RSS_MIN_SAMPLES&&sessions.size>=RSS_MIN_SESSIONS}
-}
-function quantile(sorted,fraction){
-  if(!sorted.length)return null;
-  const pos=(sorted.length-1)*fraction,low=Math.floor(pos),high=Math.ceil(pos),weight=pos-low;
-  return sorted[low]*(1-weight)+sorted[high]*weight
 }
 function personalRssBaseline(mode=inputMode()){
   const keys=new Set(DB.vocabulary.map(dictionaryVocabId));
@@ -343,7 +324,6 @@ function rssSpeedCategory(profile,baseline){
   if(profile.rss_ms<baseline.fast_cutoff_ms)return 'fast';
   return 'typical'
 }
-function smoothedAccuracy(s){const reviews=Math.max(0,Number(s?.reviews)||0),correct=Math.max(0,Number(s?.correct)||0);return(correct+1)/(reviews+2)}
 function vocabPriority(q,now=Date.now()){const s=learningStatsFor(q)||{},reviews=Math.max(0,Number(s.reviews)||0),difficulty=1-smoothedAccuracy(s),lowExposure=1/Math.sqrt(reviews+1),newBonus=reviews===0?1:0,lastSeen=Number(s.last_seen_at)||0,daysSinceLastSeen=lastSeen?Math.max(0,now-lastSeen)/86400000:0,staleness=reviews===0?0:Math.min(daysSinceLastSeen/30,1),recentWrong=s.last_result==='wrong'?1:0;return Math.min(7,Math.max(1,1+2.5*difficulty+1.5*lowExposure+2.5*newBonus+staleness+recentWrong))}
 function weightedSampleCore(items,count,now=Date.now()){if(count<=0)return[];if(count>=items.length)return items.slice();return items.map(item=>({item,key:-Math.log(Math.max(Math.random(),Number.MIN_VALUE))/vocabPriority(item,now)})).sort((a,b)=>a.key-b.key).slice(0,count).map(x=>x.item)}
 function activeVocabMistake(q){const exact=mistakeBank.get(persistentQuestionId(q));if(exact)return exact;return q.persistent_surface?mistakeBank.get(`VOCAB:${q.persistent_surface}`)||null:null}

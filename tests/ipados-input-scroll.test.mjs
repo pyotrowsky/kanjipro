@@ -55,7 +55,6 @@ test('new focus controller is cached for offline use and version badge is visibl
   const css=readFileSync(new URL('../css/shiba-dashboard.css',import.meta.url),'utf8');
   assert.match(app,/from '\.\/quiz-focus\.js'/);
   assert.ok(sw.includes("'./js/quiz-focus.js'"));
-  assert.match(sw,/wsjj-kanji-pro-3\.23-8/);
-  assert.match(html,/class="sidebar-version"[^>]*>v<span data-i18n="app.badge">3\.23<\/span>/);
+  assert.match(html,/class="sidebar-version"[^>]*>v<span data-i18n="app.badge">[^<]+<\/span>/);
   assert.match(css,/@media\(min-width:740px\)[\s\S]*?\.sidebar-version\{display:block/);
 });

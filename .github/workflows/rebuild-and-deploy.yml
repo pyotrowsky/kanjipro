@@ -44,7 +44,7 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Test cloud history merge and Firebase journal logic
+      - name: Run full regression suite (Node.js)
         run: npm test
 
       - name: Commit generated database files when changed

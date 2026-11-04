@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.28",
+    "badge": "3.29",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -334,6 +334,8 @@
     "subtitle": "Podsumowanie nauki zapisanej lokalnie i synchronizowanej przez Firebase.",
     "recent_title": "Ostatnio ćwiczone słówka",
     "empty": "Nie masz jeszcze zapisanych powtórek słówek.",
-    "no_rss": "Brak pomiaru RSS"
+    "no_rss": "Brak pomiaru RSS",
+    "open": "Zobacz historię →",
+    "back": "← Wróć"
   }
 }

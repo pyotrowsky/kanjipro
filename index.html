@@ -16,10 +16,10 @@
 <link rel="icon" type="image/svg+xml" href="./icons/shiba-face.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=3.28">
-<link rel="stylesheet" href="./css/shiba-theme.css?v=3.28">
-<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.28">
-<link rel="stylesheet" href="./css/shiba-approved.css?v=3.28"></head><body><main class="shell">
+<link rel="stylesheet" href="./css/styles.css?v=3.29">
+<link rel="stylesheet" href="./css/shiba-theme.css?v=3.29">
+<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.29">
+<link rel="stylesheet" href="./css/shiba-approved.css?v=3.29"></head><body><main class="shell">
 <aside class="desktop-sidebar" aria-label="Menu boczne">
   <div class="sidebar-brand"><img src="./icons/shiba-face.svg" alt="" width="56" height="56"><span>Kanji<span class="brand-dot">.pro</span></span></div>
   <nav class="sidebar-navigation" aria-label="Nawigacja">
@@ -29,10 +29,10 @@
     <button id="sideSettings" type="button" class="side-nav-item"><span class="side-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.4" fill="var(--card)"/><circle cx="15" cy="17" r="2.4" fill="var(--card)"/></svg></span><span data-i18n="sidebar.settings">Ustawienia</span></button>
   </nav>
   <div class="sidebar-mascot" aria-hidden="true"><span>今日もがんばろう！</span><img src="./icons/shiba-study.svg" width="220" height="250" alt=""></div>
-  <div class="sidebar-version" aria-label="Wersja aplikacji">v<span data-i18n="app.badge">3.28</span></div>
+  <div class="sidebar-version" aria-label="Wersja aplikacji">v<span data-i18n="app.badge">3.29</span></div>
 </aside>
 <div class="main-workspace">
-<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.28</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.29</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <nav class="app-nav" aria-label="Główna nawigacja" data-i18n-aria="dictionary.nav_aria">
   <button id="navPractice" class="app-nav-btn active" type="button" data-i18n="dictionary.nav_practice">Ćwicz</button>
   <button id="navDictionary" class="app-nav-btn" type="button" data-i18n="dictionary.nav_dictionary">Słownik</button>
@@ -97,7 +97,7 @@
     <div id="installedNote" class="installed-note hidden" data-i18n="install.installed">✓ Aplikacja jest już uruchomiona jako aplikacja.</div>
   </details>
   <div class="home-dashboard-stats" id="homeStats" aria-label="Łączne statystyki nauki">
-    <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Przećwiczone słówka</span><strong id="homeWords">0</strong><small data-i18n="stats.words_note">Różne słówka</small></div></div>
+    <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Przećwiczone słówka</span><strong id="homeWords">0</strong><small data-i18n="stats.words_note">Różne słówka</small><button id="homeHistoryLink" type="button" class="home-history-link" data-i18n="history.open">Zobacz historię →</button></div></div>
     <div class="home-stat-card"><span class="home-stat-icon home-stat-good" aria-hidden="true">✓</span><div><span class="home-stat-label" data-i18n="stats.accuracy">Poprawność</span><strong id="homeAccuracy">—</strong><small id="homeAccuracyNote" data-i18n="stats.accuracy_note">Ze wszystkich odpowiedzi na słówka</small></div></div>
     <div class="home-stat-card"><span class="home-stat-icon home-stat-rss" aria-hidden="true">ϟ</span><div><span class="home-stat-label" data-i18n="stats.rss">Mediana RSS</span><strong id="homeRss">—</strong><small id="homeRssNote" data-i18n="stats.rss_note">Oddzielnie dla Romaji i IME</small></div></div>
   </div>
@@ -135,6 +135,7 @@
   </div>
 </section>
 <section id="history" class="panel history-screen hidden">
+  <button id="historyBackToPractice" class="ghost history-mobile-back" type="button" data-i18n="history.back">← Wróć</button>
   <div class="history-head"><div><h2 data-i18n="history.title">Historia nauki</h2><p data-i18n="history.subtitle">Twoje postępy ze wszystkich urządzeń zsynchronizowanych przez Firebase.</p></div><img class="shiba-history-dance" src="./icons/shiba-dance.svg" width="126" height="130" alt="" aria-hidden="true" loading="lazy"></div>
   <div id="historyStats" class="home-dashboard-stats" aria-label="Łączne statystyki nauki">
     <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Przećwiczone słówka</span><strong id="historyWords">0</strong></div></div>
@@ -265,5 +266,5 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=3.28"></script>
+<script type="module" src="./js/app.js?v=3.29"></script>
 </body></html>

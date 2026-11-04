@@ -15,7 +15,8 @@ Audio zapisuje się jako `Blob` w oddzielnej lokalnej bazie IndexedDB `wsjj-kanj
 
 ## Ograniczenia MVP
 
-- Importy maksymalnie 180 MB; pojedyncze nagrania maksymalnie 8 MB.
+- Brak sztywnego limitu wielkości całego pakietu `.apkg`. Archiwum odczytywane jest z lokalnego pliku, ale wypakowywane są tylko nagrania dopasowane do słówek Kanji.pro. GIF-y, obrazy, wideo i inne media są ignorowane. Maksymalny rozmiar pojedynczego nagrania to 8 MB.
+- Duży eksport może nadal przekroczyć pamięć przeglądarki (zwłaszcza na iOS), limit lokalnej pamięci IndexedDB lub możliwości biblioteki SQLite. W takim przypadku wyeksportuj kilka mniejszych talii; importy można wykonywać po kolei.
 - Obsługiwane: MP3, OGG/OGA, OPUS, WAV, M4A, AAC; na niektórych urządzeniach odtwarzanie konkretnego kodeka może nie być dostępne.
 - Format `.anki21b` i format `.colpkg` nie są obsługiwane w tej wersji.
 - Pliki bez metadanych zgodnych z kolekcją Kanji.pro lub niejednoznaczne są pomijane.

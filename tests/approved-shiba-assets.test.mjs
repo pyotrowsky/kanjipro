@@ -55,7 +55,7 @@ test('iPhone/iPad app icons are valid Shiba PNGs for all PWA sizes',()=>{
   assert.match(html,/rel="apple-touch-icon" sizes="180x180" href="\.\/icons\/apple-touch-icon\.png"/);
 });
 
-test('new theme is cached offline and all version references match 3.23',()=>{
+test('new theme is cached offline and app resources use versioned paths',()=>{
   assert.ok(sw.includes("'./css/shiba-approved.css'"));
   assert.ok(html.includes('href="./css/shiba-approved.css'));
   assert.ok(html.includes('src="./js/app.js'));

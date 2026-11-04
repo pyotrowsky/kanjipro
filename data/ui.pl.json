@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.23",
+    "badge": "3.24",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -207,7 +207,7 @@
     "theme_classic": "Klasyczny",
     "theme_classic_note": "Dotychczasowy wygląd Kanji.pro.",
     "audio_title": "Nagrania z Anki (prywatne)",
-    "audio_note": "Wyeksportuj talię .apkg z opcjami „Dołącz multimedia” i „Obsługuj starsze wersje Anki”. Pliki pozostaną wyłącznie na tym urządzeniu. Pierwszy import wymaga internetu.",
+    "audio_note": "Wybierz pakiet .apkg z opcjami „Dołącz multimedia” i „Obsługuj starsze wersje Anki”. Importujemy tylko dopasowane nagrania; GIF-y i obrazy są pomijane. Pliki pozostają na tym urządzeniu. Pierwszy import wymaga internetu.",
     "audio_import": "Importuj audio z .apkg",
     "audio_delete": "Usuń lokalne audio",
     "audio_initial": "Sprawdzanie lokalnych nagrań…",
@@ -215,7 +215,7 @@
     "audio_play": "🔊 Odtwórz wymowę",
     "audio_play_error": "Nie udało się odtworzyć nagrania na tym urządzeniu.",
     "audio_saved": "Lokalne nagrania: {count}",
-    "audio_import_done": "Zaimportowano {imported} nagrań (dopasowano {matched} z {notes} notatek; pominięto {skipped}). Na urządzeniu: {total}.",
+    "audio_import_done": "Zaimportowano {imported} nagrań (dopasowano {matched} z {notes} notatek; brak pliku lub błąd: {skipped}; inne multimedia pominięte: {ignoredNonAudio}). Na urządzeniu: {total}.",
     "audio_ambiguous": "Niejednoznacznych dopasowań: {count}.",
     "audio_import_error": "Błąd importu:",
     "audio_storage_error": "Nie można uruchomić lokalnego magazynu:",

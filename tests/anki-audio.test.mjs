@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {cleanAudioText,extractSounds,selectNoteAudio,matchAudioNotes,selectAnkiCollection} from '../js/anki-audio.js';
+import {cleanAudioText,extractSounds,selectNoteAudio,matchAudioNotes,selectAnkiCollection,selectAudioMediaEntries} from '../js/anki-audio.js';
 
 test('audio field priority prefers dictionary recording',()=>{
   const fields={Audio:'[sound:second.mp3]',AudioDictionary:'[sound:first.mp3]',AudioOnyomi:'[sound:third.ogg]'};
@@ -46,4 +46,27 @@ test('import UI and offline entry code are wired',()=>{
   assert.match(html,/id="importAnkiAudioFile"/);
   assert.match(html,/id="playQuizAudio"/);
   assert.ok(sw.includes("'./js/anki-audio.js'"));
+});
+
+test('large decks are not rejected by a whole-archive size limit',()=>{
+  const source=readFileSync(new URL('../js/anki-audio.js',import.meta.url),'utf8');
+  assert.doesNotMatch(source,/MAX_APKG|Pakiet ma ponad 180 MB|file\.size\s*>\s*\d+/);
+  assert.match(source,/new zip\.BlobReader\(file\)/);
+});
+
+test('GIFs, images, videos and unmatched audio are excluded from extraction',()=>{
+  const matched=new Map([
+    ['VOCAB_NOTE:1',{filename:'one.mp3'}],
+    ['VOCAB_NOTE:2',{filename:'two.ogg'}],
+    ['VOCAB_NOTE:3',{filename:'missing.mp3'}]
+  ]);
+  const media={'0':'kanji.gif','1':'one.mp3','2':'other.mp3','3':'portrait.png','4':'two.ogg','5':'movie.mp4'};
+  const entry=(filename)=>({filename,uncompressedSize:22});
+  const zipEntries=new Map(Object.keys(media).map(n=>[n,entry(n)]));
+  const {chosen,ignoredNonAudio}=selectAudioMediaEntries(matched,media,zipEntries);
+  assert.equal(ignoredNonAudio,3);
+  assert.deepEqual([...chosen.keys()],['VOCAB_NOTE:1','VOCAB_NOTE:2']);
+  assert.equal(chosen.get('VOCAB_NOTE:1').entry.filename,'1');
+  assert.equal(chosen.get('VOCAB_NOTE:2').entry.filename,'4');
+  assert.equal([...chosen.values()].some(x=>/gif|png|mp4|other/.test(x.filename)),false);
 });

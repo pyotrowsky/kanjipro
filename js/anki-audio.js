@@ -4,7 +4,6 @@ import {hira} from './japanese-text.js';
 import {dictionaryVocabId} from './dictionary-helpers.js';
 
 const DB_NAME='wsjj-kanji-pro-private-audio';
-const MAX_APKG=180*1024*1024;
 const ZIP_JS='https://cdn.jsdelivr.net/npm/@zip.js/zip.js@2.8.15/+esm';
 const SQL_JS='https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/sql-wasm.js';
 const SQL_WASM='https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/sql-wasm.wasm';
@@ -105,6 +104,25 @@ function transaction(db,mode,fn){
     tx.onabort=()=>reject(tx.error)
   })
 }
+// Returns only audio named in Anki audio fields AND present in the package's media index.
+// Unrelated images, GIFs, videos and even unmatched audio are never decompressed.
+export function selectAudioMediaEntries(matched,mediaMap,zipEntries){
+  const audioByName=new Map();
+  let ignoredNonAudio=0;
+  for(const [number,name] of Object.entries(mediaMap)){
+    if(!ALLOWED.test(name)){ignoredNonAudio++;continue}
+    if(!audioByName.has(name))audioByName.set(name,String(number));
+  }
+  const chosen=new Map();
+  for(const [id,{filename}] of matched){
+    if(!ALLOWED.test(filename))continue;
+    const number=audioByName.get(filename);
+    if(number==null)continue;
+    const entry=zipEntries.get(number);
+    if(entry&&!entry.directory)chosen.set(id,{filename,entry});
+  }
+  return {chosen,ignoredNonAudio}
+}
 export function selectAnkiCollection(entries){
   // Newer exports include a dummy collection.anki2 containing a warning card.
   if(entries.has('collection.anki21'))return entries.get('collection.anki21');
@@ -148,7 +166,7 @@ export function createPrivateAudioLibrary(vocabulary){
   };
   const importApkg=async(file,onProgress=()=>{})=>{
     if(!file||!file.name.toLowerCase().endsWith('.apkg'))throw new Error('Wybierz pakiet .apkg.');
-    if(file.size>MAX_APKG)throw new Error('Pakiet ma ponad 180 MB. Wyeksportuj mniejszą talię z Anki.');
+    // The archive stays in its original Blob. Only matching audio entries are extracted.
     await ready();
     onProgress('Otwieranie archiwum Anki…');
     const zip=await import(ZIP_JS);
@@ -164,13 +182,13 @@ export function createPrivateAudioLibrary(vocabulary){
       onProgress('Odczytywanie notatek i dopasowywanie nagrań…');
       const notes=await readNotes(await sqlite.getData(new zip.Uint8ArrayWriter()));
       const {matched,ambiguous}=matchAudioNotes(notes,vocabulary);
-      const filenames=new Map(Object.entries(map).map(([number,name])=>[name,number]));
+      const {chosen,ignoredNonAudio}=selectAudioMediaEntries(matched,map,index);
       let imported=0,skipped=0,processed=0;
       const db=await ready();
       for(const [id,{filename}] of matched){
         processed++;
-        const n=filenames.get(filename),entry=n==null?null:index.get(String(n));
-        if(!entry||!ALLOWED.test(filename)||entry.uncompressedSize>8*1024*1024){skipped++;continue}
+        const entry=chosen.get(id)?.entry;
+        if(!entry||entry.uncompressedSize>8*1024*1024){skipped++;continue}
         try{
           const bytes=await entry.getData(new zip.Uint8ArrayWriter());
           const ext=filename.split('.').pop().toLowerCase();
@@ -181,7 +199,7 @@ export function createPrivateAudioLibrary(vocabulary){
         }catch(err){console.warn('Anki audio skipped:',filename,err);skipped++}
         if(processed%20===0)onProgress('Zapisano '+imported+' / '+matched.size+' dopasowanych nagrań…')
       }
-      return{notes:notes.length,matched:matched.size,imported,skipped,ambiguous:ambiguous.length,total:ids.size}
+      return{notes:notes.length,matched:matched.size,imported,skipped,ambiguous:ambiguous.length,ignoredNonAudio,total:ids.size}
     }finally{await reader.close()}
   };
   return {ready,has,count,play,clear,importApkg}

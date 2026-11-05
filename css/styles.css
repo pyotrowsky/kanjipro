@@ -373,3 +373,20 @@ button:disabled{cursor:default;opacity:.6}
 .choice.session-focus-locked{cursor:not-allowed}
 .choice.session-focus-locked span,.choice input:disabled+span{opacity:.42;background:var(--soft);color:var(--muted);border-color:var(--line);box-shadow:none;cursor:not-allowed}
 .slow-unlock-progress{font-size:12px;margin:9px 0 3px;line-height:1.5;color:var(--muted)}
+
+/* Compact vocabulary progress summary: primary metrics first, diagnostics on demand. */
+.dictionary-progress-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:13px}
+.dictionary-progress-metric{display:flex;flex-direction:column;min-width:0;gap:4px}
+.dictionary-progress-metric>span{font-size:12px;color:var(--muted)}
+.dictionary-progress-metric>strong{font-size:25px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.2}
+.dictionary-progress-metric>small{font-size:11px;color:var(--muted);line-height:1.4}
+.dictionary-progress-bar{height:6px;background:var(--line);border-radius:999px;overflow:hidden;margin:3px 0}
+.dictionary-progress-bar>span{display:block;height:100%;background:var(--good);border-radius:inherit}
+.dictionary-progress-timing{display:flex;gap:5px 14px;flex-wrap:wrap;margin-top:13px;font-size:12px;color:var(--muted)}
+.dictionary-rss-details{border-top:1px solid var(--line);margin-top:13px;padding-top:9px;font-size:12px}
+.dictionary-rss-details>summary{display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:700;color:var(--text);padding:5px 0;list-style:revert}
+.dictionary-rss-details>summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.dictionary-rss-preliminary{font-weight:600;color:var(--muted);font-size:11px}
+.dictionary-rss-extra{color:var(--muted);line-height:1.55}
+.dictionary-rss-extra p{margin:8px 0}
+@media(max-width:380px){.dictionary-progress-grid{gap:8px}.dictionary-progress-metric>strong{font-size:22px}}

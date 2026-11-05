@@ -9,7 +9,7 @@ import {createQuizFocusController} from './quiz-focus.js';
 import {createPrivateAudioLibrary} from './anki-audio.js';
 import {createAppUpdater} from './app-update.js';
 import {createQuizActionGuard} from './quiz-action-guard.js';
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.36', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.37', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -137,7 +137,7 @@ function initExampleFuriganaSettings(){
 }
 initExampleFuriganaSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=3.36', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=3.37', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictRssSort=$('#dictRssSort'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
 const privateAudio=createPrivateAudioLibrary(DB.vocabulary,DB.kanji);
@@ -958,7 +958,7 @@ function reviewQuestions(){return resolvedMistakeEntries().map(x=>({...x.questio
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
-function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.36',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{theme:savedAppTheme(),font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),auto_audio_after_answer:savedAutoAudio(),session_prefs:loadSessionPrefs()}}}}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.37',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{theme:savedAppTheme(),font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),auto_audio_after_answer:savedAutoAudio(),session_prefs:loadSessionPrefs()}}}}
 function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
 async function importLearningData(file){
   if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
@@ -1213,7 +1213,13 @@ function initFirebaseSync(){
 initFirebaseSync();
 initDataBackupSettings();
 initPrivateAudioImport();
-createAppUpdater({version:UI.app.badge,notice:$('#appUpdateBanner'),noticeLabel:$('#appUpdateLabel'),updateButton:$('#applyAppUpdate'),manualButton:$('#checkAppUpdate'),status:$('#appUpdateStatus')});
+createAppUpdater({version:UI.app.badge,notice:$('#appUpdateBanner'),noticeLabel:$('#appUpdateLabel'),updateButton:$('#applyAppUpdate'),manualButton:$('#checkAppUpdate'),status:$('#appUpdateStatus'),
+  beforeReload:async()=>{
+    // Drain pending IndexedDB writes before the old document is torn down.
+    // Never clear or replace learning data as part of an application update.
+    await storageWriteQueue;
+  }
+});
 renderLessonGrid();renderKanjiGroups(false);restoreSessionControls();populateFuriganaLessons();refreshReviewUI();updatePreview();document.querySelectorAll('.mode input').forEach(x=>x.addEventListener('change',()=>{saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="sessionFocus"]').forEach(x=>x.addEventListener('change',()=>{saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="vocabLimitMode"]').forEach(x=>x.addEventListener('change',()=>{vocabLimit.disabled=document.querySelector('input[name="vocabLimitMode"]:checked').value!=='limit';saveSessionPrefs();updatePreview()}));document.querySelectorAll('input[name="furiganaMode"]').forEach(x=>x.addEventListener('change',syncFuriganaControls));furiganaLessonSelect.addEventListener('change',()=>{furiganaChapterManual=true;updatePreview()});vocabLimit.addEventListener('input',()=>{saveSessionPrefs();updatePreview()});document.querySelectorAll('input[name="inputMode"]').forEach(x=>x.addEventListener('change',syncInputMode));let answerComposing=false;
 input.addEventListener('compositionstart',()=>{answerComposing=true;markFirstVocabInput()});
 input.addEventListener('beforeinput',e=>{if(e.inputType?.startsWith('insert'))markFirstVocabInput()});
@@ -1248,17 +1254,15 @@ submit.addEventListener('pointerdown',event=>{
 });
 submit.addEventListener('click',()=>{if(quizActionGuard.accept())check(answerMode()==='one')});
 $('#skipQuestion')?.addEventListener('pointerdown',event=>{if(event.pointerType==='touch'&&document.activeElement===input)event.preventDefault()});$('#skipQuestion')?.addEventListener('click',()=>{if(!checked&&!pendingAudioAdvance&&quizActionGuard.accept())check(false,true)});input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing&&!answerComposing){e.preventDefault();e.stopPropagation();if(e.repeat||!quizActionGuard.accept())return;const oneStep=answerMode()==='one';check(oneStep);if(oneStep&&!pendingAudioAdvance)requestAnimationFrame(()=>{if(!quiz.classList.contains('hidden'))focusAnswerField()})}});$('#quit').addEventListener('click',back);$('#again').addEventListener('click',restartSession);$('#settings').addEventListener('click',finishBack);syncFuriganaControls();syncInputMode();
+window.__kanjiAppReady = true;
 
 // PWA: offline support + iOS Home Screen experience.
 if ('serviceWorker' in navigator) {
-  let refreshingForServiceWorker = false;
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (refreshingForServiceWorker) return;
-    refreshingForServiceWorker = true;
-    window.location.reload();
-  });
+  // A newly activated Service Worker must NEVER force a second navigation.
+  // On iOS this can interrupt module loading or pending IndexedDB writes.
+  // The explicit update button controls the next reload after integrity checks.
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=3.36', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=3.37', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

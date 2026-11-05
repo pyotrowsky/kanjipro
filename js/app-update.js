@@ -8,7 +8,7 @@ export function sameAppVersion(local,remote){
   return !!normalizeAppVersion(local)&&normalizeAppVersion(local)===normalizeAppVersion(remote)
 }
 export function createAppUpdater({
-  version,notice,noticeLabel,updateButton,manualButton,status,
+  version,notice,noticeLabel,updateButton,manualButton,status,beforeReload=async()=>{},
   win=window,doc=document,nav=navigator,fetcher=fetch,
   now=()=>Date.now()
 }){
@@ -57,19 +57,34 @@ export function createAppUpdater({
       url.searchParams.set('refresh_check',String(now()));
       const response=await fetcher(url.href,{cache:'no-store'});
       if(!response.ok)throw new Error('Brak połączenia');
+      const ui=await response.json();
+      const remote=normalizeAppVersion(ui?.app?.badge);
+      if(!remote)throw new Error('Nieprawidłowa wersja aplikacji');
+      // Validate essential remote assets *before* replacing the running app.
+      // Incomplete GitHub Pages deployments must not leave a blank quiz.
+      const [database,script]=await Promise.all([
+        fetcher(new URL('./data/kanji_quiz_database.json?preflight='+now(),win.location.href).href,{cache:'no-store'}),
+        fetcher(new URL('./js/app.js?preflight='+now(),win.location.href).href,{cache:'no-store'})
+      ]);
+      if(!database.ok||!script.ok)throw new Error('Nowa wersja nie jest jeszcze kompletna');
+      const dataset=await database.json();
+      if(!Array.isArray(dataset?.quiz_lessons)||!Array.isArray(dataset?.vocabulary)||!Array.isArray(dataset?.kanji))throw new Error('Niekompletna baza nauki');
+      const source=await script.text();
+      if(!source.includes("ui.pl.json?v="+remote)||!source.includes("kanji_quiz_database.json?v="+remote))throw new Error('Pliki aplikacji mają różne wersje');
       if('serviceWorker' in nav){
         const registration=await nav.serviceWorker.getRegistration();
         if(registration)await registration.update();
       }
-      const target=new URL(win.location.href);
-      target.searchParams.set('app_refresh',String(now()));
-      // This changes only the navigation URL, never localStorage or IndexedDB.
-      win.location.replace(target.href)
+      // Never navigate with a changing query string, which can open a separate
+      // standalone navigation context on some iOS installations.
+      await beforeReload();
+      if(typeof win.location.reload==='function')win.location.reload();
+      else win.location.replace(win.location.href)
     }catch(err){
       updateInProgress=false;
       if(updateButton)updateButton.disabled=false;
       if(manualButton)manualButton.disabled=false;
-      info('Nie udało się zaktualizować. Sprawdź internet i spróbuj ponownie.')
+      info('Nie udało się bezpiecznie zaktualizować. Twoje dane pozostały bez zmian. Spróbuj ponownie później.')
     }
   }
   manualButton?.addEventListener('click',()=>void check(true));

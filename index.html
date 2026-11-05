@@ -16,10 +16,10 @@
 <link rel="icon" type="image/svg+xml" href="./icons/shiba-face.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=3.36">
-<link rel="stylesheet" href="./css/shiba-theme.css?v=3.36">
-<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.36">
-<link rel="stylesheet" href="./css/shiba-approved.css?v=3.36"></head><body><main class="shell">
+<link rel="stylesheet" href="./css/styles.css?v=3.37">
+<link rel="stylesheet" href="./css/shiba-theme.css?v=3.37">
+<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.37">
+<link rel="stylesheet" href="./css/shiba-approved.css?v=3.37"></head><body><main class="shell">
 <aside class="desktop-sidebar" aria-label="Menu boczne">
   <div class="sidebar-brand"><img src="./icons/shiba-face.svg" alt="" width="56" height="56"><span>Kanji<span class="brand-dot">.pro</span></span></div>
   <nav class="sidebar-navigation" aria-label="Nawigacja">
@@ -29,10 +29,10 @@
     <button id="sideSettings" type="button" class="side-nav-item"><span class="side-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.4" fill="var(--card)"/><circle cx="15" cy="17" r="2.4" fill="var(--card)"/></svg></span><span data-i18n="sidebar.settings">Ustawienia</span></button>
   </nav>
   <div class="sidebar-mascot" aria-hidden="true"><span>今日もがんばろう！</span><img src="./icons/shiba-study.svg" width="220" height="250" alt=""></div>
-  <div class="sidebar-version" aria-label="Wersja aplikacji">v<span data-i18n="app.badge">3.36</span></div>
+  <div class="sidebar-version" aria-label="Wersja aplikacji">v<span data-i18n="app.badge">3.37</span></div>
 </aside>
 <div class="main-workspace">
-<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.36</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.37</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <nav class="app-nav" aria-label="Główna nawigacja" data-i18n-aria="dictionary.nav_aria">
   <button id="navPractice" class="app-nav-btn active" type="button" data-i18n="dictionary.nav_practice">Ćwicz</button>
   <button id="navDictionary" class="app-nav-btn" type="button" data-i18n="dictionary.nav_dictionary">Słownik</button>
@@ -270,5 +270,33 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=3.36"></script>
+<script>
+// Startup watchdog: show a non-destructive recovery message when JavaScript
+// modules or the database fail. Never clear site data automatically.
+(() => {
+  let failed=false;
+  const show=()=>{
+    if(window.__kanjiAppReady)return;
+    if(document.getElementById('kanjiStartupWarning'))return;
+    const panel=document.createElement('div');
+    panel.id='kanjiStartupWarning';
+    panel.setAttribute('role','alert');
+    panel.style.cssText='position:fixed;z-index:99999;bottom:12px;left:12px;right:12px;max-width:550px;margin:auto;padding:16px;border-radius:14px;background:#fff9ee;color:#46321e;border:2px solid #b95d30;box-shadow:0 5px 25px #0003;font:15px system-ui;line-height:1.5';
+    const title=document.createElement('strong');
+    title.textContent='Nie udało się uruchomić aplikacji';
+    const copy=document.createElement('p');
+    copy.textContent='Rozdziały i słownik mogą być chwilowo niedostępne. Nie usuwaj aplikacji ani danych witryny — historia nauki może nadal znajdować się na urządzeniu.';
+    const retry=document.createElement('button');
+    retry.type='button';
+    retry.textContent='Spróbuj ponownie';
+    retry.style.cssText='padding:10px 15px;background:#b95d30;color:white;border:0;border-radius:9px;font:inherit;cursor:pointer';
+    retry.addEventListener('click',()=>location.reload());
+    panel.append(title,copy,retry);document.body.append(panel);
+  };
+  window.addEventListener('error',()=>{failed=true},true);
+  window.addEventListener('unhandledrejection',()=>{failed=true});
+  setTimeout(()=>{if(!window.__kanjiAppReady)show()},15000);
+})();
+</script>
+<script type="module" src="./js/app.js?v=3.37"></script>
 </body></html>

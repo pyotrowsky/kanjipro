@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wsjj-kanji-pro-3.36-0';
+const CACHE_NAME = 'wsjj-kanji-pro-3.37-0';
 const BASE = new URL('./', self.location.href);
 const FRESH_PATHS = new Set([
   new URL('./data/kanji_quiz_database.json', BASE).pathname,
@@ -25,7 +25,7 @@ const FRESH_PATHS = new Set([
   new URL('./css/shiba-approved.css', BASE).pathname,
   new URL('./manifest.webmanifest', BASE).pathname
 ]);
-function cached(request){return caches.match(request,{ignoreSearch:true})}
+function cached(request){return caches.open(CACHE_NAME).then(cache=>cache.match(request,{ignoreSearch:true}))}
 const PRECACHE = [
   './',
   './index.html',
@@ -75,7 +75,7 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))))
+      .then(keys => Promise.all(keys.filter(key => key.startsWith('wsjj-kanji-pro-') && key !== CACHE_NAME).map(key => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });

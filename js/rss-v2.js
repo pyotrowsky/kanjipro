@@ -78,6 +78,20 @@ export function slowPracticeBaseline(entries,mode,{minWords=SLOW_PRACTICE_MIN_WO
   return {ready,count:words.length,sessions:sessions.size,days:days.size,
     cutoff_ms:ready?quantile(values,.75):null};
 }
+// When globally slow words are absent from the user's selected chapters,
+// select the slowest measured quartile *within that selection*. Never
+// fabricate RSS or include words without a valid reading-time measurement.
+export function selectedSlowWords(entries,globalCutoff,{minLocalWords=4}={}){
+  const measured=(entries||[]).filter(x=>x?.profile?.eligible&&validValue(x.profile.rss_ms));
+  const global=validValue(globalCutoff)?measured.filter(x=>x.profile.rss_ms>globalCutoff):[];
+  if(global.length)return {items:global.map(x=>x.item),source:'global',measured:measured.length};
+  if(measured.length<minLocalWords)return {items:[],source:'insufficient',measured:measured.length};
+  const sorted=measured.map(x=>x.profile.rss_ms).sort((a,b)=>a-b),cutoff=quantile(sorted,.75);
+  const local=measured.filter(x=>x.profile.rss_ms>cutoff);
+  // Tied readings can make >P75 empty. Pick the slowest measured word.
+  const items=local.length?local:[measured.reduce((a,b)=>a.profile.rss_ms>=b.profile.rss_ms?a:b)];
+  return {items:items.map(x=>x.item),source:'local',measured:measured.length,cutoff_ms:cutoff};
+}
 export function rssQualityLabel(quality){
   return quality||'legacy';
 }

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {rssProfileV2,slowRssBaseline,slowPracticeBaseline,rssTrendSvg,madRss,rssSeries,usableRssEntry} from '../js/rss-v2.js';
+import {rssProfileV2,slowRssBaseline,slowPracticeBaseline,selectedSlowWords,rssTrendSvg,madRss,rssSeries,usableRssEntry} from '../js/rss-v2.js';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const day=24*3600*1000;
 const sample=(rss,session,at,quality='valid',mode='romaji')=>({correct:true,rss_ms:rss,session_id:session,input_mode:mode,at,quality});
@@ -133,4 +133,30 @@ test('slow focus selector is disabled in markup and updated dynamically',()=>{
  assert.match(app,/const practice=slowPracticeBaseline\(practiceEntries,mode\)/);
  assert.match(css,/\.choice\.session-focus-locked/);
  assert.match(ui.setup.slow_locked_progress,/\{words\}/);
+});
+
+test('selected slow words use global quartile when candidates exist',()=>{
+ const entries=[900,1500,2100,3300].map((ms,i)=>({item:'word'+i,profile:{rss_ms:ms,eligible:true}}));
+ const selection=selectedSlowWords(entries,2500);
+ assert.equal(selection.source,'global');
+ assert.deepEqual(selection.items,['word3']);
+});
+test('selected slow words fall back to local upper quartile when none exceed global threshold',()=>{
+ const entries=[900,1500,2100,2500].map((ms,i)=>({item:'word'+i,profile:{rss_ms:ms,eligible:true}}));
+ const selection=selectedSlowWords(entries,3300);
+ assert.equal(selection.source,'local');
+ assert.deepEqual(selection.items,['word3']);
+});
+test('no local slow session from fewer than four measured words',()=>{
+ const entries=[900,1500,2100].map((ms,i)=>({item:'word'+i,profile:{rss_ms:ms,eligible:true}}));
+ assert.deepEqual(selectedSlowWords(entries,3300).items,[]);
+ assert.equal(selectedSlowWords(entries,3300).source,'insufficient');
+});
+test('unmeasured words cannot enter fallback pool; tied measurements still produce session',()=>{
+ const entries=[1,2,3,4].map(i=>({item:'word'+i,profile:{rss_ms:2000,eligible:true}}));
+ entries.push({item:'unmeasured',profile:{rss_ms:null,eligible:false}});
+ const sel=selectedSlowWords(entries,3300);
+ assert.equal(sel.source,'local');
+ assert.equal(sel.items.length,1);
+ assert.notEqual(sel.items[0],'unmeasured');
 });

@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.34",
+    "badge": "3.35",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -41,12 +41,14 @@
     "session_focus_normal": "Zwykła",
     "session_focus_slow": "Wolne słówka",
     "slow_needs_baseline": "Żeby odblokować tryb, zbierz RSS dla {required} różnych słówek, ćwicz w 5 sesjach przez co najmniej 2 różne dni. Aktualnie: {count}/{required} słówek · {sessions}/5 sesji · {days}/2 dni.",
-    "slow_empty": "Brak wolnych słówek o wiarygodnym RSS w wybranym zakresie. Zaznacz więcej rozdziałów lub wróć do zwykłej sesji.",
+    "slow_empty": "W zaznaczonych rozdziałach nie znaleziono wystarczającej liczby słówek z poprawnie zmierzonym RSS. Rozszerz zakres rozdziałów albo wykonaj zwykłą sesję.",
     "slow_preview": "Wolne słówka: {count} z {total} dostępnych w wybranych rozdziałach.",
     "session_focus_note_normal": "Zwykła sesja: ćwicz wybrane słówka i odczyty ON/KUN. Przy limicie częściej pojawiają się nowe i trudniejsze słówka.",
-    "session_focus_note_slow": "Wolne słówka: ćwicz wyrazy z RSS w najwolniejszej ćwiartce Twoich wyników. Wstępny RSS wystarcza do udziału, a wiarygodne pomiary mają osobne oznaczenie.",
+    "session_focus_note_slow": "Wolne słówka: ćwicz słówka powyżej Twojego globalnego 75. percentyla RSS. Jeśli żadne nie występuje w wybranych rozdziałach, aplikacja wybierze najwolniejszą ćwiartkę lokalnie, pod warunkiem pomiarów co najmniej 4 słówek.",
     "slow_locked_progress": "Odblokowanie wolnych słówek: {words}/{minWords} słówek · {sessions}/{minSessions} sesji · {days}/{minDays} dni.",
-    "slow_unlocked": "Tryb „Wolne słówka” odblokowany! Masz RSS dla {words} różnych słówek."
+    "slow_unlocked": "Tryb „Wolne słówka” odblokowany! Masz RSS dla {words} różnych słówek.",
+    "slow_no_selected": "W wybranych rozdziałach RSS ma {measured} słówek. Aby utworzyć sesję „Wolne słówka” w tym zakresie, potrzebujesz pomiarów dla minimum {required} słówek. Wybierz więcej rozdziałów lub poćwicz w zwykłym trybie.",
+    "slow_preview_local": "Wolne słówka: {count} z {total} — najwolniejsza ćwiartka zmierzonych słówek w wybranych rozdziałach (w tym zakresie nie ma słówek przekraczających próg globalny)."
   },
   "furigana": {
     "title": "Furigana",

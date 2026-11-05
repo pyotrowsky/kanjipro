@@ -22,7 +22,7 @@ test('slow vocabulary mode uses RSS upper quartile, selected chapters and word l
   const html=read('index.html'),app=read('js/app.js'),ui=JSON.parse(read('data/ui.pl.json'));
   assert.match(html,/name="sessionFocus" value="normal" checked/);
   assert.match(html,/name="sessionFocus" value="slow"/);
-  assert.match(app,/profile\.eligible&&profile\.rss_ms>baseline\.slow_cutoff_ms/);
+  assert.match(app,/selectedSlowWords\(items\.map\(item=>/);
   assert.match(app,/const slow=slowVocabPool\(\);if\(!slow\.length\)/);
   assert.match(app,/beginSession\(limited,'slow'\)/);
   assert.match(app,/sessionFocus:sessionFocus\(\)/);

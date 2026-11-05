@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {rssProfileV2,slowRssBaseline,rssTrendSvg,madRss,rssSeries,usableRssEntry} from '../js/rss-v2.js';
+import {rssProfileV2,slowRssBaseline,slowPracticeBaseline,rssTrendSvg,madRss,rssSeries,usableRssEntry} from '../js/rss-v2.js';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const day=24*3600*1000;
 const sample=(rss,session,at,quality='valid',mode='romaji')=>({correct:true,rss_ms:rss,session_id:session,input_mode:mode,at,quality});
@@ -81,7 +81,7 @@ test('accessible SVG shows chronological measured history without fabricated poi
 test('RSS 2.0 is integrated into dictionary, slow practice and quality tracking',()=>{
   const app=read('js/app.js'),sw=read('sw.js'),ui=JSON.parse(read('data/ui.pl.json'));
   assert.match(app,/rssProfileV2\(stats\?\.timing_history,mode\)/);
-  assert.match(app,/profile\.reliable&&profile\.rss_ms>baseline\.slow_cutoff_ms/);
+  assert.match(app,/profile\.eligible&&profile\.rss_ms>baseline\.slow_cutoff_ms/);
   assert.match(app,/rssTrendSvg\(rssProfile\.series,personalBaseline\.median_ms\)/);
   assert.match(app,/vocabTiming\.quality='interrupted'/);
   assert.match(app,/timing\.quality='focus_lost'/);
@@ -91,4 +91,46 @@ test('RSS 2.0 is integrated into dictionary, slow practice and quality tracking'
   assert.match(app,/recordVocabTiming\(current,ok,elapsed,val,\{skipped:skip\}\)/);
   assert.ok(ui.dictionary.rss_chart_title);
   assert.ok(sw.includes("'./js/rss-v2.js'"))
+});
+
+test('slow practice unlock requires 50 unique words, five sessions and two calendar days',()=>{
+  const records=(words,sessions,daySpread=2)=>Array.from({length:words},(_,i)=>{
+    const session='s'+(i%sessions),at=now+(i%daySpread)*day;
+    const row=sample(1500+i*30,session,at);
+    return {profile:rssProfileV2([row],'romaji'),history:[row]};
+  });
+  const tooFewWords=slowPracticeBaseline(records(49,5),'romaji');
+  assert.equal(tooFewWords.ready,false);
+  assert.equal(tooFewWords.count,49);
+  assert.equal(slowPracticeBaseline(records(50,4),'romaji').ready,false);
+  assert.equal(slowPracticeBaseline(records(50,5,1),'romaji').ready,false);
+  const unlocked=slowPracticeBaseline(records(50,5,2),'romaji');
+  assert.equal(unlocked.ready,true);
+  assert.equal(unlocked.count,50);
+  assert.equal(unlocked.sessions,5);
+  assert.equal(unlocked.days,2);
+  assert.equal(unlocked.cutoff_ms,2602.5);
+});
+test('unlock accepts valid legacy RSS but ignores invalid, skipped and other input modes',()=>{
+ const entries=Array.from({length:50},(_,i)=>{
+   const row=sample(1800+i,'s'+(i%5),now+(i%2)*day);
+   const {quality,...legacy}=row;
+   return {profile:rssProfileV2([legacy],'romaji'),history:[legacy]};
+ });
+ assert.equal(slowPracticeBaseline(entries,'romaji').ready,true);
+ const otherMode=entries.map((entry,i)=>i===49?{profile:rssProfileV2([{...entry.history[0],input_mode:'ime'}],'romaji'),history:[{...entry.history[0],input_mode:'ime'}]}:entry);
+ assert.equal(slowPracticeBaseline(otherMode,'romaji').ready,false);
+ assert.equal(slowPracticeBaseline(entries.slice(0,49),'romaji').ready,false);
+ const bad=entries.map((entry,i)=>i%2===0?entry:{profile:entry.profile,history:[{...entry.history[0],quality:'focus_lost'}]});
+ assert.equal(slowPracticeBaseline(bad,'romaji').ready,false);
+});
+test('slow focus selector is disabled in markup and updated dynamically',()=>{
+ const html=read('index.html'),app=read('js/app.js'),css=read('css/styles.css'),ui=JSON.parse(read('data/ui.pl.json'));
+ assert.match(html,/name="sessionFocus" value="slow" disabled aria-describedby="slowUnlockProgress"/);
+ assert.match(html,/id="slowUnlockProgress"/);
+ assert.match(app,/slowRadio\.disabled=!baseline\.slow_ready/);
+ assert.match(app,/slowRadio\.parentElement\?\.classList\.toggle\('session-focus-locked',!baseline\.slow_ready\)/);
+ assert.match(app,/const practice=slowPracticeBaseline\(practiceEntries,mode\)/);
+ assert.match(css,/\.choice\.session-focus-locked/);
+ assert.match(ui.setup.slow_locked_progress,/\{words\}/);
 });

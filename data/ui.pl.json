@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.33",
+    "badge": "3.34",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -30,7 +30,7 @@
     "kanji_note_top": "Wybierz kanji do ćwiczenia.",
     "kanji_note_bottom": "Słówka są dobierane do zaznaczonych kanji.",
     "rss_help_html": "<strong>Czym jest RSS?</strong> To wskaźnik tempa rozpoznawania słówek: czas do rozpoczęcia pisania plus pozostały czas odpowiedzi podzielony przez liczbę mor w odczycie. Im niższy RSS, tym płynniej rozpoznajesz słówko. Liczymy go tylko dla poprawnych odpowiedzi, osobno w trybie Romaji i IME.",
-    "rss_adaptive_html": "<strong>Kiedy widać wynik?</strong> Wstępny RSS już po pierwszym poprawnym pomiarze. Do sesji „Wolne słówka” dopuszczamy dopiero słówka z 5 prawidłowymi pomiarami z 3 sesji na co najmniej 2 dniach. Próg wolnych słówek liczymy z minimum 8 wiarygodnych słówek. Wykres postępów i MAD zobaczysz w słowniku.",
+    "rss_adaptive_html": "<strong>Kiedy widać wynik?</strong> Wstępny RSS już po pierwszym poprawnym pomiarze. Tryb „Wolne słówka” odblokujesz po zmierzeniu 50 różnych słówek w co najmniej 5 sesjach na minimum 2 dniach. Ćwiczymy najwolniejszą ćwiartkę słówek. Wiarygodność indywidualnego RSS nadal wymaga 5 prawidłowych pomiarów z 3 sesji na co najmniej 2 dniach.",
     "shiba_kicker": "🐾 Twój trening japońskiego",
     "shiba_title": "Gotowy na naukę?",
     "shiba_subtitle": "Poćwicz słówka, utrwal czytanie i znaczenie. Aplikacja dobierze materiał do Twojego tempa.",
@@ -40,11 +40,13 @@
     "session_focus_title": "Rodzaj sesji",
     "session_focus_normal": "Zwykła",
     "session_focus_slow": "Wolne słówka",
-    "slow_needs_baseline": "Tryb „Wolne słówka” wymaga RSS wiarygodnego dla co najmniej {required} różnych słówek ({count}/{required}). Dla każdego potrzeba 5 poprawnych pomiarów z 3 sesji na minimum 2 dniach.",
+    "slow_needs_baseline": "Żeby odblokować tryb, zbierz RSS dla {required} różnych słówek, ćwicz w 5 sesjach przez co najmniej 2 różne dni. Aktualnie: {count}/{required} słówek · {sessions}/5 sesji · {days}/2 dni.",
     "slow_empty": "Brak wolnych słówek o wiarygodnym RSS w wybranym zakresie. Zaznacz więcej rozdziałów lub wróć do zwykłej sesji.",
     "slow_preview": "Wolne słówka: {count} z {total} dostępnych w wybranych rozdziałach.",
     "session_focus_note_normal": "Zwykła sesja: ćwicz wybrane słówka i odczyty ON/KUN. Przy limicie częściej pojawiają się nowe i trudniejsze słówka.",
-    "session_focus_note_slow": "Wolne słówka: wyłącznie wiarygodnie zmierzone słówka (min. 5 poprawnych pomiarów, 3 sesje, 2 dni), których RSS jest w najwolniejszej ćwiartce."
+    "session_focus_note_slow": "Wolne słówka: ćwicz wyrazy z RSS w najwolniejszej ćwiartce Twoich wyników. Wstępny RSS wystarcza do udziału, a wiarygodne pomiary mają osobne oznaczenie.",
+    "slow_locked_progress": "Odblokowanie wolnych słówek: {words}/{minWords} słówek · {sessions}/{minSessions} sesji · {days}/{minDays} dni.",
+    "slow_unlocked": "Tryb „Wolne słówka” odblokowany! Masz RSS dla {words} różnych słówek."
   },
   "furigana": {
     "title": "Furigana",

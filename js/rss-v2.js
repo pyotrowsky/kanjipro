@@ -52,6 +52,32 @@ export function slowRssBaseline(profiles){
   return {ready:values.length>=RSS_SLOW_BASELINE_WORDS,count:values.length,
     cutoff_ms:values.length>=RSS_SLOW_BASELINE_WORDS?quantile(values,.75):null};
 }
+// Access to practice is deliberately independent from a word's confidence label.
+// Three separate sessions over two days plus 20 unique measured words make the
+// slow-mode pool useful without demanding repeated review of the same words.
+export const SLOW_PRACTICE_MIN_WORDS=50;
+export const SLOW_PRACTICE_MIN_SESSIONS=5;
+export const SLOW_PRACTICE_MIN_DAYS=2;
+// Access requirements count distinct measured words, sessions and local calendar days.
+// Older valid RSS samples remain useful; reliability is a separate confidence flag.
+export function slowPracticeBaseline(entries,mode,{minWords=SLOW_PRACTICE_MIN_WORDS,minSessions=SLOW_PRACTICE_MIN_SESSIONS,minDays=SLOW_PRACTICE_MIN_DAYS}={}){
+  const words=(entries||[]).filter(x=>x?.profile?.eligible&&validValue(x.profile.rss_ms));
+  const sessions=new Set(),days=new Set();
+  for(const {history} of words){
+    for(const measurement of Array.isArray(history)?history:[]){
+      if(!measurement?.session_id||!usableRssEntry(measurement,mode))continue;
+      sessions.add(String(measurement.session_id));
+      if(Number.isFinite(measurement.at)&&measurement.at>0){
+        const dt=new Date(measurement.at);
+        days.add(dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0'))
+      }
+    }
+  }
+  const values=words.map(x=>x.profile.rss_ms).sort((a,b)=>a-b);
+  const ready=words.length>=minWords&&sessions.size>=minSessions&&days.size>=minDays;
+  return {ready,count:words.length,sessions:sessions.size,days:days.size,
+    cutoff_ms:ready?quantile(values,.75):null};
+}
 export function rssQualityLabel(quality){
   return quality||'legacy';
 }

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {rssProfileV2,slowRssBaseline} from '../js/rss-v2.js';
+import {rssProfileV2,slowRssBaseline,slowPracticeBaseline} from '../js/rss-v2.js';
 const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
 const ui=JSON.parse(readFileSync(new URL('../data/ui.pl.json',import.meta.url),'utf8'));
 const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
@@ -14,6 +14,7 @@ test('a hundred different preliminary words produce an indicative personal basel
   const entries=Array.from({length:100},(_,i)=>rssProfileV2([sample(500+i*20)],'romaji'));
   assert.equal(entries.filter(p=>p.eligible).length,100);
   assert.equal(slowRssBaseline(entries).ready,false);
+  assert.equal(slowPracticeBaseline(entries.map(p=>({profile:p,history:[sample(p.rss_ms)]})),'romaji').ready,false);
   assert.match(app,/ready:values\.length>=RSS_BASELINE_MIN_WORDS/);
   assert.match(app,/slow_ready:verified\.ready/)
 });
@@ -34,7 +35,7 @@ test('history without RSS cannot invent measurements',()=>{
 });
 test('session help explains provisional values and independent RSS calibration',()=>{
   assert.match(ui.setup.rss_adaptive_html,/pierwszym poprawnym pomiarze/i);
-  assert.match(ui.setup.rss_adaptive_html,/8 wiarygodnych/i);
+  assert.match(ui.setup.rss_adaptive_html,/50 różnych słówek/i);
   assert.match(ui.dictionary.rss_preliminary_note,/3 sesji/i);
   assert.doesNotMatch(html,/id="rssProgress"/);
   assert.match(app,/input\.addEventListener\('beforeinput'/)

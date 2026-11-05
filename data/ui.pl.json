@@ -30,7 +30,7 @@
     "kanji_note_top": "Zaznacz znaki, które chcesz ćwiczyć.",
     "kanji_note_bottom": "Słówka dobierzemy do zaznaczonych kanji.",
     "rss_help_html": "<strong>Co to jest RSS?</strong> Mierzy, jak szybko rozpoznajesz słówko. Uwzględnia czas do pierwszego wpisu oraz czas pisania w przeliczeniu na morę. Im mniej sekund, tym szybciej. RSS liczymy tylko dla poprawnych, niezakłóconych odpowiedzi — osobno dla Romaji i IME.",
-    "rss_adaptive_html": "<strong>Kiedy odblokują się „Wolne słówka”?</strong> Po zmierzeniu 50 słówek w 5 sesjach na co najmniej 2 dniach. Ćwiczysz wtedy najwolniejszą ćwiartkę słówek. Wstępny RSS widzisz już po pierwszym pomiarze. Status „wiarygodny” wymaga 5 poprawnych pomiarów z 3 sesji na co najmniej 2 dniach.",
+    "rss_adaptive_html": "<strong>Kiedy odblokują się „Wolne słówka”?</strong> Po zmierzeniu 50 różnych słówek w 5 sesjach na co najmniej 2 dniach. Ćwiczysz wtedy najwolniejszą ćwiartkę słówek. Wstępny RSS widzisz już po pierwszym poprawnym pomiarze. Status „wiarygodny” wymaga 5 poprawnych pomiarów z 3 sesji na co najmniej 2 dniach.",
     "shiba_kicker": "🐾 Twój japoński na dziś",
     "shiba_title": "Czas na japoński!",
     "shiba_subtitle": "Ćwicz słówka i kanji. Obserwuj, jak z czasem czytasz coraz szybciej.",

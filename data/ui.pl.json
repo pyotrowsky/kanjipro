@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.30",
+    "badge": "3.31",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -36,7 +36,14 @@
     "shiba_subtitle": "Poćwicz słówka, utrwal czytanie i znaczenie. Aplikacja dobierze materiał do Twojego tempa.",
     "rss_progress_none": "RSS · {mode}: brak poprawnych pomiarów. Wystarczy pierwsza poprawna odpowiedź na słówko.",
     "rss_progress_collecting": "RSS · {mode}: mediana {median} · {count}/{required} różnych słówek (kalibracja wstępna).",
-    "rss_progress_ready": "RSS · {mode}: mediana {median} · {count} słówek, w tym {reliable} wielokrotnie zmierzonych."
+    "rss_progress_ready": "RSS · {mode}: mediana {median} · {count} słówek, w tym {reliable} wielokrotnie zmierzonych.",
+    "session_focus_title": "Rodzaj sesji",
+    "session_focus_normal": "Zwykła",
+    "session_focus_slow": "Wolne słówka",
+    "session_focus_note": "W tym trybie ćwiczysz tylko słówka z RSS powyżej Twojego 75. percentyla, z zaznaczonych rozdziałów.",
+    "slow_needs_baseline": "Najpierw zbierz RSS dla przynajmniej {required} różnych słówek w tym trybie wpisywania ({count}/{required}).",
+    "slow_empty": "Brak wolnych słówek w wybranym zakresie. Zaznacz więcej rozdziałów lub wróć do zwykłej sesji.",
+    "slow_preview": "Wolne słówka: {count} z {total} dostępnych w wybranych rozdziałach."
   },
   "furigana": {
     "title": "Furigana",
@@ -95,7 +102,8 @@
     "enter_hint_html": "Klawisz <span class=\"kbd\">Enter</span>: sprawdź / dalej",
     "wrong_compact": "✕ {wrong} → ✓ {correct}",
     "correct_compact": "✓ {meaning}",
-    "timer": "Czas: {time}"
+    "timer": "Czas: {time}",
+    "skip": "Pomiń pytanie"
   },
   "finish": {
     "title": "Podsumowanie sesji",

@@ -73,6 +73,6 @@ test('session keeps the same direct focus invocation and keyboard listener',()=>
   const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
   assert.match(app,/showQuestion\(\);restoreQuizFocusAfterStart\(\)/);
   // Audio button visibility now updates between timer start and focus; both behaviors must remain.
-  assert.match(app,/startVocabTimer\(\);[\s\S]{0,600}focusAnswerField\(\)/);
+  assert.match(app,/focusAnswerField\(\);startVocabTimer\(\)/);
   assert.match(app,/document\.addEventListener\('keydown',quizFocus\.handleStaleFocusKeydown,true\)/);
 });

@@ -18,5 +18,5 @@ test('iPad START focus happens synchronously and touch pointerdown does not focu
  assert.match(app,/\$\('#start'\)\.addEventListener\('pointerdown',event=>\{[\s\S]*?event\.pointerType==='touch'\)event\.preventDefault\(\)/);
  assert.match(app,/\$\('#start'\)\.addEventListener\('click',\(\)=>\{if\(startActionGuard\.accept\(\)\)start\(\)\}\)/);
  assert.match(app,/showQuestion\(\);restoreQuizFocusAfterStart\(\)/);
- assert.match(app,/focusAnswerField\(\)\}function compareReading/);
+ assert.match(app,/focusAnswerField\(\);startVocabTimer\(\)/);
 });

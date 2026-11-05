@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.32",
+    "badge": "3.33",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -30,7 +30,7 @@
     "kanji_note_top": "Wybierz kanji do ćwiczenia.",
     "kanji_note_bottom": "Słówka są dobierane do zaznaczonych kanji.",
     "rss_help_html": "<strong>Czym jest RSS?</strong> To wskaźnik tempa rozpoznawania słówek: czas do rozpoczęcia pisania plus pozostały czas odpowiedzi podzielony przez liczbę mor w odczycie. Im niższy RSS, tym płynniej rozpoznajesz słówko. Liczymy go tylko dla poprawnych odpowiedzi, osobno w trybie Romaji i IME.",
-    "rss_adaptive_html": "<strong>Kiedy widać wynik?</strong> Wstępny RSS pojawia się już po pierwszej poprawnej odpowiedzi na słówko. Od 8 różnych zmierzonych słówek w danym trybie Kanji.pro porównuje je z Twoim osobistym tempem i oznacza jako Szybkie, Typowe lub Wolne. Po 3 poprawnych pomiarach słówka z co najmniej 2 sesji jego wynik jest bardziej wiarygodny. W sesjach z limitem do 20% miejsc może przypadać na wolniejsze słówka.",
+    "rss_adaptive_html": "<strong>Kiedy widać wynik?</strong> Wstępny RSS już po pierwszym poprawnym pomiarze. Do sesji „Wolne słówka” dopuszczamy dopiero słówka z 5 prawidłowymi pomiarami z 3 sesji na co najmniej 2 dniach. Próg wolnych słówek liczymy z minimum 8 wiarygodnych słówek. Wykres postępów i MAD zobaczysz w słowniku.",
     "shiba_kicker": "🐾 Twój trening japońskiego",
     "shiba_title": "Gotowy na naukę?",
     "shiba_subtitle": "Poćwicz słówka, utrwal czytanie i znaczenie. Aplikacja dobierze materiał do Twojego tempa.",
@@ -40,11 +40,11 @@
     "session_focus_title": "Rodzaj sesji",
     "session_focus_normal": "Zwykła",
     "session_focus_slow": "Wolne słówka",
-    "slow_needs_baseline": "Najpierw zbierz RSS dla przynajmniej {required} różnych słówek w tym trybie wpisywania ({count}/{required}).",
-    "slow_empty": "Brak wolnych słówek w wybranym zakresie. Zaznacz więcej rozdziałów lub wróć do zwykłej sesji.",
+    "slow_needs_baseline": "Tryb „Wolne słówka” wymaga RSS wiarygodnego dla co najmniej {required} różnych słówek ({count}/{required}). Dla każdego potrzeba 5 poprawnych pomiarów z 3 sesji na minimum 2 dniach.",
+    "slow_empty": "Brak wolnych słówek o wiarygodnym RSS w wybranym zakresie. Zaznacz więcej rozdziałów lub wróć do zwykłej sesji.",
     "slow_preview": "Wolne słówka: {count} z {total} dostępnych w wybranych rozdziałach.",
     "session_focus_note_normal": "Zwykła sesja: ćwicz wybrane słówka i odczyty ON/KUN. Przy limicie częściej pojawiają się nowe i trudniejsze słówka.",
-    "session_focus_note_slow": "Wolne słówka: ćwicz wyłącznie słówka z RSS w najwolniejszej ćwiartce Twoich wyników (wyższy RSS oznacza wolniejsze rozpoznanie)."
+    "session_focus_note_slow": "Wolne słówka: wyłącznie wiarygodnie zmierzone słówka (min. 5 poprawnych pomiarów, 3 sesje, 2 dni), których RSS jest w najwolniejszej ćwiartce."
   },
   "furigana": {
     "title": "Furigana",
@@ -100,7 +100,7 @@
     "wrong_stat": "błędy",
     "left_stat": "w kolejce",
     "back": "← Konfiguracja",
-    "enter_hint_html": "Klawisz <span class=\"kbd\">Enter</span>: sprawdź / dalej",
+    "enter_hint_html": "Klawisz <span class=\"kbd\">Enter</span>: poprawnie → dalej; po błędzie → pokaż odpowiedź, kolejny Enter → dalej.",
     "wrong_compact": "✕ {wrong} → ✓ {correct}",
     "correct_compact": "✓ {meaning}",
     "timer": "Czas: {time}",
@@ -121,7 +121,7 @@
     "median_recognition": "Mediana do pierwszego wpisu",
     "median_answer": "Mediana do odpowiedzi",
     "fast_correct": "Szybsze od Twojej mediany RSS",
-    "timing_note": "Tylko poprawne odpowiedzi na słówka z prawidłowym RSS, bez ON/KUN. Niższy RSS oznacza szybszą odpowiedź. Porównanie odbywa się z Twoją medianą sprzed sesji, po kalibracji profilu.",
+    "timing_note": "Tylko poprawne, niezakłócone pomiary słówek. Błędy, pominięcia i przerwy techniczne nie wpływają na RSS. Porównujemy z medianą sprzed sesji.",
     "median_rss": "Mediana RSS",
     "celebrate_title": "Dobra robota!",
     "celebrate_subtitle": "Sesja zakończona.",
@@ -319,7 +319,14 @@
     "rss_calibration": "Kalibracja: {count}/{required} różnych słówek z RSS. Wstępna mediana jest już dostępna; porównanie szybkości zaczyna się od 8 słówek.",
     "rss_measured_label": "RSS",
     "rss_preliminary_short": "wstępne",
-    "rss_preliminary_note": "Wstępny wynik. Powtórz słówko przynajmniej 3 razy w co najmniej 2 sesjach, aby uzyskać bardziej wiarygodny pomiar."
+    "rss_preliminary_note": "Wstępny wynik. Do sesji „Wolne słówka” wymagamy minimum 5 prawidłowych pomiarów z 3 sesji na co najmniej 2 różnych dniach.",
+    "rss_quality_summary": "Zweryfikowane pomiary: {verified} · sesje: {sessions} · dni: {days} · MAD: {mad} · stabilność: {stability}",
+    "rss_stability_stable": "stabilne",
+    "rss_stability_variable": "umiarkowanie zmienne",
+    "rss_stability_unstable": "niestabilne",
+    "rss_stability_unknown": "za mało danych",
+    "rss_chart_title": "Historia szybkości RSS",
+    "rss_chart_note": "Każdy punkt = mediana z sesji. Linia przerywana = Twoja obecna mediana RSS. Niżej oznacza szybciej. Starsze pomiary bez oznaczenia jakości są zachowane."
   },
   "sidebar": {
     "practice": "Nauka",

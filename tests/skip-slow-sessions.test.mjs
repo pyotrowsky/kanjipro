@@ -13,16 +13,16 @@ test('skipping reveals the answer and records a wrong attempt without fake RSS d
   assert.match(app,/function check\(advance=false,skip=false\)/);
   assert.match(app,/if\(!val&&!skip\)return/);
   assert.match(app,/const ok=!skip&&accepted\(current\)\.includes\(val\)/);
-  assert.match(app,/if\(!skip\)recordVocabTiming\(current,ok,elapsed,val\)/);
+  assert.match(app,/recordVocabTiming\(current,ok,elapsed,val,\{skipped:skip\}\)/);
   assert.match(app,/recordPersistentWrong\(current\)/);
   assert.match(app,/requeueWrongAnswer\(queue,current,sessionKind\)/);
-  assert.match(app,/timing:!skip&&current\.type==='vocabulary'/);
+  assert.match(app,/timing:current\.type==='vocabulary'/);
 });
 test('slow vocabulary mode uses RSS upper quartile, selected chapters and word limit',()=>{
   const html=read('index.html'),app=read('js/app.js'),ui=JSON.parse(read('data/ui.pl.json'));
   assert.match(html,/name="sessionFocus" value="normal" checked/);
   assert.match(html,/name="sessionFocus" value="slow"/);
-  assert.match(app,/profile\.eligible&&profile\.rss_ms>baseline\.slow_cutoff_ms/);
+  assert.match(app,/profile\.reliable&&profile\.rss_ms>baseline\.slow_cutoff_ms/);
   assert.match(app,/const slow=slowVocabPool\(\);if\(!slow\.length\)/);
   assert.match(app,/beginSession\(limited,'slow'\)/);
   assert.match(app,/sessionFocus:sessionFocus\(\)/);

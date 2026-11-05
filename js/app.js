@@ -1,6 +1,7 @@
 import {createFirebaseSync} from './firebase-sync.js';
 import {romajiToHiragana,hira,esc} from './japanese-text.js';
 import {medianMs,kanaReadingUnits,rssFromTimes,quantile,smoothedAccuracy,sessionRssFasterCount} from './learning-math.js';
+import {rssProfileV2,slowRssBaseline,rssTrendSvg} from './rss-v2.js';
 import {dictionaryLessonMatch,dictionarySearchTerms,dictionaryVocabId,includesDictionaryQuery as matchDictionaryQuery} from './dictionary-helpers.js';
 import {normalizeAnswer,acceptedAnswers,answerText,rawMeaning,meaningText,requeueWrongAnswer} from './quiz-logic.js';
 import {learningRowsFromObject,mistakeRowsFromObject,objectFromRows,mistakeObjectFromRows,cleanRecordObject} from './storage-records.js';
@@ -8,7 +9,7 @@ import {createQuizFocusController} from './quiz-focus.js';
 import {createPrivateAudioLibrary} from './anki-audio.js';
 import {createAppUpdater} from './app-update.js';
 import {createQuizActionGuard} from './quiz-action-guard.js';
-const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.32', { cache: 'no-store' });
+const UI_RESPONSE = await fetch('./data/ui.pl.json?v=3.33', { cache: 'no-store' });
 if (!UI_RESPONSE.ok) throw new Error(`UI strings HTTP ${UI_RESPONSE.status}`);
 const UI = await UI_RESPONSE.json();
 function t(path, vars={}){let value=path.split('.').reduce((o,k)=>o?.[k],UI);if(typeof value!=='string')return path;return value.replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'')}
@@ -136,7 +137,7 @@ function initExampleFuriganaSettings(){
 }
 initExampleFuriganaSettings();
 
-const DB = await fetch('./data/kanji_quiz_database.json?v=3.32', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
+const DB = await fetch('./data/kanji_quiz_database.json?v=3.33', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(t('errors.database_load',{status:r.status})); return r.json(); });
 const $=s=>document.querySelector(s);const setup=$('#setup'),reviewBank=$('#reviewBank'),quiz=$('#quiz'),finished=$('#finished'),promptEl=$('#prompt'),promptHint=$('#promptHint'),typeEl=$('#quizType'),progressEl=$('#progress'),input=$('#answer'),submit=$('#submit'),feedback=$('#feedback'),answerNotice=$('#answerNotice'),correctEl=$('#correct'),wrongEl=$('#wrong'),leftEl=$('#left'),lessonGrid=$('#lessonGrid'),kanjiGroups=$('#kanjiGroups'),kanjiSelectionSummary=$('#kanjiSelectionSummary'),sessionPreview=$('#sessionPreview'),vocabLimit=$('#vocabLimit'),furiganaChapterControls=$('#furiganaChapterControls'),furiganaLessonSelect=$('#furiganaLessonSelect'),furiganaHelp=$('#furiganaHelp'),inputModeHelp=$('#inputModeHelp'),reviewCard=$('#reviewCard'),reviewCardCount=$('#reviewCardCount'),reviewBankCount=$('#reviewBankCount'),reviewBankList=$('#reviewBankList'),finishTitle=$('#finishTitle');
 const dictionary=$('#dictionary'),dictionaryBrowse=$('#dictionaryBrowse'),dictionaryDetail=$('#dictionaryDetail'),dictList=$('#dictList'),dictSearch=$('#dictSearch'),dictLessonFilter=$('#dictLessonFilter'),dictStatusFilter=$('#dictStatusFilter'),dictRssSort=$('#dictRssSort'),dictCount=$('#dictCount'),dictMore=$('#dictMore'),dictDetailContent=$('#dictDetailContent'),navPractice=$('#navPractice'),navDictionary=$('#navDictionary'),dictTabKanji=$('#dictTabKanji'),dictTabVocab=$('#dictTabVocab');
 const privateAudio=createPrivateAudioLibrary(DB.vocabulary,DB.kanji);
@@ -227,7 +228,7 @@ function startVocabTimer(){
   clearVocabTimer();
   if(current?.type!=='vocabulary')return;
   const now=performance.now();
-  vocabTiming={startedAt:now,pausedAt:document.hidden?now:null,pausedTotalMs:0,firstInputMs:null};
+  vocabTiming={startedAt:now,pausedAt:document.hidden?now:null,pausedTotalMs:0,firstInputMs:null,quality:document.hidden?'interrupted':document.activeElement===input?'valid':'not_ready'};
   displayVocabTimer(0);
   vocabTimingInterval=setInterval(()=>{
     if(vocabTiming&&!checked)displayVocabTimer(vocabActiveMs())
@@ -239,7 +240,7 @@ function markFirstVocabInput(){
 function finishVocabTimer(){
   if(!vocabTiming)return null;
   const elapsed=vocabActiveMs();
-  const measurement={response_ms:elapsed,recognition_ms:vocabTiming.firstInputMs};
+  const measurement={response_ms:elapsed,recognition_ms:vocabTiming.firstInputMs,quality:vocabTiming.quality};
   if(vocabTimingInterval!==null){clearInterval(vocabTimingInterval);vocabTimingInterval=null}
   vocabTiming=null;
   displayVocabTimer(elapsed);
@@ -248,7 +249,7 @@ function finishVocabTimer(){
 document.addEventListener('visibilitychange',()=>{
   if(!vocabTiming)return;
   const now=performance.now();
-  if(document.hidden&&vocabTiming.pausedAt===null)vocabTiming.pausedAt=now;
+  if(document.hidden&&vocabTiming.pausedAt===null){vocabTiming.pausedAt=now;vocabTiming.quality='interrupted'}
   else if(!document.hidden&&vocabTiming.pausedAt!==null){
     vocabTiming.pausedTotalMs+=now-vocabTiming.pausedAt;
     vocabTiming.pausedAt=null
@@ -296,45 +297,41 @@ function learningQuestionId(q){if(q?.type!=='vocabulary')return null;if(q.learni
 function learningStatsFor(q){const id=learningQuestionId(q);return id?learningStats[id]||null:null}
 function recordLearningResult(q,correct){const id=learningQuestionId(q);if(!id||sessionLearningRecordedIds.has(id))return;sessionLearningRecordedIds.add(id);const prev=learningStats[id]||{},reviews=Math.max(0,Number(prev.reviews)||0),correctCount=Math.max(0,Number(prev.correct)||0),wrongCount=Math.max(0,Number(prev.wrong)||0),streak=Math.max(0,Number(prev.correct_streak)||0),now=Date.now();learningStats[id]={...prev,reviews:reviews+1,correct:correctCount+(correct?1:0),wrong:wrongCount+(correct?0:1),correct_streak:correct?streak+1:0,last_seen_at:now,last_wrong_at:correct?(prev.last_wrong_at||null):now,last_result:correct?'correct':'wrong'};saveLearningStats(id)}
 function formatTiming(ms){return Number.isFinite(ms)?(ms/1000).toFixed(2).replace('.',',')+' s':'—'}
-const TIMING_HISTORY_LIMIT=30;
+const TIMING_HISTORY_LIMIT=80;
 // A kana mora counts as one unit: きょ is one, while っ, ん and ー are their own units.
 function answerReadingUnits(q,submitted){
   const answers=[...(q.accepted_answers||q.answer_display||[])];
   const chosen=answers.find(a=>compareReading(a)===submitted)||answers[0]||submitted;
   return kanaReadingUnits(chosen)
 }
-function recordVocabTiming(q,correct,measurement,submitted){
+function recordVocabTiming(q,correct,measurement,submitted,{skipped=false}={}){
   const id=learningQuestionId(q);
   if(!id||!measurement||!Number.isFinite(measurement.response_ms))return;
   const units=correct?answerReadingUnits(q,submitted):null;
-  const rss=correct?rssFromTimes(measurement.response_ms,measurement.recognition_ms,units):null;
-  const entry={at:Date.now(),session_id:sessionRssId,input_mode:inputMode(),correct:Boolean(correct),response_ms:Math.round(measurement.response_ms),recognition_ms:Number.isFinite(measurement.recognition_ms)?Math.round(measurement.recognition_ms):null,reading_units:units,rss_ms:rss===null?null:Math.round(rss)};
+  const quality=skipped?'skipped':!correct?'incorrect':measurement.quality||'not_ready';
+  const rss=correct&&quality==='valid'?rssFromTimes(measurement.response_ms,measurement.recognition_ms,units):null;
+  const entry={at:Date.now(),session_id:sessionRssId,input_mode:inputMode(),correct:Boolean(correct),response_ms:Math.round(measurement.response_ms),recognition_ms:Number.isFinite(measurement.recognition_ms)?Math.round(measurement.recognition_ms):null,reading_units:units,rss_ms:rss===null?null:Math.round(rss),quality,technical_reason:measurement.quality==='valid'?null:measurement.quality};
   const previous=learningStats[id]||{};
   const history=Array.isArray(previous.timing_history)?previous.timing_history:[];
   learningStats[id]={...previous,timing_history:[...history,entry].slice(-TIMING_HISTORY_LIMIT)};
   sessionVocabTiming.push(entry);
   saveLearningStats(id)
 }
-// One valid correct reading already yields a preliminary RSS.
-// >=3 correct readings across >=2 sessions make it more reliable, but this
-// is no longer a prerequisite to see the median or join the personal baseline.
-const RSS_MIN_SAMPLES=3,RSS_MIN_SESSIONS=2,RSS_BASELINE_MIN_WORDS=8;
-function wordRssProfile(stats,mode){
-  const history=Array.isArray(stats?.timing_history)?stats.timing_history:[];
-  const recent=history.filter(x=>x?.correct&&x.input_mode===mode&&Number.isFinite(x.rss_ms)&&x.rss_ms>=0&&x.session_id).slice(-5);
-  const sessions=new Set(recent.map(x=>x.session_id));
-  return {rss_ms:medianMs(recent.map(x=>x.rss_ms)),count:recent.length,sessions:sessions.size,
-    eligible:recent.length>0,reliable:recent.length>=RSS_MIN_SAMPLES&&sessions.size>=RSS_MIN_SESSIONS}
-}
+// Legacy measurements remain visible; only verified new measurements qualify slow sessions.
+const RSS_BASELINE_MIN_WORDS=8;
+function wordRssProfile(stats,mode){return rssProfileV2(stats?.timing_history,mode)}
 function personalRssBaseline(mode=inputMode()){
   const keys=new Set(DB.vocabulary.map(dictionaryVocabId));
-  const values=[];let reliableWords=0;
+  const values=[],profiles=[];let reliableWords=0;
   for(const id of keys){
     const profile=wordRssProfile(learningStats[id],mode);
+    profiles.push(profile);
     if(profile.eligible){values.push(profile.rss_ms);if(profile.reliable)reliableWords++}
   }
   values.sort((a,b)=>a-b);
+  const verified=slowRssBaseline(profiles);
   return {mode,words:values.length,reliable_words:reliableWords,ready:values.length>=RSS_BASELINE_MIN_WORDS,
+    slow_ready:verified.ready,slow_words:verified.count,slow_cutoff_ms:verified.cutoff_ms,
     median_ms:quantile(values,.5),fast_cutoff_ms:quantile(values,.25),slow_cutoff_ms:quantile(values,.75)}
 }
 function formatDashboardRss(ms){
@@ -401,7 +398,7 @@ function renderRssProgress(){
 function rssSpeedCategory(profile,baseline){
   if(!profile?.eligible||!baseline?.ready)return 'unrated';
   if(baseline.fast_cutoff_ms>=baseline.slow_cutoff_ms)return 'typical';
-  if(profile.rss_ms>baseline.slow_cutoff_ms)return 'slow';
+  if(profile.reliable&&baseline.slow_ready&&profile.rss_ms>baseline.slow_cutoff_ms)return 'slow';
   if(profile.rss_ms<baseline.fast_cutoff_ms)return 'fast';
   return 'typical'
 }
@@ -415,8 +412,8 @@ function weightedVocabSample(items,count){
   const mistakeReserved=weightedSampleCore(active,Math.min(reserveLimit,active.length),now);
   const taken=new Set(mistakeReserved.map(item=>learningQuestionId(item)||item.question_id));
   // Reserve up to 20% for verified slow vocabulary, excluding all active mistakes.
-  const slowCandidates=baseline.ready?items.filter(item=>!taken.has(learningQuestionId(item)||item.question_id)&&!activeVocabMistake(item)&&
-    rssSpeedCategory(wordRssProfile(learningStatsFor(item),baseline.mode),baseline)==='slow'):[];
+  const slowCandidates=baseline.slow_ready?items.filter(item=>!taken.has(learningQuestionId(item)||item.question_id)&&!activeVocabMistake(item)&&
+    wordRssProfile(learningStatsFor(item),baseline.mode).reliable&&rssSpeedCategory(wordRssProfile(learningStatsFor(item),baseline.mode),baseline)==='slow'):[];
   const slowLimit=Math.min(count-mistakeReserved.length,Math.round(count*.20));
   const slowReserved=weightedSampleCore(slowCandidates,Math.min(slowLimit,slowCandidates.length),now);
   for(const item of slowReserved)taken.add(learningQuestionId(item)||item.question_id);
@@ -507,7 +504,7 @@ function dictionarySpeedBadge(v,baseline,showUnrated=false){
   if(!profile.eligible)return showUnrated?'<span class="dictionary-speed unrated">'+esc(t('dictionary.speed_unrated'))+'</span>':'';
   const category=rssSpeedCategory(profile,baseline);
   const label=category==='unrated'?t('dictionary.rss_measured_label'):t('dictionary.speed_'+category);
-  const provisional=category!=='unrated'&&!profile.reliable?' · '+t('dictionary.rss_preliminary_short'):'';
+  const provisional=!profile.reliable?' · '+t('dictionary.rss_preliminary_short'):'';
   return '<span class="dictionary-speed '+esc(category)+'">'+esc(label+provisional)+' · '+
     esc(formatTiming(profile.rss_ms))+'</span>'
 }
@@ -780,7 +777,7 @@ function openVocabDetail(v,index=DB.vocabulary.indexOf(v),pushHistory=true){
   if(stats){
     const reviews=Math.max(0,Number(stats.reviews)||0),correct=Math.max(0,Number(stats.correct)||0),wrong=Math.max(0,Number(stats.wrong)||0),accuracy=reviews?Math.round(correct/reviews*100):0;
     statsHtml='<div class="dictionary-learning-stats">'+esc(t('dictionary.learning_stats',{reviews,correct,wrong,accuracy}))+'</div>';
-    const correctTimes=(Array.isArray(stats.timing_history)?stats.timing_history:[]).filter(x=>x?.correct);
+    const correctTimes=(Array.isArray(stats.timing_history)?stats.timing_history:[]).filter(x=>x?.correct&&(x.quality===undefined||x.quality==='valid'));
     if(correctTimes.length){
       const response=medianMs(correctTimes.map(x=>Number(x.response_ms)));
       const recognition=medianMs(correctTimes.map(x=>Number.isFinite(x.recognition_ms)?x.recognition_ms:null));
@@ -791,7 +788,13 @@ function openVocabDetail(v,index=DB.vocabulary.indexOf(v),pushHistory=true){
     statsHtml+='<div class="dictionary-learning-stats">'+esc(t('dictionary.rss_details',{
       rss:formatTiming(rssProfile.rss_ms),baseline:formatTiming(personalBaseline.median_ms),
       count:rssProfile.count,mode:personalBaseline.mode==='ime'?'IME':'Romaji'}))+'</div>';
-    if(!rssProfile.reliable)statsHtml+='<div class="dictionary-learning-stats">'+esc(t('dictionary.rss_preliminary_note'))+'</div>'
+    if(!rssProfile.reliable)statsHtml+='<div class="dictionary-learning-stats">'+esc(t('dictionary.rss_preliminary_note'))+'</div>';
+    statsHtml+='<div class="dictionary-learning-stats">'+esc(t('dictionary.rss_quality_summary',{
+      verified:rssProfile.verified_count,sessions:rssProfile.verified_sessions,days:rssProfile.verified_days,
+      mad:formatTiming(rssProfile.mad_ms),stability:t('dictionary.rss_stability_'+rssProfile.variability)}))+'</div>';
+    if(rssProfile.series.length)statsHtml+='<div class="dictionary-rss-chart"><b>'+esc(t('dictionary.rss_chart_title'))+'</b>'+
+      '<div class="dictionary-rss-svg">'+rssTrendSvg(rssProfile.series,personalBaseline.median_ms)+'</div>'+
+      '<small>'+esc(t('dictionary.rss_chart_note'))+'</small></div>'
   }else{
     statsHtml+='<div class="dictionary-learning-stats">'+esc(t('dictionary.rss_no_data'))+'</div>'
   }
@@ -954,7 +957,7 @@ function reviewQuestions(){return resolvedMistakeEntries().map(x=>({...x.questio
 function learningReviewTotal(){return Object.values(learningStats).reduce((sum,s)=>sum+Math.max(0,Number(s?.reviews)||0),0)}
 function renderDataBackupSummary(){const el=$('#dataBackupSummary');if(!el)return;el.textContent=t('settings.data_summary',{items:Object.keys(learningStats).length,reviews:learningReviewTotal(),mistakes:mistakeBank.size})}
 function setDataBackupStatus(key){const el=$('#dataBackupStatus');if(!el)return;if(!key){el.classList.add('hidden');el.textContent='';return}el.textContent=t(key);el.classList.remove('hidden')}
-function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.32',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{theme:savedAppTheme(),font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),auto_audio_after_answer:savedAutoAudio(),session_prefs:loadSessionPrefs()}}}}
+function backupPayload(){return{format:'wsjj-kanji-pro-backup',schema_version:1,app_version:'3.33',exported_at:new Date().toISOString(),data:{learning_stats:learningStats,mistake_bank:Object.fromEntries(mistakeBank),settings:{theme:savedAppTheme(),font:savedFontProfile(),answer_mode:savedAnswerMode(),stroke_animation_mode:savedStrokeAnimationMode(),example_furigana_visible:exampleFuriganaVisible,show_vocab_timer:savedVocabTimerVisible(),auto_audio_after_answer:savedAutoAudio(),session_prefs:loadSessionPrefs()}}}}
 function exportLearningData(){const json=JSON.stringify(backupPayload(),null,2),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a'),date=new Date().toISOString().slice(0,10);a.href=url;a.download=`wsjj-kanji-pro-backup-${date}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);setDataBackupStatus('settings.export_done')}
 async function importLearningData(file){
   if(!file)return;if(file.size>10*1024*1024){setDataBackupStatus('settings.import_invalid');return}
@@ -1042,15 +1045,15 @@ function buildReadingPools(){const targets=selectedKanji();const on=[],kun=[];fo
 function desiredVocabCount(poolLen){const mode=document.querySelector('input[name="vocabLimitMode"]:checked')?.value||'all';if(mode==='all')return poolLen;const n=Math.max(1,parseInt(vocabLimit.value,10)||1);return Math.min(n,poolLen)}
 function slowVocabPool(items=buildVocabPool()){
   const baseline=personalRssBaseline();
-  if(!baseline.ready||!Number.isFinite(baseline.slow_cutoff_ms))return[];
+  if(!baseline.slow_ready||!Number.isFinite(baseline.slow_cutoff_ms))return[];
   return items.filter(q=>{
     const profile=wordRssProfile(learningStatsFor(q),baseline.mode);
-    return profile.eligible&&profile.rss_ms>baseline.slow_cutoff_ms
+    return profile.reliable&&profile.rss_ms>baseline.slow_cutoff_ms
   })
 }
 function poolCounts(){const r=buildReadingPools(),v=buildVocabPool();return{on:r.on.length,kun:r.kun.length,v:v.length,vChosen:desiredVocabCount(v.length),vUnpracticed:v.filter(q=>Math.max(0,Number(learningStatsFor(q)?.reviews)||0)===0).length}}
 function unpracticedVocabLabel(count){const few=count===1||(count%10>=2&&count%10<=4&&(count%100<12||count%100>14));return t(few?'vocab.preview_unpracticed_few':'vocab.preview_unpracticed_many',{count})}
-function updatePreview(){const focusNote=$('#sessionFocusNote');if(focusNote)focusNote.textContent=t(sessionFocus()==='slow'?'setup.session_focus_note_slow':'setup.session_focus_note_normal');const ls=selectedLessons(),ks=selectedKanji(),m=selectedModes();if(kanjiSelectionSummary)kanjiSelectionSummary.textContent=t('setup.kanji_selected',{count:ks.size});if(sessionFocus()==='slow'){const baseline=personalRssBaseline(),slow=slowVocabPool();sessionPreview.textContent=!baseline.ready?t('setup.slow_needs_baseline',{count:baseline.words,required:RSS_BASELINE_MIN_WORDS}):t('setup.slow_preview',{count:Math.min(slow.length,desiredVocabCount(slow.length)),total:slow.length});return}if(kanjiSelectionSummary)kanjiSelectionSummary.textContent=t('setup.kanji_selected',{count:ks.size});const c=poolCounts();const pieces=[];if(m.includes('onyomi'))pieces.push(t('vocab.preview_on',{count:c.on}));if(m.includes('kunyomi'))pieces.push(t('vocab.preview_kun',{count:c.kun}));if(m.includes('vocabulary')){const label=c.vChosen===c.v?t('vocab.preview_vocab_all',{count:c.v}):t('vocab.preview_vocab_limited',{chosen:c.vChosen,total:c.v});pieces.push(label+' '+unpracticedVocabLabel(c.vUnpracticed))}sessionPreview.textContent=ls.length?t('vocab.preview',{lessons:ls.length,kanji:ks.size,session:pieces.join(' · ')||t('vocab.preview_no_mode')}):t('vocab.preview_no_lessons')}
+function updatePreview(){const focusNote=$('#sessionFocusNote');if(focusNote)focusNote.textContent=t(sessionFocus()==='slow'?'setup.session_focus_note_slow':'setup.session_focus_note_normal');const ls=selectedLessons(),ks=selectedKanji(),m=selectedModes();if(kanjiSelectionSummary)kanjiSelectionSummary.textContent=t('setup.kanji_selected',{count:ks.size});if(sessionFocus()==='slow'){const baseline=personalRssBaseline(),slow=slowVocabPool();sessionPreview.textContent=!baseline.slow_ready?t('setup.slow_needs_baseline',{count:baseline.slow_words,required:RSS_BASELINE_MIN_WORDS}):t('setup.slow_preview',{count:Math.min(slow.length,desiredVocabCount(slow.length)),total:slow.length});return}if(kanjiSelectionSummary)kanjiSelectionSummary.textContent=t('setup.kanji_selected',{count:ks.size});const c=poolCounts();const pieces=[];if(m.includes('onyomi'))pieces.push(t('vocab.preview_on',{count:c.on}));if(m.includes('kunyomi'))pieces.push(t('vocab.preview_kun',{count:c.kun}));if(m.includes('vocabulary')){const label=c.vChosen===c.v?t('vocab.preview_vocab_all',{count:c.v}):t('vocab.preview_vocab_limited',{chosen:c.vChosen,total:c.v});pieces.push(label+' '+unpracticedVocabLabel(c.vUnpracticed))}sessionPreview.textContent=ls.length?t('vocab.preview',{lessons:ls.length,kanji:ks.size,session:pieces.join(' · ')||t('vocab.preview_no_mode')}):t('vocab.preview_no_lessons')}
 function beginSession(items,kind='normal'){clearVocabTimer();sessionKind=kind;queue=shuffle(items.map(x=>({...x})));sessionVocabTiming=[];sessionRssBaseline=personalRssBaseline();sessionRssId=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);stats={correct:0,wrong:0,attempts:0,initial:queue.length};mistakeLog=new Map();sessionWrongIds=new Set();sessionCreditedIds=new Set();sessionLearningRecordedIds=new Set();setup.classList.add('hidden');reviewBank.classList.add('hidden');finished.classList.add('hidden');dictionary?.classList.add('hidden');quiz.classList.remove('hidden');$('#quit').textContent=t(kind==='review'?'review.quiz_back':kind==='dictionary'?'dictionary.back':'quiz.back');showQuestion();restoreQuizFocusAfterStart()}
 function showSetupScreen(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('hidden');finished.classList.add('hidden');reviewBank.classList.add('hidden');$('#history')?.classList.add('hidden');setup.classList.remove('hidden');setSidebarNav('practice');refreshReviewUI();updatePreview();renderRssProgress()}
 function showReviewBank(){hideAnswerNotice();const entries=refreshReviewUI();if(!entries.length){showSetupScreen();return}setup.classList.add('hidden');quiz.classList.add('hidden');finished.classList.add('hidden');reviewBank.classList.remove('hidden')}
@@ -1065,7 +1068,7 @@ function buildQueue(){const modes=selectedModes(),r=buildReadingPools();let v=bu
 // Centralized focus controller; quiz lifecycle and behavior stay unchanged.
 const quizFocus=createQuizFocusController({input,quiz,getCurrent:()=>current,isChecked:()=>checked});
 const {focusAnswerField,keepAnswerVisible,restoreQuizFocusAfterStart}=quizFocus;
-function showQuestion(){pendingAudioAdvance=false;const skipButton=$('#skipQuestion');if(skipButton){skipButton.classList.remove('hidden');skipButton.disabled=false}submit.disabled=false;input.readOnly=false;clearVocabTimer();if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);const hint=current.type==='vocabulary'?String(current.disambiguation||'').trim():'';promptHint.textContent=hint;promptHint.classList.toggle('hidden',!hint);feedback.className='feedback empty';feedback.innerHTML='';updateStats();startVocabTimer();$('#playQuizAudio')?.classList.add('hidden');const audioId=questionAudioId(current);if(audioId&&privateAudio.has(audioId))void privateAudio.prepare(audioId).catch(err=>console.warn('Audio preload failed:',err));focusAnswerField()}function compareReading(s){return normalizeAnswer(s,inputMode())}function accepted(q){return acceptedAnswers(q,inputMode())}
+function showQuestion(){pendingAudioAdvance=false;const skipButton=$('#skipQuestion');if(skipButton){skipButton.classList.remove('hidden');skipButton.disabled=false}submit.disabled=false;input.readOnly=false;clearVocabTimer();if(!queue.length){showFinish();return}current=queue.shift();checked=false;input.value='';input.disabled=false;submit.textContent=t('quiz.check');typeEl.textContent=typeName(current.type);progressEl.textContent=t('quiz.progress',{count:queue.length+1});promptEl.classList.toggle('vocab',current.type==='vocabulary');promptEl.innerHTML=current.prompt_html||esc(current.prompt);const hint=current.type==='vocabulary'?String(current.disambiguation||'').trim():'';promptHint.textContent=hint;promptHint.classList.toggle('hidden',!hint);feedback.className='feedback empty';feedback.innerHTML='';updateStats();focusAnswerField();startVocabTimer();$('#playQuizAudio')?.classList.add('hidden');const audioId=questionAudioId(current);if(audioId&&privateAudio.has(audioId))void privateAudio.prepare(audioId).catch(err=>console.warn('Audio preload failed:',err))}function compareReading(s){return normalizeAnswer(s,inputMode())}function accepted(q){return acceptedAnswers(q,inputMode())}
 function recordMistake(q,userAnswer){const key=q.question_id||`${q.type}:${q.prompt}`;let item=mistakeLog.get(key);if(!item){item={type:typeName(q.type),prompt_html:q.prompt_html||esc(q.prompt),correct:answerText(q),meaning:rawMeaning(q),answers:[]};mistakeLog.set(key,item)}const a=String(userAnswer||'').trim();if(a&&!item.answers.includes(a))item.answers.push(a)}
 function hideAnswerNotice(){if(!answerNotice)return;answerNotice.classList.add('hidden');answerNotice.classList.remove('good','bad');answerNotice.textContent=''}
 function showWrongNotice(wrong,correct){if(!answerNotice)return;answerNotice.classList.remove('good');answerNotice.classList.add('bad');answerNotice.textContent=t('quiz.wrong_compact',{wrong,correct});answerNotice.classList.remove('hidden')}
@@ -1075,7 +1078,7 @@ function check(advance=false,skip=false){if(pendingAudioAdvance)return;if(checke
   const learningId=learningQuestionId(current),persistId=persistentQuestionId(current);
   const wasLearned=learningId?sessionLearningRecordedIds.has(learningId):false;
   const wasCredited=sessionCreditedIds.has(persistId);
-  const typedRaw=input.value;if(inputMode()==='romaji')input.value=romajiToHiragana(input.value,true);const val=compareReading(input.value);if(!val&&!skip)return;checked=true;$('#skipQuestion')?.classList.add('hidden');stats.attempts++;const ok=!skip&&accepted(current).includes(val),correct=answerText(current),meaning=rawMeaning(current),elapsed=finishVocabTimer();recordLearningResult(current,ok);if(!skip)recordVocabTiming(current,ok,elapsed,val);if(ok){stats.correct++;recordPersistentCorrect(current);if(!advance){feedback.className='feedback good';feedback.innerHTML=`<div><strong>✓ ${esc(correct)}</strong>${meaningText(current)?`<div class="meta">${meaningText(current)}</div>`:''}</div>`}}else{stats.wrong++;recordMistake(current,input.value);recordPersistentWrong(current);if(!advance){feedback.className='feedback bad';feedback.innerHTML=`<div><strong>✕ ${esc(correct)}</strong>${meaningText(current)?`<div class="meta">${meaningText(current)}</div>`:''}${skip?'':'<div class="meta">'+esc(t('quiz.your_answer',{answer:input.value}))+'</div>'}</div>`}requeueWrongAnswer(queue,current,sessionKind)}
+  const typedRaw=input.value;if(inputMode()==='romaji')input.value=romajiToHiragana(input.value,true);const val=compareReading(input.value);if(!val&&!skip)return;checked=true;hideAnswerNotice();$('#skipQuestion')?.classList.add('hidden');stats.attempts++;const ok=!skip&&accepted(current).includes(val),correct=answerText(current),meaning=rawMeaning(current),elapsed=finishVocabTimer();recordLearningResult(current,ok);recordVocabTiming(current,ok,elapsed,val,{skipped:skip});if(ok){stats.correct++;recordPersistentCorrect(current);if(!advance){feedback.className='feedback good';feedback.innerHTML=`<div><strong>✓ ${esc(correct)}</strong>${meaningText(current)?`<div class="meta">${meaningText(current)}</div>`:''}</div>`}}else{stats.wrong++;recordMistake(current,input.value);recordPersistentWrong(current);if(!advance||!ok){feedback.className='feedback bad';feedback.innerHTML=`<div><strong>✕ ${esc(correct)}</strong>${meaningText(current)?`<div class="meta">${meaningText(current)}</div>`:''}${skip?'':'<div class="meta">'+esc(t('quiz.your_answer',{answer:input.value}))+'</div>'}</div>`}requeueWrongAnswer(queue,current,sessionKind)}
   // Every answer is recorded once as a stable event for cross-device replay.
   if(firebaseSync?.hasJournal()){
     try{
@@ -1084,7 +1087,7 @@ function check(advance=false,skip=false){if(pendingAudioAdvance)return;if(checke
         correct:ok,learned:Boolean(learningId&&!wasLearned&&sessionLearningRecordedIds.has(learningId)),
         mistake_action:ok?(!wasCredited&&sessionCreditedIds.has(persistId)?'credit':'none'):'wrong',
         mistake_snapshot:ok?null:snapshotQuestion(current),
-        timing:!skip&&current.type==='vocabulary'?sessionVocabTiming[sessionVocabTiming.length-1]||null:null
+        timing:current.type==='vocabulary'?sessionVocabTiming[sessionVocabTiming.length-1]||null:null
       };
       firebaseSync.appendAnswer(cloudAnswer)
     }catch(err){console.warn('Cloud journal write failed:',err)}
@@ -1092,7 +1095,7 @@ function check(advance=false,skip=false){if(pendingAudioAdvance)return;if(checke
   updateStats();
   if(!advance&&current.type==='vocabulary'&&privateAudio.has(persistentQuestionId(current)))$('#playQuizAudio')?.classList.remove('hidden');
   const autoId=shouldAutoPlayAnswer(current);
-  if(advance){
+  if(advance&&ok){
     const continueSession=()=>{
       showQuestion();
       if(ok)showCorrectNotice(meaning);else showWrongNotice(typedRaw,correct)
@@ -1119,7 +1122,7 @@ function check(advance=false,skip=false){if(pendingAudioAdvance)return;if(checke
   if(autoId)void privateAudio.play(autoId).catch(err=>console.warn('Auto audio playback failed:',err))
 }
 function updateStats(){correctEl.textContent=stats.correct;wrongEl.textContent=stats.wrong;leftEl.textContent=queue.length+(current&&!checked?1:0)}
-function start(){hideAnswerNotice();saveSessionPrefs();if(sessionFocus()==='slow'){if(!selectedLessons().length||!selectedKanji().size){alert(t('errors.choose_lesson'));return}const baseline=personalRssBaseline();if(!baseline.ready){alert(t('setup.slow_needs_baseline',{count:baseline.words,required:RSS_BASELINE_MIN_WORDS}));return}const slow=slowVocabPool();if(!slow.length){alert(t('setup.slow_empty'));return}const limited=weightedVocabSample(slow,desiredVocabCount(slow.length));beginSession(limited,'slow');return}if(!selectedLessons().length){alert(t('errors.choose_lesson'));return}if(!selectedKanji().size){alert(t('errors.choose_kanji'));return}if(!selectedModes().length){alert(t('errors.choose_mode'));return}if(furiganaMode()==='chapter'&&!furiganaLesson()){alert(t('errors.invalid_furigana'));return}const items=buildQueue();if(!items.length){alert(t('errors.empty_pool'));return}beginSession(items,'normal')}
+function start(){hideAnswerNotice();saveSessionPrefs();if(sessionFocus()==='slow'){if(!selectedLessons().length||!selectedKanji().size){alert(t('errors.choose_lesson'));return}const baseline=personalRssBaseline();if(!baseline.slow_ready){alert(t('setup.slow_needs_baseline',{count:baseline.slow_words,required:RSS_BASELINE_MIN_WORDS}));return}const slow=slowVocabPool();if(!slow.length){alert(t('setup.slow_empty'));return}const limited=weightedVocabSample(slow,desiredVocabCount(slow.length));beginSession(limited,'slow');return}if(!selectedLessons().length){alert(t('errors.choose_lesson'));return}if(!selectedKanji().size){alert(t('errors.choose_kanji'));return}if(!selectedModes().length){alert(t('errors.choose_mode'));return}if(furiganaMode()==='chapter'&&!furiganaLesson()){alert(t('errors.invalid_furigana'));return}const items=buildQueue();if(!items.length){alert(t('errors.empty_pool'));return}beginSession(items,'normal')}
 function showFinish(){clearVocabTimer();hideAnswerNotice();quiz.classList.add('hidden');finished.classList.remove('hidden');refreshReviewUI();const total=stats.correct+stats.wrong,acc=total?Math.round(stats.correct/total*100):100,remaining=resolvedMistakeEntries().length;finishTitle.textContent=t(sessionKind==='review'?'review.finish_title':'finish.title');$('#finalScore').textContent=`${acc}%`;$('#finalCorrect').textContent=stats.correct;$('#finalWrong').textContent=stats.wrong;$('#finalAttempts').textContent=stats.attempts;$('#again').textContent=t(sessionKind==='review'?(remaining?'review.practice_remaining':'review.done'):'finish.again');$('#settings').textContent=t(sessionKind==='review'?(remaining?'review.finish_back':'finish.settings'):sessionKind==='dictionary'?'dictionary.return_to_dictionary':'finish.settings');renderMistakeSummary();renderVocabTimingSummary();renderRssProgress();
   const words=$('#finishVocabCount'),accurate=$('#finishSessionAccuracy'),rss=$('#finishSessionRss');
   if(words)words.textContent=String(sessionLearningRecordedIds.size);
@@ -1131,7 +1134,7 @@ function renderVocabTimingSummary(){
   if(!panel)return;
   panel.classList.toggle('hidden',!sessionVocabTiming.length);
   if(!sessionVocabTiming.length)return;
-  const correct=sessionVocabTiming.filter(x=>x.correct),responses=correct.map(x=>x.response_ms),recognitions=correct.map(x=>x.recognition_ms);
+  const correct=sessionVocabTiming.filter(x=>x.correct&&Number.isFinite(x.rss_ms)&&(x.quality===undefined||x.quality==='valid')),responses=correct.map(x=>x.response_ms),recognitions=correct.map(x=>x.recognition_ms);
   const rssScores=correct.filter(x=>Number.isFinite(x.rss_ms)).map(x=>x.rss_ms);
   // Compare against the baseline captured BEFORE the session, not one updated by
   // these same answers. The denominator counts only eligible correct RSS samples.
@@ -1198,6 +1201,16 @@ input.addEventListener('compositionend',()=>{answerComposing=false});
 // iPadOS hardware-keyboard recovery without losing the initial keystroke.
 document.addEventListener('keydown',quizFocus.handleStaleFocusKeydown,true);
 input.addEventListener('focus',keepAnswerVisible);
+// A genuine, sustained focus loss invalidates RSS; blur caused by the Check tap
+// cannot invalidate a completed answer because checked is already true.
+input.addEventListener('blur',()=>{
+  const timing=vocabTiming;
+  if(!timing)return;
+  setTimeout(()=>{
+    if(vocabTiming!==timing||checked||quiz.classList.contains('hidden')||document.hidden)return;
+    if(document.activeElement!==input&&timing.quality==='valid')timing.quality='focus_lost'
+  },160)
+});
 input.addEventListener('input',()=>{if(input.value)markFirstVocabInput();if(input.value)hideAnswerNotice();if(inputMode()==='romaji'&&!answerComposing){const p=input.selectionStart??input.value.length;const before=input.value;const after=romajiToHiragana(before,false);if(after!==before){
     // Assigning .value already places the caret at the end in the normal
     // typing flow; explicit setSelectionRange triggers iPadOS auto-scrolling.
@@ -1225,7 +1238,7 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js?v=3.32', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
+    navigator.serviceWorker.register('./sw.js?v=3.33', { updateViaCache: 'none' }).then(reg => reg.update()).catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

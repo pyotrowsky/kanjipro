@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wsjj-kanji-pro-3.32-0';
+const CACHE_NAME = 'wsjj-kanji-pro-3.33-0';
 const BASE = new URL('./', self.location.href);
 const FRESH_PATHS = new Set([
   new URL('./data/kanji_quiz_database.json', BASE).pathname,
@@ -7,6 +7,7 @@ const FRESH_PATHS = new Set([
   new URL('./js/app.js', BASE).pathname,
   new URL('./js/japanese-text.js', BASE).pathname,
   new URL('./js/learning-math.js', BASE).pathname,
+  new URL('./js/rss-v2.js', BASE).pathname,
   new URL('./js/dictionary-helpers.js', BASE).pathname,
   new URL('./js/quiz-logic.js', BASE).pathname,
   new URL('./js/storage-records.js', BASE).pathname,
@@ -42,6 +43,7 @@ const PRECACHE = [
   './js/app.js',
   './js/japanese-text.js',
   './js/learning-math.js',
+  './js/rss-v2.js',
   './js/dictionary-helpers.js',
   './js/quiz-logic.js',
   './js/storage-records.js',

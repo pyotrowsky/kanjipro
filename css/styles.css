@@ -361,3 +361,10 @@ button:disabled{cursor:default;opacity:.6}
 .answer-box .answer-actions .skip-question:active{background:color-mix(in srgb,#db454b 22%,var(--card))}
 .answer-box .answer-actions .skip-question:focus-visible{outline:2px solid #cb303c;outline-offset:2px}
 @media(max-width:600px){.answer-actions{width:100%;display:flex}.answer-box .answer-actions button.primary{width:auto;min-width:0}.answer-box .answer-actions .skip-question{width:23%;flex-basis:23%;max-width:82px;min-width:42px}}
+
+/* RSS 2.0 — responsive progress chart in vocabulary dictionary details. */
+.dictionary-rss-chart{margin-top:12px;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--soft);color:var(--text);min-width:0}
+.dictionary-rss-chart>b{display:block;font-size:13px;margin-bottom:8px}
+.dictionary-rss-svg{width:100%;max-width:100%;overflow:hidden}
+.dictionary-rss-svg svg{display:block;width:100%;height:auto;max-height:260px}
+.dictionary-rss-chart small{display:block;font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5}

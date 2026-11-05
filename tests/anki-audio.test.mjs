@@ -87,7 +87,7 @@ test('post-answer quiz audio and reading-specific dictionary buttons use SVG, no
   const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
   const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
   const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
-  assert.match(app,/startVocabTimer\(\);\$\('#playQuizAudio'\)\?\.classList\.add\('hidden'\)/);
+  assert.match(app,/focusAnswerField\(\);startVocabTimer\(\);\$\('#playQuizAudio'\)\?\.classList\.add\('hidden'\)/);
   assert.match(app,/if\(!advance&&current\.type==='vocabulary'&&privateAudio\.has/);
   assert.match(app,/privateAudioButton\('ON:'\+k\.character,true\)/);
   assert.match(app,/privateAudioButton\('KUN:'\+k\.character,true\)/);

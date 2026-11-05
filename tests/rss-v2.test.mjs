@@ -14,7 +14,7 @@ test('first correct RSS remains visible but never qualifies for slow mode',()=>{
   assert.equal(slowRssBaseline([p]).ready,false)
 });
 test('legacy RSS stays visible while not falsely claiming quality verification',()=>{
-  const history=[sample(1700,'s1',now,undefined),sample(1500,'s2',now+day,undefined),sample(1300,'s3',now+2*day,undefined)];
+  const history=[sample(1700,'s1',now),sample(1500,'s2',now+day),sample(1300,'s3',now+2*day)].map(({quality,...row})=>row);
   const p=rssProfileV2(history,'romaji');
   assert.equal(p.eligible,true);
   assert.equal(p.rss_ms,1500);

@@ -81,7 +81,7 @@ test('accessible SVG shows chronological measured history without fabricated poi
 test('RSS 2.0 is integrated into dictionary, slow practice and quality tracking',()=>{
   const app=read('js/app.js'),sw=read('sw.js'),ui=JSON.parse(read('data/ui.pl.json'));
   assert.match(app,/rssProfileV2\(stats\?\.timing_history,mode\)/);
-  assert.match(app,/profile\.eligible&&profile\.rss_ms>baseline\.slow_cutoff_ms/);
+  assert.match(app,/selectedSlowWords\(items\.map\(item=>/);
   assert.match(app,/rssTrendSvg\(rssProfile\.series,personalBaseline\.median_ms\)/);
   assert.match(app,/vocabTiming\.quality='interrupted'/);
   assert.match(app,/timing\.quality='focus_lost'/);

@@ -16,7 +16,7 @@ test('a hundred different preliminary words produce an indicative personal basel
   assert.equal(slowRssBaseline(entries).ready,false);
   assert.equal(slowPracticeBaseline(entries.map(p=>({profile:p,history:[sample(p.rss_ms)]})),'romaji').ready,false);
   assert.match(app,/ready:values\.length>=RSS_BASELINE_MIN_WORDS/);
-  assert.match(app,/slow_ready:verified\.ready/)
+  assert.match(app,/slow_ready:practice\.ready/)
 });
 test('old unverified sessions retain their RSS while remaining preliminary',()=>{
   const entries=[sample(1000),sample(1100),sample(950,'s2')];

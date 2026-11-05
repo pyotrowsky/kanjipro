@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.31",
+    "badge": "3.32",
     "description": "WSJJ Kanji.pro — ćwiczenie kanji i słownictwa z dynamiczną furiganą."
   },
   "common": {
@@ -40,10 +40,11 @@
     "session_focus_title": "Rodzaj sesji",
     "session_focus_normal": "Zwykła",
     "session_focus_slow": "Wolne słówka",
-    "session_focus_note": "W tym trybie ćwiczysz tylko słówka z RSS powyżej Twojego 75. percentyla, z zaznaczonych rozdziałów.",
     "slow_needs_baseline": "Najpierw zbierz RSS dla przynajmniej {required} różnych słówek w tym trybie wpisywania ({count}/{required}).",
     "slow_empty": "Brak wolnych słówek w wybranym zakresie. Zaznacz więcej rozdziałów lub wróć do zwykłej sesji.",
-    "slow_preview": "Wolne słówka: {count} z {total} dostępnych w wybranych rozdziałach."
+    "slow_preview": "Wolne słówka: {count} z {total} dostępnych w wybranych rozdziałach.",
+    "session_focus_note_normal": "Zwykła sesja: ćwicz wybrane słówka i odczyty ON/KUN. Przy limicie częściej pojawiają się nowe i trudniejsze słówka.",
+    "session_focus_note_slow": "Wolne słówka: ćwicz wyłącznie słówka z RSS w najwolniejszej ćwiartce Twoich wyników (wyższy RSS oznacza wolniejsze rozpoznanie)."
   },
   "furigana": {
     "title": "Furigana",

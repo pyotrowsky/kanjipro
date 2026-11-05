@@ -3,6 +3,7 @@ import {romajiToHiragana,hira,esc} from './japanese-text.js';
 import {medianMs,kanaReadingUnits,rssFromTimes,quantile,smoothedAccuracy,sessionRssFasterCount} from './learning-math.js';
 import {rssProfileV2,slowPracticeBaseline,selectedSlowWords,rssTrendSvg,SLOW_PRACTICE_MIN_WORDS,SLOW_PRACTICE_MIN_SESSIONS,SLOW_PRACTICE_MIN_DAYS} from './rss-v2.js';
 import {dictionaryLessonMatch,dictionarySearchTerms,dictionaryVocabId,includesDictionaryQuery as matchDictionaryQuery} from './dictionary-helpers.js';
+import {canonicalizeVocabularyLearning} from './learning-identity.js';
 import {normalizeAnswer,acceptedAnswers,answerText,rawMeaning,meaningText,requeueWrongAnswer} from './quiz-logic.js';
 import {learningRowsFromObject,mistakeRowsFromObject,objectFromRows,mistakeObjectFromRows,cleanRecordObject} from './storage-records.js';
 import {createQuizFocusController} from './quiz-focus.js';
@@ -277,14 +278,16 @@ function queueStorageWrite(task){storageWriteQueue=storageWriteQueue.then(task).
 async function initializePersistentState(){
   const legacyLearning=localObject(LEARNING_STATS_KEY),legacyMistakes=localObject(MISTAKE_BANK_KEY);
   appDb=await openAppDb();
-  if(!appDb)return{learning:legacyLearning,mistakes:legacyMistakes};
+  if(!appDb){const {learning}=canonicalizeVocabularyLearning(legacyLearning,DB.vocabulary);try{localStorage.setItem(LEARNING_STATS_KEY,JSON.stringify(learning))}catch{}return{learning,mistakes:legacyMistakes}};
   try{
     const [learningRows,mistakeRows]=await Promise.all([idbGetAll('learning_stats'),idbGetAll('mistakes')]);
-    const learning={...legacyLearning,...objectFromRows(learningRows)},mistakes={...legacyMistakes,...mistakeObjectFromRows(mistakeRows)};
+    const combined={...legacyLearning,...objectFromRows(learningRows)};
+    const {learning}=canonicalizeVocabularyLearning(combined,DB.vocabulary);
+    const mistakes={...legacyMistakes,...mistakeObjectFromRows(mistakeRows)};
     await Promise.all([idbReplaceStore('learning_stats',learningRowsFromObject(learning)),idbReplaceStore('mistakes',mistakeRowsFromObject(mistakes)),idbPut('meta',{key:'schema',version:APP_DB_VERSION,migrated_at:Date.now()})]);
     try{localStorage.setItem(LEARNING_STATS_KEY,JSON.stringify(learning));localStorage.setItem(MISTAKE_BANK_KEY,JSON.stringify(mistakes))}catch{}
     return{learning,mistakes}
-  }catch(err){console.warn('IndexedDB initialization failed:',err);return{learning:legacyLearning,mistakes:legacyMistakes}}
+  }catch(err){console.warn('IndexedDB initialization failed:',err);return{learning:canonicalizeVocabularyLearning(legacyLearning,DB.vocabulary).learning,mistakes:legacyMistakes}}
 }
 const initialPersistentState=await initializePersistentState();
 let learningStats=initialPersistentState.learning;
@@ -920,7 +923,7 @@ function resolveMistakeQuestion(rec){
     for(const v of rows){for(const a of (v.accepted_readings?.length?v.accepted_readings:[v.reading])){if(a&&!accepted.includes(a))accepted.push(a);if(a&&!display.includes(a))display.push(a)}if(v.polish&&!meanings.includes(v.polish))meanings.push(v.polish);if(!targets.size)for(const k of (v.all_kanji||[]))targets.add(k)}
     if(!accepted.length)return null;
     const first=rows[0],visible=first.display_surface||first.surface,known=furiganaMode()==='chapter'?(furiganaKnownSet()||targets):targets,rendered=renderVocab(first,targets,known);
-    return{question_id:rec.id,persistent_id:rec.id,persistent_surface:first.surface,persistent_note_id:noteId||null,disambiguation:rec.disambiguation||'',type:'vocabulary',prompt:visible,prompt_html:rendered.unsafe?(rec.prompt_html||esc(visible)):rendered.html,accepted_answers:accepted,answer_display:display,meanings,target_kanji:[...targets]}
+    return{question_id:rec.id,persistent_id:rec.id,learning_id:dictionaryVocabId(first),persistent_surface:first.surface,persistent_note_id:noteId||null,disambiguation:rec.disambiguation||'',type:'vocabulary',prompt:visible,prompt_html:rendered.unsafe?(rec.prompt_html||esc(visible)):rendered.html,accepted_answers:accepted,answer_display:display,meanings,target_kanji:[...targets]}
   }
   return null
 }
@@ -965,7 +968,7 @@ async function importLearningData(file){
   try{
     const parsed=JSON.parse(await file.text());
     if(parsed?.format!=='wsjj-kanji-pro-backup'||parsed?.schema_version!==1||!parsed.data)throw new Error('format');
-    const nextLearning=cleanRecordObject(parsed.data.learning_stats),nextMistakes=cleanRecordObject(parsed.data.mistake_bank);
+    const nextLearning=canonicalizeVocabularyLearning(cleanRecordObject(parsed.data.learning_stats),DB.vocabulary).learning,nextMistakes=cleanRecordObject(parsed.data.mistake_bank);
     if(firebaseSync?.hasJournal()){
       setDataBackupStatus('settings.import_blocked_firebase');
       return
@@ -1183,7 +1186,7 @@ function initFirebaseSync(){
       // Prevent overwriting a live quiz's local changes during a background sync.
       if(!quiz.classList.contains('hidden'))return;
       await storageWriteQueue;
-      learningStats=merged.learning;mistakeBank=new Map(Object.entries(merged.mistakes));
+      learningStats=canonicalizeVocabularyLearning(merged.learning,DB.vocabulary).learning;mistakeBank=new Map(Object.entries(merged.mistakes));
       try{
         localStorage.setItem(LEARNING_STATS_KEY,JSON.stringify(learningStats));
         localStorage.setItem(MISTAKE_BANK_KEY,JSON.stringify(Object.fromEntries(mistakeBank)))

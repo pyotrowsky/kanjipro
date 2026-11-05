@@ -16,10 +16,10 @@
 <link rel="icon" type="image/svg+xml" href="./icons/shiba-face.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="stylesheet" href="./css/styles.css?v=3.35">
-<link rel="stylesheet" href="./css/shiba-theme.css?v=3.35">
-<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.35">
-<link rel="stylesheet" href="./css/shiba-approved.css?v=3.35"></head><body><main class="shell">
+<link rel="stylesheet" href="./css/styles.css?v=3.36">
+<link rel="stylesheet" href="./css/shiba-theme.css?v=3.36">
+<link rel="stylesheet" href="./css/shiba-dashboard.css?v=3.36">
+<link rel="stylesheet" href="./css/shiba-approved.css?v=3.36"></head><body><main class="shell">
 <aside class="desktop-sidebar" aria-label="Menu boczne">
   <div class="sidebar-brand"><img src="./icons/shiba-face.svg" alt="" width="56" height="56"><span>Kanji<span class="brand-dot">.pro</span></span></div>
   <nav class="sidebar-navigation" aria-label="Nawigacja">
@@ -29,10 +29,10 @@
     <button id="sideSettings" type="button" class="side-nav-item"><span class="side-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.4" fill="var(--card)"/><circle cx="15" cy="17" r="2.4" fill="var(--card)"/></svg></span><span data-i18n="sidebar.settings">Ustawienia</span></button>
   </nav>
   <div class="sidebar-mascot" aria-hidden="true"><span>今日もがんばろう！</span><img src="./icons/shiba-study.svg" width="220" height="250" alt=""></div>
-  <div class="sidebar-version" aria-label="Wersja aplikacji">v<span data-i18n="app.badge">3.35</span></div>
+  <div class="sidebar-version" aria-label="Wersja aplikacji">v<span data-i18n="app.badge">3.36</span></div>
 </aside>
 <div class="main-workspace">
-<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.35</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
+<div class="brand"><div class="brand-title-group"><img class="shiba-brand-mark" src="./icons/shiba-face.svg" alt="" aria-hidden="true" width="43" height="43"><h1 data-i18n="app.name">WSJJ Kanji.pro</h1></div><div class="brand-actions"><span class="badge" data-i18n="app.badge">3.36</span><button id="openSettings" class="icon-btn" type="button" aria-label="Ustawienia" data-i18n-aria="settings.title">⚙︎</button></div></div>
 <nav class="app-nav" aria-label="Główna nawigacja" data-i18n-aria="dictionary.nav_aria">
   <button id="navPractice" class="app-nav-btn active" type="button" data-i18n="dictionary.nav_practice">Ćwicz</button>
   <button id="navDictionary" class="app-nav-btn" type="button" data-i18n="dictionary.nav_dictionary">Słownik</button>
@@ -42,23 +42,23 @@
   <div class="shiba-hero shiba-hero-dashboard" aria-label="Motyw Shiba Inu">
     <img class="shiba-card-paws" src="./icons/shiba-paws.svg" width="180" height="126" alt="" loading="eager" aria-hidden="true">
     <div class="shiba-hero-copy">
-      <span class="shiba-hero-kicker" data-i18n="setup.shiba_kicker">🐾 Twój trening japońskiego</span>
-      <h2 data-i18n="setup.shiba_title">Gotowy na naukę?</h2>
-      <p data-i18n="setup.shiba_subtitle">Poćwicz słówka, utrwal czytanie i znaczenie. Aplikacja dobierze materiał do Twojego tempa.</p>
+      <span class="shiba-hero-kicker" data-i18n="setup.shiba_kicker">🐾 Twój japoński na dziś</span>
+      <h2 data-i18n="setup.shiba_title">Czas na japoński!</h2>
+      <p data-i18n="setup.shiba_subtitle">Ćwicz słówka i kanji. Obserwuj, jak z czasem czytasz coraz szybciej.</p>
       <div class="shiba-hero-jp" lang="ja">今日もがんばろう！</div>
     </div>
   </div>
   <div>
     <div class="group-head"><div class="section-title" style="margin:0" data-i18n="setup.chapters_title">Rozdziały</div><div class="actions"><button type="button" id="lessonToggle" class="mini-btn">Zaznacz wszystko</button></div></div>
     <div id="lessonGrid" class="book-groups"></div>
-    <div class="lesson-note" data-i18n="setup.chapters_note">Rozwiń podręcznik. Możesz wybrać cały Doki albo pojedyncze rozdziały. Najpóźniejszy wybrany rozdział wyznacza zakres dostępnego słownictwa.</div>
+    <div class="lesson-note" data-i18n="setup.chapters_note">Wybierz rozdziały, z których chcesz ćwiczyć.</div>
   </div>
   <div id="reviewCard" class="review-card hidden">
     <div class="review-card-copy"><div class="section-title" data-i18n="review.title">Do powtórki</div><div id="reviewCardCount" class="review-count">0 do powtórki</div></div>
     <div class="review-card-actions"><button id="reviewOpen" type="button" class="ghost" data-i18n="review.show">Pokaż</button><button id="reviewStart" type="button" class="review-primary" data-i18n="review.practice">Ćwicz błędy</button></div>
   </div>
   <details id="kanjiDetails" class="selector-details">
-    <summary><span class="details-title" data-i18n="setup.kanji_title">Główne kanji</span><span id="kanjiSelectionSummary" class="selection-summary">Wybrane: 0</span></summary>
+    <summary><span class="details-title" data-i18n="setup.kanji_title">Kanji do ćwiczenia</span><span id="kanjiSelectionSummary" class="selection-summary">Wybrane: 0</span></summary>
     <div class="selector-details-body">
       <div class="book-actions"><button type="button" id="kanjiToggle" class="mini-btn">Zaznacz wszystko</button></div>
       <div id="kanjiGroups" class="kanji-groups"></div>
@@ -66,8 +66,8 @@
   </details>
   <div class="limit-box" id="furiganaBox"><div class="section-title" data-i18n="furigana.title">Furigana</div>
     <div class="limit-row">
-      <label class="choice"><input type="radio" name="furiganaMode" value="selected" checked><span data-i18n="furigana.selected">Według zaznaczonych kanji</span></label>
-      <label class="choice"><input type="radio" name="furiganaMode" value="chapter"><span data-i18n="furigana.chapter">Według rozdziału</span></label>
+      <label class="choice"><input type="radio" name="furiganaMode" value="selected" checked><span data-i18n="furigana.selected">Poza wybranymi kanji</span></label>
+      <label class="choice"><input type="radio" name="furiganaMode" value="chapter"><span data-i18n="furigana.chapter">Według poziomu</span></label>
     </div>
     <div id="furiganaChapterControls" class="furigana-chapter hidden">
       <select id="furiganaLessonSelect" class="lesson-select" aria-label="Wybierz poziom rozdziału" data-i18n-aria="furigana.lesson_aria"></select>
@@ -77,33 +77,33 @@
   </div>
   <div><label class="section-title" data-i18n="setup.practice_title">Co ćwiczymy?</label><div class="modes"><label class="mode"><input type="checkbox" value="onyomi"><span data-i18n="setup.mode_on">ON</span></label><label class="mode"><input type="checkbox" value="kunyomi"><span data-i18n="setup.mode_kun">KUN</span></label><label class="mode"><input type="checkbox" value="vocabulary" checked><span data-i18n="setup.mode_vocab">Słówka</span></label></div></div>
   <div class="limit-box"><div class="section-title" data-i18n="input.title">Wpisywanie odpowiedzi</div><div class="limit-row"><label class="choice"><input type="radio" name="inputMode" value="romaji" checked><span data-i18n="input.romaji">Romaji → hiragana</span></label><label class="choice"><input type="radio" name="inputMode" value="ime"><span data-i18n="input.ime">Japońskie IME</span></label></div><div id="inputModeHelp" class="lesson-note input-mode-note" data-i18n-html="input.help_romaji_html">np. <b>gakusei</b> → <b>がくせい</b></div></div>
-  <div class="limit-box"><div class="section-title" data-i18n="setup.session_focus_title">Rodzaj sesji</div>
+  <div class="limit-box"><div class="section-title" data-i18n="setup.session_focus_title">Typ sesji</div>
   <div class="limit-row"><label class="choice"><input type="radio" name="sessionFocus" value="normal" checked><span data-i18n="setup.session_focus_normal">Zwykła</span></label><label class="choice session-focus-locked"><input type="radio" name="sessionFocus" value="slow" disabled aria-describedby="slowUnlockProgress"><span data-i18n="setup.session_focus_slow">Wolne słówka</span></label></div>
   <div id="slowUnlockProgress" class="lesson-note slow-unlock-progress" role="status" aria-live="polite">0/50 słówek · 0/5 sesji · 0/2 dni</div>
-  <div id="sessionFocusNote" class="lesson-note" aria-live="polite" data-i18n="setup.session_focus_note_normal">Zwykła sesja: ćwicz wybrane słówka i odczyty ON/KUN, z priorytetem dla nowych i trudniejszych słówek przy ograniczeniu liczby pytań.</div>
+  <div id="sessionFocusNote" class="lesson-note" aria-live="polite" data-i18n="setup.session_focus_note_normal">Nowe i trudne słówka pojawiają się częściej. Możesz też ćwiczyć odczyty ON i KUN.</div>
   </div>
-  <div class="limit-box"><div class="section-title" data-i18n="vocab.title">Słówka w sesji</div><div class="limit-row"><label class="choice"><input type="radio" name="vocabLimitMode" value="all" checked><span data-i18n="vocab.all">Wszystkie</span></label><label class="choice"><input type="radio" name="vocabLimitMode" value="limit"><span data-i18n="vocab.limit">Ogranicz do</span></label><input id="vocabLimit" class="limit-number" type="number" min="1" step="1" value="40" disabled></div><div id="sessionPreview" class="session-preview"></div></div>
+  <div class="limit-box"><div class="section-title" data-i18n="vocab.title">Słówka w sesji</div><div class="limit-row"><label class="choice"><input type="radio" name="vocabLimitMode" value="all" checked><span data-i18n="vocab.all">Wszystkie</span></label><label class="choice"><input type="radio" name="vocabLimitMode" value="limit"><span data-i18n="vocab.limit">Limit</span></label><input id="vocabLimit" class="limit-number" type="number" min="1" step="1" value="40" disabled></div><div id="sessionPreview" class="session-preview"></div></div>
   
-  <button id="start" class="primary" data-i18n="setup.start">START</button>
+  <button id="start" class="primary" data-i18n="setup.start">Rozpocznij</button>
   <details class="selector-details session-help">
-    <summary><span class="details-title" data-i18n="setup.session_help_title">ⓘ Jak działa sesja?</span></summary>
+    <summary><span class="details-title" data-i18n="setup.session_help_title">ⓘ Jak działa nauka?</span></summary>
     <div class="selector-details-body">
-      <div class="lesson-note" data-i18n="setup.start_note">Przy limicie częściej trafiają nowe i trudniejsze słówka, a aktywne błędy mają zarezerwowane miejsce w kolejnych sesjach. ON i KUN pojawiają się po jednym pytaniu na wybrane kanji.</div>
-      <div class="lesson-note" data-i18n-html="setup.rss_help_html"><strong>Czym jest RSS?</strong> To wskaźnik tempa rozpoznawania słówek: czas do rozpoczęcia pisania plus pozostały czas odpowiedzi podzielony przez liczbę mor w odczycie. Im niższy RSS, tym płynniej rozpoznajesz słówko. Liczymy go tylko dla poprawnych odpowiedzi, osobno w trybie Romaji i IME.</div>
-      <div class="lesson-note" data-i18n-html="setup.rss_adaptive_html"><strong>Kiedy widać wynik?</strong> Wstępny RSS pojawia się już po pierwszej poprawnej odpowiedzi na słówko. Od 8 różnych zmierzonych słówek w danym trybie Kanji.pro porównuje je z Twoim osobistym tempem i oznacza jako Szybkie, Typowe lub Wolne. Po 3 poprawnych pomiarach słówka z co najmniej 2 sesji jego wynik jest bardziej wiarygodny. W sesjach z limitem do 20% miejsc może przypadać na wolniejsze słówka.</div>
+      <div class="lesson-note" data-i18n="setup.start_note">Przy limicie częściej wracają nowe i trudne słówka. Do 25% miejsc rezerwujemy na aktywne błędy, a do 20% na wolne słówka (po odblokowaniu trybu). ON i KUN to osobne pytania dla każdego wybranego kanji.</div>
+      <div class="lesson-note" data-i18n-html="setup.rss_help_html"><strong>Co to jest RSS?</strong> Mierzy, jak szybko rozpoznajesz słówko. Uwzględnia czas do pierwszego wpisu oraz czas pisania w przeliczeniu na morę. Im mniej sekund, tym szybciej. RSS liczymy tylko dla poprawnych, niezakłóconych odpowiedzi — osobno dla Romaji i IME.</div>
+      <div class="lesson-note" data-i18n-html="setup.rss_adaptive_html"><strong>Kiedy odblokują się „Wolne słówka”?</strong> Po zmierzeniu 50 słówek w 5 sesjach na co najmniej 2 dniach. Ćwiczysz wtedy najwolniejszą ćwiartkę słówek. Wstępny RSS widzisz już po pierwszym pomiarze. Status „wiarygodny” wymaga 5 poprawnych pomiarów z 3 sesji na co najmniej 2 dniach.</div>
     </div>
   </details>
   <details id="installHelp" class="install-help">
-    <summary data-i18n="install.summary">📱 Zainstaluj na urządzeniu mobilnym</summary>
+    <summary data-i18n="install.summary">📱 Dodaj do ekranu głównego</summary>
     <div class="install-steps">
       <div data-i18n-html="install.ios_html"><b>iOS / iPadOS:</b> otwórz stronę w Safari → <b>Udostępnij</b> → <b>Dodaj do ekranu początkowego</b> → <b>Dodaj</b>.</div>
       <div class="install-platform" data-i18n-html="install.android_html"><b>Android:</b> otwórz stronę w Chrome → menu <b>⋮</b> → <b>Zainstaluj aplikację</b> lub <b>Dodaj do ekranu głównego</b> → potwierdź.</div>
     </div>
-    <div id="installedNote" class="installed-note hidden" data-i18n="install.installed">✓ Aplikacja jest już uruchomiona jako aplikacja.</div>
+    <div id="installedNote" class="installed-note hidden" data-i18n="install.installed">✓ Aplikacja jest już zainstalowana.</div>
   </details>
   <div class="home-dashboard-stats" id="homeStats" aria-label="Łączne statystyki nauki">
-    <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Przećwiczone słówka</span><strong id="homeWords">0</strong><small data-i18n="stats.words_note">Różne słówka</small><button id="homeHistoryLink" type="button" class="home-history-link" data-i18n="history.open">Zobacz historię →</button></div></div>
-    <div class="home-stat-card"><span class="home-stat-icon home-stat-good" aria-hidden="true">✓</span><div><span class="home-stat-label" data-i18n="stats.accuracy">Poprawność</span><strong id="homeAccuracy">—</strong><small id="homeAccuracyNote" data-i18n="stats.accuracy_note">Ze wszystkich odpowiedzi na słówka</small></div></div>
+    <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Ćwiczone słówka</span><strong id="homeWords">0</strong><small data-i18n="stats.words_note">Różne słówka</small><button id="homeHistoryLink" type="button" class="home-history-link" data-i18n="history.open">Zobacz historię →</button></div></div>
+    <div class="home-stat-card"><span class="home-stat-icon home-stat-good" aria-hidden="true">✓</span><div><span class="home-stat-label" data-i18n="stats.accuracy">Poprawność</span><strong id="homeAccuracy">—</strong><small id="homeAccuracyNote" data-i18n="stats.accuracy_note">Wszystkie odpowiedzi na słówka</small></div></div>
     <div class="home-stat-card"><span class="home-stat-icon home-stat-rss" aria-hidden="true">ϟ</span><div><span class="home-stat-label" data-i18n="stats.rss">Mediana RSS</span><strong id="homeRss">—</strong><small id="homeRssNote" data-i18n="stats.rss_note">Oddzielnie dla Romaji i IME</small></div></div>
   </div>
 
@@ -113,7 +113,7 @@
     <div class="dictionary-head">
       <div>
         <div class="section-title dictionary-title" data-i18n="dictionary.title">Słownik</div>
-        <div class="lesson-note" data-i18n="dictionary.subtitle">Kanji i słownictwo z Twoich materiałów Doki.</div>
+        <div class="lesson-note" data-i18n="dictionary.subtitle">Kanji i słówka z podręczników Doki.</div>
       </div>
       <div class="dictionary-tabs" role="tablist" aria-label="Rodzaj wpisów" data-i18n-aria="dictionary.tabs_aria">
         <button id="dictTabKanji" class="dictionary-tab active" type="button" role="tab" aria-selected="true" data-i18n="dictionary.tab_kanji">Kanji</button>
@@ -125,9 +125,9 @@
       <select id="dictLessonFilter" class="dictionary-filter" data-i18n-aria="dictionary.filter_aria" aria-label="Filtr Doki i rozdziału"></select>
       <select id="dictStatusFilter" class="dictionary-filter hidden" data-i18n-aria="dictionary.status_filter_aria" aria-label="Filtr postępu"></select>
       <select id="dictRssSort" class="dictionary-filter hidden" data-i18n-aria="dictionary.rss_sort_aria" aria-label="Sortowanie według RSS">
-        <option value="default" data-i18n="dictionary.rss_sort_default">Domyślne sortowanie</option>
-        <option value="slow_first" data-i18n="dictionary.rss_sort_slow_first">RSS: najwolniejsze najpierw</option>
-        <option value="fast_first" data-i18n="dictionary.rss_sort_fast_first">RSS: najszybsze najpierw</option>
+        <option value="default" data-i18n="dictionary.rss_sort_default">Domyślnie</option>
+        <option value="slow_first" data-i18n="dictionary.rss_sort_slow_first">Najwolniejsze RSS</option>
+        <option value="fast_first" data-i18n="dictionary.rss_sort_fast_first">Najszybsze RSS</option>
       </select>
     </div>
     <div id="dictCount" class="dictionary-count"></div>
@@ -141,13 +141,13 @@
 </section>
 <section id="history" class="panel history-screen hidden">
   <button id="historyBackToPractice" class="ghost history-mobile-back" type="button" data-i18n="history.back">← Wróć</button>
-  <div class="history-head"><div><h2 data-i18n="history.title">Historia nauki</h2><p data-i18n="history.subtitle">Twoje postępy ze wszystkich urządzeń zsynchronizowanych przez Firebase.</p></div><img class="shiba-history-dance" src="./icons/shiba-dance.svg" width="126" height="130" alt="" aria-hidden="true" loading="lazy"></div>
+  <div class="history-head"><div><h2 data-i18n="history.title">Historia nauki</h2><p data-i18n="history.subtitle">Twoje wyniki, także z innych urządzeń, jeśli masz włączoną synchronizację.</p></div><img class="shiba-history-dance" src="./icons/shiba-dance.svg" width="126" height="130" alt="" aria-hidden="true" loading="lazy"></div>
   <div id="historyStats" class="home-dashboard-stats" aria-label="Łączne statystyki nauki">
-    <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Przećwiczone słówka</span><strong id="historyWords">0</strong></div></div>
+    <div class="home-stat-card"><span class="home-stat-icon" aria-hidden="true">▤</span><div><span class="home-stat-label" data-i18n="stats.words">Ćwiczone słówka</span><strong id="historyWords">0</strong></div></div>
     <div class="home-stat-card"><span class="home-stat-icon home-stat-good" aria-hidden="true">✓</span><div><span class="home-stat-label" data-i18n="stats.accuracy">Poprawność</span><strong id="historyAccuracy">—</strong></div></div>
     <div class="home-stat-card"><span class="home-stat-icon home-stat-rss" aria-hidden="true">ϟ</span><div><span class="home-stat-label" data-i18n="stats.rss">Mediana RSS</span><strong id="historyRss">—</strong></div></div>
   </div>
-  <h3 data-i18n="history.recent_title">Ostatnio ćwiczone słówka</h3>
+  <h3 data-i18n="history.recent_title">Ostatnie słówka</h3>
   <div id="historyRecent" class="history-recent"></div>
 </section>
 <section id="reviewBank" class="panel hidden">
@@ -155,17 +155,17 @@
   <div id="reviewBankList" class="review-bank-list"></div>
   <div class="review-bank-actions"><button id="reviewBankStart" type="button" class="primary" data-i18n="review.practice">Ćwicz błędy</button></div>
 </section>
-<section id="quiz" class="panel hidden"><img class="shiba-quiz-accent" src="./icons/shiba-peek.svg" alt="" aria-hidden="true" width="55" height="55"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div class="quiz-head-meta"><span id="vocabTimer" class="vocab-timer hidden" aria-live="off"></span><div id="progress" class="counter"></div></div></div><div id="answerNotice" class="answer-notice hidden"></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div><div id="promptHint" class="prompt-hint hidden"></div><button id="playQuizAudio" type="button" class="ghost private-audio-play hidden" aria-label="Odtwórz wymowę" title="Odtwórz wymowę"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg><span>Odtwórz wymowę</span></button></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" enterkeyhint="go" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><div class="answer-actions"><button id="skipQuestion" type="button" class="skip-question" data-i18n-aria="quiz.skip" aria-label="Pomiń pytanie" title="Pomiń pytanie">✕</button><button id="submit" class="primary" data-i18n="quiz.check">Sprawdź</button></div></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span data-i18n="quiz.correct_stat">poprawne</span></div><div class="stat"><b id="wrong">0</b><span data-i18n="quiz.wrong_stat">błędy</span></div><div class="stat"><b id="left">0</b><span data-i18n="quiz.left_stat">w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost" data-i18n="quiz.back">← Ustawienia</button></div><div class="small" style="text-align:center;margin-top:10px" data-i18n-html="quiz.enter_hint_html">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
+<section id="quiz" class="panel hidden"><img class="shiba-quiz-accent" src="./icons/shiba-peek.svg" alt="" aria-hidden="true" width="55" height="55"><div class="quiz-head"><div id="quizType" class="quiz-type"></div><div class="quiz-head-meta"><span id="vocabTimer" class="vocab-timer hidden" aria-live="off"></span><div id="progress" class="counter"></div></div></div><div id="answerNotice" class="answer-notice hidden"></div><div class="prompt-wrap"><div id="prompt" class="prompt"></div><div id="promptHint" class="prompt-hint hidden"></div><button id="playQuizAudio" type="button" class="ghost private-audio-play hidden" aria-label="Odtwórz wymowę" title="Odtwórz wymowę"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg><span>Odtwórz wymowę</span></button></div><div class="answer-box"><input id="answer" lang="ja" inputmode="latin" enterkeyhint="go" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Wpisz romaji…"><div class="answer-actions"><button id="skipQuestion" type="button" class="skip-question" data-i18n-aria="quiz.skip" aria-label="Pomiń pytanie" title="Pomiń pytanie">✕</button><button id="submit" class="primary" data-i18n="quiz.check">Sprawdź</button></div></div><div id="feedback" class="feedback empty"></div><div class="stats"><div class="stat"><b id="correct">0</b><span data-i18n="quiz.correct_stat">poprawne</span></div><div class="stat"><b id="wrong">0</b><span data-i18n="quiz.wrong_stat">błędy</span></div><div class="stat"><b id="left">0</b><span data-i18n="quiz.left_stat">w kolejce</span></div></div><div class="quiz-actions"><button id="quit" class="ghost" data-i18n="quiz.back">← Konfiguracja</button></div><div class="small" style="text-align:center;margin-top:10px" data-i18n-html="quiz.enter_hint_html">Klawisz <span class="kbd">Enter</span>: sprawdź / dalej</div></section>
 <section id="finished" class="panel finish hidden"><div class="finish-celebration">
-  <div class="finish-celebration-copy"><div class="finish-check" aria-hidden="true">✓</div><div class="finish-headline" data-i18n="finish.celebrate_title">Dobra robota!</div>
-  <p class="finish-japanese" lang="ja">おつかれさま！</p><p class="finish-subtitle" data-i18n="finish.celebrate_subtitle">Sesja zakończona.</p>
+  <div class="finish-celebration-copy"><div class="finish-check" aria-hidden="true">✓</div><div class="finish-headline" data-i18n="finish.celebrate_title">Świetna robota!</div>
+  <p class="finish-japanese" lang="ja">おつかれさま！</p><p class="finish-subtitle" data-i18n="finish.celebrate_subtitle">Sesja za Tobą.</p>
   <div class="finish-mini-results">
-    <div><span data-i18n="finish.celebrate_words">Słówka w sesji</span><strong id="finishVocabCount">0</strong></div>
+    <div><span data-i18n="finish.celebrate_words">Ćwiczone słówka</span><strong id="finishVocabCount">0</strong></div>
     <div><span data-i18n="finish.celebrate_correct">Poprawne odpowiedzi</span><strong id="finishSessionAccuracy">0</strong></div>
     <div><span data-i18n="finish.median_rss">Mediana RSS</span><strong id="finishSessionRss">—</strong></div>
   </div></div>
   <img class="shiba-finish-celebration" src="./icons/shiba-cheer.svg" alt="" aria-hidden="true" width="230" height="270">
-</div><div id="finishTitle" class="quiz-type" data-i18n="finish.title">Koniec sesji</div><div id="finalScore" class="big">100%</div><div class="stats finish-stats"><div class="stat"><b id="finalCorrect">0</b><span data-i18n="finish.correct_stat">poprawne</span></div><div class="stat"><b id="finalWrong">0</b><span data-i18n="finish.wrong_stat">błędy</span></div><div class="stat"><b id="finalAttempts">0</b><span data-i18n="finish.attempts_stat">próby</span></div></div><section id="vocabTimingSummary" class="finish-timing hidden"><div class="finish-timing-title" data-i18n="finish.vocab_timing_title">Szybkość czytania słówek</div><div class="finish-timing-grid"><div><b id="vocabMedianRecognition">—</b><span data-i18n="finish.median_recognition">Mediana do pierwszego wpisu</span></div><div><b id="vocabMedianAnswer">—</b><span data-i18n="finish.median_answer">Mediana do odpowiedzi</span></div><div><b id="vocabMedianRss">—</b><span data-i18n="finish.median_rss">Mediana RSS</span></div><div><b id="vocabFastCount">0/0</b><span data-i18n="finish.fast_correct">Poprawne w ≤ 3 s</span></div></div><div class="finish-timing-note" data-i18n="finish.timing_note">Tylko słówka. Mediany liczone dla poprawnych odpowiedzi, bez ON/KUN.</div></section><details id="mistakesDetails" class="mistakes-summary hidden"><summary><span data-i18n="finish.mistakes_title">Do powtórki</span><span id="mistakesCount" class="mistakes-count">0</span></summary><div id="mistakesList" class="mistakes-list"></div></details><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button id="again" class="primary" data-i18n="finish.again">Powtórz sesję</button><button id="settings" class="ghost" data-i18n="finish.settings">Ustawienia</button></div></section>
+</div><div id="finishTitle" class="quiz-type" data-i18n="finish.title">Koniec sesji</div><div id="finalScore" class="big">100%</div><div class="stats finish-stats"><div class="stat"><b id="finalCorrect">0</b><span data-i18n="finish.correct_stat">poprawne</span></div><div class="stat"><b id="finalWrong">0</b><span data-i18n="finish.wrong_stat">błędy</span></div><div class="stat"><b id="finalAttempts">0</b><span data-i18n="finish.attempts_stat">próby</span></div></div><section id="vocabTimingSummary" class="finish-timing hidden"><div class="finish-timing-title" data-i18n="finish.vocab_timing_title">Tempo czytania</div><div class="finish-timing-grid"><div><b id="vocabMedianRecognition">—</b><span data-i18n="finish.median_recognition">Mediana do pierwszego wpisu</span></div><div><b id="vocabMedianAnswer">—</b><span data-i18n="finish.median_answer">Mediana czasu odpowiedzi</span></div><div><b id="vocabMedianRss">—</b><span data-i18n="finish.median_rss">Mediana RSS</span></div><div><b id="vocabFastCount">0/0</b><span data-i18n="finish.fast_correct">Szybsze od Twojej mediany RSS</span></div></div><div class="finish-timing-note" data-i18n="finish.timing_note">RSS liczymy tylko z poprawnych odpowiedzi bez zakłóceń. Porównanie dotyczy mediany sprzed sesji.</div></section><details id="mistakesDetails" class="mistakes-summary hidden"><summary><span data-i18n="finish.mistakes_title">Do poprawy</span><span id="mistakesCount" class="mistakes-count">0</span></summary><div id="mistakesList" class="mistakes-list"></div></details><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button id="again" class="primary" data-i18n="finish.again">Jeszcze raz</button><button id="settings" class="ghost" data-i18n="finish.settings">Wróć do nauki</button></div></section>
 </div>
 </main>
 
@@ -179,90 +179,90 @@
     <div class="settings-head">
       <div>
         <div class="settings-title" data-i18n="settings.title">Ustawienia</div>
-        <div class="lesson-note" data-i18n="settings.font_note">Wybierz wygląd kanji i słówek. Ustawienie zapisuje się na tym urządzeniu.</div>
+        <div class="lesson-note" data-i18n="settings.font_note">Zapisujemy osobno na każdym urządzeniu.</div>
       </div>
       <button id="closeSettingsX" class="icon-btn" type="button" aria-label="Zamknij">×</button>
     </div>
-    <div class="settings-section-title" data-i18n="settings.theme_title">Motyw aplikacji</div>
-    <div class="lesson-note settings-note" data-i18n="settings.theme_note">Wybierz styl Kanji.pro. Ustawienie zapisuje się na tym urządzeniu.</div>
+    <div class="settings-section-title" data-i18n="settings.theme_title">Wygląd</div>
+    <div class="lesson-note settings-note" data-i18n="settings.theme_note">Wybierz motyw. Zapamiętamy go na tym urządzeniu.</div>
     <div class="theme-options" role="radiogroup" aria-label="Motyw aplikacji">
       <label class="theme-option">
         <input type="radio" name="appTheme" value="shiba" checked>
         <span class="theme-option-card">
           <span class="theme-swatch theme-swatch-shiba"><img src="./icons/shiba-face.svg" alt="" width="42" height="42"></span>
-          <span><b data-i18n="settings.theme_shiba">Shiba Inu</b><small data-i18n="settings.theme_shiba_note">Kremowe karty, pomarańczowe akcenty i maskotka.</small></span>
+          <span><b data-i18n="settings.theme_shiba">Shiba Inu</b><small data-i18n="settings.theme_shiba_note">Jasne tło, ciepłe akcenty i Shiba.</small></span>
         </span>
       </label>
       <label class="theme-option">
         <input type="radio" name="appTheme" value="classic">
         <span class="theme-option-card">
           <span class="theme-swatch theme-swatch-classic" aria-hidden="true"></span>
-          <span><b data-i18n="settings.theme_classic">Klasyczny</b><small data-i18n="settings.theme_classic_note">Dotychczasowy wygląd Kanji.pro.</small></span>
+          <span><b data-i18n="settings.theme_classic">Klasyczny</b><small data-i18n="settings.theme_classic_note">Prosty wygląd bez motywu Shiba.</small></span>
         </span>
       </label>
     </div>
     <div class="settings-divider"></div>
-    <div class="settings-section-title" data-i18n="settings.font_title">Czcionka japońska</div>
+    <div class="settings-section-title" data-i18n="settings.font_title">Krój pisma japońskiego</div>
     <div id="fontOptions" class="font-options"></div>
     <div class="font-preview-box">
       <div class="small" data-i18n="settings.preview_label">Podgląd</div>
       <div id="fontPreview" class="font-preview" data-i18n="settings.preview_text">漢字 日本語 手作り 読書</div>
     </div>
     <div class="settings-divider"></div>
-    <div class="settings-section-title" data-i18n="settings.answer_mode_title">Enter / Return</div>
-    <div class="lesson-note settings-note" data-i18n="settings.answer_mode_note">Wybierz sposób przechodzenia między pytaniami.</div>
+    <div class="settings-section-title" data-i18n="settings.answer_mode_title">Przechodzenie między pytaniami</div>
+    <div class="lesson-note settings-note" data-i18n="settings.answer_mode_note">Wybierz, kiedy przejść do następnego słówka.</div>
     <div class="answer-mode-options">
       <label class="answer-mode-option">
         <input type="radio" name="answerMode" value="one">
-        <span class="answer-mode-card"><b data-i18n="settings.answer_modes.one">Jednoetapowo</b><small data-i18n="settings.answer_mode_descriptions.one">Sprawdź i od razu przejdź dalej.</small></span>
+        <span class="answer-mode-card"><b data-i18n="settings.answer_modes.one">Jednoetapowo</b><small data-i18n="settings.answer_mode_descriptions.one">Po poprawnej odpowiedzi od razu dalej. Po błędzie zatrzymujemy się na poprawnym odczycie.</small></span>
       </label>
       <label class="answer-mode-option">
         <input type="radio" name="answerMode" value="two">
-        <span class="answer-mode-card"><b data-i18n="settings.answer_modes.two">Dwuetapowo</b><small data-i18n="settings.answer_mode_descriptions.two">Najpierw sprawdź, potem przejdź dalej.</small></span>
+        <span class="answer-mode-card"><b data-i18n="settings.answer_modes.two">Dwuetapowo</b><small data-i18n="settings.answer_mode_descriptions.two">Po każdej odpowiedzi samodzielnie przechodzisz dalej.</small></span>
       </label>
     </div>
     <div class="settings-divider"></div>
-    <div class="settings-section-title" data-i18n="settings.auto_audio_title">Automatyczny odsłuch po odpowiedzi</div>
-    <label class="vocab-timer-setting"><input id="autoAudioAfterAnswer" type="checkbox"><span data-i18n="settings.auto_audio_toggle">Odtwarzaj nagranie automatycznie po sprawdzeniu odpowiedzi</span></label>
-    <div class="lesson-note settings-note" data-i18n="settings.auto_audio_note">Domyślnie wyłączone. W trybie jednoetapowym następne pytanie pojawi się po zakończeniu nagrania. W trybie dwuetapowym pozostajesz na odpowiedzi.</div>
+    <div class="settings-section-title" data-i18n="settings.auto_audio_title">Automatyczne odtwarzanie</div>
+    <label class="vocab-timer-setting"><input id="autoAudioAfterAnswer" type="checkbox"><span data-i18n="settings.auto_audio_toggle">Odtwarzaj wymowę po odpowiedzi</span></label>
+    <div class="lesson-note settings-note" data-i18n="settings.auto_audio_note">W trybie jednoetapowym nowe pytanie pojawi się po nagraniu. Po błędzie i pominięciu najpierw potwierdź przejście dalej.</div>
     <div class="settings-divider"></div>
-    <div class="settings-section-title" data-i18n="settings.vocab_timer_title">Szybkość czytania słówek</div>
-    <div class="lesson-note settings-note" data-i18n="settings.vocab_timer_note">Czas mierzymy tylko przy słówkach, nigdy przy ON/KUN. Ukrycie licznika nie wyłącza zapisywania wyników.</div>
-    <label class="vocab-timer-setting"><input id="showVocabTimer" type="checkbox" checked><span data-i18n="settings.show_vocab_timer">Pokaż licznik podczas odpowiedzi</span></label>
+    <div class="settings-section-title" data-i18n="settings.vocab_timer_title">Licznik czasu odpowiedzi</div>
+    <div class="lesson-note settings-note" data-i18n="settings.vocab_timer_note">Mierzymy tylko słówka, nie odczyty ON i KUN. Wyłączenie licznika nie zatrzymuje pomiarów.</div>
+    <label class="vocab-timer-setting"><input id="showVocabTimer" type="checkbox" checked><span data-i18n="settings.show_vocab_timer">Pokazuj licznik podczas odpowiedzi</span></label>
     <div class="settings-divider"></div>
     <div class="settings-section-title" data-i18n="settings.example_furigana_title">Furigana w przykładach</div>
-    <label class="example-furigana-setting"><input type="checkbox" id="showExampleFurigana" checked><span data-i18n="settings.example_furigana_show">Pokaż furiganę w przykładowych zdaniach</span></label>
-    <div class="lesson-note settings-note" data-i18n="settings.example_furigana_note">Dotyczy zdań w słowniku. Ustawienie jest zapamiętywane na tym urządzeniu.</div>
+    <label class="example-furigana-setting"><input type="checkbox" id="showExampleFurigana" checked><span data-i18n="settings.example_furigana_show">Pokazuj furiganę w zdaniach</span></label>
+    <div class="lesson-note settings-note" data-i18n="settings.example_furigana_note">Dotyczy przykładów w słowniku.</div>
     <div class="settings-divider"></div>
-    <div class="settings-section-title" data-i18n="settings.update_title">Aktualizacje aplikacji</div>
-    <div class="lesson-note settings-note" data-i18n="settings.update_note">Sprawdź, czy dostępna jest nowsza wersja Kanji.pro. Aktualizacja nie usuwa historii ani nagrań z Anki.</div>
+    <div class="settings-section-title" data-i18n="settings.update_title">Aktualizacje</div>
+    <div class="lesson-note settings-note" data-i18n="settings.update_note">Sprawdź, czy jest nowa wersja. Historia nauki i nagrania pozostaną na urządzeniu.</div>
     <button id="checkAppUpdate" type="button" class="ghost" data-i18n="settings.update_check">Sprawdź aktualizację</button>
     <div id="appUpdateStatus" class="lesson-note settings-note" role="status" aria-live="polite"></div>
     <div class="settings-divider"></div>
-    <div class="settings-section-title" data-i18n="settings.audio_title">Nagrania z Anki (prywatne)</div>
+    <div class="settings-section-title" data-i18n="settings.audio_title">Nagrania z Anki</div>
     <div class="data-backup-actions">
-      <button type="button" class="ghost" id="importAnkiAudio" data-i18n="settings.audio_import">Importuj audio z .apkg</button>
-      <button type="button" class="ghost" id="clearAnkiAudio" data-i18n="settings.audio_delete">Usuń lokalne audio</button>
+      <button type="button" class="ghost" id="importAnkiAudio" data-i18n="settings.audio_import">Importuj nagrania z Anki</button>
+      <button type="button" class="ghost" id="clearAnkiAudio" data-i18n="settings.audio_delete">Usuń nagrania</button>
       <input type="file" id="importAnkiAudioFile" class="hidden" accept=".apkg,application/zip,application/octet-stream">
     </div>
-    <div id="ankiAudioStatus" class="lesson-note settings-note" role="status" aria-live="polite" data-i18n="settings.audio_initial">Sprawdzanie lokalnych nagrań…</div>
-    <div class="lesson-note settings-note" data-i18n="settings.audio_legal">Importuj tylko nagrania, do których użycia masz odpowiednie prawa.</div>
+    <div id="ankiAudioStatus" class="lesson-note settings-note" role="status" aria-live="polite" data-i18n="settings.audio_initial">Sprawdzanie nagrań…</div>
+    <div class="lesson-note settings-note" data-i18n="settings.audio_legal">Importuj tylko nagrania, do których masz prawa.</div>
     <div class="settings-divider"></div>
-    <div class="settings-section-title" data-i18n="settings.firebase_sync_title">Firebase — automatyczna synchronizacja</div>
-    <div class="lesson-note settings-note" data-i18n="settings.firebase_sync_note">Jedno logowanie Google i wspólna historia na telefonie oraz komputerze. Dane lokalne pozostają dostępne offline.</div>
+    <div class="settings-section-title" data-i18n="settings.firebase_sync_title">Synchronizacja</div>
+    <div class="lesson-note settings-note" data-i18n="settings.firebase_sync_note">Zaloguj się przez Google, żeby mieć wspólną historię nauki na swoich urządzeniach. Bez internetu możesz nadal ćwiczyć.</div>
     <div class="firebase-sync-actions">
-      <button type="button" class="ghost" id="firebaseSyncConnect" disabled data-i18n="settings.firebase_sync_connect">Zaloguj się kontem Google</button>
-      <button type="button" class="ghost" id="firebaseSyncNow" disabled data-i18n="settings.firebase_sync_now">Synchronizuj teraz</button>
+      <button type="button" class="ghost" id="firebaseSyncConnect" disabled data-i18n="settings.firebase_sync_connect">Zaloguj przez Google</button>
+      <button type="button" class="ghost" id="firebaseSyncNow" disabled data-i18n="settings.firebase_sync_now">Synchronizuj</button>
       <button type="button" class="ghost" id="firebaseSyncDisconnect" disabled data-i18n="settings.firebase_sync_disconnect">Wyloguj</button>
     </div>
-    <div id="firebaseSyncStatus" class="lesson-note firebase-sync-status" role="status" aria-live="polite" data-i18n="settings.firebase_sync_initializing">Sprawdzanie konfiguracji Firebase…</div>
-    <div class="lesson-note" data-i18n="settings.firebase_sync_limitations">Po pierwszym logowaniu aplikacja będzie automatycznie przywracać sesję. Wymaga konfiguracji Firebase przez właściciela strony.</div>
+    <div id="firebaseSyncStatus" class="lesson-note firebase-sync-status" role="status" aria-live="polite" data-i18n="settings.firebase_sync_initializing">Sprawdzanie synchronizacji…</div>
+    <div class="lesson-note" data-i18n="settings.firebase_sync_limitations">Po zalogowaniu pozostaniesz na swoim koncie. Po wyczyszczeniu danych aplikacji może być potrzebne ponowne logowanie.</div>
     <div class="settings-divider"></div>
     <div class="settings-section-title" data-i18n="settings.data_title">Dane nauki</div>
-    <div id="dataBackupSummary" class="lesson-note settings-note" data-i18n="settings.data_summary_empty">Historia nauki jest zapisywana lokalnie na tym urządzeniu.</div>
+    <div id="dataBackupSummary" class="lesson-note settings-note" data-i18n="settings.data_summary_empty">Historia nauki zapisuje się na tym urządzeniu.</div>
     <div class="data-backup-actions">
-      <button id="exportData" class="ghost" type="button" data-i18n="settings.export_data">Eksportuj kopię</button>
-      <button id="importData" class="ghost" type="button" data-i18n="settings.import_data">Importuj kopię</button>
+      <button id="exportData" class="ghost" type="button" data-i18n="settings.export_data">Eksportuj dane</button>
+      <button id="importData" class="ghost" type="button" data-i18n="settings.import_data">Importuj dane</button>
       <input id="importDataFile" class="hidden" type="file" accept="application/json,.json">
     </div>
     <div id="dataBackupStatus" class="lesson-note data-backup-status hidden"></div>
@@ -270,5 +270,5 @@
   </div>
 </dialog>
 
-<script type="module" src="./js/app.js?v=3.35"></script>
+<script type="module" src="./js/app.js?v=3.36"></script>
 </body></html>

@@ -15,7 +15,8 @@ test('accidental rapid double touch cannot check and advance twice',()=>{
 test('mobile guards cover quiz tap, Enter key repeat and session start',()=>{
   const app=read('js/app.js');
   assert.ok(app.includes("quizActionGuard.accept())check"));
-  assert.ok(app.includes("startActionGuard.accept())start()"));
+  assert.ok(app.includes("bindQuizSessionStart($('#start'),start,startActionGuard)"));
+  assert.ok(app.includes("bindQuizSessionStart($('#reviewStart'),startReview,startActionGuard)"));
   assert.ok(app.includes("e.repeat||!quizActionGuard.accept()"));
   assert.ok(app.includes("if(pendingAudioAdvance)return"))
 });

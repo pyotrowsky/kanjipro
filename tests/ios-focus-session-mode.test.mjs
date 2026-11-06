@@ -13,10 +13,13 @@ test('session mode description switches dynamically for normal and slow mode',()
  assert.ok(ui.setup.session_focus_note_slow);
  assert.notEqual(ui.setup.session_focus_note_normal,ui.setup.session_focus_note_slow)
 });
-test('iPad START focus happens synchronously and touch pointerdown does not focus START',()=>{
+test('touch session starts invoke the shared trusted-gesture handler rather than pointerdown cancellation',()=>{
  const app=read('js/app.js');
- assert.match(app,/\$\('#start'\)\.addEventListener\('pointerdown',event=>\{[\s\S]*?event\.pointerType==='touch'\)event\.preventDefault\(\)/);
- assert.match(app,/\$\('#start'\)\.addEventListener\('click',\(\)=>\{if\(startActionGuard\.accept\(\)\)start\(\)\}\)/);
+ assert.match(app,/bindQuizSessionStart\(\$\('#start'\),start,startActionGuard\)/);
+ assert.match(app,/bindQuizSessionStart\(\$\('#reviewStart'\),startReview,startActionGuard\)/);
+ assert.match(app,/bindQuizSessionStart\(\$\('#reviewBankStart'\),startReview,startActionGuard\)/);
+ assert.match(app,/bindQuizSessionStart\(\$\('#again'\),restartSession,startActionGuard\)/);
+ assert.doesNotMatch(app,/\$\('#start'\)\.addEventListener\('pointerdown'/);
  assert.match(app,/showQuestion\(\);restoreQuizFocusAfterStart\(\)/);
  assert.match(app,/focusAnswerField\(\);startVocabTimer\(\)/);
 });

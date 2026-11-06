@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WSJJ Kanji.pro",
-    "badge": "3.40",
+    "badge": "3.41",
     "description": "Ćwicz kanji i słówka. Śledź postępy we własnym tempie."
   },
   "common": {
@@ -24,7 +24,7 @@
     "mode_kun": "KUN",
     "mode_vocab": "Słówka",
     "start": "Rozpocznij",
-    "start_note": "Przy limicie częściej wracają nowe i trudne słówka. Do 25% miejsc rezerwujemy na aktywne błędy, a do 20% na wolne słówka (po odblokowaniu trybu). ON i KUN to osobne pytania dla każdego wybranego kanji.",
+    "start_note": "Przy limicie do {new}% nowych, {difficult}% trudnych i {slow}% wolnych słówek. Brakujące miejsca uzupełniamy pozostałymi. ON i KUN liczymy osobno.",
     "session_help_title": "ⓘ Jak działa nauka?",
     "choose_whole_book": "Cały Doki {book}",
     "kanji_note_top": "Zaznacz znaki, które chcesz ćwiczyć.",
@@ -237,7 +237,13 @@
     "update_check": "Sprawdź aktualizację",
     "auto_audio_title": "Automatyczne odtwarzanie",
     "auto_audio_toggle": "Odtwarzaj wymowę po odpowiedzi",
-    "auto_audio_note": "W trybie jednoetapowym nowe pytanie pojawi się po nagraniu. Po błędzie i pominięciu najpierw potwierdź przejście dalej."
+    "auto_audio_note": "W trybie jednoetapowym nowe pytanie pojawi się po nagraniu. Po błędzie i pominięciu najpierw potwierdź przejście dalej.",
+    "vocab_mix_title": "Dobór słówek w sesji",
+    "vocab_mix_note": "Maksymalny udział przy limicie słówek. Gdy brakuje słówek z danej grupy, dobieramy pozostałe.",
+    "vocab_mix_new": "Nowe",
+    "vocab_mix_difficult": "Trudne / błędy",
+    "vocab_mix_slow": "Wolne (RSS)",
+    "vocab_mix_remainder": "Pozostałe słówka: {count}%"
   },
   "actions": {
     "select_all": "Zaznacz wszystko",

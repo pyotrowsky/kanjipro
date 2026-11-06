@@ -60,3 +60,29 @@ export function createQuizFocusController({
   }
   return {focusAnswerField,keepAnswerVisible,restoreQuizFocusAfterStart,handleStaleFocusKeydown}
 }
+
+/**
+ * iPadOS permits opening the software keyboard reliably only inside a direct
+ * user gesture. A synthetic click following pointerdown/touchend can arrive
+ * too late, so begin the session in touchend (while still user-activated).
+ * Keep click/keyboard activation for mouse, pencil and accessibility.
+ */
+export function bindQuizSessionStart(button,run,guard){
+  if(!button)return;
+  let touchStart=null;
+  button.addEventListener('touchstart',event=>{
+    const touch=event.touches?.length===1?event.touches[0]:null;
+    touchStart=touch?{x:touch.clientX,y:touch.clientY}:null;
+  },{passive:true});
+  button.addEventListener('touchcancel',()=>{touchStart=null});
+  button.addEventListener('touchend',event=>{
+    const touch=event.changedTouches?.length===1?event.changedTouches[0]:null;
+    const start=touchStart;
+    touchStart=null;
+    if(!start||!touch||Math.hypot(touch.clientX-start.x,touch.clientY-start.y)>12)return;
+    // Do not wait for a synthetic click: it may lose WebKit keyboard activation.
+    if(event.cancelable)event.preventDefault();
+    if(guard.accept())run();
+  },{passive:false});
+  button.addEventListener('click',()=>{if(guard.accept())run()});
+}

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {createQuizFocusController} from '../js/quiz-focus.js';
+import {createQuizFocusController,bindQuizSessionStart} from '../js/quiz-focus.js';
 
 function setup({ipad=true,hidden=false,rect={top:320,bottom:374,height:54},focused=false}={}){
   const frames=[],timers=[],scrolls=[],events=[];
@@ -75,4 +75,40 @@ test('session keeps the same direct focus invocation and keyboard listener',()=>
   // Audio button visibility now updates between timer start and focus; both behaviors must remain.
   assert.match(app,/focusAnswerField\(\);startVocabTimer\(\)/);
   assert.match(app,/document\.addEventListener\('keydown',quizFocus\.handleStaleFocusKeydown,true\)/);
+});
+
+test('iPad touchend starts and focuses answer synchronously without waiting for a click',()=>{
+ const callbacks={},options={};
+ const button={addEventListener(name,fn,opt){callbacks[name]=fn;options[name]=opt}};
+ const f=setup(),guard={accept:()=>true};
+ let starts=0;
+ bindQuizSessionStart(button,()=>{starts++;f.ctrl.focusAnswerField()},guard);
+ callbacks.touchstart({touches:[{clientX:40,clientY:90}]});
+ let prevented=false;
+ callbacks.touchend({changedTouches:[{clientX:40,clientY:90}],cancelable:true,preventDefault(){prevented=true}});
+ assert.equal(starts,1);
+ assert.equal(f.doc.activeElement,f.input);
+ assert.equal(prevented,true);
+ assert.equal(options.touchend.passive,false);
+});
+test('touch gesture and synthetic click cannot double-start a session',()=>{
+ const callbacks={},button={addEventListener(name,fn){callbacks[name]=fn}};
+ let starts=0,last=0;
+ const guard={accept(){const now=Date.now();if(now-last<650)return false;last=now;return true}};
+ bindQuizSessionStart(button,()=>{starts++},guard);
+ callbacks.touchstart({touches:[{clientX:10,clientY:20}]});
+ callbacks.touchend({changedTouches:[{clientX:12,clientY:23}],cancelable:true,preventDefault(){}});
+ callbacks.click();
+ assert.equal(starts,1);
+});
+test('scrolling and cancelled touches never accidentally start quiz',()=>{
+ const callbacks={},button={addEventListener(name,fn){callbacks[name]=fn}};
+ let starts=0;
+ bindQuizSessionStart(button,()=>starts++,{accept:()=>true});
+ callbacks.touchstart({touches:[{clientX:10,clientY:20}]});
+ callbacks.touchend({changedTouches:[{clientX:40,clientY:90}],cancelable:true,preventDefault(){}});
+ callbacks.touchstart({touches:[{clientX:10,clientY:20}]});
+ callbacks.touchcancel();
+ callbacks.touchend({changedTouches:[{clientX:10,clientY:20}],cancelable:true,preventDefault(){}});
+ assert.equal(starts,0);
 });

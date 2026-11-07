@@ -10,6 +10,7 @@ function setup({ipad=true,hidden=false,rect={top:320,bottom:374,height:54},focus
   const input={disabled:false,value:'',selectionStart:0,selectionEnd:0,
     getBoundingClientRect:()=>rect,
     focus(){focusCalls++;doc.activeElement=input},
+    blur(){if(doc.activeElement===input)doc.activeElement={tagName:'BODY'}},
     setRangeText(char,start,end){this.value=this.value.slice(0,start)+char+this.value.slice(end);this.selectionStart=this.selectionEnd=start+char.length},
     dispatchEvent(event){events.push(event.type)}
   };
@@ -111,4 +112,21 @@ test('scrolling and cancelled touches never accidentally start quiz',()=>{
  callbacks.touchcancel();
  callbacks.touchend({changedTouches:[{clientX:10,clientY:20}],cancelable:true,preventDefault(){}});
  assert.equal(starts,0);
+});
+
+test('restarting a finished quiz resets the stale hidden input before focusing again',()=>{
+ const f=setup({focused:true,hidden:true});
+ // A finished quiz may leave the hidden answer as document.activeElement.
+ assert.equal(f.doc.activeElement,f.input);
+ f.ctrl.releaseHiddenAnswerFocus();
+ assert.notEqual(f.doc.activeElement,f.input);
+ f.ctrl.focusAnswerField();
+ assert.equal(f.doc.activeElement,f.input);
+ assert.equal(f.focusCalls,1);
+});
+test('restart path releases hidden answer before revealing the new quiz',()=>{
+ const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
+ assert.match(app,/releaseHiddenAnswerFocus\(\);setup\.classList\.add\('hidden'\)/);
+ assert.match(app,/function showFinish\(\)\{clearVocabTimer\(\);hideAnswerNotice\(\);releaseHiddenAnswerFocus\(\)/);
+ assert.match(app,/bindQuizSessionStart\(\$\('#again'\),restartSession,startActionGuard\)/);
 });

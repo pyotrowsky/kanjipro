@@ -27,6 +27,11 @@ export function createQuizFocusController({
       win.scrollBy({top:rect.top-targetTop,behavior:'auto'});
     }))
   }
+  function releaseHiddenAnswerFocus(){
+    // Safari may keep the input as activeElement while its quiz is hidden.
+    // Reopening the same input then looks focused but cannot receive typing.
+    if(doc.activeElement===input){try{input.blur()}catch{}}
+  }
   function focusAnswerField(){
     if(doc.activeElement!==input){
       try{input.focus({preventScroll:true})}catch{input.focus()}
@@ -58,7 +63,7 @@ export function createQuizFocusController({
     input.setRangeText(event.key,start,end,'end');
     input.dispatchEvent(makeInputEvent())
   }
-  return {focusAnswerField,keepAnswerVisible,restoreQuizFocusAfterStart,handleStaleFocusKeydown}
+  return {focusAnswerField,releaseHiddenAnswerFocus,keepAnswerVisible,restoreQuizFocusAfterStart,handleStaleFocusKeydown}
 }
 
 /**

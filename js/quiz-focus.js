@@ -5,11 +5,45 @@ export function createQuizFocusController({
   doc=document,win=window,nav=navigator,
   frame=callback=>requestAnimationFrame(callback),
   later=(callback,ms)=>setTimeout(callback,ms),
-  makeInputEvent=()=>new Event('input',{bubbles:true})
+  makeInputEvent=()=>new Event('input',{bubbles:true}),
+  repeat=(callback,ms)=>setInterval(callback,ms),
+  stopRepeat=id=>clearInterval(id)
 }){
   const isIpadWebkit=/iPad|iPhone|iPod/.test(nav.userAgent)||
     (nav.platform==='MacIntel'&&nav.maxTouchPoints>1);
   let answerVisibilityFramePending=false;
+  let focusGuardId=null;
+  function canRestoreQuizFocus(){
+    if(!isIpadWebkit||doc.hidden||quiz.classList.contains('hidden')||
+      !getCurrent()||isChecked()||input.disabled||input.readOnly||
+      doc.querySelector('#settingsDialog')?.open)return false;
+    const active=doc.activeElement;
+    // Never take input away from another editable control or a dialog.
+    if(active&&active!==input&&(active.isContentEditable||
+      /^(INPUT|TEXTAREA|SELECT)$/.test(active.tagName||'')||
+      active.closest?.('[role="dialog"],dialog')))return false;
+    return true;
+  }
+  function restoreActiveQuizFocus(){
+    if(!canRestoreQuizFocus()||doc.activeElement===input)return;
+    // On iPadOS, Safari may focus the document/body when transitioning views.
+    // A button activated to START/RESTART can also retain DOM focus.
+    const active=doc.activeElement;
+    const allowed=!active||active===doc.body||active===doc.documentElement||
+      active.closest?.('#quiz')||['start','again','reviewStart','reviewBankStart'].includes(active.id);
+    if(allowed)focusAnswerField();
+  }
+  function startFocusGuard(){
+    stopFocusGuard();
+    if(!isIpadWebkit)return;
+    focusGuardId=repeat(restoreActiveQuizFocus,850);
+  }
+  function stopFocusGuard(){
+    if(focusGuardId!==null){stopRepeat(focusGuardId);focusGuardId=null}
+  }
+  function handleFocusEnvironmentChange(){restoreActiveQuizFocus()}
+  function handleAnswerBlur(){later(restoreActiveQuizFocus,90)}
+
   function keepAnswerVisible(){
     if(!isIpadWebkit||answerVisibilityFramePending)return;
     answerVisibilityFramePending=true;
@@ -63,7 +97,8 @@ export function createQuizFocusController({
     input.setRangeText(event.key,start,end,'end');
     input.dispatchEvent(makeInputEvent())
   }
-  return {focusAnswerField,releaseHiddenAnswerFocus,keepAnswerVisible,restoreQuizFocusAfterStart,handleStaleFocusKeydown}
+  return {focusAnswerField,releaseHiddenAnswerFocus,keepAnswerVisible,restoreQuizFocusAfterStart,handleStaleFocusKeydown,
+    startFocusGuard,stopFocusGuard,handleFocusEnvironmentChange,handleAnswerBlur,restoreActiveQuizFocus}
 }
 
 /**

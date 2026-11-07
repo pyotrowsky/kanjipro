@@ -35,7 +35,7 @@ test('post-START reactivation restores first question focus only once',()=>{
   const f=setup();f.ctrl.restoreQuizFocusAfterStart();f.flush();
   for(const item of f.timers)item.fn();
   assert.equal(f.focusCalls,1);
-  assert.deepEqual(f.timers.map(x=>x.ms),[80,220]);
+  assert.deepEqual(f.timers.map(x=>x.ms),[80,220,500]);
   assert.equal(f.doc.activeElement,f.input)
 });
 test('post-START delayed recovery does not steal focus after leaving or changing questions',()=>{
@@ -127,53 +127,15 @@ test('restarting a finished quiz resets the stale hidden input before focusing a
 test('restart path releases hidden answer before revealing the new quiz',()=>{
  const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
  assert.match(app,/releaseHiddenAnswerFocus\(\);setup\.classList\.add\('hidden'\)/);
- assert.match(app,/function showFinish\(\)\{stopFocusGuard\(\);clearVocabTimer\(\);hideAnswerNotice\(\);releaseHiddenAnswerFocus\(\)/);
+ assert.match(app,/function showFinish\(\)\{clearVocabTimer\(\);hideAnswerNotice\(\);releaseHiddenAnswerFocus\(\)/);
  assert.match(app,/bindQuizSessionStart\(\$\('#again'\),restartSession,startActionGuard\)/);
 });
 
-test('focus guard restores iPad hardware typing after missing focus in a review session',()=>{
- const f=setup(),intervals=[],stopped=[];
- // Existing test setup exercises the controller directly; a dedicated fake here
- // makes repeated focus checks deterministic without real timers.
- const doc={hidden:false,body:{tagName:'BODY'},documentElement:{tagName:'HTML'},activeElement:null,querySelector:()=>null};
- doc.activeElement=doc.body;
- const input={disabled:false,readOnly:false,focus(){doc.activeElement=input;this.calls=(this.calls||0)+1}};
- const quiz={classList:{contains:()=>false}};
- const c=createQuizFocusController({input,quiz,getCurrent:()=>({id:1}),isChecked:()=>false,
-  doc,nav:{userAgent:'iPad',platform:'iPad',maxTouchPoints:5},
-  win:{innerHeight:750,scrollBy(){}},frame:()=>{},later:()=>{},
-  repeat:(callback,ms)=>{intervals.push({callback,ms});return intervals.length},
-  stopRepeat:id=>stopped.push(id)});
- c.startFocusGuard();
- assert.equal(intervals[0].ms,850);
- intervals[0].callback();
- assert.equal(doc.activeElement,input);
- assert.equal(input.calls,1);
- intervals[0].callback();
- assert.equal(input.calls,1);
- c.stopFocusGuard();
- assert.deepEqual(stopped,[1]);
-});
-test('focus guard pauses when quiz is hidden, question checked, document hidden or dialog open',()=>{
- const states={hidden:false,checked:false,dialog:false,disabled:false},doc={body:{tagName:'BODY'},documentElement:{tagName:'HTML'},activeElement:null,querySelector:()=>states.dialog?{open:true}:null};
- doc.activeElement=doc.body;
- Object.defineProperty(doc,'hidden',{get:()=>states.hidden});
- const input={disabled:false,readOnly:false,focus(){doc.activeElement=input;this.calls=(this.calls||0)+1}};
- const quiz={classList:{contains:()=>states.hiddenQuiz||false}};
- const c=createQuizFocusController({input,quiz,getCurrent:()=>({}),isChecked:()=>states.checked,
-  doc,nav:{userAgent:'iPad',platform:'iPad',maxTouchPoints:5},win:{innerHeight:750},frame:()=>{},later:()=>{}});
- for(const blocked of ['hidden','checked','dialog','hiddenQuiz']){
-   states[blocked]=true;c.restoreActiveQuizFocus();assert.notEqual(doc.activeElement,input,blocked);states[blocked]=false;
- }
- input.disabled=true;c.restoreActiveQuizFocus();assert.notEqual(doc.activeElement,input);
- input.disabled=false;
- doc.activeElement={tagName:'INPUT'};c.restoreActiveQuizFocus();assert.notEqual(doc.activeElement,input);
-});
-test('quiz starts and exits consistently manage the iPad focus guard',()=>{
+test('regression: never run a recurring focus-stealing loop on iPadOS',()=>{
+ const controller=readFileSync(new URL('../js/quiz-focus.js',import.meta.url),'utf8');
  const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
- assert.match(app,/quiz\.classList\.remove\('hidden'\);startFocusGuard\(\)/);
- assert.match(app,/function showReviewBank\(\)\{stopFocusGuard\(\)/);
- assert.match(app,/function showFinish\(\)\{stopFocusGuard\(\)/);
- assert.match(app,/input\.addEventListener\('blur',quizFocus\.handleAnswerBlur\)/);
- assert.match(app,/document\.addEventListener\('visibilitychange',quizFocus\.handleFocusEnvironmentChange\)/);
+ assert.doesNotMatch(controller,/setInterval\(|startFocusGuard|restoreActiveQuizFocus/);
+ assert.doesNotMatch(app,/startFocusGuard|stopFocusGuard|handleFocusEnvironmentChange/);
+ assert.match(app,/bindQuizSessionStart\(\$\('#reviewBankStart'\),startReview,startActionGuard\)/);
+ assert.match(app,/bindQuizSessionStart\(\$\('#again'\),restartSession,startActionGuard\)/);
 });

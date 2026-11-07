@@ -127,7 +127,7 @@ test('restarting a finished quiz resets the stale hidden input before focusing a
 test('restart path releases hidden answer before revealing the new quiz',()=>{
  const app=readFileSync(new URL('../js/app.js',import.meta.url),'utf8');
  assert.match(app,/releaseHiddenAnswerFocus\(\);setup\.classList\.add\('hidden'\)/);
- assert.match(app,/function showFinish\(\)\{clearVocabTimer\(\);hideAnswerNotice\(\);releaseHiddenAnswerFocus\(\)/);
+ assert.match(app,/function showFinish\(\)\{stopFocusGuard\(\);clearVocabTimer\(\);hideAnswerNotice\(\);releaseHiddenAnswerFocus\(\)/);
  assert.match(app,/bindQuizSessionStart\(\$\('#again'\),restartSession,startActionGuard\)/);
 });
 

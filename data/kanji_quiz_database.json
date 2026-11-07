@@ -4,15 +4,15 @@
     "name": "WSJJ Kanji.pro database",
     "source": "Anki exports in imports/",
     "kanji_count": 272,
-    "vocabulary_entries": 1745,
-    "source_vocabulary_notes": 1744,
-    "vocabulary_source_total": 2985,
-    "vocabulary_excluded_no_tracked_kanji": 1241,
+    "vocabulary_entries": 1757,
+    "source_vocabulary_notes": 1756,
+    "vocabulary_source_total": 3016,
+    "vocabulary_excluded_no_tracked_kanji": 1260,
     "slash_combined_notes_split": 1,
     "quiz_lessons": 18,
     "cleaned_vocabulary_records": 64,
     "ambiguous_surface_multiple_readings": 15,
-    "source_max_modified": 1793786913,
+    "source_max_modified": 1794048275,
     "rules": {
       "knownKanji_field": "ignored",
       "course_kanji_source": "imports/kanji.csv only",
@@ -110,7 +110,7 @@
       "lesson": "2-11",
       "lesson_order": 11,
       "kanji_count": 15,
-      "vocabulary_source_count": 80
+      "vocabulary_source_count": 88
     },
     {
       "book": 2,
@@ -118,7 +118,7 @@
       "lesson": "2-12",
       "lesson_order": 12,
       "kanji_count": 15,
-      "vocabulary_source_count": 142
+      "vocabulary_source_count": 146
     },
     {
       "book": 2,
@@ -5607,8 +5607,8 @@
       "audio": "[sound:hypertts-e29284cee99d6f2884ccb9bbf150bc4542fe1bbb7ed7e73c32a3c99a.mp3]",
       "audio_onyomi": "[sound:hypertts-563faad898c873483eafff302b0fa9c04cf6fd9400ca313b634258a3.mp3]",
       "audio_kunyomi": "[sound:hypertts-106eda666abcb98d3843731950dc89f217d6f71d3d2a6fba4023d29e.mp3]",
-      "source_tags": "Doki Doki2-12 Kanji weryfikacja",
-      "last_modified": 1793287573
+      "source_tags": "Doki Doki2-12 Kanji",
+      "last_modified": 1794046404
     },
     {
       "note_id": "1781679839111",
@@ -5926,10 +5926,10 @@
       "diagram": "\"<img src=\"\"05e97.svg\"\">\"",
       "stroke_order_gif": "\"<img src=\"\"_kanjipro_kvg_05e97_spectrum_200_21_v9.gif\"\">\"",
       "audio": "[sound:hypertts-7120ead8be524d769009f12b1cc185f9352b81911b975fcd418f1714.mp3]",
-      "audio_onyomi": "[sound:hypertts-b5d1744a2a654081ca8fea1709db2a706b1a655970b8f1c37f9bf78c.mp3]",
+      "audio_onyomi": "[sound:hypertts-2d8100b8b310d9a40eadd6606015065c9ede5b8ab5bfebd840f84c58.mp3]",
       "audio_kunyomi": "[sound:hypertts-07fd88f133e75278d58d78b3f8bd42b84996ba27601c0d1c6928d4a0.mp3]",
-      "source_tags": "Doki Doki2-12 Kanji",
-      "last_modified": 1793287573
+      "source_tags": "Doki Doki2-12 Kanji weryfikacja",
+      "last_modified": 1794046487
     },
     {
       "note_id": "1781679839119",
@@ -55474,8 +55474,8 @@
       "audio_dictionary": "[sound:地震_ジシン━_0_NHK-2016.mp3]",
       "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ジ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">シン</span> <span class=\"\"pitch_number\"\">0</span>\"",
       "source_note_type": "triple_cards",
-      "source_tags": "AIrefactored Doki Doki1-6 male_voice",
-      "last_modified": 1793452773,
+      "source_tags": "AIrefactored Doki Doki1-6 leech male_voice",
+      "last_modified": 1793974375,
       "needs_surface_review": false
     },
     {
@@ -60420,8 +60420,8 @@
       "audio_dictionary": "[sound:練習する_レンシュウスル_TAAS.mp3] [sound:練習する_レンシュウスル_TAAS(1).mp3]",
       "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">レ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ンシュウスル</span> <span class=\"\"pitch_number\"\">0</span>\"",
       "source_note_type": "triple_cards_new",
-      "source_tags": "Doki Doki2-7",
-      "last_modified": 1781521188,
+      "source_tags": "Doki Doki2-7 leech",
+      "last_modified": 1793971706,
       "needs_surface_review": false
     },
     {
@@ -80644,14 +80644,14 @@
       "example_pl": "W Japonii jest osiem milionów (niezliczona ilość) bóstw.",
       "verb_form_affirmative": "",
       "verb_form_negative": "",
-      "notes": "rzeczownik. Dosłownie &quot;osiem milionów&quot;, ale w japońskiej kulturze (zwłaszcza w Shinto) używane jako metafora oznaczająca &quot;niezliczoną ilość&quot; bóstw.",
+      "notes": "\"rzeczownik. Dosłownie \"\"osiem milionów\"\", ale w japońskiej kulturze (zwłaszcza w Shinto) używane jako metafora oznaczająca \"\"niezliczoną ilość\"\" bóstw.\"",
       "audio": "[sound:hypertts-146c2bd06ca59153248e780cd79daf9a14631330d54ba5e9fb8e4ff9.mp3]",
       "example_audio": "[sound:hypertts-b16d88f52bb58e7eb77d61be9067e843365074e1ab691376a189a3f0.mp3]",
       "audio_dictionary": "[sound:八百万_ヤオヨロズ━_0_NHK-2016.mp3]",
       "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ヤ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">オヨロズ</span> <span class=\"\"pitch_number\"\">0</span>, <span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ヤ</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">オヨ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ロズ</span> <span class=\"\"pitch_number\"\">3</span>\"",
       "source_note_type": "triple_cards_new",
       "source_tags": "Doki Doki2-12",
-      "last_modified": 1781696258,
+      "last_modified": 1794046042,
       "needs_surface_review": false
     },
     {
@@ -127795,6 +127795,956 @@
       "source_note_type": "triple_cards_new",
       "source_tags": "AICreated Doki Doki2-12",
       "last_modified": 1793786357,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794043871491",
+      "source_note_id": "1794043871491",
+      "surface": "鼻が高い",
+      "display_surface": "鼻が高い",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "鼻[はな]が高[たか]い",
+      "furigana_segments": [
+        {
+          "text": "鼻",
+          "reading": "はな",
+          "kanji": [
+            "鼻"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "が",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "高",
+          "reading": "たか",
+          "kanji": [
+            "高"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 7,
+          "hide_from_lesson": "2-7"
+        },
+        {
+          "text": "い",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "はながたかい",
+      "accepted_readings": [
+        "はながたかい"
+      ],
+      "romaji": "hana ga takai",
+      "polish": "być dumnym",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "鼻",
+        "高"
+      ],
+      "tracked_kanji": [
+        "高"
+      ],
+      "untracked_kanji": [
+        "鼻"
+      ],
+      "example_furigana": "息[むす] 子[こ]が 賞[しょう]をもらって 鼻[はな]が 高[たか]いです。",
+      "example_plain": "息子が賞をもらって鼻が高いです。",
+      "example_pl": "Jestem dumny, ponieważ mój syn otrzymał nagrodę.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "i-adj; idiom oznaczający dumę z czyjegoś osiągnięcia.",
+      "audio": "[sound:hypertts-cfc57558d881e2fa67ce39abe01b15df5401613982e6a3c5437292e5.mp3]",
+      "example_audio": "[sound:hypertts-4973c6fa0d594c35a2c35626b87a161737d291be644acfd64b37164e.mp3]",
+      "audio_dictionary": "[sound:鼻が高い_ハナガタカイ_japanesepod101.mp3]<br>[sound:鼻が高い_ハナガタカイ_japanesepod101(1).mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ハ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ナガタカイ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-11",
+      "last_modified": 1794044682,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794043871492",
+      "source_note_id": "1794043871492",
+      "surface": "鼻で笑う",
+      "display_surface": "鼻で笑う",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "鼻[はな]で笑[わら]う",
+      "furigana_segments": [
+        {
+          "text": "鼻",
+          "reading": "はな",
+          "kanji": [
+            "鼻"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "で",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "笑",
+          "reading": "わら",
+          "kanji": [
+            "笑"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 20,
+          "hide_from_lesson": "3-20"
+        },
+        {
+          "text": "う",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "はなでわらう",
+      "accepted_readings": [
+        "はなでわらう"
+      ],
+      "romaji": "hana de warau",
+      "polish": "śmiać się pogardliwie, prychać z pogardą",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "鼻",
+        "笑"
+      ],
+      "tracked_kanji": [
+        "笑"
+      ],
+      "untracked_kanji": [
+        "鼻"
+      ],
+      "example_furigana": "彼[かれ]は 私[わたし]の 計[けい] 画[かく]を 鼻[はな]で 笑[わら]った。",
+      "example_plain": "彼は私の計画を鼻で笑った。",
+      "example_pl": "Wyśmiał pogardliwie mój plan.",
+      "verb_form_affirmative": "鼻[はな]で 笑[わら]います",
+      "verb_form_negative": "鼻[はな]で 笑[わら]いません",
+      "notes": "Czasownik gr. 1; idiom wyraża lekceważenie lub pogardę.",
+      "audio": "[sound:hypertts-47233adaf3c09411b31fd17943893e2cf532814c0ba43fd325c9c8e2.mp3]",
+      "example_audio": "[sound:hypertts-e11b4bdd88117af0736ddb8378efc4c3e43406f46552b425d89ca707.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-11",
+      "last_modified": 1794044682,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794043871493",
+      "source_note_id": "1794043871493",
+      "surface": "頭を下げる",
+      "display_surface": "頭を下げる",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "頭[あたま]を下[さ]げる",
+      "furigana_segments": [
+        {
+          "text": "頭",
+          "reading": "あたま",
+          "kanji": [
+            "頭"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "を",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "下",
+          "reading": "さ",
+          "kanji": [
+            "下"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 4,
+          "hide_from_lesson": "1-4"
+        },
+        {
+          "text": "げる",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "あたまをさげる",
+      "accepted_readings": [
+        "あたまをさげる"
+      ],
+      "romaji": "atama o sageru",
+      "polish": "ukłonić się, okazać szacunek lub skruchę",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "頭",
+        "下"
+      ],
+      "tracked_kanji": [
+        "下"
+      ],
+      "untracked_kanji": [
+        "頭"
+      ],
+      "example_furigana": "先[せん] 生[せい]に 頭[あたま]を 下[さ]げました。",
+      "example_plain": "先生に頭を下げました。",
+      "example_pl": "Ukłoniłem się nauczycielowi.",
+      "verb_form_affirmative": "頭[あたま]を 下[さ]げます",
+      "verb_form_negative": "頭[あたま]を 下[さ]げません",
+      "notes": "Czasownik gr. 2; może oznaczać ukłon, przeprosiny albo pokorne zwrócenie się do kogoś.",
+      "audio": "[sound:hypertts-dbc16a608c682726c4ff375e92d8628d4b5f55208a68db10973868e5.mp3]",
+      "example_audio": "[sound:hypertts-150dc70fb2aff65c6649e99d6fac0f8da740cf9085fed83821406e1c.mp3]",
+      "audio_dictionary": "[sound:頭を下げる_アタマヲサゲル_japanesepod101.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ア</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">タマヲサゲル</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-11",
+      "last_modified": 1794044682,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794043871495",
+      "source_note_id": "1794043871495",
+      "surface": "目に見える",
+      "display_surface": "目に見える",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "目[め]に見[み]える",
+      "furigana_segments": [
+        {
+          "text": "目",
+          "reading": "め",
+          "kanji": [
+            "目"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 18,
+          "hide_from_lesson": "3-18"
+        },
+        {
+          "text": "に",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "見",
+          "reading": "み",
+          "kanji": [
+            "見"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 5,
+          "hide_from_lesson": "1-5"
+        },
+        {
+          "text": "える",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "めにみえる",
+      "accepted_readings": [
+        "めにみえる"
+      ],
+      "romaji": "me ni mieru",
+      "polish": "być widocznym, wyraźnie zauważalnym",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "目",
+        "見"
+      ],
+      "tracked_kanji": [
+        "目",
+        "見"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "目[め]に 見[み]えて、 日[に] 本[ほん] 語[ご]が 上[じょう] 手[ず]になりました。",
+      "example_plain": "目に見えて、日本語が上手になりました。",
+      "example_pl": "Moja znajomość japońskiego wyraźnie się poprawiła.",
+      "verb_form_affirmative": "目[め]に 見[み]えます",
+      "verb_form_negative": "目[め]に 見[み]えません",
+      "notes": "Czasownik gr. 2; 目に見えて jako przysłówek znaczy wyraźnie, w zauważalny sposób.",
+      "audio": "[sound:hypertts-3e0622384816a9d2d502683f38bc6fe7c3d366295242ff77b06e9c7e.mp3]",
+      "example_audio": "[sound:hypertts-d69ca684a422f01f60933e080568c528045af574ec3281560580f169.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-11",
+      "last_modified": 1794046219,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794043871496",
+      "source_note_id": "1794043871496",
+      "surface": "目を通す",
+      "display_surface": "目を通す",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "目[め]を通[とお]す",
+      "furigana_segments": [
+        {
+          "text": "目",
+          "reading": "め",
+          "kanji": [
+            "目"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 18,
+          "hide_from_lesson": "3-18"
+        },
+        {
+          "text": "を",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "通",
+          "reading": "とお",
+          "kanji": [
+            "通"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 15,
+          "hide_from_lesson": "3-15"
+        },
+        {
+          "text": "す",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "めをとおす",
+      "accepted_readings": [
+        "めをとおす"
+      ],
+      "romaji": "me o toosu",
+      "polish": "przejrzeć coś, rzucić okiem",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "目",
+        "通"
+      ],
+      "tracked_kanji": [
+        "目",
+        "通"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "レポートに 目[め]を 通[とお]してください。",
+      "example_plain": "レポートに目を通してください。",
+      "example_pl": "Proszę przejrzeć raport.",
+      "verb_form_affirmative": "目[め]を 通[とお]します",
+      "verb_form_negative": "目[め]を 通[とお]しません",
+      "notes": "Czasownik gr. 1; oznacza pobieżne przeczytanie lub sprawdzenie tekstu.",
+      "audio": "[sound:hypertts-9be65480eb0a2bc23fba0af73ef6ce989a927694f5897a7ae6832d7c.mp3]",
+      "example_audio": "[sound:hypertts-a0b699992fdd4ef1c1d0fce23903f83fd6ddaf1a034de815f81c8422.mp3]",
+      "audio_dictionary": "[sound:目を通す_メヲトオス_japanesepod101.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">メ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ヲトオス</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-11",
+      "last_modified": 1794044682,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794043871497",
+      "source_note_id": "1794043871497",
+      "surface": "耳が痛い",
+      "display_surface": "耳が痛い",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "耳[みみ]が痛[いた]い",
+      "furigana_segments": [
+        {
+          "text": "耳",
+          "reading": "みみ",
+          "kanji": [
+            "耳"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "が",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "痛",
+          "reading": "いた",
+          "kanji": [
+            "痛"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 20,
+          "hide_from_lesson": "3-20"
+        },
+        {
+          "text": "い",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "みみがいたい",
+      "accepted_readings": [
+        "みみがいたい"
+      ],
+      "romaji": "mimi ga itai",
+      "polish": "bolesna prawda, coś trafiającego w czuły punkt",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "耳",
+        "痛"
+      ],
+      "tracked_kanji": [
+        "痛"
+      ],
+      "untracked_kanji": [
+        "耳"
+      ],
+      "example_furigana": "ダイエットの 話[はなし]は 耳[みみ]が 痛[いた]い。",
+      "example_plain": "ダイエットの話は耳が痛い。",
+      "example_pl": "Rozmowy o diecie są dla mnie bolesną prawdą.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "i-adj; idiom używany, gdy czyjaś uwaga jest przykra, ponieważ jest trafna.",
+      "audio": "[sound:hypertts-0e257d762bb1f8f0aac5cf445d6c62d6c371737f9243b40975c0a12c.mp3]",
+      "example_audio": "[sound:hypertts-91e252cbeef814f2e9ad8539dff69d7ad3db628cfb49eda5de4d2282.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ミ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ミガイタイ</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-11",
+      "last_modified": 1794044682,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794043871499",
+      "source_note_id": "1794043871499",
+      "surface": "手を貸す",
+      "display_surface": "手を貸す",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "手[て]を貸[か]す",
+      "furigana_segments": [
+        {
+          "text": "手",
+          "reading": "て",
+          "kanji": [
+            "手"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 11,
+          "hide_from_lesson": "2-11"
+        },
+        {
+          "text": "を",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "貸",
+          "reading": "か",
+          "kanji": [
+            "貸"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 15,
+          "hide_from_lesson": "3-15"
+        },
+        {
+          "text": "す",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "てをかす",
+      "accepted_readings": [
+        "てをかす"
+      ],
+      "romaji": "te o kasu",
+      "polish": "pomóc komuś, podać pomocną dłoń",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "手",
+        "貸"
+      ],
+      "tracked_kanji": [
+        "手",
+        "貸"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "手[て]を 貸[か]してください。",
+      "example_plain": "手を貸してください。",
+      "example_pl": "Proszę mi pomóc.",
+      "verb_form_affirmative": "手[て]を 貸[か]します",
+      "verb_form_negative": "手[て]を 貸[か]しません",
+      "notes": "Czasownik gr. 1; idiom oznaczający udzielenie komuś pomocy.",
+      "audio": "[sound:hypertts-24eaadaf5262243b9d5e63ea27c306b6af05cb33cbabd2e59bc6d1e1.mp3]",
+      "example_audio": "[sound:hypertts-614ea4871f2bc5cb7e1f89855d4d2cf7158e6d22a80cd9a9e28d3945.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">テ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ヲカス</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-11",
+      "last_modified": 1794044682,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794043871500",
+      "source_note_id": "1794043871500",
+      "surface": "手に入れる",
+      "display_surface": "手に入れる",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "手[て]に入[い]れる",
+      "furigana_segments": [
+        {
+          "text": "手",
+          "reading": "て",
+          "kanji": [
+            "手"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 11,
+          "hide_from_lesson": "2-11"
+        },
+        {
+          "text": "に",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "入",
+          "reading": "い",
+          "kanji": [
+            "入"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 6,
+          "hide_from_lesson": "1-6"
+        },
+        {
+          "text": "れる",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "てにいれる",
+      "accepted_readings": [
+        "てにいれる"
+      ],
+      "romaji": "te ni ireru",
+      "polish": "zdobyć, wejść w posiadanie",
+      "book": 2,
+      "chapter": 11,
+      "lesson": "2-11",
+      "lesson_order": 11,
+      "all_kanji": [
+        "手",
+        "入"
+      ],
+      "tracked_kanji": [
+        "手",
+        "入"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "やっと 欲[ほ]しかった 本[ほん]を 手[て]に 入[い]れた。",
+      "example_plain": "やっと欲しかった本を手に入れた。",
+      "example_pl": "W końcu zdobyłem książkę, którą chciałem.",
+      "verb_form_affirmative": "手[て]に 入[い]れます",
+      "verb_form_negative": "手[て]に 入[い]れません",
+      "notes": "Czasownik gr. 2; oznacza zdobycie lub uzyskanie czegoś pożądanego.",
+      "audio": "[sound:hypertts-70fa229e2a00b80245f72a6396362ebd7ba053e5bcc376a1f726c799.mp3]",
+      "example_audio": "[sound:hypertts-6ade32f3df1906d56f1b4de846476496e1251e77fade4dd4c10f0ab7.mp3]",
+      "audio_dictionary": "[sound:手に入れる_テニイレル_japanesepod101.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">テ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">ニイレル</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-11",
+      "last_modified": 1794044682,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794047526794",
+      "source_note_id": "1794047526794",
+      "surface": "集まる",
+      "display_surface": "集まる",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "集[あつ]まる",
+      "furigana_segments": [
+        {
+          "text": "集",
+          "reading": "あつ",
+          "kanji": [
+            "集"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 17,
+          "hide_from_lesson": "3-17"
+        },
+        {
+          "text": "まる",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "あつまる",
+      "accepted_readings": [
+        "あつまる"
+      ],
+      "romaji": "atsumaru",
+      "polish": "zbierać się, gromadzić się",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "集"
+      ],
+      "tracked_kanji": [
+        "集"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "祭[まつ]りに 大[おお] 勢[ぜい]の 人[ひと]が 集[あつ]まります。",
+      "example_plain": "祭りに大勢の人が集まります。",
+      "example_pl": "Na festiwalu gromadzi się wiele osób.",
+      "verb_form_affirmative": "集[あつ]まります",
+      "verb_form_negative": "集[あつ]まりません",
+      "notes": "Czasownik gr. 1, nieprzechodni. Przechodnim odpowiednikiem jest 集める, czyli zbierać coś lub kogoś.",
+      "audio": "[sound:hypertts-dbf052c256bb21d1c412349436b2eb4a05e6f570e2653226d4cc751c.mp3]",
+      "example_audio": "[sound:hypertts-77c0329fe0a3b8c64eb2206b570ac8c22660440e88f0e60e205e251a.mp3]",
+      "audio_dictionary": "[sound:集まる_アツマ＼ル_3_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">ア</span><span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">ツマ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">ル</span> <span class=\"\"pitch_number\"\">3</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1794048247,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794047526795",
+      "source_note_id": "1794047526795",
+      "surface": "行われる",
+      "display_surface": "行われる",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "行[おこな]われる",
+      "furigana_segments": [
+        {
+          "text": "行",
+          "reading": "おこな",
+          "kanji": [
+            "行"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 5,
+          "hide_from_lesson": "1-5"
+        },
+        {
+          "text": "われる",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "おこなわれる",
+      "accepted_readings": [
+        "おこなわれる"
+      ],
+      "romaji": "okonawareru",
+      "polish": "odbywać się, być przeprowadzanym",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "行"
+      ],
+      "tracked_kanji": [
+        "行"
+      ],
+      "untracked_kanji": [],
+      "example_furigana": "この 祭[まつ]りは 毎[まい] 年[とし] 八[はち] 月[がつ]に 行[おこな]われます。",
+      "example_plain": "この祭りは毎年八月に行われます。",
+      "example_pl": "Ten festiwal odbywa się co roku w sierpniu.",
+      "verb_form_affirmative": "行[おこな]われます",
+      "verb_form_negative": "行[おこな]われません",
+      "notes": "Forma bierna czasownika 行う. Często używana o wydarzeniach, ceremoniach, zawodach i zebraniach.",
+      "audio": "[sound:hypertts-e2f34fba1f9d256cfbddd14a4b83a138942b910a9d441e3b40c2822a.mp3]",
+      "example_audio": "[sound:hypertts-26dc23b15af5c6751c9a5fc8f555acdbbdbf5cd470e824c1b151446b.mp3]",
+      "audio_dictionary": "[sound:行われる_オコナワレル━_0_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px -2px 0 0 #FF6633;\"\">オ</span><span style=\"\"box-shadow: inset 0px 2px 0 0px #FF6633;\"\">コナワレル</span> <span class=\"\"pitch_number\"\">0</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1794048247,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794047526798",
+      "source_note_id": "1794047526798",
+      "surface": "獅子",
+      "display_surface": "獅子",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "獅[し]子[し]",
+      "furigana_segments": [
+        {
+          "text": "獅",
+          "reading": "し",
+          "kanji": [
+            "獅"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "子",
+          "reading": "し",
+          "kanji": [
+            "子"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 7,
+          "hide_from_lesson": "2-7"
+        }
+      ],
+      "reading": "しし",
+      "accepted_readings": [
+        "しし"
+      ],
+      "romaji": "shishi",
+      "polish": "lew, ceremonialny lew",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "獅",
+        "子"
+      ],
+      "tracked_kanji": [
+        "子"
+      ],
+      "untracked_kanji": [
+        "獅"
+      ],
+      "example_furigana": "祭[まつ]りで 獅[し] 子[し]が 踊[おど]ります。",
+      "example_plain": "祭りで獅子が踊ります。",
+      "example_pl": "Podczas festiwalu tańczy ceremonialny lew.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Rzeczownik. W kontekście festiwali chodzi o lwa znanego z 獅子舞.",
+      "audio": "[sound:hypertts-ba967d963829740b73197de933be13b5465e263f3d71446279fbed50.mp3]",
+      "example_audio": "[sound:hypertts-7c71c4026d4ac60d683e33bf645434156087c5a95e4729b93161c4cc.mp3]",
+      "audio_dictionary": "[sound:獅子_シ＼シ_1_nhk-2016.mp3]",
+      "pitch_accent_html": "\"<span style=\"\"box-shadow: inset -2px 2px 0 0px #FF6633;\"\">シ</span><span style=\"\"box-shadow: inset 0px -2px 0 0px #FF6633;\"\">シ</span> <span class=\"\"pitch_number\"\">1</span>\"",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1794048275,
+      "needs_surface_review": false
+    },
+    {
+      "note_id": "1794047526800",
+      "source_note_id": "1794047526800",
+      "surface": "ユネスコの無形文化遺産",
+      "display_surface": "ユネスコの無形文化遺産",
+      "pattern_prefix": "",
+      "pattern_suffix": "",
+      "furigana_markup": "ユネスコの無[む]形[けい]文[ぶん]化[か]遺[い]産[さん]",
+      "furigana_segments": [
+        {
+          "text": "ユネスコの",
+          "reading": null,
+          "kanji": [],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "無",
+          "reading": "む",
+          "kanji": [
+            "無"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 20,
+          "hide_from_lesson": "3-20"
+        },
+        {
+          "text": "形",
+          "reading": "けい",
+          "kanji": [
+            "形"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "文",
+          "reading": "ぶん",
+          "kanji": [
+            "文"
+          ],
+          "always_show_furigana": false,
+          "hide_from_lesson_order": 7,
+          "hide_from_lesson": "2-7"
+        },
+        {
+          "text": "化",
+          "reading": "か",
+          "kanji": [
+            "化"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "遺",
+          "reading": "い",
+          "kanji": [
+            "遺"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        },
+        {
+          "text": "産",
+          "reading": "さん",
+          "kanji": [
+            "産"
+          ],
+          "always_show_furigana": true,
+          "hide_from_lesson_order": null,
+          "hide_from_lesson": null
+        }
+      ],
+      "reading": "ユネスコのむけいぶんかいさん",
+      "accepted_readings": [
+        "ゆねすこのむけいぶんかいさん"
+      ],
+      "romaji": "Yunesuko no mukei bunka isan",
+      "polish": "niematerialne dziedzictwo kulturowe UNESCO",
+      "book": 2,
+      "chapter": 12,
+      "lesson": "2-12",
+      "lesson_order": 12,
+      "all_kanji": [
+        "無",
+        "形",
+        "文",
+        "化",
+        "遺",
+        "産"
+      ],
+      "tracked_kanji": [
+        "無",
+        "文"
+      ],
+      "untracked_kanji": [
+        "形",
+        "化",
+        "遺",
+        "産"
+      ],
+      "example_furigana": "この 祭[まつ]りはユネスコの 無[む] 形[けい] 文[ぶん] 化[か] 遺[い] 産[さん]です。",
+      "example_plain": "この祭りはユネスコの無形文化遺産です。",
+      "example_pl": "Ten festiwal jest niematerialnym dziedzictwem kulturowym UNESCO.",
+      "verb_form_affirmative": "",
+      "verb_form_negative": "",
+      "notes": "Oficjalne określenie tradycji, praktyk i umiejętności uznanych przez UNESCO za niematerialne dziedzictwo kulturowe.",
+      "audio": "[sound:hypertts-a598062b0bab61115b78ff5dcd75b97b22ed7041cff4ea92d8779129.mp3]",
+      "example_audio": "[sound:hypertts-ff3af781f71014e733ef3a9c96b3856209b6326fb4721721b26c8d76.mp3]",
+      "audio_dictionary": "",
+      "pitch_accent_html": "",
+      "source_note_type": "triple_cards_new",
+      "source_tags": "AICreated Doki Doki2-12",
+      "last_modified": 1794048204,
       "needs_surface_review": false
     }
   ],

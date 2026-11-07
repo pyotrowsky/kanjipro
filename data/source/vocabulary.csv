@@ -673,7 +673,7 @@
 1777719811544,1777719811544,東南アジア,東南アジア,,,東[とう]南[なん]アジア,とうなんアジア,とうなんあじあ,tōnan ajia,Azja Południowo-Wschodnia,1,6,1-6,6,東 南,,triple_cards,AIrefactored Doki Doki1-6 male_voice
 1777719811546,1777719811546,南口,南口,,,南[みなみ]口[ぐち],みなみぐち,みなみぐち,minamiguchi,wyjście południowe,1,6,1-6,6,南 口,,triple_cards,AIrefactored Doki Doki1-6 male_voice
 1777719811547,1777719811547,東北地方,東北地方,,,東[とう]北[ほく]地[ち]方[ほう],とうほくちほう,とうほくちほう,tōhoku chihō,region Tohoku,1,6,1-6,6,東 北 地 方,,triple_cards,AIrefactored Doki Doki1-6 male_voice
-1777719811548,1777719811548,地震,地震,,,地[じ]震[しん],じしん,じしん,jishin,trzęsienie ziemi,1,6,1-6,6,地,震,triple_cards,AIrefactored Doki Doki1-6 male_voice
+1777719811548,1777719811548,地震,地震,,,地[じ]震[しん],じしん,じしん,jishin,trzęsienie ziemi,1,6,1-6,6,地,震,triple_cards,AIrefactored Doki Doki1-6 leech male_voice
 1777719811550,1777719811550,外出,外出,,,外[がい]出[しゅつ],がいしゅつ,がいしゅつ,gaishutsu,wyjście z domu,1,6,1-6,6,外 出,,triple_cards,AIrefactored Doki Doki1-6 male_voice
 1777719811551,1777719811551,出席,出席,,,出[しゅっ]席[せき],しゅっせき,しゅっせき,shusseki,obecność,1,6,1-6,6,出,席,triple_cards,AIrefactored Doki Doki1-6 male_voice
 1777719811552,1777719811552,出口,出口,,,出[で]口[ぐち],でぐち,でぐち,deguchi,wyjście,1,6,1-6,6,出 口,,triple_cards,AIrefactored Doki Doki1-6 female_voice
@@ -746,7 +746,7 @@
 1781519740994,1781519740994,持っていく,持っていく,,,持[も]っていく,もっていく,もっていく,motteiku,zabrać ze sobą (rzecz),2,7,2-7,7,持,,triple_cards_new,Doki Doki2-7
 1781519741005,1781519741005,連絡する,連絡する,,,連[れん]絡[らく]する,れんらくする,れんらくする,renrakusuru,kontaktować się,2,7,2-7,7,連,絡,triple_cards_new,Doki Doki2-7
 1781519741007,1781519741007,運動する,運動する,,,運[うん]動[どう]する,うんどうする,うんどうする,undōsuru,ćwiczyć fizycznie,2,7,2-7,7,運 動,,triple_cards_new,Doki Doki2-7
-1781519741009,1781519741009,練習する,練習する,,,練[れん]習[しゅう]する,れんしゅうする,れんしゅうする,renshūsuru,ćwiczyć (trenować),2,7,2-7,7,習,練,triple_cards_new,Doki Doki2-7
+1781519741009,1781519741009,練習する,練習する,,,練[れん]習[しゅう]する,れんしゅうする,れんしゅうする,renshūsuru,ćwiczyć (trenować),2,7,2-7,7,習,練,triple_cards_new,Doki Doki2-7 leech
 1781519741011,1781519741011,笑う,笑う,,,笑[わら]う,わらう,わらう,warau,śmiać się,2,7,2-7,7,笑,,triple_cards_new,Doki Doki2-7
 1781519741019,1781519741019,楽しみ,楽しみ,,,楽[たの]しみ,たのしみ,たのしみ,tanoshimi,"czekający z niecierpliwością, wyczekiwany",2,7,2-7,7,楽,,triple_cards_new,Doki Doki2-7
 1781519741020,1781519741020,普通,普通,,,普[ふ]通[つう],ふつう,ふつう,futsū,"zwykły, normalny",2,7,2-7,7,通,普,triple_cards_new,Doki Doki2-7
@@ -1744,3 +1744,15 @@
 1793786069141,1793786069141,心がける,心がける,,,心[こころ]がける,こころがける,こころがける,kokorogakeru,"starać się pamiętać o czymś, mieć coś na uwadze",2,12,2-12,12,心,,triple_cards_new,AICreated Doki Doki2-12
 1793786069142,1793786069142,中心,中心,,,中[ちゅう]心[しん],ちゅうしん,ちゅうしん,chuushin,"centrum, środek",2,12,2-12,12,中 心,,triple_cards_new,AICreated Doki Doki2-12
 1793786069143,1793786069143,心地,心地,,,心[ここ]地[ち],ここち,ここち,kokochi,"odczucie, samopoczucie, wrażenie",2,12,2-12,12,心 地,,triple_cards_new,AICreated Doki Doki2-12
+1794043871491,1794043871491,鼻が高い,鼻が高い,,,鼻[はな]が高[たか]い,はながたかい,はながたかい,hana ga takai,być dumnym,2,11,2-11,11,高,鼻,triple_cards_new,AICreated Doki Doki2-11
+1794043871492,1794043871492,鼻で笑う,鼻で笑う,,,鼻[はな]で笑[わら]う,はなでわらう,はなでわらう,hana de warau,"śmiać się pogardliwie, prychać z pogardą",2,11,2-11,11,笑,鼻,triple_cards_new,AICreated Doki Doki2-11
+1794043871493,1794043871493,頭を下げる,頭を下げる,,,頭[あたま]を下[さ]げる,あたまをさげる,あたまをさげる,atama o sageru,"ukłonić się, okazać szacunek lub skruchę",2,11,2-11,11,下,頭,triple_cards_new,AICreated Doki Doki2-11
+1794043871495,1794043871495,目に見える,目に見える,,,目[め]に見[み]える,めにみえる,めにみえる,me ni mieru,"być widocznym, wyraźnie zauważalnym",2,11,2-11,11,目 見,,triple_cards_new,AICreated Doki Doki2-11
+1794043871496,1794043871496,目を通す,目を通す,,,目[め]を通[とお]す,めをとおす,めをとおす,me o toosu,"przejrzeć coś, rzucić okiem",2,11,2-11,11,目 通,,triple_cards_new,AICreated Doki Doki2-11
+1794043871497,1794043871497,耳が痛い,耳が痛い,,,耳[みみ]が痛[いた]い,みみがいたい,みみがいたい,mimi ga itai,"bolesna prawda, coś trafiającego w czuły punkt",2,11,2-11,11,痛,耳,triple_cards_new,AICreated Doki Doki2-11
+1794043871499,1794043871499,手を貸す,手を貸す,,,手[て]を貸[か]す,てをかす,てをかす,te o kasu,"pomóc komuś, podać pomocną dłoń",2,11,2-11,11,手 貸,,triple_cards_new,AICreated Doki Doki2-11
+1794043871500,1794043871500,手に入れる,手に入れる,,,手[て]に入[い]れる,てにいれる,てにいれる,te ni ireru,"zdobyć, wejść w posiadanie",2,11,2-11,11,手 入,,triple_cards_new,AICreated Doki Doki2-11
+1794047526794,1794047526794,集まる,集まる,,,集[あつ]まる,あつまる,あつまる,atsumaru,"zbierać się, gromadzić się",2,12,2-12,12,集,,triple_cards_new,AICreated Doki Doki2-12
+1794047526795,1794047526795,行われる,行われる,,,行[おこな]われる,おこなわれる,おこなわれる,okonawareru,"odbywać się, być przeprowadzanym",2,12,2-12,12,行,,triple_cards_new,AICreated Doki Doki2-12
+1794047526798,1794047526798,獅子,獅子,,,獅[し]子[し],しし,しし,shishi,"lew, ceremonialny lew",2,12,2-12,12,子,獅,triple_cards_new,AICreated Doki Doki2-12
+1794047526800,1794047526800,ユネスコの無形文化遺産,ユネスコの無形文化遺産,,,ユネスコの無[む]形[けい]文[ぶん]化[か]遺[い]産[さん],ユネスコのむけいぶんかいさん,ゆねすこのむけいぶんかいさん,Yunesuko no mukei bunka isan,niematerialne dziedzictwo kulturowe UNESCO,2,12,2-12,12,無 文,形 化 遺 産,triple_cards_new,AICreated Doki Doki2-12
